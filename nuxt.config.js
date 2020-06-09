@@ -1,5 +1,5 @@
 
-export default {
+const config = {
   mode: 'universal',
   /*
   ** Headers of the page
@@ -42,6 +42,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/proxy',
     '@nuxtjs/dotenv',
   ],
   /*
@@ -59,5 +60,14 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  generate: {
+    dir: '../public'
   }
 }
+
+if (process.env.NODE_ENV === 'development') {
+  config.proxy = { '/api': 'http://localhost:3000' }
+}
+
+export default config
