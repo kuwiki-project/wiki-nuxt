@@ -23,6 +23,8 @@ const config = {
   ** Global CSS
   */
   css: [
+    '@/assets/neumorphism.css',
+    '@fortawesome/fontawesome-free/css/all.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -44,6 +46,7 @@ const config = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/proxy',
     '@nuxtjs/dotenv',
+    ['bootstrap-vue/nuxt', { css: false }],
   ],
   /*
   ** Axios module configuration
