@@ -30,11 +30,16 @@ const config = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {
+      src: '@/plugins/localStorage',
+      ssr: false
+    },
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
   ],
   /*
@@ -46,6 +51,7 @@ const config = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/proxy',
     '@nuxtjs/dotenv',
+    '@nuxtjs/auth',
     ['bootstrap-vue/nuxt', { css: false }],
   ],
   /*
@@ -54,6 +60,8 @@ const config = {
   */
   axios: {
   },
+  auth: {
+  },
   /*
   ** Build configuration
   */
@@ -61,7 +69,7 @@ const config = {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   },
   generate: {
