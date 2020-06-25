@@ -39,6 +39,7 @@ const config = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
   ],
   /*
