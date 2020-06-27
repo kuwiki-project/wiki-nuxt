@@ -51,7 +51,6 @@ const config = {
     '@nuxtjs/proxy',
     '@nuxtjs/dotenv',
     '@nuxtjs/auth',
-    ['bootstrap-vue/nuxt', { css: false }],
   ],
   /*
   ** Axios module configuration
