@@ -23,7 +23,6 @@ const config = {
   ** Global CSS
   */
   css: [
-    '@/assets/neumorphism.css',
     '@fortawesome/fontawesome-free/css/all.css'
   ],
   /*
