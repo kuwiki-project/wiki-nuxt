@@ -1,3 +1,4 @@
+import colors from 'vuetify/es5/util/colors'
 
 const config = {
   mode: 'universal',
@@ -23,7 +24,6 @@ const config = {
   ** Global CSS
   */
   css: [
-    '@/assets/neumorphism.css',
     '@fortawesome/fontawesome-free/css/all.css'
   ],
   /*
@@ -39,6 +39,7 @@ const config = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxtjs/vuetify',
     '@nuxt/typescript-build',
   ],
   /*
@@ -51,13 +52,37 @@ const config = {
     '@nuxtjs/proxy',
     '@nuxtjs/dotenv',
     '@nuxtjs/auth',
-    ['bootstrap-vue/nuxt', { css: false }],
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+  },
+  vuetify: {
+    customVariables: ['~/assets/variables.scss'],
+    theme: {
+      themes: {
+        light: {
+          primary: '#1976D2',
+          secondary: '#424242',
+          accent: '#82B1FF',
+          error: '#FF5252',
+          info: '#2196F3',
+          success: '#4CAF50',
+          warning: '#FFC107',
+        },
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
   },
   auth: {
   },
