@@ -1,41 +1,36 @@
 <template>
-  <v-container grid-list-md>
-    <v-layout row wrap align-center justify-center fill-height>
-      <v-flex xs12 sm8 lg4 md5>
-        <v-card class="login-card">
+  <div id="app">
+    <v-app id="inspire">
+      <v-container class="fill-height">
+        <v-card outlined class="mx-auto" width="300px">
           <v-card-title>
             <span class="headline">京大Wikiログイン</span>
           </v-card-title>
-          <v-spacer />
-          <v-card-text>
-            <v-form ref="form" v-model="valid" lazy-validation>
-              <v-container>
-                <v-text-field
-                  v-model="credentials.email"
-                  :counter="100"
-                  label="メールアドレス"
-                  :rules="rules.email"
-                  maxlength="100"
-                  required
-                  autofocus
-                />
-                <v-text-field
-                  type="password"
-                  v-model="credentials.password"
-                  :counter="100"
-                  label="パスワード"
-                  :rules="rules.password"
-                  maxlength="100"
-                  required
-                />
-              </v-container>
-              <v-btn class="blue--text" :disabled="!valid" @click="login">Login</v-btn>
+          <v-card-text class="pa-6">
+            <v-form class="mx-6 my-2">
+              <v-text-field
+                v-model="credentials.email"
+                :rules="rules.email"
+                label="email"
+                autofocus
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="credentials.password"
+                :rules="rules.password"
+                :type="'password'"
+                label="password"
+                reqired
+              ></v-text-field>
             </v-form>
+            <v-card-actions class="mx-3 my-2">
+              <v-btn color="primary" depressed block @click="login">ログイン</v-btn>
+            </v-card-actions>
           </v-card-text>
         </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </v-container>
+    </v-app>
+  </div>
 </template>
 <script>
 import axios from "axios";
