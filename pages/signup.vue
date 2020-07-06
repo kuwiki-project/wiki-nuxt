@@ -4,37 +4,40 @@
       <v-container class="fill-height">
         <v-card outlined class="mx-auto" width="500px">
           <v-card-title>
-            <span class="headline">京大Wikiアカウント作成</span>
+            <span class="headline"></span>
           </v-card-title>
           <v-card-text class="pa-6">
-            <v-form class="mx-6 my-2">
+            <v-form class="mx-8 my-2">
               <v-text-field
                 v-model="credentials.email"
                 :rules="rules.email"
                 type="email"
-                label="メールアドレス *"
-                required
+                placeholder="メールアドレス *"
+                filled dense rounded
                 autofocus
               ></v-text-field>
               <v-text-field
                 v-model="credentials.name"
                 :rules="rules.name"
                 type="text"
-                label="ユーザー名 *"
+                placeholder="ユーザー名 *"
+                filled dense rounded
                 required
               ></v-text-field>
               <v-text-field
                 v-model="credentials.password"
                 :rules="rules.password"
                 type="password"
-                label="パスワード *"
+                placeholder="パスワード *"
+                filled dense rounded
                 reqired
               ></v-text-field>
               <v-text-field
                 v-model="credentials.password_confirmation"
                 :rules="rules.password"
                 type="password"
-                label="パスワード確認 *"
+                placeholder="パスワード確認 *"
+                filled dense rounded
                 reqired
               ></v-text-field>
             </v-form>
@@ -62,7 +65,7 @@ export default {
     },
     rules: {
       name: [
-        v => !!v || "入力してください",
+        v => !!v || "ユーザー名を入力してください",
         v => /^\w+$/.test(v) || "英数字とアンダーバーが使えます",
         v => v.length > 3 || "4文字以上",
         v => v.length <= 10 || "10文字以下"
@@ -73,7 +76,7 @@ export default {
           "学生用メール @st.kyoto-u.ac.jp を入力してください"
       ],
       password: [
-        v => !!v || "入力してください",
+        v => !!v || "パスワードを入力してください",
         v => v.length > 7 || "8文字以上"
       ],
     }
@@ -101,7 +104,6 @@ export default {
         })
         .catch(e => {
           Swal.fire({
-            title: "Error",
             text: "登録に失敗しました",
             showConfirmButton: false,
             showCloseButton: false,
