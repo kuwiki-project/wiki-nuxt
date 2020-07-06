@@ -1,9 +1,9 @@
 import Vuex from "vuex";
-import auth from "./module/auth"
+import authentication from "./module/authentication"
 
 const store = () => new Vuex.Store({
   modules: {
-    auth
+    authentication
   }
 })
 

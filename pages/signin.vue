@@ -36,7 +36,10 @@ export default {
   data: () => ({
     dialog: true,
     valid: false,
-    credentials: {},
+    credentials: {
+      email:'',
+      password:'',
+    },
     rules: {
       email: [
         v => !!v || "ユーザー名は必須です",
