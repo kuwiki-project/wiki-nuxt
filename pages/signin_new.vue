@@ -39,7 +39,10 @@ import router from "../.nuxt/router";
 export default {
   data: () => ({
     valid: false,
-    credentials: {},
+    credentials: {
+      email:'',
+      password:'',
+    },
     rules: {
       email: [
         v => !!v || "ユーザー名は必須です",
