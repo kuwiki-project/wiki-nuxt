@@ -1,36 +1,32 @@
 <template>
-  <div id="app">
-    <v-app id="inspire">
-      <v-container class="fill-height">
-        <v-card outlined class="mx-auto" width="300px">
-          <v-card-title>
-            <span class="headline">京大Wikiログイン</span>
-          </v-card-title>
-          <v-card-text class="pa-6">
-            <v-form class="mx-6 my-2">
+    <v-app id="app">
+      <v-dialog v-model="dialog" persistent width="310px">
+        <v-card>
+          <!-- ここであとで京大wikiのロゴなど入れたい -->
+          <v-card-title></v-card-title>
+          <v-card-text class="px-6">
+            <v-form class="mx-6">
               <v-text-field
                 v-model="credentials.email"
                 :rules="rules.email"
-                label="email"
+                placeholder="email"
                 autofocus
-                required
               ></v-text-field>
               <v-text-field
                 v-model="credentials.password"
                 :rules="rules.password"
                 :type="'password'"
-                label="password"
-                reqired
+                placeholder="password"
               ></v-text-field>
             </v-form>
-            <v-card-actions class="mx-3 my-2">
+            <v-card-actions class="mx-3">
               <v-btn color="primary" depressed block @click="login">ログイン</v-btn>
             </v-card-actions>
+            <div class='mx-6 mt-3'>アカウント作成は<nuxt-link to="/signup">こちら</nuxt-link>から</div>
           </v-card-text>
         </v-card>
-      </v-container>
+      </v-dialog>
     </v-app>
-  </div>
 </template>
 <script>
 import axios from "axios";
@@ -38,6 +34,7 @@ import Swal from "sweetalert2";
 import router from "../.nuxt/router";
 export default {
   data: () => ({
+    dialog: true,
     valid: false,
     credentials: {
       email:'',
@@ -64,15 +61,13 @@ export default {
         })
         .catch(e => {
           Swal.fire({
-            title: "Error",
-            text: "メールアドレスまたはパスワード、または両方が間違っています",
+            text: "メールアドレスまたはパスワードまたは両方が違います",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000
           });
         });
+      }
     }
-  }
-};
+  };
 </script>
-
