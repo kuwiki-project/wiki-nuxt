@@ -60,7 +60,7 @@ const config = {
   axios: {
   },
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    // customVariables: ['~/assets/variables.scss'],
     theme: {
       themes: {
         light: {
