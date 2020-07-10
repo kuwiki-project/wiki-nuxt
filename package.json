@@ -17,12 +17,12 @@
     "@nuxt/typescript-build": "^0.6.7",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/proxy": "^2.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
     "vuex-persistedstate": "^3.0.1",
     "sweetalert2": "^9.15.1"
   },
   "devDependencies": {
-    "@nuxtjs/dotenv": "^1.4.1"
   }
 }
