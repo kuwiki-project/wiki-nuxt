@@ -99,8 +99,7 @@ export default {
       }
       axios
         .post(
-          // "http://localhost:3000/auth/",
-          "http://wiki-rails-api.herokuapp.com/auth/",
+          process.env.WIKI_API_URL + '/user/', //環境変数呼び出し
           this.credentials
         )
         .then(res => {

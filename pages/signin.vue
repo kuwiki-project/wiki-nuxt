@@ -55,8 +55,7 @@ export default {
     login() {
       axios
         .post(
-          // "http://localhost:3000/auth/sign_in",
-          "https://wiki-rails-api.herokuapp.com/auth/sign_in/",
+          process.env.WIKI_API_URL + '/user/sign_in/', //環境変数呼び出し
           this.credentials
         )
         .then(res => {
