@@ -16,14 +16,6 @@
                 required
               ></v-text-field>
               <v-text-field
-                v-model="credentials.name"
-                :rules="rules.name"
-                type="text"
-                placeholder="ユーザー名 *"
-                filled dense rounded
-                required
-              ></v-text-field>
-              <v-text-field
                 v-model="credentials.password"
                 :rules="rules.password"
                 type="password"
@@ -58,7 +50,6 @@ export default {
     valid: false,
     credentials: {
       email: "",
-      name: "",
       password: "",
       password_confirmation: "",
       confirm_success_url:"http://localhost:3000/"
@@ -68,12 +59,6 @@ export default {
         v =>
           /^.+@st.kyoto-u.ac.jp$/.test(v) ||
           "学生用メール @st.kyoto-u.ac.jp を入力してください"
-      ],
-      name: [
-        v => !!v || "ユーザー名を入力してください",
-        v => /^\w+$/.test(v) || "英数字とアンダーバーが使えます",
-        v => v.length > 3 || "4文字以上",
-        v => v.length <= 10 || "10文字以下",
       ],
       password: [
         v => !!v || "パスワードを入力してください",
