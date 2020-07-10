@@ -86,6 +86,9 @@ const config = {
   },
   auth: {
   },
+  env: {
+    WIKI_RAILS_API_URL: process.env.WIKI_RAILS_API_URL
+  },
   /*
   ** Build configuration
   */
