@@ -1,5 +1,5 @@
 <template>
-    <v-app id="app">
+    <v-app id="signin">
       <v-dialog v-model="dialog" persistent width="310px">
         <v-card>
           <!-- ここであとで京大wikiのロゴなど入れたい -->
@@ -11,12 +11,14 @@
                 :rules="rules.email"
                 placeholder="email"
                 autofocus
+                required
               ></v-text-field>
               <v-text-field
                 v-model="credentials.password"
                 :rules="rules.password"
                 :type="'password'"
                 placeholder="password"
+                required
               ></v-text-field>
             </v-form>
             <v-card-actions class="mx-3">
@@ -33,6 +35,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import router from "../.nuxt/router";
 export default {
+  name: 'SigninForm',
   data: () => ({
     dialog: true,
     valid: false,
@@ -42,16 +45,17 @@ export default {
     },
     rules: {
       email: [
-        v => !!v || "ユーザー名は必須です",
+        v => !!v || "ユーザー名を入力してください",
         v => /^.+@st.kyoto-u.ac.jp$/.test(v) || "学生用メール @st.kyoto-u.ac.jp"
       ],
-      password: [v => !!v || "パスワードは必須です"]
+      password: [v => !!v || "パスワードを入力してください"]
     }
   }),
   methods: {
     login() {
       axios
         .post(
+          // "http://localhost:3000/auth/sign_in",
           "https://wiki-rails-api.herokuapp.com/auth/sign_in/",
           this.credentials
         )
