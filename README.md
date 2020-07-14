@@ -1,5 +1,17 @@
 # wiki-nuxt
 
+# ブランチ
+### master
+
+### develop
+wiki-rails-api.herokuapp.com にオートデプロイ
+
+### feature/1
+signup & signin 実装
+
+### feature/2
+トップ画面作成
+
 > My classy Nuxt.js project
 
 ## Build Setup
@@ -18,5 +30,3 @@ $ yarn start
 # generate static project
 $ yarn generate
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
