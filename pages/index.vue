@@ -2,10 +2,12 @@
 <v-app id="index">
   <v-container class="fill-height">
     <v-row>
-      <span class='text-h1 mx-auto'>京大wiki</span>
+      <span id='title' class='mx-auto'>京大wiki</span>
     </v-row>
     <v-row>
-      <span class='mx-auto'><v-text-field solo rounded></v-text-field></span>
+      <span id='searchfield' class='mx-auto'>
+        <v-text-field rounded solo flat prepend-inner-icon="mdi-magnify">
+        </v-text-field></span>
     </v-row>
     <v-row align='center' justify='center'>
       <v-card outlined>
@@ -23,7 +25,20 @@
 </template>
 
 <style scoped>
-/deep/ .v-text-field{
-      width: 400px;
+#index {
+  background-image: url("~@/assets/vangoghmuseum.jpg");
+  background-size:cover;
 }
+
+#searchfield {
+      width: 400px;
+      opacity: 0.9;
+}
+#title {
+  color: white;
+  opacity: 0.9;
+  font-size: 6em;
+  font-weight : bold;
+}
+
 </style>
