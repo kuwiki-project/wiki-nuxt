@@ -1,36 +1,33 @@
 <template>
-<v-app id="index">
-  <v-container class="fill-height">
+<v-app id='index'>
+  <v-container class="fill-height mx-auto">
     <v-row align='center' justify='center'>
       <span id='title'>京大wiki</span>
     </v-row>
-    <v-row>
-      <span id='searchfield' class='mx-auto'>
-        <v-text-field rounded solo flat prepend-inner-icon="mdi-magnify">
-        </v-text-field>
-      </span>
+    <v-row align='center' justify='center'>
+      <searchForm></searchForm>
     </v-row>
     <v-row align='center' justify='center'>
-      <v-card outlined>
-        <v-card-title>ダッシュボード</v-card-title>
-      </v-card>
-      <v-card outlined>
-        <v-card-title>お問い合わせ</v-card-title>
-      </v-card>
-      <v-card outlined>
-        <v-card-title></v-card-title>
-      </v-card>
+      <indexList></indexList>
     </v-row>
   </v-container>
 </v-app>
 </template>
-
+<script>
+import indexList from "@/components/indexList.vue";
+import searchForm from "@/components/searchForm.vue";
+export default {
+  components: {
+    indexList,
+    searchForm
+  }
+}
+</script>
 <style scoped>
 #index {
   background-image: url("~@/assets/vangoghmuseum.jpg");
   background-size: cover;
 }
-
 #searchfield {
   width: 400px;
   opacity: 0.9;
