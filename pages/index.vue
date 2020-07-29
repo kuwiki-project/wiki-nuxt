@@ -1,6 +1,6 @@
 <template>
 <v-app id='index'>
-  <v-container class="fill-height mx-auto">
+  <v-container class="mx-auto">
     <v-row align='center' justify='center'>
       <span id='title'>京大wiki</span>
     </v-row>
@@ -28,14 +28,10 @@ export default {
   background-image: url("~@/assets/vangoghmuseum.jpg");
   background-size: cover;
 }
-#searchfield {
-  width: 400px;
-  opacity: 0.9;
-}
 
 #title {
   color: white;
-  opacity: 0.9;
+  opacity: 0.8;
   font-size: 5em;
   font-weight: bold;
 }
