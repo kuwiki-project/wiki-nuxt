@@ -8,18 +8,16 @@
       <searchForm></searchForm>
     </v-row>
     <v-row align='center' justify='center'>
-      <indexList></indexList>
+      <naviIndex></naviIndex>
     </v-row>
   </v-container>
 </v-app>
 </template>
 <script>
-import indexList from "@/components/indexList.vue";
-import searchForm from "@/components/searchForm.vue";
+import naviIndex from "@/components/naviIndex.vue";
 export default {
   components: {
-    indexList,
-    searchForm
+    naviIndex
   }
 }
 </script>

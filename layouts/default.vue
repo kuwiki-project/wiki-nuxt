@@ -1,26 +1,11 @@
 <template>
 <v-app id='navi'>
   <v-navigation-drawer class="teal" permanent floating app dark mini-variant>
-    <v-list nav dense rounded>
-      <v-list-item link>
-        <v-list-item-icon>
-          <v-icon>mdi-penguin</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>京大wiki</v-list-item-title>
-      </v-list-item>
-    </v-list>
+    <NaviItems :items="topItem"></NaviItems>
     <v-divider></v-divider>
-    <indexList></indexList>
+    <naviIndex></naviIndex>
     <v-divider></v-divider>
-
-    <v-list nav dense rounded>
-      <v-list-item link>
-        <v-list-item-icon>
-          <v-icon>mdi-emoticon-happy-outline</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>アカウント</v-list-item-title>
-      </v-list-item>
-    </v-list>
+    <NaviItems :items="accountItem"></NaviItems>
   </v-navigation-drawer>
   <v-main>
     <nuxt />
@@ -28,10 +13,18 @@
 </v-app>
 </template>
 <script>
-import indexList from "@/components/indexList.vue";
+import naviIndex from "@/components/naviIndex.vue";
 export default {
   components: {
-    indexList
-  }
+    naviIndex,
+  },
+  data: () => ({
+  topItem: [
+    { icon: 'mdi-penguin', text: '京大wiki' , link:'/'},
+  ],
+  accountItem: [
+    { icon: 'mdi-emoticon-happy-outline', text: 'アカウント' , link:''},
+  ],
+  })
 }
 </script>

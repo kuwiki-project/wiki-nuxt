@@ -34,6 +34,7 @@ const config = {
       src: '@/plugins/localStorage',
       ssr: false
     },
+    { src: '@/plugins/components' },
   ],
   /*
   ** Nuxt.js dev-modules
