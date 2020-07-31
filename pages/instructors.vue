@@ -9,7 +9,7 @@
 <script>
 export default {
   data: () => ({
-    title: '科目検索'
+    title: '教員検索'
   })
 }
 </script>
