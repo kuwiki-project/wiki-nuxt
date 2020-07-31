@@ -2,10 +2,12 @@
 <v-app id='index'>
   <v-container class="mx-auto">
     <v-row align='center' justify='center'>
+    <v-icon x-large color=teal>mdi-led-variant-outline</v-icon>
+    </v-row>
+    <v-row align='center' justify='center'>
       <span id='title'>京大wiki</span>
     </v-row>
     <v-row align='center' justify='center'>
-      <searchForm></searchForm>
     </v-row>
     <v-row align='center' justify='center'>
       <naviIndex></naviIndex>
@@ -22,15 +24,10 @@ export default {
 }
 </script>
 <style scoped>
-#index {
-  background-image: url("~@/assets/vangoghmuseum.jpg");
-  background-size: cover;
-}
-
 #title {
-  color: white;
   opacity: 0.8;
-  font-size: 5em;
-  font-weight: bold;
+  font-size: 2.0em;
+  font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 </style>

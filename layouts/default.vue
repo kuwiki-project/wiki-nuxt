@@ -20,7 +20,7 @@ export default {
   },
   data: () => ({
   topItem: [
-    { icon: 'mdi-penguin', text: '京大wiki' , link:'/'},
+    { icon: 'mdi-led-variant-outline', text: '京大wiki' , link:'/'},
   ],
   accountItem: [
     { icon: 'mdi-emoticon-happy-outline', text: 'アカウント' , link:''},
