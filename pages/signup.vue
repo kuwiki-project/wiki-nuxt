@@ -3,9 +3,9 @@
       <v-container class="fill-height">
         <v-card outlined class="mx-auto" width="500px">
           <!-- ここであとで京大wikiのロゴなど入れたい -->
-          <v-card-title></v-card-title>
-          <v-card-text class="pa-6">
-            <v-form class="mx-8 my-2">
+          <v-card-title id='title' class="py-5"><KupediaLogo></KupediaLogo></v-card-title>
+          <v-card-text class="px-6">
+            <v-form class="mx-8">
               <v-text-field
                 v-model="credentials.email"
                 :rules="rules.email"
@@ -103,3 +103,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+#title {
+  font-size: 0.9em;
+}
+</style>

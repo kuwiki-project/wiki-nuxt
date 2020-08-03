@@ -3,7 +3,7 @@
       <v-dialog v-model="dialog" persistent width="310px">
         <v-card>
           <!-- ここであとで京大wikiのロゴなど入れたい -->
-          <v-card-title></v-card-title>
+          <v-card-title id='title'><KupediaLogo></KupediaLogo></v-card-title>
           <v-card-text class="px-6">
             <v-form class="mx-6">
               <v-text-field
@@ -74,3 +74,8 @@ export default {
     }
   };
 </script>
+<style scoped>
+#title {
+  font-size: 0.9em;
+}
+</style>
