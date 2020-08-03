@@ -1,73 +1,33 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        wiki-nuxt
-      </h1>
-      <h2 class="subtitle">
-        My classy Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+<v-app id='index'>
+  <v-container class="mx-auto">
+    <v-row align='center' justify='center'>
+    <v-icon x-large color=teal>mdi-led-variant-outline</v-icon>
+    </v-row>
+    <v-row align='center' justify='center'>
+      <span id='title'>京大wiki</span>
+    </v-row>
+    <v-row align='center' justify='center'>
+    </v-row>
+    <v-row align='center' justify='center'>
+      <naviIndex></naviIndex>
+    </v-row>
+  </v-container>
+</v-app>
 </template>
-
-<script lang="ts">
-import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
-
-export default Vue.extend({
+<script>
+import naviIndex from "@/components/naviIndex.vue";
+export default {
   components: {
-    Logo
+    naviIndex
   }
-})
+}
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+<style scoped>
+#title {
+  opacity: 0.8;
+  font-size: 2.0em;
+  font-weight: 700;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 </style>
