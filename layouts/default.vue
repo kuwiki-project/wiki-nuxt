@@ -3,7 +3,7 @@
   <v-navigation-drawer class="teal" permanent floating app dark mini-variant>
     <NaviItems :items="topItem"></NaviItems>
     <v-divider></v-divider>
-    <naviIndex></naviIndex>
+    <NaviIndex></NaviIndex>
     <v-divider></v-divider>
     <NaviItems :items="accountItem"></NaviItems>
   </v-navigation-drawer>
@@ -13,10 +13,10 @@
 </v-app>
 </template>
 <script>
-import naviIndex from "@/components/naviIndex.vue";
+import NaviIndex from "@/components/NaviIndex.vue";
 export default {
   components: {
-    naviIndex,
+    NaviIndex,
   },
   data: () => ({
   topItem: [

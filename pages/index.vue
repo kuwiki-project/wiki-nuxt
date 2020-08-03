@@ -10,16 +10,16 @@
     <v-row align='center' justify='center'>
     </v-row>
     <v-row align='center' justify='center'>
-      <naviIndex></naviIndex>
+      <NaviIndex></NaviIndex>
     </v-row>
   </v-container>
 </v-app>
 </template>
 <script>
-import naviIndex from "@/components/naviIndex.vue";
+import NaviIndex from "@/components/NaviIndex.vue";
 export default {
   components: {
-    naviIndex
+    NaviIndex
   }
 }
 </script>
