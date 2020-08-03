@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "My classy Nuxt.js project",
   "author": "ku-pedia",
+  "engines": {
+    "yarn": "1.22.4"
+  },
   "private": true,
   "scripts": {
     "dev": "HOST=0.0.0.0 PORT=3333 nuxt",
