@@ -1,14 +1,33 @@
 <template>
 <v-row align='center' justify='center'>
   <span id='searchform' class='mx-auto'>
-    <v-text-field prepend-inner-icon="mdi-magnify">
+    <v-text-field prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup="searchItems">
     </v-text-field>
+    searchKeys = {{ searchKeys }}
+    <ul>
+      <li v-for="searchItem in searchItems()">{{ searchItem.name }}</li>
+    </ul>
   </span>
 </v-row>
 </template>
 <script>
 export default {
-  props: ['page'],
+  data: () => ({
+    searchKeys: '',
+  }),
+  props: {
+    Items: Array,
+  },
+  methods: {
+    searchItems() {
+      var hitItems = (item, index) => {
+        if ((item.name).indexOf(this.searchKeys) > -1) {
+          return true;
+        }
+      }
+      return this.Items.filter(hitItems);
+    }
+  }
 }
 </script>
 <style>
