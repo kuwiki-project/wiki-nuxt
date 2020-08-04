@@ -3,9 +3,10 @@
   <span id='searchform' class='mx-auto'>
     <v-text-field prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup="searchItems">
     </v-text-field>
-    searchKeys = {{ searchKeys }}
     <ul>
-      <li v-for="searchItem in searchItems()">{{ searchItem.name }}</li>
+      <li v-for="searchItem in searchItems()">
+        <nuxt-link :to="`/courses/${searchItem.id}`">{{ searchItem.name }}</nuxt-link>
+      </li>
     </ul>
   </span>
 </v-row>
