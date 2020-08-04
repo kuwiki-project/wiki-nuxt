@@ -22,7 +22,7 @@ export default {
   methods: {
     searchItems() {
       var hitItems = (item, index) => {
-        if ((item.name).indexOf(this.searchKeys) > -1) {
+        if ((this.searchKeys != '') && ((item.name).indexOf(this.searchKeys) > -1)) {
           return true;
         }
       }
