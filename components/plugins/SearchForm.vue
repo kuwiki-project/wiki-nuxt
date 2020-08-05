@@ -5,11 +5,13 @@
     </v-text-field>
     <ul>
       <li v-for="searchItem in searchItems()">
-        <nuxt-link :to="`/courses/${searchItem.id}`">{{ searchItem.name }}</nuxt-link>
       </li>
     </ul>
   </span>
 </v-row>
+              <nuxt-link class='itemlink' :to="`${$route.path}/${searchItem.id}`">
+                <div>{{ searchItem.name }}</div>
+              </nuxt-link>
 </template>
 <script>
 export default {
