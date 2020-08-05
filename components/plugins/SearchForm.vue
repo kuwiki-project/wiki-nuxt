@@ -1,17 +1,23 @@
 <template>
-<v-row align='center' justify='center'>
-  <span id='searchform' class='mx-auto'>
-    <v-text-field prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup="searchItems">
-    </v-text-field>
-    <ul>
-      <li v-for="searchItem in searchItems()">
-      </li>
-    </ul>
-  </span>
-</v-row>
+<v-app id='search-form'>
+  <v-row justify='center'>
+    <span id='searchform'>
+      <v-text-field prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup="searchItems">
+      </v-text-field>
+      <v-simple-table dense fixed-header>
+        <tbody>
+          <tr v-for="searchItem in searchItems()">
+            <td>
               <nuxt-link class='itemlink' :to="`${$route.path}/${searchItem.id}`">
                 <div>{{ searchItem.name }}</div>
               </nuxt-link>
+            </td>
+          </tr>
+        </tbody>
+      </v-simple-table>
+    </span>
+  </v-row>
+</v-app>
 </template>
 <script>
 export default {
@@ -41,5 +47,9 @@ span#searchform .v-text-field input {
 span#searchform {
   width: 400px;
   opacity: 0.8;
+}
+
+.itemlink {
+  text-decoration: none;
 }
 </style>
