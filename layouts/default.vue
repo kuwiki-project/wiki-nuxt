@@ -23,7 +23,7 @@ export default {
     { icon: 'mdi-led-variant-outline', text: '京大wiki' , link:'/'},
   ],
   accountItem: [
-    { icon: 'mdi-emoticon-happy-outline', text: 'アカウント' , link:''},
+    { icon: 'mdi-emoticon-happy-outline', text: 'アカウント' , link:'/signup'},
   ],
   })
 }
