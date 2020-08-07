@@ -1,25 +1,26 @@
 <template>
-<v-container>
-  {{ $route.params.id }}
-  {{ course.name }}
-  {{ course.field.group }}
-</v-container>
+<v-app id='courseShow'>
+  <v-container>
+    <div>{{ $route.params.id }}</div>
+    <div>{{ course.name }}</div>
+    <div>{{ course.field.name }}</div>
+    <div>{{ course.field.group }}</div>
+  </v-container>
+</v-app>
 </template>
 <script>
 import axios from 'axios';
 export default {
-  data: () => ({
-    title: '科目検索'
-  }),
-  validate({ params }) {
+  validate( context ) {
     // 数値でなければならない
-    return /^\d+$/.test(params.id)
+    return /^\d+$/.test(context.params.id)
   },
   async asyncData(context) {
     const courseId = context.params.id
     const baseURL = process.env.WIKI_API_URL + '/courses/' + courseId
     const { data } = await axios.get(baseURL)
-    return { course: data }
+    return {
+      course: data
+    }
   },
 }
-</script>
