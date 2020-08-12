@@ -64,7 +64,7 @@ export default {
         })
         .catch(e => {
           Swal.fire({
-            text: "メールアドレスまたはパスワードまたは両方が違います",
+            text: e.response.data.errors,
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000

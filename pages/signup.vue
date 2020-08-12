@@ -52,7 +52,7 @@ export default {
       email: "",
       password: "",
       password_confirmation: "",
-      confirm_success_url:"http://localhost:3000/"
+      confirm_success_url:WIKI_CONFIRM_SUCCESS_URL
     },
     rules: {
       email: [
