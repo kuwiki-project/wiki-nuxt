@@ -44,31 +44,31 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import router from "../.nuxt/router";
 export default {
-  name: 'SignupForm',
+  name: "SignupForm",
   data: () => ({
     valid: false,
     credentials: {
       email: "",
       password: "",
       password_confirmation: "",
-      confirm_success_url: "http://localhost:3000/"
+      confirm_success_url: process.env.WIKI_CONFIRM_SUCCESS_URL,
     },
     rules: {
       email: [
-        v =>
-        /^.+@st.kyoto-u.ac.jp$/.test(v) ||
-        "学生用メール @st.kyoto-u.ac.jp を入力してください"
+        (v) =>
+          /^.+@st.kyoto-u.ac.jp$/.test(v) ||
+          "学生用メール @st.kyoto-u.ac.jp を入力してください",
       ],
       password: [
-        v => !!v || "パスワードを入力してください",
-        v => v.length > 7 || "8文字以上",
+        (v) => !!v || "パスワードを入力してください",
+        (v) => v.length > 7 || "8文字以上",
       ],
       password_confirmation: [
-        v => !!v || "パスワードを入力してください",
-        v => v.length > 7 || "8文字以上",
+        (v) => !!v || "パスワードを入力してください",
+        (v) => v.length > 7 || "8文字以上",
         // v => v === this.cresidentials.password
       ],
-    }
+    },
   }),
   methods: {
     signup() {
@@ -77,29 +77,29 @@ export default {
           text: "パスワードが一致しません",
           showConfirmButton: false,
           showCloseButton: false,
-          timer: 3000
+          timer: 3000,
         });
         return;
       }
       axios
         .post(
-          process.env.WIKI_API_URL + '/user/', //環境変数呼び出し
+          process.env.WIKI_API_URL + "/user/", //環境変数呼び出し
           this.credentials
         )
-        .then(res => {
+        .then((res) => {
           return res;
           //router.push()←リダイレクト
         })
-        .catch(e => {
+        .catch((e) => {
           Swal.fire({
             text: "登録に失敗しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000
+            timer: 3000,
           });
         });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
