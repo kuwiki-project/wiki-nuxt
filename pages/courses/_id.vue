@@ -5,7 +5,8 @@
     <div>{{ course.name }}</div>
     <div>{{ course.field.name }}</div>
     <!-- <div>{{ course.exam.link }}</div> -->
-    <a :href="course.exam.link">過去問
+    <a v-if="course.exam !== undefined"
+    :href="course.exam.link">過去問
     </a>
   </v-container>
 </v-app>
@@ -22,7 +23,7 @@ export default {
     const baseURL = process.env.WIKI_API_URL + '/courses/' + courseId
     const { data } = await axios.get(baseURL)
     return {
-      course: data
+      course: data,
     }
   },
 }
