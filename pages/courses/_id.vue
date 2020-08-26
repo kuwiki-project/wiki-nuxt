@@ -4,7 +4,9 @@
     <div>{{ $route.params.id }}</div>
     <div>{{ course.name }}</div>
     <div>{{ course.field.name }}</div>
-    <div>{{ course.field.group }}</div>
+    <!-- <div>{{ course.exam.link }}</div> -->
+    <a :href="course.exam.link">過去問
+    </a>
   </v-container>
 </v-app>
 </template>
