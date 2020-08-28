@@ -4,7 +4,7 @@ export default ({ store }) => {
  
     window.onNuxtReady(() => {
         createPersistedState({
-            key: 'xxxx-project'
+            key: 'kupedia-project'
         })(store)
     })
 }
