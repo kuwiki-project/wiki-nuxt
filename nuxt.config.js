@@ -6,14 +6,18 @@ const config = {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: '京大wiki',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@400;700&display=swap'
+      }
     ]
   },
   /*
@@ -24,7 +28,6 @@ const config = {
   ** Global CSS
   */
   css: [
-    '@fortawesome/fontawesome-free/css/all.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -34,6 +37,7 @@ const config = {
       src: '@/plugins/localStorage',
       ssr: false
     },
+    { src: '@/plugins/components' },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -85,6 +89,9 @@ const config = {
     }
   },
   auth: {
+  },
+  env: {
+    WIKI_API_URL: process.env.WIKI_API_URL
   },
   /*
   ** Build configuration
