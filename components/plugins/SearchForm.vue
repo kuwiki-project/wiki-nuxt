@@ -2,7 +2,7 @@
 <v-app id='search-form'>
   <v-row justify='center'>
     <span id='searchform'>
-      <v-text-field prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup="searchItems">
+      <v-text-field solo rounded prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup="searchItems">
       </v-text-field>
       <v-simple-table dense fixed-header>
         <tbody>
@@ -45,8 +45,9 @@ span#searchform .v-text-field input {
 }
 
 span#searchform {
-  width: 400px;
+  width: 350px;
   opacity: 0.8;
+  margin: 20px 10px 20px;
 }
 
 .itemlink {
