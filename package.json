@@ -11,7 +11,8 @@
     "dev": "HOST=0.0.0.0 PORT=3333 nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "lintfix": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "@nuxt/typescript-build": "^0.6.7",
@@ -27,5 +28,10 @@
     "vuex": "^3.5.1",
     "vuex-persistedstate": "^3.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
 }

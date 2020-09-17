@@ -6,15 +6,21 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
+  middleware: 'auth',
   data: () => ({
-    title: '科目検索',
+    title: "科目検索",
   }),
   async asyncData() {
-    const baseURL = process.env.WIKI_API_URL + '/courses'
-    const { data } = await axios.get(baseURL)
-    return { courses: data }
+    const baseURL = process.env.WIKI_API_URL + "/courses";
+    const { data } = await axios.get(baseURL, {
+      headers: {
+        Authorization: "JWT " + this.$store.state.authentication.token,
+      },
+    });
+    return { courses: data };
   },
-}
+  methods: {},
+};
 </script>

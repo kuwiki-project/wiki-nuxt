@@ -11,8 +11,10 @@
 <script>
 import NaviIndex from "@/components/NaviIndex.vue";
 export default {
+  middleware: 'auth',
   components: {
     NaviIndex
-  }
+  },
+  methods:{}
 }
 </script>
