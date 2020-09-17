@@ -14,11 +14,7 @@ export default {
   }),
   async asyncData() {
     const baseURL = process.env.WIKI_API_URL + "/courses";
-    const { data } = await axios.get(baseURL, {
-      headers: {
-        Authorization: "JWT " + this.$store.state.authentication.token,
-      },
-    });
+    const { data } = await axios.get(baseURL);
     return { courses: data };
   },
   methods: {},

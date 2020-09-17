@@ -20,11 +20,7 @@ export default {
   async asyncData(context) {
     const courseId = context.params.id;
     const baseURL = process.env.WIKI_API_URL + "/courses/" + courseId;
-    const { data } = await axios.get(baseURL, {
-      headers: {
-        Authorization: "JWT " + this.$store.state.authentication.token,
-      },
-    });
+    const { data } = await axios.get(baseURL);
     return {
       course: data,
     };
