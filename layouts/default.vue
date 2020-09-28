@@ -1,11 +1,11 @@
 <template>
   <v-app id='navi'>
-  <v-app-bar flat dense dark class="indigo accent-1">
+  <v-app-bar app flat dense dark class="indigo accent-1">
     <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
     <v-toolbar-title>京大wiki</v-toolbar-title>
   </v-app-bar>
-  <v-navigation-drawer v-model="drawer" absolute temporary>
-    <v-list nav dense>
+  <v-navigation-drawer v-model="drawer" app>
+    <v-list dense>
       <v-list-item-group v-model="group">
         <v-list-item link v-for="item in items" :key="item.text" :to="item.link" >
           <v-list-item-icon>
@@ -20,7 +20,9 @@
     </v-list-item-group>
   </v-list>
 </v-navigation-drawer>
+<v-main>
   <nuxt />
+</v-main>
 </v-app>
 </template>
 <script>
