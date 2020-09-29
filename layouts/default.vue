@@ -41,6 +41,11 @@ export default {
           link: '/courses'
         },
         {
+          icon: 'mdi-help-circle-outline',
+          text: '京大wikiとは',
+          link: '/kuwikiis'
+        },
+        {
           icon: 'mdi-email-outline',
           text: '問い合わせ',
           link: ''
