@@ -50,11 +50,7 @@ export default {
           text: '問い合わせ',
           link: '/contact'
         },
-        {
-          icon: 'mdi-account',
-          text: 'サインイン',
-          link: '/signin'
-        }
+
       ]
     }),
   }
