@@ -48,7 +48,7 @@ export default {
         {
           icon: 'mdi-email-outline',
           text: '問い合わせ',
-          link: ''
+          link: '/contact'
         },
         {
           icon: 'mdi-account',
