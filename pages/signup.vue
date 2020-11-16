@@ -83,7 +83,7 @@ export default {
       }
       axios
         .post(
-          process.env.WIKI_API_URL + "/user/", //環境変数呼び出し
+          process.env.WIKI_API_URL + "/auth/", //環境変数呼び出し
           this.credentials
         )
         .then((res) => {
