@@ -1,8 +1,10 @@
 <template>
 <v-app id='courseShow'>
   <v-container>
+    <div>{{ $route.params.id }}</div>
     <div>{{ course.name }}</div>
     <div>{{ course.field.name }}</div>
+    <!-- <div>{{ course.exam.link }}</div> -->
     <a v-if="course.exam !== undefined"
     :href="course.exam.link">過去問
     </a>
