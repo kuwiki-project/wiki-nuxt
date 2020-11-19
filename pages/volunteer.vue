@@ -1,3 +1,4 @@
+<template>
 <v-app id="terms">
   <v-container>
     <v-card width="600pt" class='mx-auto termCard'>
