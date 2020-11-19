@@ -1,7 +1,7 @@
 <template>
 <v-col cols="12">
 <v-row justify='center'>
-  <v-icon x-large color=teal>mdi-led-variant-outline</v-icon>
+  <img src="/kiwi.svg">
 </v-row>
 <v-row justify='center'>
   <span id='title'>京大wiki</span>

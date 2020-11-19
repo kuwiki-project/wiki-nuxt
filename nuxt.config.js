@@ -13,7 +13,7 @@ const config = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/kiwi.svg' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@400;700&display=swap'
@@ -68,16 +68,16 @@ const config = {
     theme: {
       themes: {
         light: {
-          primary: '#1976D2',
-          secondary: '#424242',
-          accent: '#82B1FF',
+          primary: '#A19BFF',
+          secondary: '#ECB0FF',
+          accent: '#FFDDB0',
           error: '#FF5252',
           info: '#2196F3',
           success: '#4CAF50',
           warning: '#FFC107',
         },
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.indigo.lighten3,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
