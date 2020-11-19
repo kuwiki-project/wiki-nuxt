@@ -1,8 +1,12 @@
 <template>
   <v-app id='navi'>
-  <v-app-bar app flat dense dark class="indigo accent-1">
+  <v-app-bar app dense dark flat class="primary">
     <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-    <v-toolbar-title>京大wiki</v-toolbar-title>
+    <v-toolbar-title>
+      <span id='title'>
+        <nuxt-link to="/">京大wiki</nuxt-link>
+      </span>
+    </v-toolbar-title>
   </v-app-bar>
   <v-navigation-drawer v-model="drawer" app>
     <v-list dense>
@@ -55,3 +59,13 @@ export default {
     }),
   }
 </script>
+<style scoped>
+#title {
+  font-weight: 400;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+a.nuxt-link-active {
+  color: white;
+  text-decoration: none;
+}
+</style>
