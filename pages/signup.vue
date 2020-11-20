@@ -25,12 +25,12 @@
         <div align='center'>
         <h5>
           <div>パスワードをお忘れの方は
-            <nuxt-link :to="`/`">こちら</nuxt-link>から
+            <nuxt-link to="/reset_password">こちら</nuxt-link>から
           </div>
         </h5>
         <h5>
           <div>アカウントをすでにお持ちの方は
-            <nuxt-link :to="`/`">こちら</nuxt-link>から
+            <nuxt-link to="/signin">こちら</nuxt-link>から
           </div>
         </h5>
       </div>
