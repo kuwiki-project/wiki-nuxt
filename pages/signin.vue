@@ -15,6 +15,7 @@
           <v-btn color="primary" depressed block @click="login">ログイン</v-btn>
         </v-card-actions>
         <div class='mx-6 mt-3'>アカウント作成は<nuxt-link to="/signup">こちら</nuxt-link>から</div>
+        <div class='mx-6 mt-3'>パスワード再発行は<nuxt-link to="/reset_password">こちら</nuxt-link>から</div>
       </v-card-text>
     </v-card>
   </v-container>
