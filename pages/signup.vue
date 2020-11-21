@@ -7,7 +7,7 @@
           <KupediaLogo />
         </v-card-title>
         <v-card-text class="px-6">
-          <v-form class="mx-8 my-4">
+          <v-form ref="form" class="mx-6" v-mode:="valid" lazy-validation>
             <v-text-field
               v-model="credentials.email"
               :rules="rules.email"
@@ -77,6 +77,7 @@ import Swal from "sweetalert2"
 import router from "../.nuxt/router"
 export default {
   name: "SignupForm",
+  auth: false,
   data: () => ({
     valid: false,
     credentials: {
@@ -113,23 +114,34 @@ export default {
         })
         return
       }
+      if(this.$refs.form.validate()){
+      this.valid=false
       axios
         .post(
           process.env.WIKI_API_URL + "/user/", //環境変数呼び出し
           this.credentials
         )
         .then((res) => {
-          return res
-          //router.push()←リダイレクト
-        })
-        .catch((e) => {
           Swal.fire({
-            text: "登録に失敗しました",
+            title:　"お知らせ",
+            text: "メールアドレスに認証URLを送信しました。認証を完了させてください。",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
           })
+          this.$router.push('signin')
         })
+        .catch((e) => {
+          Swal.fire({
+            title: "Error",
+            text: e.response.data.errors.full_messages,
+            showConfirmButton: false,
+            showCloseButton: false,
+            timer: 3000,
+          })
+          this.valid=true
+        })
+    }
     },
   },
 }

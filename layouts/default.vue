@@ -67,8 +67,8 @@ export default {
       },
       {
         icon: "mdi-account",
-        text: "ログイン",
-        link: "/signin",
+        text: "ログアウト",
+        link: "/signout",
       },
     ],
   }),

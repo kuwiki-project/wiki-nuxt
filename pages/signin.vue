@@ -7,7 +7,7 @@
           <KupediaLogo />
         </v-card-title>
         <v-card-text class="px-6">
-          <v-form class="mx-6">
+          <v-form ref="form" class="mx-6" v-mode:="valid" lazy-validation>
             <v-text-field
               v-model="credentials.email"
               :rules="rules.email"
@@ -47,6 +47,7 @@ import Swal from "sweetalert2"
 import router from "../.nuxt/router"
 export default {
   name: "SigninForm",
+  auth: false,
   data: () => ({
     dialog: true,
     valid: false,
@@ -65,23 +66,27 @@ export default {
   }),
   methods: {
     login() {
-      axios
-        .post(
-          process.env.WIKI_API_URL + "/user/sign_in/", //環境変数呼び出し
-          this.credentials
-        )
-        .then((res) => {
-          this.$store.dispatch("setLoginInfo", res.data)
-          //router.push()←リダイレクト
-        })
-        .catch((e) => {
-          Swal.fire({
-            text: e.response.data.errors,
-            showConfirmButton: false,
-            showCloseButton: false,
-            timer: 3000,
+      if (this.$refs.form.validate()) {
+        this.$auth
+          .loginWith("local", {
+            data: {
+              email: this.credentials.email,
+              password: this.credentials.password,
+            },
           })
-        })
+          .then((res) => {
+            this.$router.push("/")
+          })
+          .catch((e) => {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.errors,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          })
+      }
     },
   },
 }

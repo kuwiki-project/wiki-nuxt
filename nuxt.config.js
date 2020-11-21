@@ -37,11 +37,8 @@ const config = {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    {
-      src: "@/plugins/localStorage",
-      ssr: false,
-    },
     { src: "@/plugins/components" },
+    { src: "~/plugins/axios.js", ssr: false },
   ],
   /*
    ** Nuxt.js dev-modules
@@ -62,7 +59,32 @@ const config = {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: process.env.WIKI_API_URL,
+  },
+
+  auth: {
+    redirect: {
+      login: "/signin",
+      logout: "/signin",
+      callback: false,
+      home: "/",
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/user/sign_in/",
+            method: "post",
+            propertyName: false,
+          },
+          user: false,
+          logout: false,
+        },
+      },
+    },
+  },
+
   vuetify: {
     // customVariables: ['~/assets/variables.scss'],
     theme: {
@@ -88,7 +110,11 @@ const config = {
       },
     },
   },
-  auth: {},
+
+  router: {
+    middleware: ["auth"],
+  },
+
   env: {
     WIKI_API_URL: process.env.WIKI_API_URL,
   },
