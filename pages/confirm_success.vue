@@ -7,3 +7,10 @@
     </v-alert>
   </v-app>
 </template>
+
+<script>
+export default {
+  name: "ConfirmSuccess",
+  auth: false,
+}
+</script>

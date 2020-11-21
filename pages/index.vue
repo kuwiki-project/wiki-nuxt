@@ -5,3 +5,10 @@
     </v-container>
   </v-app>
 </template>
+
+<script>
+export default {
+  name: "Home",
+  auth: false,
+}
+</script>

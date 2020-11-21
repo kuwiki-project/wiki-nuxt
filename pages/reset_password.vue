@@ -27,6 +27,14 @@
     </v-container>
   </v-app>
 </template>
+
+<script>
+export default {
+  name: "ResetPassword",
+  auth: false,
+}
+</script>
+
 <style scoped>
 #title {
   font-size: 0.9em;

@@ -14,6 +14,14 @@
     </v-container>
   </v-app>
 </template>
+
+<script>
+export default {
+  name: "Contact",
+  auth: false,
+}
+</script>
+
 <style scope>
 .termCard {
   margin: 10pt;
