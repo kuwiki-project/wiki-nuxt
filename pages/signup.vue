@@ -1,48 +1,80 @@
 <template>
-<v-app id="signup">
-  <v-container class="fill-height">
-    <v-card outlined class="mx-auto" width="500px">
-      <!-- ここであとで京大wikiのロゴなど入れたい -->
-      <v-card-title id='title' class="py-5">
-        <KupediaLogo></KupediaLogo>
-      </v-card-title>
-      <v-card-text class="px-6">
-        <v-form class="mx-8 my-4">
-          <v-text-field v-model="credentials.email" :rules="rules.email" type="email" placeholder="メールアドレス *" filled dense rounded autofocus required></v-text-field>
-          <v-text-field v-model="credentials.password" :rules="rules.password" type="password" placeholder="パスワード *" filled dense rounded reqired></v-text-field>
-          <v-text-field v-model="credentials.password_confirmation" :rules="rules.password_confirmation" type="password" placeholder="パスワード確認 *" filled dense rounded reqired></v-text-field>
-        </v-form>
-        <h5 align='center'>
-          <div>アカウント作成により
-            <nuxt-link :to="`terms/`">利用規約</nuxt-link>
-            に同意したものとみなされます</div>
-        </h5>
-        <v-card-actions class="mx-7 my-2">
-          <v-btn color="primary" depressed block large @click="signup">
-            <h4>アカウント作成</h4>
-          </v-btn>
-        </v-card-actions>
-        <div align='center'>
-        <h5>
-          <div>パスワードをお忘れの方は
-            <nuxt-link to="/reset_password">こちら</nuxt-link>から
+  <v-app id="signup">
+    <v-container class="fill-height">
+      <v-card outlined class="mx-auto" width="500px">
+        <!-- ここであとで京大wikiのロゴなど入れたい -->
+        <v-card-title id="title" class="py-5">
+          <KupediaLogo />
+        </v-card-title>
+        <v-card-text class="px-6">
+          <v-form class="mx-8 my-4">
+            <v-text-field
+              v-model="credentials.email"
+              :rules="rules.email"
+              type="email"
+              placeholder="メールアドレス *"
+              filled
+              dense
+              rounded
+              autofocus
+              required
+            />
+            <v-text-field
+              v-model="credentials.password"
+              :rules="rules.password"
+              type="password"
+              placeholder="パスワード *"
+              filled
+              dense
+              rounded
+              reqired
+            />
+            <v-text-field
+              v-model="credentials.password_confirmation"
+              :rules="rules.password_confirmation"
+              type="password"
+              placeholder="パスワード確認 *"
+              filled
+              dense
+              rounded
+              reqired
+            />
+          </v-form>
+          <h5 align="center">
+            <div>
+              アカウント作成により
+              <nuxt-link :to="`terms/`"> 利用規約 </nuxt-link>
+              に同意したものとみなされます
+            </div>
+          </h5>
+          <v-card-actions class="mx-7 my-2">
+            <v-btn color="primary" depressed block large @click="signup">
+              <h4>アカウント作成</h4>
+            </v-btn>
+          </v-card-actions>
+          <div align="center">
+            <h5>
+              <div>
+                パスワードをお忘れの方は
+                <nuxt-link to="/reset_password"> こちら </nuxt-link>から
+              </div>
+            </h5>
+            <h5>
+              <div>
+                アカウントをすでにお持ちの方は
+                <nuxt-link to="/signin"> こちら </nuxt-link>から
+              </div>
+            </h5>
           </div>
-        </h5>
-        <h5>
-          <div>アカウントをすでにお持ちの方は
-            <nuxt-link to="/signin">こちら</nuxt-link>から
-          </div>
-        </h5>
-      </div>
-      </v-card-text>
-    </v-card>
-  </v-container>
-</v-app>
+        </v-card-text>
+      </v-card>
+    </v-container>
+  </v-app>
 </template>
 <script>
-import axios from "axios";
-import Swal from "sweetalert2";
-import router from "../.nuxt/router";
+import axios from "axios"
+import Swal from "sweetalert2"
+import router from "../.nuxt/router"
 export default {
   name: "SignupForm",
   data: () => ({
@@ -78,8 +110,8 @@ export default {
           showConfirmButton: false,
           showCloseButton: false,
           timer: 3000,
-        });
-        return;
+        })
+        return
       }
       axios
         .post(
@@ -87,7 +119,7 @@ export default {
           this.credentials
         )
         .then((res) => {
-          return res;
+          return res
           //router.push()←リダイレクト
         })
         .catch((e) => {
@@ -96,11 +128,11 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          });
-        });
+          })
+        })
     },
   },
-};
+}
 </script>
 <style scoped>
 #title {

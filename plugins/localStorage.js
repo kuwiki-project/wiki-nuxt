@@ -1,10 +1,9 @@
-import createPersistedState from 'vuex-persistedstate'
- 
+import createPersistedState from "vuex-persistedstate"
+
 export default ({ store }) => {
- 
-    window.onNuxtReady(() => {
-        createPersistedState({
-            key: 'kupedia-project'
-        })(store)
-    })
+  window.onNuxtReady(() => {
+    createPersistedState({
+      key: "kupedia-project",
+    })(store)
+  })
 }
