@@ -2,7 +2,7 @@
 <v-app id='search-form'>
   <v-row justify='center'>
     <span id='searchform'>
-      <v-text-field solo rounded prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup="searchItems">
+      <v-text-field solo rounded prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup.enter="searchItems">
       </v-text-field>
       <v-simple-table dense fixed-header>
         <tbody>
@@ -20,6 +20,7 @@
 </v-app>
 </template>
 <script>
+import axios from 'axios';
 export default {
   data: () => ({
     searchKeys: '',
@@ -29,12 +30,12 @@ export default {
   },
   methods: {
     searchItems() {
-      var hitItems = (item, index) => {
-        if ((this.searchKeys != '') && ((item.name).indexOf(this.searchKeys) > -1)) {
-          return true;
-        }
-      }
-      return this.Items.filter(hitItems);
+      axios
+        .get( process.env.WIKI_API_URL + '/' + this.Items + '/search/' + this.searchKeys )
+        .then(res => {
+          this.hitItems = res.data
+        });
+      return this.hitItems
     }
   }
 }
