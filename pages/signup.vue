@@ -51,7 +51,7 @@ export default {
       email: "",
       password: "",
       password_confirmation: "",
-      confirm_success_url: process.env.WIKI_CONFIRM_SUCCESS_URL,
+      confirm_success_url: "https://wiki-nuxt.herokuapp.com/confirm_success",
     },
     rules: {
       email: [
