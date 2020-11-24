@@ -1,12 +1,12 @@
 <template>
-<v-col cols="12">
-<v-row justify='center'>
-  <img src="/kiwi.svg">
-</v-row>
-<v-row justify='center'>
-  <span id='title'>京大wiki</span>
-</v-row>
-</v-col>
+<v-container>
+  <v-row justify='center' align='start'>
+      <img src="/kiwi.svg" width='200' />
+  </v-row>
+  <v-row justify='center' align='start'>
+      <span id='title'>京大wiki</span>
+  </v-row>
+</v-container>
 </template>
 <style scoped>
 #title {
