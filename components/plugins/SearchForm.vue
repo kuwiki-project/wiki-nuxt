@@ -2,14 +2,16 @@
 <v-app id='search-form'>
   <v-row justify='center'>
     <span id='searchform'>
-      <v-text-field solo rounded prepend-inner-icon="mdi-magnify" autofocus v-model="searchKeys" @keyup.enter="searchItems">
+      <v-text-field solo rounded prepend-inner-icon="mdi-magnify" autofocus
+       v-model="keyword"
+       v-on:input="searchItems">
       </v-text-field>
       <v-simple-table dense fixed-header>
         <tbody>
-          <tr v-for="searchItem in searchItems()">
+          <tr v-for="hitItem in hitItems">
             <td>
-              <nuxt-link class='itemlink' :to="`${$route.path}/${searchItem.id}`">
-                <div>{{ searchItem.name }}</div>
+              <nuxt-link class='itemlink' :to="`${$route.path}/${hitItem.id}`">
+                <div>{{ hitItem.name }}</div>
               </nuxt-link>
             </td>
           </tr>
@@ -23,19 +25,18 @@
 import axios from 'axios';
 export default {
   data: () => ({
-    searchKeys: '',
+    keyword: '',
+    hitItems: [],
   }),
   props: {
-    Items: Array,
+    Items: String,
   },
   methods: {
     searchItems() {
-      axios
-        .get( process.env.WIKI_API_URL + '/' + this.Items + '/search/' + this.searchKeys )
-        .then(res => {
+      var SEARCH_API_URL = process.env.WIKI_API_URL + '/' + this.Items + '/search/' + this.keyword
+      axios.get( SEARCH_API_URL ).then(res => {
           this.hitItems = res.data
         });
-      return this.hitItems
     }
   }
 }
@@ -53,5 +54,6 @@ span#searchform {
 
 .itemlink {
   text-decoration: none;
+  color: blue;
 }
 </style>
