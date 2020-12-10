@@ -1,33 +1,38 @@
 <template>
-<v-app id='navi'>
-  <v-app-bar app dense dark flat class="primary">
-    <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-    <v-toolbar-title>
-      <span id='title'>
-        <nuxt-link to="/">京大wiki</nuxt-link>
-      </span>
-    </v-toolbar-title>
-  </v-app-bar>
-  <v-navigation-drawer v-model="drawer" app>
-    <v-list dense>
-      <v-list-item-group v-model="group">
-        <v-list-item link v-for="item in items" :key="item.text" :to="item.link">
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ item.text }}
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-  </v-navigation-drawer>
-  <v-main>
-    <nuxt />
-  </v-main>
-</v-app>
+  <v-app id="navi">
+    <v-app-bar app dense elevate-on-scroll color='white'>
+      <v-app-bar-nav-icon @click="drawer = true" />
+      <v-toolbar-title>
+        <span id="title">
+          <nuxt-link to="/">京大wiki</nuxt-link>
+        </span>
+      </v-toolbar-title>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list dense>
+        <v-list-item-group v-model="group">
+          <v-list-item
+            v-for="item in items"
+            :key="item.text"
+            link
+            :to="item.link"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>
+                {{ item.text }}
+              </v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+    <v-main id='main'>
+      <nuxt />
+    </v-main>
+  </v-app>
 </template>
 <script>
 export default {
@@ -70,11 +75,15 @@ export default {
 </script>
 <style scoped>
 #title {
-  font-weight: 400;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 700;
+  font-family: "Noto Sans JP", sans-serif;
 }
 a.nuxt-link-active {
-  color: white;
+  /* color: white; */
   text-decoration: none;
 }
+div.v-application{
+  /* background-color: #A19BFF; */
+}
+
 </style>
