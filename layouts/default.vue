@@ -39,37 +39,38 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
-    items: [{
-        icon: 'mdi-home',
-        text: 'ホーム',
-        link: '/'
+    items: [
+      {
+        icon: "mdi-home",
+        text: "ホーム",
+        link: "/",
       },
       {
-        icon: 'mdi-file-search-outline',
-        text: '科目検索',
-        link: '/courses'
+        icon: "mdi-file-search-outline",
+        text: "科目検索",
+        link: "/courses",
       },
       {
-        icon: 'mdi-file-upload-outline',
-        text: '過去問提供',
-        link: '/volunteer'
+        icon: "mdi-file-upload-outline",
+        text: "過去問提供",
+        link: "/volunteer",
       },
       {
-        icon: 'mdi-help-circle-outline',
-        text: '京大wikiとは',
-        link: '/profile'
+        icon: "mdi-help-circle-outline",
+        text: "京大wikiとは",
+        link: "/profile",
       },
       {
-        icon: 'mdi-email-outline',
-        text: '問い合わせ',
-        link: '/contact'
+        icon: "mdi-email-outline",
+        text: "問い合わせ",
+        link: "/contact",
       },
       {
-        icon: 'mdi-account',
-        text: 'ログイン',
-        link: '/signin'
-      }
-    ]
+        icon: "mdi-account",
+        text: "ログイン",
+        link: "/signin",
+      },
+    ],
   }),
 }
 </script>

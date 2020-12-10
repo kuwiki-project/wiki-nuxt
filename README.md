@@ -4,7 +4,7 @@
 ### master
 
 ### develop
-wiki-rails-api.herokuapp.com にオートデプロイ
+wiki-nuxt.herokuapp.com にオートデプロイ
 
 ### feature/1
 signup & signin 実装
