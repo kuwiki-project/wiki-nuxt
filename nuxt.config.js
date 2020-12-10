@@ -69,13 +69,13 @@ const config = {
     theme: {
       themes: {
         light: {
-          primary: '#A19BFF',
-          secondary: '#ECB0FF',
-          accent: '#FFDDB0',
-          error: '#FF5252',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FFC107',
+          primary: "#736CFF",
+          secondary: "#ECB0FF",
+          accent: "#FFDDB0",
+          error: "#FF5252",
+          info: "#2196F3",
+          success: "#4CAF50",
+          warning: "#FFC107",
         },
         dark: {
           primary: colors.indigo.lighten3,
