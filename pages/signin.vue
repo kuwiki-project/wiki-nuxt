@@ -1,11 +1,9 @@
 <template>
   <v-main>
-    <v-container class="fill-height">
+    <!-- パスワード再発行メールからアクセスできるパスワード再設定用の画面-->
+    <v-container>
       <v-card outlined class="mx-auto" width="310px">
-        <!-- ここであとで京大wikiのロゴなど入れたい -->
-        <v-card-title id="title">
-          <KupediaLogo />
-        </v-card-title>
+        <KupediaLogo />
         <v-card-text class="px-6">
           <v-form class="mx-6">
             <v-text-field
@@ -25,16 +23,14 @@
           </v-form>
           <v-card-actions class="mx-3">
             <v-btn color="primary" depressed block @click="login">
-              ログイン
+              <h4>ログイン</h4>
             </v-btn>
           </v-card-actions>
           <div class="mx-6 mt-3">
-            アカウント作成は<nuxt-link to="/signup"> こちら </nuxt-link>から
+            <h5>アカウント作成は <nuxt-link to="/signup">こちら</nuxt-link> から</h5>
           </div>
           <div class="mx-6 mt-3">
-            パスワード再発行は<nuxt-link to="/reset_password">
-              こちら </nuxt-link
-            >から
+            <h5>パスワード再発行は <nuxt-link to="/reset_password">こちら</nuxt-link> から</h5>
           </div>
         </v-card-text>
       </v-card>
@@ -67,7 +63,7 @@ export default {
     login() {
       axios
         .post(
-          process.env.WIKI_API_URL + "/user/sign_in/", //環境変数呼び出し
+          process.env.WIKI_API_URL + "/user/sign_in/", //環境変数呼び出し もしだめなら this.$config.wikiApiUrl
           this.credentials
         )
         .then((res) => {
@@ -86,8 +82,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-#title {
-  font-size: 0.9em;
-}
-</style>

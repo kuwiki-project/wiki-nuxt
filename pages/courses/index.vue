@@ -1,6 +1,6 @@
 <template>
 <v-main>
-  <v-container>
+  <v-container class="fill-height">
     <SearchForm :items="courses" :title='title'/>
   </v-container>
 </v-main>

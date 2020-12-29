@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-container>
+    <v-container class="fill-height">
       <div>{{ $route.params.id }}</div>
       <div>{{ course.name }}</div>
       <div>{{ course.field.name }}</div>
