@@ -1,9 +1,10 @@
 <template>
-<v-app id="index">
   <v-container>
     <KupediaLogo />
     <v-row justify='center' id='ku-wiki-is'>
       <span><strong> 京大wiki </strong>とは</span>学内資料を収集・整理・公開するプロジェクト
+<div>
+  <v-main>
     </v-row>
   </v-container>
   <v-btn elevation="8" fab icon x-large></v-btn>
@@ -11,8 +12,9 @@
     <v-col class="text-center" cols="12">
       <strong>京大wiki</strong>
     </v-col>
+  </v-main>
   </v-footer>
-</v-app>
+</div>
 </template>
 <style scoped>
 strong {

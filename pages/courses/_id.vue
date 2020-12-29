@@ -1,5 +1,5 @@
 <template>
-  <v-app id="courseShow">
+  <v-main>
     <v-container>
       <div>{{ $route.params.id }}</div>
       <div>{{ course.name }}</div>
@@ -7,7 +7,7 @@
       <!-- <div>{{ course.exam.link }}</div> -->
       <a v-if="course.exam !== undefined" :href="course.exam.link">過去問 </a>
     </v-container>
-  </v-app>
+  </v-main>
 </template>
 <script>
 import axios from "axios"

@@ -1,5 +1,4 @@
 <template>
-  <v-app id="terms">
     <v-container>
       <v-card width="600pt" class="mx-auto termCard">
         <v-card-text class="mx-auto" width="600pt">
@@ -10,7 +9,8 @@
         </v-card-text>
       </v-card>
     </v-container>
-  </v-app>
+<v-main>
+</v-main>
 </template>
 <style scope>
 .termCard {

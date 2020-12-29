@@ -1,5 +1,4 @@
 <template>
-  <v-app id="navi">
     <v-app-bar app dense elevate-on-scroll color='white'>
       <v-app-bar-nav-icon @click="drawer = true" />
       <v-toolbar-title>
@@ -29,10 +28,9 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-main id='main'>
-      <nuxt />
-    </v-main>
-  </v-app>
+<v-app id='default'>
+  <Nuxt />
+</v-app>
 </template>
 <script>
 export default {

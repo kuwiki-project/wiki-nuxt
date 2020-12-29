@@ -1,5 +1,5 @@
 <template>
-  <v-app id="signup">
+  <v-main>
     <v-container class="fill-height">
       <v-card outlined class="mx-auto" width="500px">
         <!-- ここであとで京大wikiのロゴなど入れたい -->
@@ -69,7 +69,7 @@
         </v-card-text>
       </v-card>
     </v-container>
-  </v-app>
+  </v-main>
 </template>
 <script>
 import axios from "axios"

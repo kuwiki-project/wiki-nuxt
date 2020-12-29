@@ -1,5 +1,4 @@
 <template>
-  <v-app id="reset_password">
     <v-container class="fill-height">
       <v-card outlined class="mx-auto" width="500px">
         <v-card-title id="title" class="py-5">
@@ -25,7 +24,8 @@
         </v-card-text>
       </v-card>
     </v-container>
-  </v-app>
+<v-main>
+</v-main>
 </template>
 <style scoped>
 #title {
