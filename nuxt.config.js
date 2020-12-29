@@ -70,9 +70,9 @@ const config = {
   },
   auth: {},
   publicRuntimeConfig: {
-    wikiApiUrl: process.env.WIKI_API_URL || 'http://localhost:3000',
-    baseURL: process.env.BASE_URL || 'http://localhost:3333',
-    baseDir: process.env.BASE_DIR || '/',
+    WIKI_API_URL: process.env.WIKI_API_URL || 'http://localhost:3000',
+    BASE_URL: process.env.BASE_URL || 'http://localhost:3333',
+    WIKI_CONFIRM_SUCCESS_URL: '' //.envそのまま
   },
   /*
    ** Build configuration
