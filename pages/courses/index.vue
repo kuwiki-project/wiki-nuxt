@@ -1,8 +1,7 @@
 <template>
 <v-main>
   <v-container>
-    <SearchTitle :title="title" />
-    <SearchForm :items="courses" />
+    <SearchForm :items="courses" :title='title'/>
   </v-container>
 </v-main>
 </template>
