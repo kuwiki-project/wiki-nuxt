@@ -69,8 +69,10 @@ const config = {
     optionsPath: '@/plugins/vuetify.js'
   },
   auth: {},
-  env: {
-    WIKI_API_URL: process.env.WIKI_API_URL,
+  publicRuntimeConfig: {
+    wikiApiUrl: process.env.WIKI_API_URL || 'http://localhost:3000',
+    baseURL: process.env.BASE_URL || 'http://localhost:3333',
+    baseDir: process.env.BASE_DIR || '/',
   },
   /*
    ** Build configuration
