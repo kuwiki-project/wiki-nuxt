@@ -37,14 +37,13 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
-    items: [
-      {
-        icon: "mdi-home",
-        text: "ホーム",
+    items: [{
+        icon: "mdi-widgets",
+        text: "トップ",
         link: "/",
       },
       {
-        icon: "mdi-file-search-outline",
+        icon: "mdi-folder-search",
         text: "科目検索",
         link: "/courses",
       },
@@ -54,17 +53,7 @@ export default {
         link: "/volunteer",
       },
       {
-        icon: "mdi-help-circle-outline",
-        text: "京大wikiとは",
-        link: "/profile",
-      },
-      {
-        icon: "mdi-email-outline",
-        text: "問い合わせ",
-        link: "/contact",
-      },
-      {
-        icon: "mdi-account",
+        icon: "mdi-account-circle",
         text: "ログイン",
         link: "/signin",
       },
