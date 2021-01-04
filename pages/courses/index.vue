@@ -1,7 +1,9 @@
 <template>
 <v-main>
-  <v-container class="fill-height">
+  <v-container >
+    <v-row class='justify-center'>
     <SearchForm :items="courses" :title='title'/>
+  </v-row>
   </v-container>
 </v-main>
 </template>
