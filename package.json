@@ -1,8 +1,8 @@
 {
   "name": "wiki-nuxt",
   "version": "1.0.0",
-  "description": "My classy Nuxt.js project",
-  "author": "ku-pedia",
+  "description": "学内資料共有プロジェクト",
+  "author": "kuwiki",
   "engines": {
     "yarn": "1.22.4"
   },
