@@ -7,11 +7,12 @@
           <KupediaLogo />
         </v-card-title>
         <v-card-text class="px-6">
-          <v-form class="mx-6">
+          <v-form ref="form" v-model="valid" lazy-validation class="mx-6">
             <v-text-field
               v-model="credentials.email"
               :rules="rules.email"
               placeholder="email"
+              :type='email'
               autofocus
               required
             />
@@ -24,8 +25,8 @@
             />
           </v-form>
           <v-card-actions class="mx-3">
-            <v-btn color="primary" depressed block @click="login">
-              ログイン
+            <v-btn color="primary" :disabled="!valid" depressed block @click="login">
+              <h4>ログイン</h4>
             </v-btn>
           </v-card-actions>
           <div class="mx-6 mt-3">
@@ -56,7 +57,7 @@ export default {
     },
     rules: {
       email: [
-        (v) => !!v || "ユーザー名を入力してください",
+        (v) => !!v || "メールアドレスを入力してください",
         (v) =>
           /^.+@st.kyoto-u.ac.jp$/.test(v) || "学生用メール @st.kyoto-u.ac.jp",
       ],

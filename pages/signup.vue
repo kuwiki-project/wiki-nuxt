@@ -7,7 +7,7 @@
           <KupediaLogo />
         </v-card-title>
         <v-card-text class="px-6">
-          <v-form class="mx-8 my-4">
+          <v-form ref="form" v-model="valid" lazy-validation class="mx-8 my-4">
             <v-text-field
               v-model="credentials.email"
               :rules="rules.email"
@@ -27,7 +27,7 @@
               filled
               dense
               rounded
-              reqired
+              required
             />
             <v-text-field
               v-model="credentials.password_confirmation"
@@ -37,7 +37,7 @@
               filled
               dense
               rounded
-              reqired
+              required
             />
           </v-form>
           <h5 align="center">
@@ -48,7 +48,7 @@
             </div>
           </h5>
           <v-card-actions class="mx-7 my-2">
-            <v-btn color="primary" depressed block large @click="signup">
+            <v-btn color="primary" :disabled="!valid" depressed block large @click="signup">
               <h4>アカウント作成</h4>
             </v-btn>
           </v-card-actions>
