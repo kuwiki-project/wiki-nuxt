@@ -1,5 +1,5 @@
 <template>
-  <v-app id="signup">
+  <v-main>
     <v-container class="fill-height">
       <v-card outlined class="mx-auto" width="500px">
         <!-- ここであとで京大wikiのロゴなど入れたい -->
@@ -55,21 +55,19 @@
           <div align="center">
             <h5>
               <div>
-                パスワードをお忘れの方は
-                <nuxt-link to="/reset_password"> こちら </nuxt-link>から
+                パスワードをお忘れの方は <nuxt-link to="/reset_password">こちら</nuxt-link> から
               </div>
             </h5>
             <h5>
               <div>
-                アカウントをすでにお持ちの方は
-                <nuxt-link to="/signin"> こちら </nuxt-link>から
+                アカウントをすでにお持ちの方は <nuxt-link to="/signin">こちら</nuxt-link> から
               </div>
             </h5>
           </div>
         </v-card-text>
       </v-card>
     </v-container>
-  </v-app>
+  </v-main>
 </template>
 <script>
 import axios from "axios"
@@ -134,8 +132,3 @@ export default {
   },
 }
 </script>
-<style scoped>
-#title {
-  font-size: 0.9em;
-}
-</style>

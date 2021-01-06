@@ -2,6 +2,7 @@
 <v-app id='search-form'>
   <v-row justify='center'>
     <span id='searchform'>
+      <div class='ml-15 my-3 text-h5'>{{ title }}</div>
       <v-text-field solo rounded prepend-inner-icon="mdi-magnify" autofocus
        v-model="keyword"
        v-on:input="searchItems">
@@ -29,11 +30,12 @@ export default {
     hitItems: [],
   }),
   props: {
-    Items: String,
+    items: String,
+    title: String,
   },
   methods: {
     searchItems() {
-      var SEARCH_API_URL = process.env.WIKI_API_URL + '/' + this.Items + '/search/' + this.keyword
+      var SEARCH_API_URL = process.env.WIKI_API_URL + '/' + this.items + '/search/' + this.keyword
       axios.get( SEARCH_API_URL ).then(res => {
           this.hitItems = res.data
         });
@@ -48,7 +50,6 @@ span#searchform .v-text-field input {
 
 span#searchform {
   width: 350px;
-  opacity: 0.8;
   margin: 20px 10px 20px;
 }
 

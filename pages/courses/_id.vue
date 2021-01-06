@@ -1,13 +1,13 @@
 <template>
-  <v-app id="courseShow">
-    <v-container>
+  <v-main>
+    <v-container class="fill-height">
       <div>{{ $route.params.id }}</div>
       <div>{{ course.name }}</div>
       <div>{{ course.field.name }}</div>
       <!-- <div>{{ course.exam.link }}</div> -->
       <a v-if="course.exam !== undefined" :href="course.exam.link">過去問 </a>
     </v-container>
-  </v-app>
+  </v-main>
 </template>
 <script>
 import axios from "axios"
@@ -18,8 +18,8 @@ export default {
   },
   async asyncData(context) {
     const courseId = context.params.id
-    const baseURL = process.env.WIKI_API_URL + "/courses/" + courseId
-    const { data } = await axios.get(baseURL)
+    const courseDetailUrl = context.$config.WIKI_API_URL + "/courses/" + courseId
+    const { data } = await axios.get(courseDetailUrl)
     return {
       course: data,
     }
