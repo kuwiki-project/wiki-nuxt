@@ -1,4 +1,5 @@
 <template>
+<!-- パスワード再発行メールからアクセスできるパスワード再設定用の画面-->
 <v-main>
   <v-container class="fill-height">
     <v-card outlined class="mx-auto" width="500px">

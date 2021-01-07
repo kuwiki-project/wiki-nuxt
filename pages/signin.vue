@@ -1,6 +1,5 @@
 <template>
   <v-main>
-    <!-- パスワード再発行メールからアクセスできるパスワード再設定用の画面-->
     <v-container>
       <v-card outlined class="mx-auto" width="310px">
         <KupediaLogo />
