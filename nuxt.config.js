@@ -1,6 +1,8 @@
 const config = {
   mode: 'universal',
   ssr: false,
+  components: true,
+  target: 'server',
   /*
    ** Headers of the page
    */
@@ -40,7 +42,6 @@ const config = {
       src: "@/plugins/localStorage",
       ssr: false,
     },
-    { src: "@/plugins/components" },
   ],
   /*
    ** Nuxt.js dev-modules
