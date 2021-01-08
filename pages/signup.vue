@@ -30,8 +30,17 @@
               :rules="rules.password_confirmation"
               type="password"
               placeholder="パスワード再入力"
+              loading
             >
-            </v-text-field>
+            <template v-slot:progress>
+            <v-progress-linear
+            :value="progress"
+            :color="color"
+            absolute
+            height="3"
+        ></v-progress-linear>
+        </template>
+          </v-text-field>
           </v-form>
           <h5 align="center">
             <div>
@@ -117,7 +126,13 @@ export default {
         return true
       }
     },
-  },
+    progress: function () {
+        return Math.min(100, this.credentials.password_confirmation.length * 10)
+      },
+    color: function () {
+        return ['error', 'warning', 'success'][Math.floor(this.progress / 40)]
+      },
+    },
   methods: {
     signup() {
       if (this.credentials.password != this.credentials.password_confirmation) {
