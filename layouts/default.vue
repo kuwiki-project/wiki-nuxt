@@ -23,6 +23,7 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
+    tab: null,
     items: [{
         icon: "mdi-widgets",
         text: "トップ",
