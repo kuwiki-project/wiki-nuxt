@@ -43,7 +43,7 @@ export default {
     },
   },
   created: function() {
-    this.searchKeyword = _.debounce(this.hitApi, 500)
+    this.searchKeyword = _.debounce(this.hitApi, 200)
   },
   methods: {
     hitApi: function() {
@@ -52,9 +52,9 @@ export default {
       axios
         .get(SEARCH_API_URL)
         .then((res) => {
-          this.displayTable = true;
-          this.message ='検索結果'
-          this.searchresults = res.data;
+          this.message = "検索結果"
+          this.searchresults = res.data
+          this.displayTable = true
         })
         .catch((err) => {
           this.message = err;
