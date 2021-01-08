@@ -1,8 +1,8 @@
 const config = {
-  mode: 'universal',
+  mode: "universal",
   ssr: false,
   components: true,
-  target: 'server',
+  target: "server",
   /*
    ** Headers of the page
    */
@@ -29,7 +29,7 @@ const config = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: "#fff" },
+  loading: { color: "#f0f0f0" },
   /*
    ** Global CSS
    */
@@ -65,13 +65,13 @@ const config = {
   axios: {},
   vuetify: {
     // customVariables: ['~/assets/variables.scss'],
-    optionsPath: '@/plugins/vuetify.js'
+    optionsPath: "@/plugins/vuetify.js",
   },
   auth: {},
   publicRuntimeConfig: {
-    WIKI_API_URL: process.env.WIKI_API_URL || 'http://localhost:3000',
-    BASE_URL: process.env.BASE_URL || 'http://localhost:3333',
-    WIKI_CONFIRM_SUCCESS_URL: '' //.envそのまま
+    WIKI_API_URL: process.env.WIKI_API_URL || "http://localhost:3000",
+    BASE_URL: process.env.BASE_URL || "http://localhost:3333",
+    WIKI_CONFIRM_SUCCESS_URL: "", //.envそのまま
   },
   /*
    ** Build configuration

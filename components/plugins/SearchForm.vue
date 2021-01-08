@@ -1,44 +1,52 @@
 <template>
-<v-row justify='center'>
-  <v-col cols='12'>
-    <div class='my-3 text-center'>{{ title }}</div>
-  </v-col>
-  <v-col cols='12'>
-    <v-text-field v-model="searchkey" prepend-inner-icon="mdi-magnify" solo rounded autofocus>
-    </v-text-field>
-    <!-- <p> {{message}} </p> -->
-    <v-progress-circular v-if="message == '入力中' " :size="50" color="primary" indeterminate></v-progress-circular>
-    <v-simple-table dense fixed-header>
-      <tbody>
-        <tr v-for="searchresult in searchresults" :key="searchresult.id">
-            <td v-if="displayTable">
-              <NuxtLink no-prefetch class='itemlink black--text' :to="`${$route.path}/${searchresult.id}`">
-                {{ searchresult.name }}
-              </NuxtLink>
-            </td>
-        </tr>
-      </tbody>
-    </v-simple-table>
-  </v-col>
-</v-row>
+  <v-container>
+    <v-row justify="center" align="center">
+      <v-column cols="12">
+        <div class="my-3 text-h5">
+          {{ title }}
+        </div>
+        <div>
+          <v-text-field v-model="searchkey" type="text" prepend-inner-icon="mdi-magnify" clearable solo rounded></v-text-field>
+        </div>
+        <div class="text-center mt-n4">
+          <!-- <p> {{message}} </p> -->
+          <v-progress-circular v-if="message == '入力中'" class="text-center" :size="50" color="primary" indeterminate></v-progress-circular>
+        </div>
+        <div>
+          <v-simple-table dense fixed-header>
+            <tbody>
+              <tr v-for="searchresult in searchresults" :key="searchresult.id">
+                <td v-if="displayTable">
+                  <NuxtLink no-prefetch class="itemlink black--text" :to="`${$route.path}/${searchresult.id}`">
+                    {{ searchresult.name }}
+                  </NuxtLink>
+                </td>
+              </tr>
+            </tbody>
+          </v-simple-table>
+        </div>
+        </div>
+      </v-column>
+    </v-row>
+  </v-container>
 </template>
 <script>
-import axios from 'axios';
-import _ from 'lodash';
+import axios from "axios"
+import _ from "lodash"
 export default {
-  data: () => ({
-    searchkey: '',
-    searchresults: [],
-    displayTable: true,
-    message: '',
-  }),
   props: {
     items: String,
     title: String,
   },
+  data: () => ({
+    searchkey: "",
+    searchresults: [],
+    displayTable: true,
+    message: "",
+  }),
   watch: {
     searchkey: function(newkeyword, oldkeyword) {
-      this.message = '入力中'
+      this.message = "入力中"
       this.searchKeyword()
     },
   },
@@ -47,7 +55,12 @@ export default {
   },
   methods: {
     hitApi: function() {
-      var SEARCH_API_URL = process.env.WIKI_API_URL + '/' + this.items + '/search/' + this.searchkey
+      var SEARCH_API_URL =
+        process.env.WIKI_API_URL +
+        "/" +
+        this.items +
+        "/search/" +
+        this.searchkey
       console.log(this.searchkey)
       axios
         .get(SEARCH_API_URL)
@@ -57,11 +70,11 @@ export default {
           this.displayTable = true
         })
         .catch((err) => {
-          this.message = err;
-          this.displayTable = false;
+          this.message = err
+          this.displayTable = false
         })
-    }
-  }
+    },
+  },
 }
 </script>
 <style>

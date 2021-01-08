@@ -18,7 +18,8 @@ export default {
   },
   async asyncData(context) {
     const courseId = context.params.id
-    const courseDetailUrl = context.$config.WIKI_API_URL + "/courses/" + courseId
+    const courseDetailUrl =
+      context.$config.WIKI_API_URL + "/courses/" + courseId
     const { data } = await axios.get(courseDetailUrl)
     return {
       course: data,

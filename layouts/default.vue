@@ -1,22 +1,22 @@
 <template>
-<v-app id='default'>
-  <v-app-bar color="secondary" dense app hide-on-scroll>
-    <v-toolbar-title class='mx-auto'>
-      <span id="title">
-        <nuxt-link to="/" class="white--text">京大wiki</nuxt-link>
-      </span>
-    </v-toolbar-title>
-    <template v-slot:extension>
-      <v-tabs v-model="tab" dark fixed-tabs slider-color="primary">
-        <v-tab v-for="item in items" :key="item.text" :to="item.link">
-          <v-icon>{{ item.icon }}</v-icon>
-          <!-- {{ item.text }} -->
-        </v-tab>
-      </v-tabs>
-    </template>
-  </v-app-bar>
-  <Nuxt />
-</v-app>
+  <v-app id="default">
+    <v-app-bar color="secondary" dense app hide-on-scroll>
+      <v-toolbar-title class="mx-auto">
+        <span id="title">
+          <NuxtLink to="/" class="white--text">京大wiki</NuxtLink>
+        </span>
+      </v-toolbar-title>
+      <template #extension>
+        <v-tabs v-model="tab" dark fixed-tabs slider-color="primary">
+          <v-tab v-for="item in items" :key="item.text" :to="item.link">
+            <v-icon>{{ item.icon }}</v-icon>
+            <!-- {{ item.text }} -->
+          </v-tab>
+        </v-tabs>
+      </template>
+    </v-app-bar>
+    <Nuxt />
+  </v-app>
 </template>
 <script>
 export default {
@@ -24,7 +24,8 @@ export default {
     drawer: false,
     group: null,
     tab: null,
-    items: [{
+    items: [
+      {
         icon: "mdi-widgets",
         text: "トップ",
         link: "/",
@@ -54,7 +55,7 @@ export default {
   font-family: "Noto Sans JP", sans-serif;
 }
 
-a.nuxt-link-active {
+a {
   text-decoration: none;
 }
 

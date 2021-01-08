@@ -1,17 +1,13 @@
 <template>
-<v-main>
-  <v-container >
-    <v-row class='justify-center'>
-    <SearchForm :items="courses" :title='title'/>
-  </v-row>
-  </v-container>
-</v-main>
+  <v-main>
+    <SearchForm :items="courses" :title="title" />
+  </v-main>
 </template>
 <script>
 export default {
   data: () => ({
-    title: '科目検索',
-    courses: 'courses',
-  })
+    title: "科目検索",
+    courses: "courses",
+  }),
 }
 </script>
