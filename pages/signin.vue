@@ -12,6 +12,9 @@
                 placeholder="email"
                 type="email"
                 required
+                filled
+                dense
+                rounded
               ></v-text-field>
               <v-text-field
                 v-model="credentials.password"
@@ -19,6 +22,10 @@
                 placeholder="password"
                 type="password"
                 required
+                filled
+                dense
+                rounded
+
               ></v-text-field>
             </div>
             <v-card-actions>
@@ -71,11 +78,11 @@ export default {
     },
     rules: {
       email: [
-        (v) => !!v || "メールアドレスを入力してください",
+        (v) => !!v || "",
         (v) =>
           /^.+@st.kyoto-u.ac.jp$/.test(v) || "学生用メール @st.kyoto-u.ac.jp",
       ],
-      password: [(v) => !!v || "パスワードを入力してください"],
+      password: [(v) => !!v || ""],
     },
   }),
   computed: {

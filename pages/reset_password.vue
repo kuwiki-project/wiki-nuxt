@@ -11,7 +11,7 @@
           <v-form class="mx-3">
             <v-text-field
               type="email"
-              placeholder="メールアドレス *"
+              placeholder="メールアドレス"
               filled
               dense
               rounded

@@ -14,31 +14,22 @@
               v-model="credentials.email"
               :rules="rules.email"
               type="email"
-              placeholder="メールアドレス *"
-              filled
-              dense
-              rounded
+              placeholder="メールアドレス"
               required
             />
             <v-text-field
               v-model="credentials.password"
               :rules="rules.password"
               type="password"
-              placeholder="パスワード *"
-              filled
-              dense
-              rounded
+              placeholder="パスワード"
               required
-            ></v-text-field>
+            >
+          </v-text-field>
             <v-text-field
               v-model="credentials.password_confirmation"
               :rules="rules.password_confirmation"
               type="password"
-              placeholder="パスワード確認 *"
-              filled
-              dense
-              rounded
-              required
+              placeholder="パスワード再入力"
             >
             </v-text-field>
           </v-form>
@@ -104,11 +95,11 @@ export default {
           "学生用メール @st.kyoto-u.ac.jp を入力してください",
       ],
       password: [
-        (v) => !!v || "パスワードを入力してください",
+        (v) => !!v || "必須",
         (v) => v.length > 7 || "8文字以上",
       ],
       password_confirmation: [
-        (v) => !!v || "パスワードを入力してください",
+        (v) => !!v || "必須",
         (v) => v.length > 7 || "8文字以上",
         // v => v === this.cresidentials.password
       ],
