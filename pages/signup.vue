@@ -16,14 +16,33 @@
               type="email"
               placeholder="メールアドレス"
               required
-            />
+              loading
+            >
+            <template v-slot:progress>
+            <v-progress-linear
+            :value="emailProgress"
+            :color="emailColor"
+            absolute
+            height="3"
+        ></v-progress-linear>
+        </template>
+          </v-text-field>
             <v-text-field
               v-model="credentials.password"
               :rules="passwordRules"
               type="password"
               placeholder="パスワード"
               required
+              loading
             >
+            <template v-slot:progress>
+            <v-progress-linear
+            :value="passwordProgress"
+            :color="passwordColor"
+            absolute
+            height="3"
+        ></v-progress-linear>
+        </template>
           </v-text-field>
             <v-text-field
               v-model="credentials.password_confirmation"
@@ -34,8 +53,8 @@
             >
             <template v-slot:progress>
             <v-progress-linear
-            :value="progress"
-            :color="color"
+            :value="passwordConfirmationProgress"
+            :color="passwordConfirmationColor"
             absolute
             height="3"
         ></v-progress-linear>
@@ -111,26 +130,39 @@ export default {
     passwordConfirmationRules: function(){
     return [
        (v) => !!v || "必須",
-       (v) => v.length > 7 || "8文字以上",
        (v) => v == this.credentials.password || "パスワードが合致しません",
      ]
    },
     allEntered: function () {
-      if (
+      return !(
         this.credentials.email == "" ||
         this.credentials.password == "" ||
         this.credentials.password_confirmation == ""
-      ) {
-        return false
-      } else {
-        return true
-      }
+      )
     },
-    progress: function () {
-        return Math.min(100, this.credentials.password_confirmation.length * 10)
+    emailProgress: function () {
+        return Math.min(100, this.credentials.email.length * 3.3)
       },
-    color: function () {
-        return ['error', 'warning', 'success'][Math.floor(this.progress / 40)]
+    emailColor: function () {
+        return ['secondary','warning','primary'][Math.floor(this.emailProgress/ 60) + Number(/^.+@st.kyoto-u.ac.jp$/.test(this.credentials.email))]
+      },
+    passwordProgress: function () {
+        return Math.min(100, this.credentials.password.length * 7.5)
+      },
+    passwordColor: function () {
+        return ['secondary', 'warning', 'primary'][
+          Math.floor(this.passwordProgress / 30)
+        ]
+      },
+    passwordConfirmationProgress: function () {
+        return Math.min(100, this.credentials.password_confirmation.length * 7.5)
+      },
+    passwordConfirmationColor: function () {
+        return ['secondary','secondary','warning','primary'][
+          Math.floor(this.passwordConfirmationProgress / 40) +
+          Number(
+          this.credentials.password_confirmation != '' &&
+          this.credentials.password_confirmation == this.credentials.password )]
       },
     },
   methods: {
