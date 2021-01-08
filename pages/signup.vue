@@ -2,12 +2,14 @@
   <v-main>
     <v-container class="fill-height">
       <v-card outlined class="mx-auto" width="500px">
-        <!-- ここであとで京大wikiのロゴなど入れたい -->
-        <v-card-title id="title" class="py-5">
-          <KupediaLogo />
-        </v-card-title>
+        <v-img width="150" class="mx-auto my-3" src="/kiwi.svg"></v-img>
         <v-card-text class="px-6">
-          <v-form ref="form" v-model="valid" lazy-validation class="mx-8 my-4">
+          <v-form
+            ref="credentials"
+            v-model="valid"
+            lazy-validation
+            class="mx-8 my-4"
+          >
             <v-text-field
               v-model="credentials.email"
               :rules="rules.email"
@@ -16,7 +18,6 @@
               filled
               dense
               rounded
-              autofocus
               required
             />
             <v-text-field
@@ -28,7 +29,7 @@
               dense
               rounded
               required
-            />
+            ></v-text-field>
             <v-text-field
               v-model="credentials.password_confirmation"
               :rules="rules.password_confirmation"
@@ -38,29 +39,41 @@
               dense
               rounded
               required
-            />
+            >
+            </v-text-field>
           </v-form>
           <h5 align="center">
             <div>
               アカウント作成により
-              <nuxt-link :to="`terms/`"> 利用規約 </nuxt-link>
+              <NuxtLink :to="`terms/`"> 利用規約 </NuxtLink>
               に同意したものとみなされます
             </div>
           </h5>
           <v-card-actions class="mx-7 my-2">
-            <v-btn color="primary" :disabled="!valid" depressed block large @click="signup">
+            <v-btn
+              color="primary"
+              :disabled="!valid || !allEntered"
+              depressed
+              block
+              large
+              @click="signup"
+            >
               <h4>アカウント作成</h4>
             </v-btn>
           </v-card-actions>
           <div align="center">
             <h5>
               <div>
-                パスワードをお忘れの方は <nuxt-link to="/reset_password">こちら</nuxt-link> から
+                パスワードをお忘れの方は<NuxtLink to="/reset_password">
+                  こちら </NuxtLink
+                >から
               </div>
             </h5>
             <h5>
               <div>
-                アカウントをすでにお持ちの方は <nuxt-link to="/signin">こちら</nuxt-link> から
+                アカウントをすでにお持ちの方は<NuxtLink to="/signin">
+                  こちら </NuxtLink
+                >から
               </div>
             </h5>
           </div>
@@ -77,11 +90,12 @@ export default {
   name: "SignupForm",
   data: () => ({
     valid: false,
+    value: false,
     credentials: {
       email: "",
       password: "",
       password_confirmation: "",
-      confirm_success_url: "https://wiki-nuxt.herokuapp.com/confirm_success",
+      confirm_success_url: process.env.WIKI_CONFIRM_SUCCESS_URL,
     },
     rules: {
       email: [
@@ -100,6 +114,19 @@ export default {
       ],
     },
   }),
+  computed: {
+    allEntered: function () {
+      if (
+        this.credentials.email == "" ||
+        this.credentials.password == "" ||
+        this.credentials.password_confirmation == ""
+      ) {
+        return false
+      } else {
+        return true
+      }
+    },
+  },
   methods: {
     signup() {
       if (this.credentials.password != this.credentials.password_confirmation) {

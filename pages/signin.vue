@@ -1,39 +1,58 @@
 <template>
   <v-main>
-    <v-container>
-      <v-card outlined class="mx-auto" width="310px">
-        <KupediaLogo />
-        <v-card-text class="px-6">
-          <v-form ref="form" v-model="valid" lazy-validation class="mx-6">
-            <v-text-field
-              v-model="credentials.email"
-              :rules="rules.email"
-              placeholder="email"
-              :type='email'
-              autofocus
-              required
-            />
-            <v-text-field
-              v-model="credentials.password"
-              :rules="rules.password"
-              :type="'password'"
-              placeholder="password"
-              required
-            />
+    <v-container class="fill-height">
+      <v-card outlined width="310px" class="mx-auto">
+        <v-card-text class="px-6 text-center">
+          <v-img width="150" class="mx-auto my-3" src="/kiwi.svg"></v-img>
+          <v-form v-model="valid" lazy-validation>
+            <div class="haba mx-auto">
+              <v-text-field
+                v-model="credentials.email"
+                :rules="rules.email"
+                placeholder="email"
+                type="email"
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="credentials.password"
+                :rules="rules.password"
+                placeholder="password"
+                type="password"
+                required
+              ></v-text-field>
+            </div>
+            <v-card-actions>
+              <v-btn
+                color="primary"
+                :disabled="!valid || !allEntered"
+                depressed
+                block
+                @click="login"
+              >
+                <h4>ログイン</h4>
+              </v-btn>
+            </v-card-actions>
           </v-form>
-          <v-card-actions class="mx-3">
-            <v-btn color="primary" :disabled="!valid" depressed block @click="login">
-              <h4>ログイン</h4>
-            </v-btn>
-          </v-card-actions>
-          <div class="mx-6 mt-3">
-            <h5>アカウント作成は <nuxt-link to="/signup">こちら</nuxt-link> から</h5>
           </div>
-          <div class="mx-6 mt-3">
-            <h5>パスワード再発行は <nuxt-link to="/reset_password">こちら</nuxt-link> から</h5>
+          <div class="mx-6 my-1">
+            <h5>
+              アカウント作成は
+              <NuxtLink to="/signup">
+                こちら
+              </NuxtLink> から
+            </h5>
+          </div>
+          <div class="mx-6 my-1">
+            <h5>
+              パスワード再発行は
+              <NuxtLink to="/reset_password">
+                こちら
+              </NuxtLink> から
+            </h5>
           </div>
         </v-card-text>
       </v-card>
+      </v-row>
     </v-container>
   </v-main>
 </template>
@@ -59,6 +78,15 @@ export default {
       password: [(v) => !!v || "パスワードを入力してください"],
     },
   }),
+  computed: {
+    allEntered: function () {
+      if (this.credentials.email == "" || this.credentials.password == "") {
+        return false
+      } else {
+        return true
+      }
+    },
+  },
   methods: {
     login() {
       axios
@@ -82,3 +110,8 @@ export default {
   },
 }
 </script>
+<style scoped>
+ .haba{
+   width: 200px;
+ }
+</style>
