@@ -1,34 +1,34 @@
 <template>
-  <v-container>
-    <v-row justify="center" align="center">
-      <v-col cols="12">
-        <div class="my-3 text-h5">
-          {{ title }}
-        </div>
-        <div>
-          <v-text-field v-model="searchkey" type="text" prepend-inner-icon="mdi-magnify" clearable solo rounded></v-text-field>
-        </div>
-        <div class="text-center mt-n4">
-          <!-- <p> {{message}} </p> -->
-          <v-progress-circular v-if="message == '入力中'" class="text-center" :size="50" color="primary" indeterminate></v-progress-circular>
-        </div>
-        <div>
-          <v-simple-table dense fixed-header>
-            <tbody>
-              <tr v-for="searchresult in searchresults" :key="searchresult.id">
-                <td v-if="displayTable">
-                  <NuxtLink no-prefetch class="itemlink black--text" :to="`${$route.path}/${searchresult.id}`">
-                    {{ searchresult.name }}
-                  </NuxtLink>
-                </td>
-              </tr>
-            </tbody>
-          </v-simple-table>
-        </div>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+<v-container class='px-18'>
+  <v-row align-content='center'>
+    <v-col cols='8'>
+      <div class="my-3 text-h5 mx-auto">
+        {{ title }}
+      </div>
+
+      <div>
+        <v-text-field v-model="searchkey" type="text" prepend-inner-icon="mdi-magnify" clearable solo rounded width='500px'></v-text-field>
+      </div>
+      <div class="mt-n4">
+        <!-- <p> {{message}} </p> -->
+        <v-progress-circular v-if="message == '入力中'" class="text-center" :size="50" color="primary" indeterminate></v-progress-circular>
+      </div>
+      <div>
+        <v-simple-table dense fixed-header>
+          <tbody>
+            <tr v-for="searchresult in searchresults" :key="searchresult.id">
+              <td v-if="displayTable">
+                <NuxtLink no-prefetch class="itemlink black--text" :to="`${$route.path}/${searchresult.id}`">
+                  {{ searchresult.name }}
+                </NuxtLink>
+              </td>
+            </tr>
+          </tbody>
+        </v-simple-table>
+      </div>
+    </v-col>
+  </v-row>
+</v-container>
 </template>
 <script>
 import axios from "axios"

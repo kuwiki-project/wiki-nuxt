@@ -8,14 +8,13 @@
             <span class="hutoji daiji">京大wiki</span>
             とは<br />
             学内資料を<br />
-            <span class="hutoji">収集・整理・公開</span>するプロジェクト
+            <span class="hutoji">共有</span>するプロジェクト
             <!-- <v-icon>mdi-file-upload-outline</v-icon>収集
            <v-icon>mdi-file-cabinet</v-icon>整理
             <v-icon>mdi-web</v-icon>公開 -->
           </div>
         </v-row>
       </v-container>
-
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -33,7 +32,7 @@
               </div>
               <div>
                 <dt>
-                  <v-icon color="blue"> mdi-fountain-pen </v-icon>
+                  <v-icon> mdi-fountain-pen </v-icon>
                   記事投稿
                 </dt>
                 <dd>wikiの記事を執筆できます</dd>
@@ -46,11 +45,12 @@
                 <dt><v-icon>mdi-file-code-outline</v-icon> サイト開発</dt>
                 <dd>フロントエンド，バックエンドともにオープンソースです</dd>
               </div>
+              <div>その他 随時拡大予定</div>
             </dl>
           </v-col>
         </v-row>
         <v-row>
-          <v-col cols="12" sm="6">
+          <v-col cols="12" md="6">
             <v-card outlined>
               <v-card-title>
                 <v-avatar size="26" class="my-1 mx-2">
@@ -59,7 +59,7 @@
                 過去問
               </v-card-title>
               <v-card-subtitle>
-                全学で過去問を共有できます．
+                過去問を引き継ぎます<br>
                 すべての般教科目・専門科目の試験問題およびレポート課題を取り扱っています
               </v-card-subtitle>
               <v-card-text>
@@ -89,7 +89,7 @@
             </v-card>
           </v-col>
 
-          <v-col cols="12" sm="6">
+          <v-col cols="12" md="6">
             <v-card outlined>
               <v-card-title>
                 <v-avatar size="26" class="my-1 mx-2">
@@ -116,7 +116,7 @@
               </v-card-text>
             </v-card>
           </v-col>
-          <v-col cols="12" sm="6">
+          <v-col cols="12" md="6">
             <v-card outlined>
               <v-card-title>
                 <v-avatar size="26" class="my-1 mx-2">
@@ -141,17 +141,16 @@
               </v-card-text>
             </v-card>
           </v-col>
-          <v-col cols="12" sm="6"> ...その他準備中 </v-col>
         </v-row>
         <v-row>
           <v-col cols="12">
             <h3>京大wiki運営について</h3>
-            学生有志がごく少数でやってます．利益は特にありません
+            学生有志がごく少数でやっています
             <div>
               <h4>活動目的</h4>
-              学生の立場で，学内の資料を引き継ぎつつ収集し公開していくことを活動の主目的としています．
-              全学で学年を越えて過去問を共有し誰でも閲覧できるようにしています．
-              また明文化されず口伝えされることやSNSで書かれていることが散逸しないように記事を作成しています
+              学生の立場で，学内の資料を引き継ぎつつ共有することを活動の主目的としています．
+              全学で学年を越えて誰でも過去問を閲覧できるようにしています．
+              また明文化されず口伝えされること，SNSで書かれていることが散逸しないように記事を作成しています
             </div>
             <div>
               <h4>活動経緯</h4>
