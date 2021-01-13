@@ -21,9 +21,7 @@
         <v-col cols="8">
           <h3>京大wikiでできること</h3>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col cols="12" md="6">
+        <v-col cols="8" md="5">
           <v-card>
             <v-card-title　class='my-2'>
               <v-avatar size="26" class="mx-2">
@@ -43,13 +41,12 @@
               </v-card-actions>
             </v-card-title>
             <v-card-subtitle>
-              過去問を引き継ぎます<br>
-              すべての般教科目・専門科目の試験問題およびレポート課題を取り扱っています
+              すべての般教科目・専門科目の試験問題およびレポート課題を取り扱っています。
             </v-card-subtitle>
           </v-card>
         </v-col>
 
-        <v-col cols="12" md="6">
+        <v-col cols="8" md="5">
           <v-card>
             <v-card-title class='my-2'>
               <v-avatar size="26" class="mx-2">
@@ -69,13 +66,12 @@
               </v-card-actions>
             </v-card-title>
             <v-card-subtitle>
-              京大内のさまざまなことを事典的にまとめています<br />
-              🌸新入生必見🌸
+              🌸新入生必見🌸京大内のさまざまなことを事典的にまとめています<br />
             </v-card-subtitle>
           </v-card>
         </v-col>
 
-        <v-col cols="12" md="6">
+        <v-col cols="8" md="5">
           <v-card>
             <v-card-title class='my-2'>
               <v-avatar size="26" class="mx-2">
@@ -89,7 +85,7 @@
                   <div>ソース</div>
                 </v-btn>
                 <v-btn to="/volunteer" color="secondary">
-                  <v-icon>mdi-magnify</v-icon>
+                  <v-icon>mdi-file-document-outline</v-icon>
                   <div>ドキュメント</div>
                 </v-btn>
               </v-card-actions>
@@ -100,7 +96,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="12" md="6">
+        <v-col cols="8" md="5">
           <v-card>
             <v-card-title class='my-2'>
               <v-avatar size="26" class="mx-2">
@@ -128,9 +124,7 @@
         <v-col cols="8">
           <h3>運営について</h3>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
+        <v-col cols="8">
           <div>
             学生有志がごく少数で活動しています
           </div>
@@ -161,9 +155,7 @@
         <v-col cols="8">
           <h3>関連サイト</h3>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
+        <v-col cols="8">
           <ul>
             <li>
               KU1025 - 物工過去問サイト
@@ -190,9 +182,7 @@
         <v-col cols="8">
           <h3>お問い合わせ</h3>
         </v-col>
-      </v-row>
-      <v-row>
-        <v-col>
+        <v-col cols='8'>
           メールかTwitterのDMにてご連絡ください．<br />
           京大wikiに関する質問，サイト不具合の報告，機能改善のリクエスト，その他なんでもお気軽にどうぞ．
         </v-col>
