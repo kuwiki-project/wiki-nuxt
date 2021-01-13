@@ -164,11 +164,11 @@ export default {
     },
     passwordConfirmationColor: function () {
       return ["secondary", "secondary", "warning", "primary"][
-        Math.floor(this.passwordConfirmationProgress / 40) +
+        Math.floor(this.passwordConfirmationProgress / 30) +
           Number(
-            this.credentials.password_confirmation != "" &&
-              this.credentials.password_confirmation ==
-                this.credentials.password
+            this.credentials.password_confirmation != ""
+            &&
+            this.credentials.password_confirmation == this.credentials.password
           )
       ]
     },
