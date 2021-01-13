@@ -1,32 +1,34 @@
 <template>
 <v-container class='px-18'>
-  <v-row align-content='center'>
-    <v-col cols='8'>
-      <div class="my-3 text-h5 mx-auto">
+  <v-row>
+
+    <v-card width='400' elevation='0' class='mx-auto' align="center">
+      <v-card-title>
         {{ title }}
+      </v-card-title>
+
+      <v-text-field v-model="searchkey" type="text" prepend-inner-icon="mdi-magnify" clearable solo rounded width='500px'></v-text-field>
+
+      <div class="mt-n2 mb-2">
+        <p> {{message}} </p>
+        <v-progress-circular v-if="message == '入力中'" :size="50" color="primary" indeterminate></v-progress-circular>
       </div>
 
-      <div>
-        <v-text-field v-model="searchkey" type="text" prepend-inner-icon="mdi-magnify" clearable solo rounded width='500px'></v-text-field>
+      <v-simple-table dense fixed-header>
+        <tbody>
+          <tr v-for="searchresult in searchresults" :key="searchresult.id">
+            <td v-if="message == '検索結果'">
+              <NuxtLink no-prefetch class="itemlink black--text" :to="`${$route.path}/${searchresult.id}`">
+                {{ searchresult.name }}
+              </NuxtLink>
+            </td>
+          </tr>
+        </tbody>
+      </v-simple-table>
+
+      </v-card-text>
       </div>
-      <div class="mt-n4">
-        <!-- <p> {{message}} </p> -->
-        <v-progress-circular v-if="message == '入力中'" class="text-center" :size="50" color="primary" indeterminate></v-progress-circular>
-      </div>
-      <div>
-        <v-simple-table dense fixed-header>
-          <tbody>
-            <tr v-for="searchresult in searchresults" :key="searchresult.id">
-              <td v-if="displayTable">
-                <NuxtLink no-prefetch class="itemlink black--text" :to="`${$route.path}/${searchresult.id}`">
-                  {{ searchresult.name }}
-                </NuxtLink>
-              </td>
-            </tr>
-          </tbody>
-        </v-simple-table>
-      </div>
-    </v-col>
+    </v-card>
   </v-row>
 </v-container>
 </template>
@@ -41,7 +43,6 @@ export default {
   data: () => ({
     searchkey: "",
     searchresults: [],
-    displayTable: true,
     message: "",
   }),
   watch: {
@@ -67,11 +68,9 @@ export default {
         .then((res) => {
           this.message = "検索結果"
           this.searchresults = res.data
-          this.displayTable = true
         })
         .catch((err) => {
           this.message = err
-          this.displayTable = false
         })
     },
   },
