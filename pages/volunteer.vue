@@ -9,8 +9,12 @@
             <strong>定期試験問題</strong>や<strong>レポート問題</strong>
             などをお持ちの方は、今後の京大生のために提供をよろしくお願いします
           </p>
-          <div class="text-center">過去問提供はメールにて</div>
-          <div class="text-center gmail daiji">kuwiki99</div>
+          <div class="text-center">
+過去問提供はメールにて
+</div>
+          <div class="text-center gmail daiji">
+kuwiki99
+</div>
           <div>
             上記のアドレスに試験問題をPDFファイルとして添付し送信してください．<br />
             解答・小テスト・課題も歓迎です<br />

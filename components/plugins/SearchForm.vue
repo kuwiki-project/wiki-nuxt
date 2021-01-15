@@ -1,36 +1,49 @@
 <template>
-<v-container class='px-18'>
-  <v-row>
+  <v-container class="px-18">
+    <v-row>
+      <v-card width="400" elevation="0" class="mx-auto" align="center">
+        <v-card-title>
+          {{ title }}
+        </v-card-title>
 
-    <v-card width='400' elevation='0' class='mx-auto' align="center">
-      <v-card-title>
-        {{ title }}
-      </v-card-title>
+        <v-text-field
+          v-model="searchkey"
+          type="text"
+          prepend-inner-icon="mdi-magnify"
+          clearable
+          solo
+          rounded
+          width="500px"
+        ></v-text-field>
 
-      <v-text-field v-model="searchkey" type="text" prepend-inner-icon="mdi-magnify" clearable solo rounded width='500px'></v-text-field>
+        <div class="mt-n2 mb-2">
+          <p>{{ message }}</p>
+          <v-progress-circular
+            v-if="message == '入力中'"
+            :size="50"
+            color="primary"
+            indeterminate
+          ></v-progress-circular>
+        </div>
 
-      <div class="mt-n2 mb-2">
-        <p> {{message}} </p>
-        <v-progress-circular v-if="message == '入力中'" :size="50" color="primary" indeterminate></v-progress-circular>
-      </div>
-
-      <v-simple-table dense fixed-header>
-        <tbody>
-          <tr v-for="searchresult in searchresults" :key="searchresult.id">
-            <td v-if="message == '検索結果'">
-              <NuxtLink no-prefetch class="itemlink black--text" :to="`${$route.path}/${searchresult.id}`">
-                {{ searchresult.name }}
-              </NuxtLink>
-            </td>
-          </tr>
-        </tbody>
-      </v-simple-table>
-
-      </v-card-text>
-      </div>
-    </v-card>
-  </v-row>
-</v-container>
+        <v-simple-table dense fixed-header>
+          <tbody>
+            <tr v-for="searchresult in searchresults" :key="searchresult.id">
+              <td v-if="message == '検索結果'">
+                <NuxtLink
+                  no-prefetch
+                  class="itemlink black--text"
+                  :to="`${$route.path}/${searchresult.id}`"
+                >
+                  {{ searchresult.name }}
+                </NuxtLink>
+              </td>
+            </tr>
+          </tbody>
+        </v-simple-table>
+      </v-card>
+    </v-row>
+  </v-container>
 </template>
 <script>
 import axios from "axios"
@@ -46,16 +59,16 @@ export default {
     message: "",
   }),
   watch: {
-    searchkey: function(newkeyword, oldkeyword) {
+    searchkey: function (newkeyword, oldkeyword) {
       this.message = "入力中"
       this.searchKeyword()
     },
   },
-  created: function() {
+  created: function () {
     this.searchKeyword = _.debounce(this.hitApi, 200)
   },
   methods: {
-    hitApi: function() {
+    hitApi: function () {
       var SEARCH_API_URL =
         process.env.WIKI_API_URL +
         "/" +

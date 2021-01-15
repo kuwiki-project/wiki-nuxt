@@ -4,7 +4,12 @@
       <v-card outlined width="310px" class="mx-auto" align="center">
         <v-img width="80" class="mt-10" src="/kiwi.svg"></v-img>
         <v-card-text class="px-6">
-          <v-form ref="credentials" v-model="valid" class="mx-7" lazy-validation>
+          <v-form
+            ref="credentials"
+            v-model="valid"
+            class="mx-7"
+            lazy-validation
+          >
             <v-text-field
               v-model="credentials.email"
               :rules="rules.email"
@@ -37,19 +42,12 @@
               </v-btn>
             </v-card-actions>
           </v-form>
-          </div>
           <div class="mx-6 my-1">
             <h5 class="my-1">
-              アカウント作成は
-              <NuxtLink to="/signup">
-                こちら
-              </NuxtLink> から
+              アカウント作成は<NuxtLink to="/signup"> こちら </NuxtLink>から
             </h5>
             <h5 class="my-1">
-              パスワード再発行は
-              <NuxtLink to="/reset_password">
-                こちら
-              </NuxtLink> から
+              パスワード再発行は<NuxtLink to="/reset_password"> こちら </NuxtLink>から
             </h5>
           </div>
         </v-card-text>
@@ -112,7 +110,7 @@ export default {
 }
 </script>
 <style scoped>
- .haba{
-   width: 200px;
- }
+.haba {
+  width: 200px;
+}
 </style>
