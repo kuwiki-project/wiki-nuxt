@@ -55,7 +55,6 @@
 <script>
 import axios from "axios";
 export default {
-  auth: false,
   async asyncData() {
     const baseURL = process.env.WIKI_API_URL + "/contact";
     // const { data } = await axios.get(baseURL)

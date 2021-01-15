@@ -108,6 +108,7 @@ import Swal from "sweetalert2"
 import router from "../.nuxt/router"
 export default {
   name: "SignupForm",
+  auth: false,
   data: () => ({
     valid: false,
     value: false,

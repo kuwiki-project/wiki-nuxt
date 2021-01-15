@@ -155,6 +155,11 @@
     <TheFooter />
   </div>
 </template>
+<script>
+export default {
+  auth: false,
+}
+</script>
 <style scoped>
 .daiji {
   font-size: 1.8rem;
