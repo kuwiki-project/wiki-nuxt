@@ -41,6 +41,11 @@ export default {
         link: "/volunteer",
       },
       {
+        icon: "mdi-book-open-variant",
+        text: "wiki",
+        link: "/wiki",
+      },
+      {
         icon: "mdi-account-circle",
         text: "ログイン",
         link: "/signin",
