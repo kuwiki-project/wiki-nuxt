@@ -10,20 +10,25 @@
   </v-main>
 </template>
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
   validate(context) {
     // 数値でなければならない
-    return /^\d+$/.test(context.params.id)
+    return /^\d+$/.test(context.params.id);
   },
   async asyncData(context) {
-    const courseId = context.params.id
+    const courseId = context.params.id;
     const courseDetailUrl =
-      context.$config.WIKI_API_URL + "/courses/" + courseId
-    const { data } = await axios.get(courseDetailUrl)
+      context.$config.WIKI_API_URL + "/courses/" + courseId;
+    const { data } = await axios.get(courseDetailUrl, {
+      headers: {
+        Authorization:
+          "token" + this.$auth.getToken("local").replace("Bearer", ""),
+      },
+    });
     return {
       course: data,
-    }
+    };
   },
-}
+};
 </script>

@@ -166,9 +166,9 @@ export default {
       return ["secondary", "secondary", "warning", "primary"][
         Math.floor(this.passwordConfirmationProgress / 30) +
           Number(
-            this.credentials.password_confirmation != ""
-            &&
-            this.credentials.password_confirmation == this.credentials.password
+            this.credentials.password_confirmation != "" &&
+              this.credentials.password_confirmation ==
+                this.credentials.password
           )
       ]
     },
@@ -177,20 +177,55 @@ export default {
     signup() {
       axios
         .post(
-          process.env.WIKI_API_URL + "/user/", //環境変数呼び出し
+          process.env.WIKI_API_URL + "/rest-auth/registration/",
           this.credentials
         )
         .then((res) => {
-          return res
-          //router.push()←リダイレクト
-        })
-        .catch((e) => {
           Swal.fire({
-            text: "登録に失敗しました",
+            title: "お知らせ",
+            text:
+              "メールアドレスに認証URLを送信しました。認証を完了させてください。",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
           })
+          this.$router.push("/signin")
+          return res
+        })
+        .catch((e) => {
+          if (e.response.data.username != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.username,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else if (e.response.data.email != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.email,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else if (e.response.data.password != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.password,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else {
+            Swal.fire({
+              title: "Error",
+              text: "登録に失敗しました",
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          }
         })
     },
   },

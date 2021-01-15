@@ -63,6 +63,7 @@ import Swal from "sweetalert2"
 import router from "../.nuxt/router"
 export default {
   name: "SigninForm",
+  auth: false,
   data: () => ({
     dialog: true,
     valid: false,
@@ -90,18 +91,20 @@ export default {
   },
   methods: {
     login() {
-      axios
-        .post(
-          process.env.WIKI_API_URL + "/user/sign_in/", //環境変数呼び出し もしだめなら this.$config.wikiApiUrl
-          this.credentials
-        )
+      this.$auth
+        .loginWith("local", {
+          data: {
+            email: this.credentials.email,
+            password: this.credentials.password,
+          },
+        })
         .then((res) => {
-          this.$store.dispatch("setLoginInfo", res.data)
-          //router.push()←リダイレクト
+          this.$router.push("/")
         })
         .catch((e) => {
           Swal.fire({
-            text: e.response.data.errors,
+            title: "Error",
+            text: e.response.data.non_field_errors,
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
@@ -112,7 +115,7 @@ export default {
 }
 </script>
 <style scoped>
- .haba{
-   width: 200px;
- }
+.haba {
+  width: 200px;
+}
 </style>

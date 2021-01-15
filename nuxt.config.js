@@ -37,12 +37,7 @@ const config = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [
-    {
-      src: "@/plugins/localStorage",
-      ssr: false,
-    },
-  ],
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
@@ -67,7 +62,29 @@ const config = {
     // customVariables: ['~/assets/variables.scss'],
     optionsPath: "@/plugins/vuetify.js",
   },
-  auth: {},
+
+  auth: {
+    redirect: {
+      login: "/signin",
+      logout: "/signin",
+      callback: false,
+      home: "/",
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/rest-auth/login/",
+            method: "post",
+            propertyName: "key",
+          },
+          user: false,
+          logout: false,
+        },
+      },
+    },
+  },
+
   publicRuntimeConfig: {
     WIKI_API_URL: process.env.WIKI_API_URL || "http://localhost:3000",
     BASE_URL: process.env.BASE_URL || "http://localhost:3333",
@@ -93,6 +110,9 @@ const config = {
   },
   generate: {
     dir: "../public",
+  },
+  router: {
+    middleware: ["auth"],
   },
 }
 

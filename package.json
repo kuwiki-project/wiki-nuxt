@@ -4,11 +4,11 @@
   "description": "学内資料共有プロジェクト",
   "author": "kuwiki",
   "engines": {
-    "yarn": "1.22.4"
+    "yarn": "1.22.10"
   },
   "private": true,
   "scripts": {
-    "dev": "HOST=0.0.0.0 PORT=3333 nuxt",
+    "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -36,7 +36,7 @@
     "prettier": "^2.2.0",
     "sweetalert2": "^9.15.1",
     "vuex": "^3.5.1",
-    "vuex-persistedstate": "^3.0.1"
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {}
 }

@@ -1,29 +1,30 @@
 <template>
-<div>
-  <v-main>
-    <v-container>
-      <v-row justify='center'>
-        <v-col cols="8">
-          <h3>関連サイト</h3>
-        </v-col>
-        <v-col cols="8">
-          <ul>
-            <li v-for="item in items" :key="item.text">
-              {{ item.text }}
-              <v-btn icon :href="item.link">
-                <v-icon>mdi-open-in-new</v-icon>
-              </v-btn>
-            </li>
-          </ul>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-main>
-  <TheFooter />
-</div>
+  <div>
+    <v-main>
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="8">
+            <h3>関連サイト</h3>
+          </v-col>
+          <v-col cols="8">
+            <ul>
+              <li v-for="item in items" :key="item.text">
+                {{ item.text }}
+                <v-btn icon :href="item.link">
+                  <v-icon>mdi-open-in-new</v-icon>
+                </v-btn>
+              </li>
+            </ul>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+    <TheFooter />
+  </div>
 </template>
 <script>
 export default {
+  auth: false,
   data: () => ({
     items: [
       {
@@ -41,7 +42,7 @@ export default {
         link: "https://web.sci-ku.info/home",
         detail: "",
       },
-    ]
+    ],
   }),
 }
 </script>
