@@ -40,8 +40,9 @@
                 </v-btn>
               </v-card-actions>
             </v-card-title>
-            <v-card-subtitle>
-              すべての般教科目・専門科目の試験問題およびレポート課題を取り扱っています。
+            <v-card-subtitle class='mx-1'>
+              すべての般教科目・専門科目の試験問題およびレポート課題を取り扱っています．
+              過去問を閲覧する方はテスト後自分の受けた問題を提供してください．
             </v-card-subtitle>
           </v-card>
         </v-col>
@@ -150,85 +151,8 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container>
-      <v-row justify='center'>
-        <v-col cols="8">
-          <h3>関連サイト</h3>
-        </v-col>
-        <v-col cols="8">
-          <ul>
-            <li>
-              KU1025 - 物工過去問サイト
-              <v-btn icon href="https://1025-kuexam.netlify.app/">
-                <v-icon>mdi-link</v-icon>
-              </v-btn>
-            </li>
-            <li>
-              KUEE13 - 電電過去問サイト
-              <v-btn icon href="https://kuee.netlify.app/">
-                <v-icon>mdi-link</v-icon>
-              </v-btn>
-            </li>
-            <li>
-              理学部学生自治会サイト
-              <v-btn icon href="https://web.sci-ku.info/home">
-                <v-icon>mdi-link</v-icon>
-              </v-btn>
-            </li>
-          </ul>
-        </v-col>
-      </v-row>
-      <v-row justify='center'>
-        <v-col cols="8">
-          <h3>お問い合わせ</h3>
-        </v-col>
-        <v-col cols='8'>
-          メールかTwitterのDMにてご連絡ください．<br />
-          京大wikiに関する質問，サイト不具合の報告，機能改善のリクエスト，その他なんでもお気軽にどうぞ．
-        </v-col>
-      </v-row>
-    </v-container>
   </v-main>
-  <v-footer padless>
-    <v-container>
-      <div>
-        <v-avatar size="26" class="my-1 mx-2">
-          <img class="kiwi-icon" src="/kiwi.svg" alt="kiwi" />
-          <svg>
-            <use xlink:href="logo.svg" style="--color_fill: #000"></use>
-          </svg>
-        </v-avatar>
-        <span>京大wiki</span>
-        <v-btn icon href="/">
-          <v-icon>mdi-link</v-icon>
-        </v-btn>
-      </div>
-      <div>
-        <v-avatar size="26" class="my-1 mx-2">
-          <v-icon>mdi-twitter</v-icon>
-        </v-avatar>
-        <span>ku_wiki</span>
-        <v-btn icon href="https://twitter.com/ku_wiki">
-          <v-icon>mdi-link</v-icon>
-        </v-btn>
-      </div>
-      <div>
-        <v-avatar size="26" class="my-1 mx-2">
-          <v-icon>mdi-github</v-icon>
-        </v-avatar>
-        <span>ku_wiki</span>
-        <v-btn icon href="https://twitter.com/ku_wiki">
-          <v-icon>mdi-link</v-icon>
-        </v-btn>
-      </div>
-      <div>
-        <v-avatar size="26" class="my-1 mx-2">
-          <v-icon>mdi-email</v-icon>
-        </v-avatar>
-        <span class="gmail">kuwiki99</span>
-      </div>
-    </v-container>
-  </v-footer>
+  <TheFooter />
 </div>
 </template>
 <style scoped>
@@ -285,13 +209,7 @@ h3:after {
       var(--v-primary-base));
 }
 
-.kiwi-icon {
-  filter: invert(1) grayscale(100%);
-  /* fill-color: #f0f0f0; */
-}
-
-svg:svg:root,
-*|*:not(svg|*)>svg:svg {
-  fill-color: black;
+a {
+  text-decoration: none;
 }
 </style>
