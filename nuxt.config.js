@@ -1,5 +1,4 @@
 const config = {
-  mode: "universal",
   ssr: false,
   components: true,
   target: "server",

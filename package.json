@@ -4,7 +4,7 @@
   "description": "学内資料共有プロジェクト",
   "author": "kuwiki",
   "engines": {
-    "yarn": "1.22.4"
+    "yarn": "1.22.10"
   },
   "private": true,
   "scripts": {
@@ -23,13 +23,7 @@
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/proxy": "^2.0.0",
-    "@nuxtjs/vuetify": "^1.11.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.14.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-loader": "^4.0.2",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^7.1.0",
+    "@nuxtjs/vuetify": "^1.11.3",
     "lodash": "^4.17.20",
     "node_module": "0.0.0",
     "nuxt": "^2.14.1",
@@ -38,5 +32,13 @@
     "vuex": "^3.5.1",
     "vuex-persistedstate": "^3.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^7.1.0",
+    "eslint-plugin-vuetify": "^1.0.0-beta.7"
+  }
 }
