@@ -4,14 +4,12 @@
       <v-card-text>
         <v-btn
           v-for="externalItem in externalItems"
-          :key="externalItem.text"
+          :key="externalItem.icon"
           class="mx-4 white--text"
           icon
           :to="externalItem.link"
         >
-          <v-icon size="24px">
-            {{ externalItem.icon }}
-          </v-icon>
+          <component :is="externalItem.icon"></component>
         </v-btn>
       </v-card-text>
       <v-card-text>
@@ -35,20 +33,26 @@
   </v-footer>
 </template>
 <script>
+import { TwitterIcon, GithubIcon, MailIcon } from "vue-feather-icons"
 export default {
+  components: {
+    TwitterIcon,
+    GithubIcon,
+    MailIcon,
+  },
   data: () => ({
     partition: "　|　",
     externalItems: [
       {
-        icon: "mdi-twitter",
+        icon: "twitter-icon",
         link: "/terms",
       },
       {
-        icon: "mdi-github",
+        icon: "github-icon",
         link: "/contact",
       },
       {
-        icon: "mdi-email",
+        icon: "mail-icon",
         link: "/related",
       },
     ],
