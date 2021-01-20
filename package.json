@@ -29,6 +29,7 @@
     "nuxt": "^2.14.1",
     "prettier": "^2.2.0",
     "sweetalert2": "^9.15.1",
+    "vue-feather-icons": "^5.1.0",
     "vuex": "^3.5.1",
     "vuex-persistedstate": "^3.0.1"
   },
