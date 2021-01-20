@@ -19,7 +19,7 @@
           v-for="(internalItem, index) in internalItems"
           :key="internalItem.text"
         >
-          <span v-if="index != 0">　|　</span>
+          <span v-if="index != 0" v-html="partition"></span>
           <NuxtLink :to="internalItem.link" class="white--text">
             {{ internalItem.text }}
           </NuxtLink>
@@ -37,6 +37,7 @@
 <script>
 export default {
   data: () => ({
+    partition: "　|　",
     externalItems: [
       {
         icon: "mdi-twitter",
