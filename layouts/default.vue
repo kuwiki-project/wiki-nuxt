@@ -1,54 +1,53 @@
 <template>
   <v-app id="default">
-    <v-app-bar color="secondary" dense app hide-on-scroll>
+    <v-app-bar app flat hide-on-scroll color="white">
       <v-toolbar-title class="mx-auto">
         <span id="title">
-          <NuxtLink to="/" class="white--text">京大wiki</NuxtLink>
+          <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
         </span>
       </v-toolbar-title>
-      <template #extension>
-        <v-tabs v-model="tab" dark fixed-tabs slider-color="primary">
-          <v-tab v-for="item in items" :key="item.text" :to="item.link">
-            <v-icon>{{ item.icon }}</v-icon>
-            <!-- {{ item.text }} -->
-          </v-tab>
-        </v-tabs>
-      </template>
+      <v-spacer />
+      <v-btn
+        v-for="item in items"
+        :key="item.icon"
+        text
+        color="secondary"
+        :to="item.link"
+      >
+        <component :is="item.icon"></component>
+      </v-btn>
     </v-app-bar>
     <Nuxt />
   </v-app>
 </template>
 <script>
+import { SearchIcon, BookIcon, UploadCloudIcon } from "vue-feather-icons"
 export default {
+  components: {
+    SearchIcon,
+    BookIcon,
+    UploadCloudIcon,
+  },
   data: () => ({
     drawer: false,
     group: null,
-    tab: null,
+    tabs: null,
+    // アイコン検索 https://vue-feather-icons.egoist.sh/
     items: [
       {
-        icon: "mdi-widgets",
+        icon: "search-icon",
         text: "トップ",
         link: "/",
       },
       {
-        icon: "mdi-folder-search",
-        text: "科目検索",
-        link: "/courses",
-      },
-      {
-        icon: "mdi-file-upload-outline",
+        icon: "upload-cloud-icon",
         text: "過去問提供",
         link: "/volunteer",
       },
       {
-        icon: "mdi-book-open-variant",
+        icon: "book-icon",
         text: "wiki",
         link: "/wiki",
-      },
-      {
-        icon: "mdi-account-circle",
-        text: "ログイン",
-        link: "/signin",
       },
     ],
   }),
