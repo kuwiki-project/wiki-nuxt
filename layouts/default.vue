@@ -21,12 +21,12 @@
   </v-app>
 </template>
 <script>
-import { SearchIcon, BookIcon, UploadCloudIcon } from "vue-feather-icons"
+import { SearchIcon, BookIcon, InfoIcon } from "vue-feather-icons"
 export default {
   components: {
     SearchIcon,
     BookIcon,
-    UploadCloudIcon,
+    InfoIcon,
   },
   data: () => ({
     drawer: false,
@@ -40,9 +40,9 @@ export default {
         link: "/",
       },
       {
-        icon: "upload-cloud-icon",
-        text: "過去問提供",
-        link: "/volunteer",
+        icon: "info-icon",
+        text: "京大wikiとは",
+        link: "/about",
       },
       {
         icon: "book-icon",
