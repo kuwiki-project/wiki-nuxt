@@ -2,6 +2,7 @@
   <v-row justify="center">
     <v-col cols="10" sm="8">
       <v-form>
+        {{ $config.WIKI_API_URL }}
         <v-text-field
           v-model="searchkey"
           type="text"
@@ -13,6 +14,7 @@
           label="科目名，教員名..."
         ></v-text-field>
       </v-form>
+
       <div class="mt-n2 mb-2 text-center">
         <!-- <p>{{ message }}</p> -->
         <v-progress-circular
@@ -64,7 +66,7 @@ export default {
   methods: {
     hitApi: function () {
       var SEARCH_API_URL =
-        process.env.WIKI_API_URL +
+        this.$config.WIKI_API_URL +
         "/" +
         this.items +
         "/search/" +
