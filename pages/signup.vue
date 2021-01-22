@@ -115,7 +115,7 @@ export default {
       email: "",
       password: "",
       password_confirmation: "",
-      confirm_success_url: process.env.WIKI_CONFIRM_SUCCESS_URL,
+      confirm_success_url: $config.WIKI_CONFIRM_SUCCESS_URL,
     },
   }),
   computed: {
@@ -177,7 +177,7 @@ export default {
     signup() {
       axios
         .post(
-          process.env.WIKI_API_URL + "/user/", //環境変数呼び出し
+          this.$config.WIKI_API_URL + "/user/", //環境変数呼び出し
           this.credentials
         )
         .then((res) => {

@@ -90,7 +90,7 @@ export default {
     login() {
       axios
         .post(
-          process.env.WIKI_API_URL + "/user/sign_in/", //環境変数呼び出し もしだめなら this.$config.wikiApiUrl
+          this.$config.WIKI_API_URL + "/user/sign_in/", //環境変数呼び出し もしだめなら this.$config.wikiApiUrl
           this.credentials
         )
         .then((res) => {
