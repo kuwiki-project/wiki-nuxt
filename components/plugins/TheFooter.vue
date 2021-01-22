@@ -1,5 +1,5 @@
 <template>
-  <v-footer dark padless class="info">
+  <v-footer dark padless app absolute class="info">
     <v-col class="text-center" cols="12">
       <v-card-text>
         <v-btn
