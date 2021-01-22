@@ -1,6 +1,12 @@
 import Vue from "vue"
 import Vuetify from "vuetify"
 import colors from "vuetify/es5/util/colors"
+import {
+  MailIcon,
+  LockIcon,
+  SearchIcon,
+} from "vue-feather-icons"
+// アイコン一覧 https://vue-feather-icons.egoist.sh/
 
 Vue.use(Vuetify)
 const vuetify = new Vuetify({
@@ -18,6 +24,19 @@ const vuetify = new Vuetify({
     },
     options: {
       customProperties: true,
+    },
+  },
+  icons: {
+    values: {
+      mail: {
+        component: MailIcon,
+      },
+      search: {
+        component: SearchIcon,
+      },
+      lock: {
+        component: LockIcon,
+      }
     },
   },
 })

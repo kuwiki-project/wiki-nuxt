@@ -5,7 +5,7 @@
         <v-text-field
           v-model="searchkey"
           type="text"
-          prepend-inner-icon="mdi-magnify"
+          prepend-inner-icon="$search"
           clearable
           solo
           rounded
@@ -87,12 +87,14 @@ export default {
 </script>
 <style>
 .v-text-field input {
-  padding: 8px 10px 8px;
+  padding: 10px 10px 10px;
 }
 
 .v-text-field {
   width: 350px;
-  margin: 20px 10px 20px;
+}
+.v-input__prepend-inner {
+  padding: 8px!important;
 }
 
 .itemlink {
