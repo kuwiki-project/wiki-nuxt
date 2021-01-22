@@ -1,7 +1,7 @@
 <template>
   <v-app id="default">
     <v-app-bar app flat hide-on-scroll color="white">
-      <v-toolbar-title class="mx-auto">
+      <v-toolbar-title>
         <span id="title">
           <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
         </span>
@@ -21,12 +21,13 @@
   </v-app>
 </template>
 <script>
-import { SearchIcon, BookIcon, InfoIcon } from "vue-feather-icons"
+import { SearchIcon, InfoIcon, BookIcon, LogInIcon } from "vue-feather-icons"
 export default {
   components: {
     SearchIcon,
-    BookIcon,
     InfoIcon,
+    BookIcon,
+    LogInIcon,
   },
   data: () => ({
     drawer: false,
@@ -48,6 +49,11 @@ export default {
         icon: "book-icon",
         text: "wiki",
         link: "/wiki",
+      },
+      {
+        icon: "log-in-icon",
+        text: "サインイン",
+        link: "/signin",
       },
     ],
   }),

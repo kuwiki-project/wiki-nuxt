@@ -2,7 +2,6 @@
   <v-row justify="center">
     <v-col cols="10" sm="8">
       <v-form>
-        {{ $config.WIKI_API_URL }}
         <v-text-field
           v-model="searchkey"
           type="text"
@@ -11,14 +10,15 @@
           solo
           rounded
           class="mx-auto my-5"
-          label="科目名，教員名..."
-        ></v-text-field>
+          label="科目名・教員名・学部"
+        >
+        </v-text-field>
       </v-form>
 
       <div class="mt-n2 mb-2 text-center">
         <!-- <p>{{ message }}</p> -->
         <v-progress-circular
-          v-if="message == '入力中'"
+          v-if="message === '入力中'"
           :size="50"
           color="primary"
           indeterminate
@@ -28,7 +28,7 @@
       <v-simple-table dense fixed-header>
         <tbody>
           <tr v-for="searchresult in searchresults" :key="searchresult.id">
-            <td v-if="message == '検索結果'">
+            <td v-if="message === '検索結果'">
               <NuxtLink
                 no-prefetch
                 class="itemlink black--text"
@@ -55,17 +55,17 @@ export default {
     message: "",
   }),
   watch: {
-    searchkey: function (newkeyword, oldkeyword) {
+    searchkey(newkeyword, oldkeyword) {
       this.message = "入力中"
       this.searchKeyword()
     },
   },
-  created: function () {
+  created() {
     this.searchKeyword = _.debounce(this.hitApi, 200)
   },
   methods: {
-    hitApi: function () {
-      var SEARCH_API_URL =
+    hitApi() {
+      const SEARCH_API_URL =
         this.$config.WIKI_API_URL +
         "/" +
         this.items +
