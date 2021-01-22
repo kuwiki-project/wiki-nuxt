@@ -27,7 +27,7 @@
       <v-divider></v-divider>
 
       <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>京大wiki</strong>
+        <span>{{ new Date().getFullYear() }} — 京大wiki</span>
       </v-card-text>
     </v-col>
   </v-footer>
@@ -76,5 +76,9 @@ export default {
 <style>
 a {
   text-decoration: none;
+}
+span {
+  font-weight: 400;
+  font-family: "Noto Sans JP", sans-serif;
 }
 </style>
