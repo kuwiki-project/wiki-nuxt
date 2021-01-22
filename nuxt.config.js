@@ -1,15 +1,17 @@
-const config = {
-  ssr: false,
-  target: "server",
-  components: true,
+export default {
   /*
    ** Headers of the page
    */
   head: {
     title: "京大wiki",
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        charset: "utf-8",
+      },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
+      },
       {
         hid: "description",
         name: "description",
@@ -17,7 +19,11 @@ const config = {
       },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/kiwi.svg" },
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/kiwi.svg",
+      },
       {
         rel: "stylesheet",
         href:
@@ -26,28 +32,22 @@ const config = {
     ],
   },
   /*
-   ** Customize the progress-bar color
-   */
-  loading: { color: "#f0f0f0" },
-  /*
    ** Global CSS
    */
   css: [],
   /*
    ** Plugins to load before mounting the App
    */
+  components: true,
   plugins: [
-    {
-      src: "@/plugins/localStorage",
-      ssr: false,
-    },
+    { src: "@/plugins/localStorage", mode: "client" },
   ],
   /*
    ** Nuxt.js dev-modules
    */
   buildModules: [
     "@nuxtjs/vuetify",
-    "@nuxt/typescript-build"
+    '@nuxtjs/eslint-module',
   ],
   /*
    ** Nuxt.js modules
@@ -68,7 +68,7 @@ const config = {
     optionsPath: "@/plugins/vuetify.js",
   },
   auth: {},
-  
+
   // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
   publicRuntimeConfig: {
     WIKI_API_URL: process.env.WIKI_API_URL || "http://localhost:3000",
@@ -77,33 +77,21 @@ const config = {
     WIKI_MICROCMS_API_KEY: process.env.WIKI_MICROCMS_API_KEY,
   },
   privateRuntimeConfig: {
-    // サーバーからのみ利用可能
+
   },
   /*
    ** Build configuration
    */
   build: {
-    build: {
-      extend(config, ctx) {
+    extend(config, ctx) {
+      if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: "pre",
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           exclude: /(node_modules)/,
-          options: {
-            fix: true,
-          },
         })
-      },
+      }
     },
   },
-  generate: {
-    dir: "../public",
-  },
 }
-
-if (process.env.NODE_ENV === "development") {
-  config.proxy = { "/api": "http://localhost:3000" }
-}
-
-export default config

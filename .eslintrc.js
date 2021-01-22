@@ -13,7 +13,10 @@ module.exports = {
     "plugin:vue/recommended",
     "plugin:prettier/recommended",
   ],
-  plugins: ["vue", "vuetify"],
+  plugins: [
+    "vue",
+    "vuetify"
+  ],
   rules: {
     semi: [2, "never"],
     "no-console": "off",
@@ -22,5 +25,7 @@ module.exports = {
     "vue/html-self-closing": "off",
     "vuetify/no-deprecated-classes": "error",
     "prettier/prettier": ["error", { semi: false }],
+    'vuetify/grid-unknown-attributes': 'error',
+    'vuetify/no-legacy-grid': 'error',
   },
 }
