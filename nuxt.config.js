@@ -1,7 +1,7 @@
 const config = {
   ssr: false,
-  components: true,
   target: "server",
+  components: true,
   /*
    ** Headers of the page
    */
@@ -45,16 +45,17 @@ const config = {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/vuetify", "@nuxt/typescript-build"],
+  buildModules: [
+    "@nuxtjs/vuetify",
+    "@nuxt/typescript-build"
+  ],
   /*
    ** Nuxt.js modules
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
-    // Doc: https://github.com/nuxt-community/dotenv-module
     "@nuxtjs/proxy",
-    "@nuxtjs/dotenv",
     "@nuxtjs/auth",
   ],
   /*
@@ -67,10 +68,16 @@ const config = {
     optionsPath: "@/plugins/vuetify.js",
   },
   auth: {},
+  
+  // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
   publicRuntimeConfig: {
     WIKI_API_URL: process.env.WIKI_API_URL || "http://localhost:3000",
     BASE_URL: process.env.BASE_URL || "http://localhost:3333",
-    WIKI_CONFIRM_SUCCESS_URL: "", //.envそのまま
+    WIKI_CONFIRM_SUCCESS_URL: process.env.WIKI_CONFIRM_SUCCESS_URL,
+    WIKI_MICROCMS_API_KEY: process.env.WIKI_MICROCMS_API_KEY,
+  },
+  privateRuntimeConfig: {
+    // サーバーからのみ利用可能
   },
   /*
    ** Build configuration

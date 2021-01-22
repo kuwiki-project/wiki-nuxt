@@ -1,18 +1,33 @@
 <template>
   <v-main>
     <v-container>
-      <h3>京大wiki</h3>
-      <!-- <v-chip-group v-model="selectedCatefory" active-class="info--text" mandatory>
-    <v-chip v-for='tag in tags' :key='tag.name'> {{tag}} </v-chip>
-  </v-chip-group> -->
+      
+      <v-chip-group
+        v-model="selectedCategory"
+        active-class="info--text"
+        mandatory
+      >
+        <v-chip
+          v-for="category in categories.data.contents"
+          :key="category.name"
+          :value="category.name"
+        >
+          {{ category.name }}
+        </v-chip>
+      </v-chip-group>
       <v-expansion-panels>
-        <v-expansion-panel v-for="item in res.data.contents" :key="item.id">
-          <v-expansion-panel-header>
-            {{ item.title }}
-          </v-expansion-panel-header>
-          <v-expansion-panel-content>
-            {{ item.body }}
-          </v-expansion-panel-content>
+        <v-expansion-panel
+          v-for="article in articles.data.contents"
+          :key="article.id"
+        >
+          <div v-if="selectedCategory == article.category.name">
+            <v-expansion-panel-header>
+              {{ article.title }}
+            </v-expansion-panel-header>
+            <v-expansion-panel-content>
+              {{ article.body }}
+            </v-expansion-panel-content>
+          </div>
         </v-expansion-panel>
       </v-expansion-panels>
     </v-container>
@@ -21,18 +36,27 @@
 <script>
 import axios from "axios"
 export default {
-  async asyncData({ $axios }) {
-    const res = await $axios.get("https://kuwiki.microcms.io/api/v1/wiki", {
+  async asyncData({ $axios, $config }) {
+    const articles = await $axios.get("https://kuwiki.microcms.io/api/v1/wiki", {
       headers: {
-        "X-API-KEY": process.env.WIKI_MICROCMS_API_KEY,
+        "X-API-KEY": $config.WIKI_MICROCMS_API_KEY,
       },
     })
+    const categories = await $axios.get(
+      "https://kuwiki.microcms.io/api/v1/wiki-categories",
+      {
+        headers: {
+          "X-API-KEY": $config.WIKI_MICROCMS_API_KEY,
+        },
+      }
+    )
     return {
-      res,
+      articles,
+      categories,
     }
   },
   data: () => ({
-    tags: [{ name: "categories1" }, { name: "categories2" }],
+    selectedCategory: "",
   }),
 }
 </script>
