@@ -23,7 +23,6 @@
     "lodash": "^4.17.20",
     "node_module": "0.0.0",
     "nuxt": "^2.14.12",
-    "prettier": "^2.2.0",
     "sweetalert2": "^9.15.1",
     "vue-feather-icons": "^5.1.0",
     "vuex": "^3.5.1",
@@ -35,10 +34,10 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
-    "eslint-loader": "^4.0.2",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-vue": "^7.1.0",
-    "eslint-plugin-vuetify": "^1.0.0-beta.7"
+    "eslint-plugin-vuetify": "^1.0.0-beta.7",
+    "prettier": "^2.2.0"
   }
 }

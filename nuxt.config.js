@@ -39,16 +39,11 @@ export default {
    ** Plugins to load before mounting the App
    */
   components: true,
-  plugins: [
-    { src: "@/plugins/localStorage", mode: "client" },
-  ],
+  plugins: [{ src: "@/plugins/localStorage", mode: "client" }],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    "@nuxtjs/vuetify",
-    '@nuxtjs/eslint-module',
-  ],
+  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/eslint-module"],
   /*
    ** Nuxt.js modules
    */
@@ -76,22 +71,9 @@ export default {
     WIKI_CONFIRM_SUCCESS_URL: process.env.WIKI_CONFIRM_SUCCESS_URL,
     WIKI_MICROCMS_API_KEY: process.env.WIKI_MICROCMS_API_KEY,
   },
-  privateRuntimeConfig: {
-
-  },
+  privateRuntimeConfig: {},
   /*
    ** Build configuration
    */
-  build: {
-    extend(config, ctx) {
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: "pre",
-          test: /\.(js|vue)$/,
-          loader: "eslint-loader",
-          exclude: /(node_modules)/,
-        })
-      }
-    },
-  },
+  build: {},
 }
