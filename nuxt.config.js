@@ -39,7 +39,12 @@ export default {
    ** Plugins to load before mounting the App
    */
   components: true,
-  plugins: [{ src: "@/plugins/localStorage", mode: "client" }],
+  plugins: [
+    {
+      src: "@/plugins/localStorage",
+      mode: "client",
+    },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -75,5 +80,4 @@ export default {
   /*
    ** Build configuration
    */
-  build: {},
 }

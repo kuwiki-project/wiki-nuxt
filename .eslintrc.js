@@ -11,21 +11,22 @@ module.exports = {
     "@nuxtjs",
     "prettier",
     "prettier/vue",
-    "eslint:recommended",
-    "plugin:vue/recommended",
     "plugin:prettier/recommended",
     "plugin:nuxt/recommended",
   ],
-  plugins: ["vue", "vuetify", "prettier"],
+  plugins: ["prettier"],
+  // add your custom rules here
   rules: {
     semi: [2, "never"],
     "no-console": "off",
     "vue/max-attributes-per-line": "off",
     "no-unused-vars": "off",
     "vue/html-self-closing": "off",
-    "prettier/prettier": ["error", { semi: false }],
-    "vuetify/no-deprecated-classes": "error",
-    "vuetify/grid-unknown-attributes": "error",
-    "vuetify/no-legacy-grid": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        semi: false,
+      },
+    ],
   },
 }
