@@ -53,9 +53,6 @@ export default {
   vuetify: {
     // CustomVariables: ['~/assets/variables.scss'],
     optionsPath: "./vuetify.options.js",
-    defaultAssets: {
-      icons: false,
-    },
   },
   /*
    ** Nuxt.js modules
@@ -84,4 +81,13 @@ export default {
     WIKI_MICROCMS_API_KEY: process.env.WIKI_MICROCMS_API_KEY,
   },
   privateRuntimeConfig: {},
+
+  build: {
+    devMiddleware: {
+      headers: {
+        "Cache-Control": "no-store",
+        Vary: "*",
+      },
+    },
+  },
 }
