@@ -1,7 +1,14 @@
-# COMPONENTS
+## コンポーネント
 
-**This directory is not required, you can delete it if you don't want to use it.**
+コンポーネントはpages内でimportなしに呼び出すことができる
+たとえば `HogeHoge.vue` は
+```
+<HogeHoge></HogeHoge>
+```
+あるいは
+```
+<component :is="HogeHoge"></component>
+```
+で呼び出せる
 
-The components directory contains your Vue.js Components.
-
-_Nuxt.js doesn't supercharge these components._
+SVGはvuetifyを通してアイコンにしているため，`/plugins/vuetify.js` を参照すること

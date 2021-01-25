@@ -9,7 +9,7 @@
           icon
           :to="externalItem.link"
         >
-          <component :is="externalItem.icon"></component>
+          <component :is="externalItem.icon" />
         </v-btn>
       </v-card-text>
       <v-card-text>
@@ -17,14 +17,14 @@
           v-for="(internalItem, index) in internalItems"
           :key="internalItem.text"
         >
-          <span v-if="index != 0" v-html="partition"></span>
+          <span v-if="index != 0" v-html="partition" />
           <NuxtLink :to="internalItem.link" class="white--text">
             {{ internalItem.text }}
           </NuxtLink>
         </span>
       </v-card-text>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-card-text class="white--text">
         <span>{{ new Date().getFullYear() }} — 京大wiki</span>
@@ -33,7 +33,7 @@
   </v-footer>
 </template>
 <script>
-import { TwitterIcon, GithubIcon, MailIcon } from "vue-feather-icons"
+import { GithubIcon, MailIcon, TwitterIcon } from "vue-feather-icons"
 export default {
   components: {
     TwitterIcon,

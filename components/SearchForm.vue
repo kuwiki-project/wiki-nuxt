@@ -11,8 +11,7 @@
           rounded
           class="mx-auto my-5"
           label="科目名・教員名・学部"
-        >
-        </v-text-field>
+        />
       </v-form>
 
       <div class="mt-n2 mb-2 text-center">
@@ -22,7 +21,7 @@
           :size="50"
           color="primary"
           indeterminate
-        ></v-progress-circular>
+        />
       </div>
 
       <v-simple-table dense fixed-header>
@@ -66,11 +65,11 @@ export default {
   methods: {
     hitApi() {
       const SEARCH_API_URL =
-        this.$config.WIKI_API_URL +
-        "/" +
-        this.items +
-        "/search/" +
-        this.searchkey
+        `${this.$config.WIKI_API_URL 
+        }/${ 
+        this.items 
+        }/search/${ 
+        this.searchkey}`
       console.log(this.searchkey)
       axios
         .get(SEARCH_API_URL)
@@ -85,16 +84,13 @@ export default {
   },
 }
 </script>
-<style>
-.v-text-field input {
-  padding: 10px 10px 10px;
-}
-
-.v-text-field {
+<style scoped>
+>>> .v-text-field {
   width: 350px;
 }
-.v-input__prepend-inner {
-  padding: 8px!important;
+
+>>> .v-input__prepend-inner {
+  padding-right: 9px !important;
 }
 
 .itemlink {
