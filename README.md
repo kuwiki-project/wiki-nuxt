@@ -29,14 +29,20 @@
 
 wiki-nuxt.herokuapp.com にオートデプロイ
 
-## 開発環境
+## 自動整形
 
-どのエディタでも構いませんが，エディタに prettier を入れて保存時に整形する設定にしておくとよいです
+prettier と eslint は独立で動かすようにしています
+
+- prettier
+  エディタに prettier を入れて保存時に整形する設定に
+
+- eslint
+  コマンド $yarn lintfix
 
 # 環境変数について
 
 .env ファイルは.gitignore に含め，Github では公開されないように設定している
-この冗長性を持たせているのは，パスワードなど Github で公開できないものも将来的に環境変数に含めるため
+この冗長性を持たせているのはパスワードなど Github で公開できないものも環境変数に書き込めるようにするため
 .env に書き込まれた環境変数はそれぞれ nuxt.config.js ファイル内で
 publicRuntimeConfig や privateRuntimeConfig として定義されているため，pages 内や component 内で利用できる
 https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
