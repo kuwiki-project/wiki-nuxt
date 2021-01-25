@@ -49,6 +49,14 @@ export default {
    ** Nuxt.js dev-modules
    */
   buildModules: ["@nuxtjs/vuetify", "@nuxtjs/eslint-module"],
+
+  vuetify: {
+    // CustomVariables: ['~/assets/variables.scss'],
+    optionsPath: "./vuetify.options.js",
+    defaultAssets: {
+      icons: false,
+    },
+  },
   /*
    ** Nuxt.js modules
    */
@@ -63,11 +71,10 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
-  vuetify: {
-    // customVariables: ['~/assets/variables.scss'],
-    optionsPath: "@/plugins/vuetify.js",
-  },
+
   auth: {},
+
+  loading: { color: "#80e4c7", height: "3px" },
 
   // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
   publicRuntimeConfig: {
@@ -77,7 +84,4 @@ export default {
     WIKI_MICROCMS_API_KEY: process.env.WIKI_MICROCMS_API_KEY,
   },
   privateRuntimeConfig: {},
-  /*
-   ** Build configuration
-   */
 }
