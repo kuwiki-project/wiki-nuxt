@@ -4,7 +4,8 @@
       <v-container>
         <v-row justify="center">
           <v-col cols="10" sm="8">
-            <v-card elevation="0">
+            <v-card flat>
+              <p>{{ $config.BASE_URL }}</p>
               <v-card-title>お問い合わせ</v-card-title>
               <v-form>
                 <!-- contact.category に選択結果が入る -->
@@ -32,25 +33,29 @@
                     required
                     auto-grow
                     rows="3"
-                  ></v-textarea>
+                  />
                 </v-card-text>
 
                 <v-card-actions>
-                  <v-btn text class="info"> 送信 </v-btn>
+                  <v-btn text class="info">
+                    送信
+                  </v-btn>
                 </v-card-actions>
               </v-form>
-            </v-card>
 
-            <div v-for="reply in replys.data.contents" :key="reply.id">
-              <v-card v-if="contact.category === reply.to.category.id">
-                <v-card-text class="info--text">
-                  {{ reply.to.body }}
-                </v-card-text>
-                <v-card-text>
-                  {{ reply.body }}
-                </v-card-text>
-              </v-card>
-            </div>
+              <v-card-text>
+                <div v-for="reply in replys.data.contents" :key="reply.id">
+                  <div v-if="reply.to.category.id === contact.category">
+                    <div class="info--text">
+                      {{ reply.to.body }}
+                    </div>
+                    <div>
+                      {{ reply.body }}
+                    </div>
+                  </div>
+                </div>
+              </v-card-text>
+            </v-card>
           </v-col>
         </v-row>
       </v-container>
@@ -66,38 +71,38 @@ export default {
       "https://kuwiki.microcms.io/api/v1/contact-reply",
       {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_KEY,
-        },
+          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+        }
       }
     )
     const categories = await $axios.get(
       "https://kuwiki.microcms.io/api/v1/contact-categories",
       {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_KEY,
-        },
+          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+        }
       }
     )
     return {
       replys,
-      categories,
+      categories
     }
   },
   data: () => ({
     contact: {
       category: "",
-      message: "",
-    },
+      message: ""
+    }
   }),
   methods: {
-    postMessage() {
+    postMessage({ context }) {
       axios.post("https://kuwiki.microcms.io/api/v1/contact", {
         headers: {
-          "X-WRITE-API-KEY": "95120f31-3461-4dcd-ad90-a1fb54ad24a7",
-        },
+          "X-WRITE-API-KEY": context.$context.WIKI_MICROCMS_API_POST_KEY
+        }
       })
-      // useridをわたす 成功時メッセージ表示 エラーハンドリング
-    },
-  },
+      // Useridをわたす 成功時メッセージ表示 エラーハンドリング
+    }
+  }
 }
 </script>

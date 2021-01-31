@@ -7,7 +7,8 @@
           :key="externalItem.icon"
           class="mx-4 white--text"
           icon
-          :to="externalItem.link"
+          :href="externalItem.link"
+          target="”_blank”"
         >
           <component :is="externalItem.icon" />
         </v-btn>
@@ -38,39 +39,47 @@ export default {
   components: {
     TwitterIcon,
     GithubIcon,
-    MailIcon,
+    MailIcon
   },
   data: () => ({
     partition: "　|　",
     externalItems: [
       {
         icon: "twitter-icon",
-        link: "/terms",
+        link: "https://twitter.com/ku_wiki"
       },
       {
         icon: "github-icon",
-        link: "/contact",
+        link: "/"
       },
       {
         icon: "mail-icon",
-        link: "/related",
-      },
+        link: "mailto: kuwiki99@gmail.com"
+      }
     ],
     internalItems: [
       {
         text: "利用規約",
-        link: "/terms",
+        link: "/terms"
       },
       {
         text: "お問い合わせ",
-        link: "/contact",
+        link: "/contact"
       },
       {
         text: "関連サイト",
-        link: "/related",
+        link: "/related"
       },
-    ],
-  }),
+      {
+        text: "運営について",
+        link: "/profile"
+      },
+      {
+        text: "プライバシーポリシー",
+        link: "/privacy"
+      }
+    ]
+  })
 }
 </script>
 <style>

@@ -10,7 +10,7 @@
             <ul>
               <li v-for="item in items" :key="item.text">
                 {{ item.text }}
-                <v-btn icon :href="item.link">
+                <v-btn icon :href="item.link" target="”_blank”">
                   <v-icon>mdi-open-in-new</v-icon>
                 </v-btn>
               </li>
@@ -29,19 +29,19 @@ export default {
       {
         text: "KU1025 - 物工過去問サイト",
         link: "https://1025-kuexam.netlify.app/",
-        detail: "",
+        detail: ""
       },
       {
         text: "KUEE13 - 電電過去問サイト",
         link: "https://kuee.netlify.app/",
-        detail: "",
+        detail: ""
       },
       {
         text: "理学部学生自治会サイト",
         link: "https://web.sci-ku.info/home",
-        detail: "",
-      },
-    ],
-  }),
+        detail: ""
+      }
+    ]
+  })
 }
 </script>

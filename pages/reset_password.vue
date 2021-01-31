@@ -29,7 +29,9 @@
         <v-card-text>
           <h5>
             <div>
-              サインインは<NuxtLink to="/signin"> こちら </NuxtLink>から
+              サインインは<NuxtLink to="/signin">
+                こちら
+              </NuxtLink>から
             </div>
           </h5>
         </v-card-text>

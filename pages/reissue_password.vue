@@ -4,7 +4,7 @@
     <v-container class="fill-height">
       <v-card outlined class="mx-auto" width="500px">
         <v-card-title id="title" class="py-5">
-          <img src="/kiwi.svg" width="150" />
+          <img src="/kiwi.svg" width="150">
         </v-card-title>
         <v-card-text class="px-6">
           <v-form class="mx-8 my-4">

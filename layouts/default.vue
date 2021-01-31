@@ -1,6 +1,6 @@
 <template>
   <v-app id="default">
-    <v-app-bar app flat hide-on-scroll color="white">
+    <v-app-bar app flat absolute color="white">
       <v-toolbar-title>
         <span id="title">
           <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
@@ -14,21 +14,14 @@
         color="secondary"
         :to="item.link"
       >
-        <component :is="item.icon"></component>
+        <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
     </v-app-bar>
     <Nuxt />
   </v-app>
 </template>
 <script>
-import { SearchIcon, InfoIcon, BookIcon, LogInIcon } from "vue-feather-icons"
 export default {
-  components: {
-    SearchIcon,
-    InfoIcon,
-    BookIcon,
-    LogInIcon,
-  },
   data: () => ({
     drawer: false,
     group: null,
@@ -36,22 +29,22 @@ export default {
     // アイコン検索 https://vue-feather-icons.egoist.sh/
     items: [
       {
-        icon: "search-icon",
+        icon: "$search",
         text: "トップ",
         link: "/",
       },
       {
-        icon: "info-icon",
+        icon: "$info",
         text: "京大wikiとは",
         link: "/about",
       },
       {
-        icon: "book-icon",
+        icon: "$book",
         text: "wiki",
         link: "/wiki",
       },
       {
-        icon: "log-in-icon",
+        icon: "$login",
         text: "サインイン",
         link: "/signin",
       },

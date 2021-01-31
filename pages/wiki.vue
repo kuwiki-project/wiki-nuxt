@@ -43,25 +43,25 @@ export default {
       "https://kuwiki.microcms.io/api/v1/wiki",
       {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_KEY,
-        },
+          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+        }
       }
     )
     const categories = await $axios.get(
       "https://kuwiki.microcms.io/api/v1/wiki-categories",
       {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_KEY,
-        },
+          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+        }
       }
     )
     return {
       articles,
-      categories,
+      categories
     }
   },
   data: () => ({
-    selectedCategory: "",
-  }),
+    selectedCategory: ""
+  })
 }
 </script>
