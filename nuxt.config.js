@@ -6,30 +6,30 @@ export default {
     title: "京大wiki",
     meta: [
       {
-        charset: "utf-8",
+        charset: "utf-8"
       },
       {
         name: "viewport",
-        content: "width=device-width, initial-scale=1",
+        content: "width=device-width, initial-scale=1"
       },
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || "",
-      },
+        content: process.env.npm_package_description || ""
+      }
     ],
     link: [
       {
         rel: "icon",
         type: "image/x-icon",
-        href: "/kiwi.svg",
+        href: "/kiwi.svg"
       },
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@400;700&display=swap",
-      },
-    ],
+          "https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@400;700&display=swap"
+      }
+    ]
   },
   /*
    ** Global CSS
@@ -42,8 +42,8 @@ export default {
   plugins: [
     {
       src: "@/plugins/localStorage",
-      mode: "client",
-    },
+      mode: "client"
+    }
   ],
   /*
    ** Nuxt.js dev-modules
@@ -52,7 +52,7 @@ export default {
 
   vuetify: {
     // CustomVariables: ['~/assets/variables.scss'],
-    optionsPath: "./vuetify.options.js",
+    optionsPath: "./vuetify.options.js"
   },
   /*
    ** Nuxt.js modules
@@ -61,7 +61,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
-    "@nuxtjs/auth",
+    "@nuxtjs/auth"
   ],
   /*
    ** Axios module configuration
@@ -78,16 +78,18 @@ export default {
     WIKI_API_URL: process.env.WIKI_API_URL || "http://localhost:3000",
     BASE_URL: process.env.BASE_URL || "http://localhost:3333",
     WIKI_CONFIRM_SUCCESS_URL: process.env.WIKI_CONFIRM_SUCCESS_URL,
-    WIKI_MICROCMS_API_KEY: process.env.WIKI_MICROCMS_API_KEY,
+    WIKI_MICROCMS_API_GET_KEY: process.env.WIKI_MICROCMS_API_GET_KEY,
+    WIKI_MICROCMS_API_POST_KEY: process.env.WIKI_MICROCMS_API_POST_KEY
   },
+
   privateRuntimeConfig: {},
 
   build: {
     devMiddleware: {
       headers: {
         "Cache-Control": "no-store",
-        Vary: "*",
-      },
-    },
-  },
+        Vary: "*"
+      }
+    }
+  }
 }
