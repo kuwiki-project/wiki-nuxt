@@ -1,8 +1,6 @@
 {
   "name": "wiki-nuxt",
   "version": "1.0.0",
-  "description": "My classy Nuxt.js project",
-  "author": "ku-pedia",
   "engines": {
     "yarn": "1.22.10"
   },
@@ -11,21 +9,34 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@nuxt/typescript-build": "^0.6.7",
-    "@nuxt/typescript-runtime": "^1.0.0",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.11.0",
-    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/proxy": "^2.0.0",
-    "@nuxtjs/vuetify": "^1.11.2",
+    "core-js": "^3.8.2",
+    "lodash": "^4.17.20",
     "node_module": "0.0.0",
-    "nuxt": "^2.14.1",
+    "nuxt": "^2.14.12",
     "sweetalert2": "^9.15.1",
+    "vue-feather-icons": "^5.1.0",
     "vuex": "^3.5.1",
     "vuex-persistedstate": "^3.0.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^5.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/vuetify": "^1.11.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.5.0",
+    "eslint-webpack-plugin": "^2.4.3",
+    "prettier": "^2.1.2"
+  }
 }
