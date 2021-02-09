@@ -46,12 +46,12 @@
 <script>
 import axios from "axios"
 export default {
-  async asyncData({ $axios, $config }) {
+  async asyncData({ $axios }) {
     const articles = await $axios.get(
       "https://kuwiki.microcms.io/api/v1/wiki",
       {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+          "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
         }
       }
     )
@@ -59,7 +59,7 @@ export default {
       "https://kuwiki.microcms.io/api/v1/wiki-categories",
       {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+          "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
         }
       }
     )

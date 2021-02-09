@@ -98,11 +98,14 @@ export default {
     WIKI_API_URL: process.env.WIKI_API_URL || "http://api.kuwiki.net",
     BASE_URL: process.env.BASE_URL || "http://api.kuwiki.net",
     WIKI_CONFIRM_SUCCESS_URL: process.env.WIKI_CONFIRM_SUCCESS_URL,
-    WIKI_MICROCMS_API_GET_KEY: process.env.WIKI_MICROCMS_API_GET_KEY,
-    WIKI_MICROCMS_API_POST_KEY: process.env.WIKI_MICROCMS_API_POST_KEY
   },
 
   privateRuntimeConfig: {},
+
+  env: {
+    WIKI_MICROCMS_API_GET_KEY: process.env.WIKI_MICROCMS_API_GET_KEY,
+    WIKI_MICROCMS_API_POST_KEY: process.env.WIKI_MICROCMS_API_POST_KEY,
+  },
 
   build: {
     devMiddleware: {

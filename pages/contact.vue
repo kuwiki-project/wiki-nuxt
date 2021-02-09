@@ -58,19 +58,18 @@ export default {
   auth: false,
   async asyncData({
     $axios,
-    $config
   }) {
     const replys = await $axios.get(
       "https://kuwiki.microcms.io/api/v1/contact-reply", {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+          "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
         }
       }
     )
     const categories = await $axios.get(
       "https://kuwiki.microcms.io/api/v1/contact-categories", {
         headers: {
-          "X-API-KEY": $config.WIKI_MICROCMS_API_GET_KEY
+          "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
         }
       }
     )
