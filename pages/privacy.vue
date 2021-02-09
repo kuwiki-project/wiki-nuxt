@@ -3,7 +3,7 @@
     <v-main>
       <v-container>
         <v-row justify="center">
-          <v-col cols="8">
+          <v-col cols="10" sm="8">
             <v-card-title>プライバシーポリシー</v-card-title>
             <v-card-text>
               <h4>個人情報の管理</h4>

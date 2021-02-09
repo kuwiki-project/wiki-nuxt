@@ -1,5 +1,5 @@
 <template>
-  <v-footer dark padless app absolute class="info">
+  <v-footer dark app absolute class="info">
     <v-col class="text-center" cols="12">
       <v-card-text>
         <v-btn
@@ -10,7 +10,7 @@
           :href="externalItem.link"
           target="”_blank”"
         >
-          <component :is="externalItem.icon" />
+          <v-icon>{{ externalItem.icon }}</v-icon>
         </v-btn>
       </v-card-text>
       <v-card-text>
@@ -19,7 +19,7 @@
           :key="internalItem.text"
         >
           <span v-if="index != 0" v-html="partition" />
-          <NuxtLink :to="internalItem.link" class="white--text">
+          <NuxtLink :to="internalItem.link" class="white--text text-no-wrap">
             {{ internalItem.text }}
           </NuxtLink>
         </span>
@@ -34,26 +34,20 @@
   </v-footer>
 </template>
 <script>
-import { GithubIcon, MailIcon, TwitterIcon } from "vue-feather-icons"
 export default {
-  components: {
-    TwitterIcon,
-    GithubIcon,
-    MailIcon
-  },
   data: () => ({
     partition: "　|　",
     externalItems: [
       {
-        icon: "twitter-icon",
+        icon: "$twitter",
         link: "https://twitter.com/ku_wiki"
       },
       {
-        icon: "github-icon",
+        icon: "$github",
         link: "/"
       },
       {
-        icon: "mail-icon",
+        icon: "$mail",
         link: "mailto: kuwiki99@gmail.com"
       }
     ],

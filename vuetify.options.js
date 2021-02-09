@@ -2,12 +2,15 @@ import KiwiIcon from "@/components/KiwiIcon.vue"
 import {
   BookIcon,
   Edit3Icon,
-  InfoIcon,
+  GridIcon,
   LockIcon,
   LogInIcon,
   MailIcon,
   SearchIcon,
   UploadCloudIcon,
+  SendIcon,
+  TwitterIcon,
+  GithubIcon,
 } from "vue-feather-icons"
 /*
  * アイコン一覧 https://vue-feather-icons.egoist.sh/
@@ -36,11 +39,20 @@ export default {
       upload: {
         component: UploadCloudIcon,
       },
-      info: {
-        component: InfoIcon,
+      grid: {
+        component: GridIcon,
       },
       login: {
         component: LogInIcon,
+      },
+      send: {
+        component: SendIcon,
+      },
+      twitter: {
+        component: TwitterIcon,
+      },
+      github: {
+        component: GithubIcon,
       },
       kiwi: {
         component: KiwiIcon,

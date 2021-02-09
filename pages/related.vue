@@ -3,10 +3,9 @@
     <v-main>
       <v-container>
         <v-row justify="center">
-          <v-col cols="8">
-            <h3>関連サイト</h3>
-          </v-col>
-          <v-col cols="8">
+          <v-col cols="10" sm="8">
+            <v-card-title>関連サイト</v-card-title>
+
             <ul>
               <li v-for="item in items" :key="item.text">
                 {{ item.text }}

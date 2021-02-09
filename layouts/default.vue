@@ -34,7 +34,7 @@ export default {
         link: "/",
       },
       {
-        icon: "$info",
+        icon: "$grid",
         text: "京大wikiとは",
         link: "/about",
       },
@@ -52,17 +52,31 @@ export default {
   }),
 }
 </script>
-<style scoped>
-#title {
-  font-weight: 700;
-  font-family: "Noto Sans JP", sans-serif;
-}
-
+<style>
 a {
   text-decoration: none;
 }
 
 div.v-application {
-  /* background-color: #A19BFF; */
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+h1 {
+  font-weight: 500;
+}
+h2 {
+  font-weight: 500;
+}
+h3 {
+  font-weight: 500;
+}
+h4 {
+  font-weight: 500;
+}
+h5 {
+  font-weight: 500;
+}
+h6 {
+  font-weight: 500;
 }
 </style>

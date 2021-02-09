@@ -23,17 +23,15 @@
         />
         <v-card-actions>
           <v-btn color="primary" depressed block large @click="signup">
-            <h4>パスワードリセット</h4>
+            パスワードリセット
           </v-btn>
         </v-card-actions>
         <v-card-text>
-          <h5>
-            <div>
+            <div class="text-caption">
               サインインは<NuxtLink to="/signin">
                 こちら
               </NuxtLink>から
             </div>
-          </h5>
         </v-card-text>
       </v-card>
     </v-container>
