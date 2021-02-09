@@ -10,15 +10,15 @@
   </v-main>
 </template>
 <script>
-import axios from "axios";
+import axios from "axios"
 export default {
   data() {
     return {
       results: [],
-    };
+    }
   },
   mounted() {
-    this.getCourseDetail();
+    this.getCourseDetail()
   },
   methods: {
     getCourseDetail() {
@@ -35,12 +35,12 @@ export default {
           }
         )
         .then((res) => {
-          this.results = res.data.results[0];
+          this.results = res.data.results[0]
         })
         .catch((err) => {
-          return err;
-        });
+          return err
+        })
     },
   },
-};
+}
 </script>

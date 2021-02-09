@@ -43,8 +43,8 @@
   </v-row>
 </template>
 <script>
-import axios from "axios";
-import _ from "lodash";
+import axios from "axios"
+import _ from "lodash"
 export default {
   name: "SearchForm",
   data: () => ({
@@ -55,16 +55,16 @@ export default {
   }),
   watch: {
     searchkey() {
-      this.message = "入力中";
-      this.searchKeyword();
+      this.message = "入力中"
+      this.searchKeyword()
     },
   },
   created() {
-    this.searchKeyword = _.debounce(this.hitApi, 200);
+    this.searchKeyword = _.debounce(this.hitApi, 200)
   },
   methods: {
     hitApi() {
-      this.loading = true;
+      this.loading = true
       axios
         .get(
           this.$config.WIKI_API_URL + "/api/course/?search=" + this.searchkey,
@@ -76,15 +76,15 @@ export default {
           }
         )
         .then((res) => {
-          this.searchresults = res.data.results;
-          this.message = "検索結果";
+          this.searchresults = res.data.results
+          this.message = "検索結果"
         })
         .catch((err) => {
-          return err;
-        });
+          return err
+        })
     },
   },
-};
+}
 </script>
 <style scoped>
 >>> .v-text-field {
