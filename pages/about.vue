@@ -46,6 +46,7 @@
 </template>
 <script>
 export default {
+  auth: false,
   data: () => ({
     items: [
       {
@@ -57,14 +58,14 @@ export default {
           {
             link: "/",
             text: "探す",
-            icon: "$search"
+            icon: "$search",
           },
           {
             link: "/volunteer",
             text: "提供",
-            icon: "$upload"
-          }
-        ]
+            icon: "$upload",
+          },
+        ],
       },
       {
         icon: "$book",
@@ -74,14 +75,14 @@ export default {
           {
             link: "/wiki",
             text: "読む",
-            icon: "$book"
+            icon: "$book",
           },
           {
             link: "/",
             text: "書く",
-            icon: "$edit"
-          }
-        ]
+            icon: "$edit",
+          },
+        ],
       },
       {
         icon: "mdi-code-json",
@@ -91,9 +92,9 @@ export default {
           {
             link: "/",
             text: "ドキュメント",
-            icon: "mdi-code-json"
-          }
-        ]
+            icon: "mdi-code-json",
+          },
+        ],
       },
       {
         icon: "mdi-web",
@@ -103,12 +104,12 @@ export default {
           {
             link: "/",
             text: "ソース",
-            icon: "mdi-file-code-outline"
-          }
-        ]
-      }
-    ]
-  })
+            icon: "mdi-file-code-outline",
+          },
+        ],
+      },
+    ],
+  }),
 }
 </script>
 <style scoped>

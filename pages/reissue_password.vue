@@ -38,6 +38,7 @@
 </template>
 <script>
 export default {
+  auth: false,
   data: () => ({
     email: "example@st.kyoto-u.ac.jp",
   }),

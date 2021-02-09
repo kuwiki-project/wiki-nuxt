@@ -1,28 +1,46 @@
 <template>
   <v-main>
     <v-container class="fill-height">
-      <div>{{ $route.params.id }}</div>
-      <div>{{ course.name }}</div>
-      <div>{{ course.field.name }}</div>
-      <!-- <div>{{ course.exam.link }}</div> -->
-      <a v-if="course.exam !== undefined" :href="course.exam.link">過去問 </a>
+      <div>{{ results.name }}</div>
+      <div>{{ results.field }}</div>
+      <div v-for="(exam, key) in results.exam_set" :key="key">
+        <a :href="exam.drive_link">{{ exam.drive_link }} </a>
+      </div>
     </v-container>
   </v-main>
 </template>
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
-  validate(context) {
-    // 数値でなければならない
-    return /^\d+$/.test(context.params.id)
-  },
-  async asyncData(context) {
-    const courseId = context.params.id
-    const courseDetailUrl = `${context.$config.WIKI_API_URL}/courses/${courseId}`
-    const { data } = await axios.get(courseDetailUrl)
+  data() {
     return {
-      course: data,
-    }
+      results: [],
+    };
   },
-}
+  mounted() {
+    this.getCourseDetail();
+  },
+  methods: {
+    getCourseDetail() {
+      axios
+        .get(
+          this.$config.WIKI_API_URL +
+            "/api/course/?id=" +
+            this.$router.currentRoute.params.id,
+          {
+            headers: {
+              Authorization:
+                "token" + this.$auth.getToken("local").replace("Bearer", ""),
+            },
+          }
+        )
+        .then((res) => {
+          this.results = res.data.results[0];
+        })
+        .catch((err) => {
+          return err;
+        });
+    },
+  },
+};
 </script>

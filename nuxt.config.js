@@ -1,7 +1,8 @@
 export default {
-  /*
-   ** Headers of the page
-   */
+  server: {
+    port: 3333,
+    host: 'localhost',
+  },
   head: {
     title: "京大wiki",
     meta: [
@@ -39,12 +40,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   components: true,
-  plugins: [
-    {
-      src: "@/plugins/localStorage",
-      mode: "client"
-    }
-  ],
+
+  plugins: [],
   /*
    ** Nuxt.js dev-modules
    */
@@ -67,16 +64,38 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    baseURL: process.env.WIKI_API_URL,
+  },
 
-  auth: {},
+  auth: {
+    redirect: {
+      login: '/signin',
+      logout: '/signin',
+      callback: false,
+      home: '/',
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/rest-auth/login/',
+            method: 'post',
+            propertyName: 'key',
+          },
+          user: false,
+          logout: false,
+        },
+      },
+    },
+  },
 
   loading: { color: "#80e4c7", height: "3px" },
 
   // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
   publicRuntimeConfig: {
-    WIKI_API_URL: process.env.WIKI_API_URL || "http://localhost:3000",
-    BASE_URL: process.env.BASE_URL || "http://localhost:3333",
+    WIKI_API_URL: process.env.WIKI_API_URL || "http://api.kuwiki.net",
+    BASE_URL: process.env.BASE_URL || "http://api.kuwiki.net",
     WIKI_CONFIRM_SUCCESS_URL: process.env.WIKI_CONFIRM_SUCCESS_URL,
     WIKI_MICROCMS_API_GET_KEY: process.env.WIKI_MICROCMS_API_GET_KEY,
     WIKI_MICROCMS_API_POST_KEY: process.env.WIKI_MICROCMS_API_POST_KEY
@@ -91,5 +110,9 @@ export default {
         Vary: "*"
       }
     }
-  }
+  },
+
+  router: {
+    middleware: ['auth'],
+  },
 }

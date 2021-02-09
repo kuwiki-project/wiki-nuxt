@@ -93,21 +93,22 @@ import axios from "axios"
 import Swal from "sweetalert2"
 export default {
   name: "SignupForm",
+  auth: false,
   data: () => ({
     valid: false,
     value: false,
     credentials: {
       email: "",
       password: "",
-      password_confirmation: ""
-    }
+      password_confirmation: "",
+    },
   }),
   computed: {
     emailRules() {
       return [
         (v) =>
           /^.+@st.kyoto-u.ac.jp$/.test(v) ||
-          "学生用メール @st.kyoto-u.ac.jp を入力してください"
+          "学生用メール @st.kyoto-u.ac.jp を入力してください",
       ]
     },
     passwordRules() {
@@ -116,7 +117,7 @@ export default {
     passwordConfirmationRules() {
       return [
         (v) => Boolean(v) || "必須",
-        (v) => v === this.credentials.password || "パスワードが合致しません"
+        (v) => v === this.credentials.password || "パスワードが合致しません",
       ]
     },
     allEntered() {
@@ -156,29 +157,72 @@ export default {
                 this.credentials.password
           )
       ]
-    }
+    },
   },
   methods: {
     signup() {
+      Swal.fire({
+        title: "お知らせ",
+        text: "処理が終了し、メッセージが表示されるまでお待ちください。",
+        showConfirmButton: false,
+        showCloseButton: false,
+        timer: 3000,
+      })
       axios
-        .post(
-          `${this.$config.WIKI_API_URL}/user/`, // 環境変数呼び出し
-          this.credentials
-        )
-        .then((res) => {
-          return res
-          // Router.push()←リダイレクト
+        .post(this.$config.WIKI_API_URL + "/rest-auth/registration/", {
+          email: this.credentials.email,
+          password1: this.credentials.password,
+          password2: this.credentials.password_confirmation,
         })
-        .catch((e) => {
+        .then((res) => {
           Swal.fire({
-            text: "登録に失敗しました",
+            title: "お知らせ",
+            text:
+              "メールアドレスに認証URLを送信しました。認証を完了させてください。",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000
+            timer: 3000,
           })
+          this.$router.push("/signin")
+          return res
         })
-    }
-  }
+        .catch((e) => {
+          if (e.response.data.username != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.username,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else if (e.response.data.email != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.email,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else if (e.response.data.password != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.password,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else {
+            Swal.fire({
+              title: "Error",
+              text: "登録に失敗しました",
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          }
+        })
+    },
+  },
 }
 </script>
 <style scoped>

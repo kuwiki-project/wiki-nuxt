@@ -58,25 +58,25 @@
   </v-main>
 </template>
 <script>
-import axios from "axios"
 import Swal from "sweetalert2"
 export default {
   name: "SigninForm",
   data: () => ({
+    auth: false,
     dialog: true,
     valid: false,
     credentials: {
       email: "",
-      password: ""
+      password: "",
     },
     rules: {
       email: [
         (v) => Boolean(v) || "",
         (v) =>
-          /^.+@st.kyoto-u.ac.jp$/.test(v) || "学生用メール @st.kyoto-u.ac.jp"
+          /^.+@st.kyoto-u.ac.jp$/.test(v) || "学生用メール @st.kyoto-u.ac.jp",
       ],
-      password: [(v) => Boolean(v) || ""]
-    }
+      password: [(v) => Boolean(v) || ""],
+    },
   }),
   computed: {
     allEntered() {
@@ -84,29 +84,31 @@ export default {
         return false
       }
       return true
-    }
+    },
   },
   methods: {
     login() {
-      axios
-        .post(
-          `${this.$config.WIKI_API_URL}/user/sign_in/`, // 環境変数呼び出し もしだめなら this.$config.wikiApiUrl
-          this.credentials
-        )
+      this.$auth
+        .loginWith("local", {
+          data: {
+            email: this.credentials.email,
+            password: this.credentials.password,
+          },
+        })
         .then((res) => {
-          this.$store.dispatch("setLoginInfo", res.data)
-          // Router.push()←リダイレクト
+          this.$router.push("/")
         })
         .catch((e) => {
           Swal.fire({
-            text: e.response.data.errors,
+            title: "Error",
+            text: e.response.data.non_field_errors,
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000
+            timer: 3000,
           })
         })
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>

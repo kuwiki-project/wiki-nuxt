@@ -123,6 +123,13 @@
     </v-container>
   </v-main>
 </template>
+
+<script>
+export default {
+  auth: false,
+}
+</script>
+
 <style scoped>
 .termCard {
   margin: 10pt;

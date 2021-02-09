@@ -27,13 +27,19 @@
           </v-btn>
         </v-card-actions>
         <v-card-text>
-            <div class="text-caption">
-              サインインは<NuxtLink to="/signin">
-                こちら
-              </NuxtLink>から
-            </div>
+          <div class="text-caption">
+            サインインは<NuxtLink to="/signin">
+              こちら
+            </NuxtLink>から
+          </div>
         </v-card-text>
       </v-card>
     </v-container>
   </v-main>
 </template>
+
+<script>
+export default {
+  auth: false,
+}
+</script>

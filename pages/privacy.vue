@@ -28,6 +28,11 @@
     <TheFooter />
   </div>
 </template>
+<script>
+export default {
+  auth: false,
+}
+</script>
 <style scoped>
 h4 {
   margin: 10pt 0pt 5pt;
