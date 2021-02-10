@@ -29,9 +29,7 @@
         </v-card-actions>
         <v-card-text>
           <div class="text-caption">
-            サインインは<NuxtLink to="/signin">
-              こちら
-            </NuxtLink>から
+            サインインは<NuxtLink to="/signin"> こちら </NuxtLink>から
           </div>
         </v-card-text>
       </v-card>
@@ -40,8 +38,8 @@
 </template>
 
 <script>
-import axios from "axios"
-import Swal from "sweetalert2"
+import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   auth: false,
   data: () => ({
@@ -50,7 +48,7 @@ export default {
   methods: {
     send() {
       axios
-        .post("http://localhost:8000/password/reset/", {
+        .post(this.$config.WIKI_API_URL + "/password/reset/", {
           email: this.email,
         })
         .then((res) => {
@@ -60,9 +58,9 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          })
-          this.$router.push("/signin")
-          return res
+          });
+          this.$router.push("/signin");
+          return res;
         })
         .catch((e) => {
           Swal.fire({
@@ -71,9 +69,9 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          })
-        })
+          });
+        });
     },
   },
-}
+};
 </script>

@@ -4,7 +4,7 @@
     <v-container class="fill-height">
       <v-card outlined class="mx-auto" width="500px">
         <v-card-title id="title" class="py-5">
-          <img src="/kuwiki.svg" width="150">
+          <img src="/kuwiki.svg" width="150" />
         </v-card-title>
         <v-card-text class="px-6">
           <v-form class="mx-8 my-4">
@@ -40,8 +40,8 @@
 </template>
 
 <script>
-import axios from "axios"
-import Swal from "sweetalert2"
+import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   auth: false,
   data: () => ({
@@ -50,17 +50,20 @@ export default {
     email: "example@st.kyoto-u.ac.jp",
   }),
   mounted() {
-    this.email = this.$route.query.email
+    this.email = this.$route.query.email;
   },
   methods: {
     reissue() {
       axios
-        .post("http://localhost:8000/rest-auth/password/reset/confirm/", {
-          uid: this.$route.query.uid,
-          token: this.$route.query.token,
-          new_password1: this.password1,
-          new_password2: this.password2,
-        })
+        .post(
+          this.$config.WIKI_API_URL + "/rest-auth/password/reset/confirm/",
+          {
+            uid: this.$route.query.uid,
+            token: this.$route.query.token,
+            new_password1: this.password1,
+            new_password2: this.password2,
+          }
+        )
         .then((res) => {
           Swal.fire({
             title: "お知らせ",
@@ -68,9 +71,9 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          })
-          this.$router.push("/signin")
-          return res
+          });
+          this.$router.push("/signin");
+          return res;
         })
         .catch((e) => {
           Swal.fire({
@@ -79,9 +82,9 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          })
-        })
+          });
+        });
     },
   },
-}
+};
 </script>
