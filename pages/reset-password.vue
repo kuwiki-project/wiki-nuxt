@@ -1,4 +1,3 @@
-
 <template>
   <!-- パスワード再発行メールの送信先を入力する画面-->
   <v-main>
@@ -14,6 +13,7 @@
           パスワード再発行用メールを送信します
         </v-card-subtitle>
         <v-text-field
+          v-model="email"
           type="email"
           placeholder="email"
           filled
@@ -23,7 +23,7 @@
           required
         />
         <v-card-actions>
-          <v-btn color="primary" depressed block large @click="signup">
+          <v-btn color="primary" depressed block large @click="send()">
             パスワードリセット
           </v-btn>
         </v-card-actions>
@@ -40,7 +40,40 @@
 </template>
 
 <script>
+import axios from "axios"
+import Swal from "sweetalert2"
 export default {
   auth: false,
+  data: () => ({
+    email: "",
+  }),
+  methods: {
+    send() {
+      axios
+        .post("http://localhost:8000/password/reset/", {
+          email: this.email,
+        })
+        .then((res) => {
+          Swal.fire({
+            title: "お知らせ",
+            text: "パスワード再発行用のメールを送信しました。",
+            showConfirmButton: false,
+            showCloseButton: false,
+            timer: 3000,
+          })
+          this.$router.push("/signin")
+          return res
+        })
+        .catch((e) => {
+          Swal.fire({
+            title: "Error",
+            text: "エラーが発生しました。",
+            showConfirmButton: false,
+            showCloseButton: false,
+            timer: 3000,
+          })
+        })
+    },
+  },
 }
 </script>

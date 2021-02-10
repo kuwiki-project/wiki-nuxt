@@ -10,6 +10,7 @@
           <v-form class="mx-8 my-4">
             <span class="mx-2 my-9">メールアドレス {{ email }}</span>
             <v-text-field
+              v-model="password1"
               type="password"
               placeholder="パスワード *"
               filled
@@ -18,6 +19,7 @@
               reqired
             />
             <v-text-field
+              v-model="password2"
               type="password"
               placeholder="パスワード確認 *"
               filled
@@ -27,7 +29,7 @@
             />
           </v-form>
           <v-card-actions class="mx-7 my-2">
-            <v-btn color="primary" depressed block large @click="signup">
+            <v-btn color="primary" depressed block large @click="reissue">
               <span class="text-button">パスワード再発行</span>
             </v-btn>
           </v-card-actions>
@@ -36,11 +38,50 @@
     </v-container>
   </v-main>
 </template>
+
 <script>
+import axios from "axios"
+import Swal from "sweetalert2"
 export default {
   auth: false,
   data: () => ({
+    password1: "",
+    password2: "",
     email: "example@st.kyoto-u.ac.jp",
   }),
+  mounted() {
+    this.email = this.$route.query.email
+  },
+  methods: {
+    reissue() {
+      axios
+        .post("http://localhost:8000/rest-auth/password/reset/confirm/", {
+          uid: this.$route.query.uid,
+          token: this.$route.query.token,
+          new_password1: this.password1,
+          new_password2: this.password2,
+        })
+        .then((res) => {
+          Swal.fire({
+            title: "お知らせ",
+            text: "パスワードのリセットに成功しました。",
+            showConfirmButton: false,
+            showCloseButton: false,
+            timer: 3000,
+          })
+          this.$router.push("/signin")
+          return res
+        })
+        .catch((e) => {
+          Swal.fire({
+            title: "Error",
+            text: "エラーが発生しました。",
+            showConfirmButton: false,
+            showCloseButton: false,
+            timer: 3000,
+          })
+        })
+    },
+  },
 }
 </script>
