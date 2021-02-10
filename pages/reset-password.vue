@@ -1,3 +1,4 @@
+
 <template>
   <!-- パスワード再発行メールの送信先を入力する画面-->
   <v-main>
@@ -8,7 +9,7 @@
         align="center"
         elevation="0"
       >
-        <v-img src="/kiwi.svg" class="mx-auto my-3" width="80" />
+        <v-img src="/kuwiki.svg" class="mx-auto my-3" width="100" />
         <v-card-subtitle>
           パスワード再発行用メールを送信します
         </v-card-subtitle>

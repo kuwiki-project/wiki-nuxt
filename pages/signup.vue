@@ -78,7 +78,7 @@
           </div>
           <div class="my-1 text-caption">
             パスワードをお忘れの方は
-            <NuxtLink to="/reset_password">
+            <NuxtLink to="/reset-password">
               こちら
             </NuxtLink>
             から

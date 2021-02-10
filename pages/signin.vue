@@ -47,7 +47,7 @@
           </div>
           <div class="my-1 text-caption">
             パスワード再発行は
-            <NuxtLink to="/reset_password">
+            <NuxtLink to="/reset-password">
               こちら
             </NuxtLink>
             から
