@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import axios from "axios";
-import Swal from "sweetalert2";
+import axios from "axios"
+import Swal from "sweetalert2"
 export default {
   name: "ConfirmEmail",
   auth: false,
@@ -41,9 +41,9 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          });
-          this.$router.push("/signin");
-          return res;
+          })
+          this.$router.push("/signin")
+          return res
         })
         .catch((e) => {
           Swal.fire({
@@ -52,9 +52,9 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          });
-        });
+          })
+        })
     },
   },
-};
+}
 </script>

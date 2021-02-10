@@ -7,9 +7,14 @@
         </v-card-title>
         <v-card-text class="px-6">
           <v-card-actions class="mx-3">
-            <v-btn color="primary" depressed block @click="login"
-              >再ログイン</v-btn
+            <v-btn
+              color="primary"
+              depressed
+              block
+              @click="login"
             >
+              再ログイン
+            </v-btn>
           </v-card-actions>
         </v-card-text>
       </v-card>
