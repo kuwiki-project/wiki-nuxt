@@ -11,9 +11,9 @@
               column
             >
               <v-chip
-                v-for="category in categories.data.contents"
-                :key="category.name"
-                :value="category.name"
+                v-for="category in categories"
+                :key="category.id"
+                :value="category.id"
               >
                 {{ category.name }}
               </v-chip>
@@ -23,17 +23,15 @@
           <v-col cols="11" sm="8">
             <v-expansion-panels>
               <v-expansion-panel
-                v-for="article in articles.data.contents"
+                v-for="article in articles"
                 :key="article.id"
               >
-                <div v-if="selectedCategory == article.category.name">
-                  <v-expansion-panel-header>
-                    {{ article.title }}
-                  </v-expansion-panel-header>
-                  <v-expansion-panel-content>
-                    {{ article.body }}
-                  </v-expansion-panel-content>
-                </div>
+                <v-expansion-panel-header>
+                  {{ article.title }}
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>
+                  {{ article.body }}
+                </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
           </v-col>
@@ -45,31 +43,38 @@
 </template>
 <script>
 import axios from "axios"
+import Swal from "sweetalert2"
 export default {
-  async asyncData({ $axios }) {
-    const articles = await $axios.get(
-      "https://kuwiki.microcms.io/api/v1/wiki",
-      {
-        headers: {
-          "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
+  data: () => ({
+    selectedCategory: "",
+    categories: [],
+    articles: []
+  }),
+  watch: {
+    selectedCategory(){
+      axios.get(
+        "https://kuwiki.microcms.io/api/v1/wiki/?filters=category[equals]" + this.selectedCategory,
+        {
+          headers: {
+            "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
+          }
         }
-      }
-    )
-    const categories = await $axios.get(
+      ).then(
+          (res) => { this.articles = res.data.contents}
+      )
+    }
+  },
+  async created() {
+    await axios.get(
       "https://kuwiki.microcms.io/api/v1/wiki-categories",
       {
         headers: {
           "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
         }
       }
+    ).then(
+      (res) => { this.categories = res.data.contents }
     )
-    return {
-      articles,
-      categories
-    }
   },
-  data: () => ({
-    selectedCategory: ""
-  })
 }
 </script>
