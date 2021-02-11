@@ -101,7 +101,7 @@ export default {
       email: "",
       password: "",
       password_confirmation: "",
-    },
+    }
   }),
   computed: {
     emailRules() {
@@ -162,8 +162,7 @@ export default {
   methods: {
     signup() {
       Swal.fire({
-        title: "お知らせ",
-        text: "処理が終了し、メッセージが表示されるまでお待ちください。",
+        text: "処理が終了し、メッセージが表示されるまでお待ちください",
         showConfirmButton: false,
         showCloseButton: false,
         timer: 3000,
@@ -176,9 +175,8 @@ export default {
         })
         .then((res) => {
           Swal.fire({
-            title: "お知らせ",
             text:
-              "メールアドレスに認証URLを送信しました。認証を完了させてください。",
+              "メールアドレスに認証URLを送信しました。認証を完了させてください",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
@@ -187,15 +185,7 @@ export default {
           return res
         })
         .catch((e) => {
-          if (e.response.data.username != null) {
-            Swal.fire({
-              title: "Error",
-              text: e.response.data.username,
-              showConfirmButton: false,
-              showCloseButton: false,
-              timer: 3000,
-            })
-          } else if (e.response.data.email != null) {
+         if (e.response.data.email != null) {
             Swal.fire({
               title: "Error",
               text: e.response.data.email,
@@ -213,7 +203,7 @@ export default {
             })
           } else {
             Swal.fire({
-              title: "Error",
+              title: "エラー",
               text: "登録に失敗しました",
               showConfirmButton: false,
               showCloseButton: false,

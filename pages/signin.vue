@@ -9,7 +9,7 @@
         <v-form ref="credentials" v-model="valid" class="mx-auto">
           <v-text-field
             v-model="credentials.email"
-            :rules="rules.email"
+            :rules="emailRules"
             type="email"
             required
             filled
@@ -19,7 +19,7 @@
           />
           <v-text-field
             v-model="credentials.password"
-            :rules="rules.password"
+            :rules="passwordRules"
             type="password"
             required
             filled
@@ -67,18 +67,20 @@ export default {
     valid: false,
     credentials: {
       email: "",
-      password: "",
-    },
-    rules: {
-      email: [
-        (v) => Boolean(v) || "",
-        (v) =>
-          /^.+@st.kyoto-u.ac.jp$/.test(v) || "学生用メール @st.kyoto-u.ac.jp",
-      ],
-      password: [(v) => Boolean(v) || ""],
-    },
+      password: ""
+    }
   }),
   computed: {
+    emailRules() {
+      return [
+        (v) =>
+          /^.+@st.kyoto-u.ac.jp$/.test(v) ||
+          "学生用メール @st.kyoto-u.ac.jp",
+      ]
+    },
+    passwordRules() {
+      return [(v) => Boolean(v) || "必須", (v) => v.length > 7 || "8文字以上"]
+    },
     allEntered() {
       if (this.credentials.email === "" || this.credentials.password === "") {
         return false

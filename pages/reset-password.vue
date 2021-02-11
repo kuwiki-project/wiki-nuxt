@@ -8,19 +8,20 @@
         align="center"
         elevation="0"
       >
-        <v-img src="/kuwiki.svg" class="mx-auto my-3" width="100" />
+        <v-img src="/kiwi.svg" class="mx-auto my-3" width="100" />
         <v-card-subtitle>
           パスワード再発行用メールを送信します
         </v-card-subtitle>
         <v-text-field
           v-model="email"
           type="email"
-          placeholder="email"
+          prepend-inner-icon="$mail"
           filled
           dense
           rounded
           autofocus
           required
+          :rules="emailRules"
         />
         <v-card-actions>
           <v-btn color="primary" depressed block large @click="send()">
@@ -29,7 +30,9 @@
         </v-card-actions>
         <v-card-text>
           <div class="text-caption">
-            サインインは<NuxtLink to="/signin"> こちら </NuxtLink>から
+            サインインは<NuxtLink to="/signin">
+              こちら
+            </NuxtLink>から
           </div>
         </v-card-text>
       </v-card>
@@ -38,13 +41,22 @@
 </template>
 
 <script>
-import axios from "axios";
-import Swal from "sweetalert2";
+import axios from "axios"
+import Swal from "sweetalert2"
 export default {
   auth: false,
   data: () => ({
     email: "",
   }),
+  computed: {
+    emailRules() {
+      return [
+        (v) =>
+          /^.+@st.kyoto-u.ac.jp$/.test(v) ||
+          "学生用メール @st.kyoto-u.ac.jp を入力してください",
+      ]
+    },
+  },
   methods: {
     send() {
       axios
@@ -58,9 +70,9 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          });
-          this.$router.push("/signin");
-          return res;
+          })
+          this.$router.push("/signin")
+          return res
         })
         .catch((e) => {
           Swal.fire({
@@ -69,9 +81,22 @@ export default {
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
-          });
-        });
+          })
+        })
     },
   },
-};
+}
 </script>
+<style scoped>
+>>> .v-input__prepend-inner {
+  padding-right: 9px !important;
+}
+
+>>> .v-text-field--rounded > .v-input__control > .v-input__slot {
+  padding: 0 16px !important;
+}
+
+>>> .v-icon {
+  color: #a9a9a9;
+}
+</style>
