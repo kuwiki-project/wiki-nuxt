@@ -6,8 +6,18 @@
           <v-card-title>お問い合わせ</v-card-title>
 
           <!-- selectedCategory は選択結果 -->
-          <v-chip-group v-model="selectedCategory" active-class="info--text" mandatory column class="mb-n3 mx-5">
-            <v-chip v-for="category in categories" :key="category.id" :value="category.id">
+          <v-chip-group
+            v-model="selectedCategory"
+            active-class="info--text"
+            mandatory
+            column
+            class="mb-n3 mx-5"
+          >
+            <v-chip
+              v-for="category in categories"
+              :key="category.id"
+              :value="category.id"
+            >
               {{ category.name }}
             </v-chip>
           </v-chip-group>
@@ -33,17 +43,17 @@
 
           <div v-for="reply in replys" :key="reply.id">
             <div v-if="reply.to.category.id === selectedCategory">
-            <v-card class="my-3 mx-4">
-              <v-card-text>
-                <div class="info--text">
-                  {{ reply.to.body }}
-                </div>
-                <div>
-                  {{ reply.body }}
-                </div>
-              </v-card-text>
-            </v-card>
-          </div>
+              <v-card class="my-3 mx-4">
+                <v-card-text>
+                  <div class="info--text">
+                    {{ reply.to.body }}
+                  </div>
+                  <div>
+                    {{ reply.body }}
+                  </div>
+                </v-card-text>
+              </v-card>
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -63,61 +73,61 @@ export default {
     categories: []
   }),
   watch: {
-    selectedCategory(){
-      axios.get(
-        "https://kuwiki.microcms.io/api/v1/contact-reply/",
-        {
+    selectedCategory() {
+      axios
+        .get("https://kuwiki.microcms.io/api/v1/contact-reply/", {
           headers: {
             "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
           }
-        }
-      ).then(
-        (res) => { this.replys = res.data.contents }
-      )
+        })
+        .then((res) => {
+          this.replys = res.data.contents
+        })
     }
   },
   async created() {
-    await axios.get(
-      "https://kuwiki.microcms.io/api/v1/contact-categories", {
+    await axios
+      .get("https://kuwiki.microcms.io/api/v1/contact-categories", {
         headers: {
           "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
         }
-      }
-    ).then(
-      (res) => { this.categories = res.data.contents }
-    )
+      })
+      .then((res) => {
+        this.categories = res.data.contents
+      })
   },
   methods: {
     postMessage() {
-      axios.post("https://kuwiki.microcms.io/api/v1/contact", {
-        headers: {
-          "X-WRITE-API-KEY": process.env.WIKI_MICROCMS_API_POST_KEY
-        },
-        data: {
-          category: this.selectedCategory,
-          body: this.inputMessage,
-          user: 'yamamura.sanami.76a@st.kyoto-u.ac.jp'
-        }
-      }
-    ).then((res) => {
-        Swal.fire({
-          text: "問い合わせを送信しました",
-          showConfirmButton: false,
-          showCloseButton: false,
-          timer: 3000,
+      axios
+        .post("https://kuwiki.microcms.io/api/v1/contact", {
+          headers: {
+            "X-WRITE-API-KEY": process.env.WIKI_MICROCMS_API_POST_KEY
+          },
+          data: {
+            category: this.selectedCategory,
+            body: this.inputMessage,
+            user: "yamamura.sanami.76a@st.kyoto-u.ac.jp"
+          }
         })
-        return res
-      }
-    ).catch((e) => {
-      Swal.fire({
-        title: "エラー",
-        text: "送信に失敗しました",
-        showConfirmButton: false,
-        showCloseButton: false,
-        timer: 3000,
-      })
+        .then((res) => {
+          Swal.fire({
+            text: "問い合わせを送信しました",
+            showConfirmButton: false,
+            showCloseButton: false,
+            timer: 3000
+          })
+          return res
+        })
+        .catch((e) => {
+          Swal.fire({
+            title: "エラー",
+            text: "送信に失敗しました",
+            showConfirmButton: false,
+            showCloseButton: false,
+            timer: 3000
+          })
+        })
     }
-  )}
   }
 }
 </script>
