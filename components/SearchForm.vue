@@ -18,7 +18,6 @@
         <!-- <p>{{ message }}</p> -->
         <v-progress-circular
           v-if="message === '入力中'"
-          :size="50"
           color="primary"
           indeterminate
         />
@@ -64,7 +63,6 @@ export default {
   },
   methods: {
     hitApi() {
-      this.loading = true
       axios
         .get(
           this.$config.WIKI_API_URL + "/api/course/?search=" + this.searchkey,
