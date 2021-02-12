@@ -1,11 +1,36 @@
 <template>
   <v-main>
-    <v-container class="fill-height">
-      <div>{{ results.name }}</div>
-      <div>{{ results.field }}</div>
-      <div v-for="(exam, key) in results.exam_set" :key="key">
-        <a :href="exam.drive_link">{{ exam.drive_link }} </a>
-      </div>
+    <v-container>
+      <v-row justify="center">
+        <v-col cols="10" sm="8">
+          <v-card-title>{{ results.name }}</v-card-title>
+          <v-card-subtitle>{{ results.field }}</v-card-subtitle>
+          <v-card-actions class="mt-n4">
+            <v-btn
+              v-for="(exam, key) in results.exam_set"
+              :key="key"
+              :href="exam.drive_link"
+              target="”_blank”"
+              icon
+            >
+              <v-icon>mdi-google-drive</v-icon>
+            </v-btn>
+          </v-card-actions>
+          <v-card v-for="(lecture, key) in results.lecture_set" :key="key" outlined class="my-1">
+            <v-card-text>
+              <div>
+                {{ lecture.year }} {{ lecture.semester }}
+                <span v-for="(period, key) in lecture.period_set" :key="key">
+                  {{ period.period }}
+                </span>
+              </div>
+              <div v-for="(instructor, key) in lecture.instructor_set" :key="key">
+                {{ instructor.instructor }}
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
     </v-container>
   </v-main>
 </template>
