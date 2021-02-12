@@ -5,7 +5,7 @@
         <v-col cols="12" sm="8" md="6" lg="5" xl="3">
           <v-card>
             <v-card-title>
-              アカウント有効化のために下のボタンを押してください。
+              アカウント有効化のために下のボタンを押してください
             </v-card-title>
             <v-card-actions class="mx-7 my-2">
               <v-btn color="primary" depressed block large @click="activate()">
@@ -36,8 +36,7 @@ export default {
         )
         .then((res) => {
           Swal.fire({
-            title: "お知らせ",
-            text: "アカウントの有効化に成功しました。ログインしてください。",
+            text: "アカウントの有効化に成功しました",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
@@ -48,7 +47,7 @@ export default {
         .catch((e) => {
           Swal.fire({
             title: "Error",
-            text: "エラーが発生しました。",
+            text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,

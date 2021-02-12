@@ -84,8 +84,7 @@ export default {
         )
         .then((res) => {
           Swal.fire({
-            title: "お知らせ",
-            text: "パスワードのリセットに成功しました。",
+            text: "パスワードを変更しました",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
@@ -95,8 +94,7 @@ export default {
         })
         .catch((e) => {
           Swal.fire({
-            title: "Error",
-            text: "エラーが発生しました。",
+            text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,

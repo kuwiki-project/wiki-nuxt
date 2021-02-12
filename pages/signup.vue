@@ -186,7 +186,7 @@ export default {
   methods: {
     signup() {
       Swal.fire({
-        text: "処理が終了し、メッセージが表示されるまでお待ちください",
+        text: "処理が終了しメッセージが表示されるまでお待ちください",
         showConfirmButton: false,
         showCloseButton: false,
         timer: 3000,
@@ -200,7 +200,7 @@ export default {
         .then((res) => {
           Swal.fire({
             text:
-              "メールアドレスに認証URLを送信しました。認証を完了させてください",
+              "メールアドレスに認証URLを送信しました 認証を完了させてください",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
@@ -227,7 +227,6 @@ export default {
             })
           } else {
             Swal.fire({
-              title: "エラー",
               text: "登録に失敗しました",
               showConfirmButton: false,
               showCloseButton: false,

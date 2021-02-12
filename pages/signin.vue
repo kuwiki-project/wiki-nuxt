@@ -29,7 +29,7 @@
           />
           <v-btn
             color="primary"
-            :disabled="!valid || !allEntered"
+            :disabled="!valid"
             depressed
             block
             @click="login"
@@ -46,7 +46,7 @@
             から
           </div>
           <div class="my-1 text-caption">
-            パスワード再発行は
+            パスワードをお忘れの方は
             <NuxtLink to="/reset-password">
               こちら
             </NuxtLink>
@@ -80,12 +80,6 @@ export default {
     },
     passwordRules() {
       return [(v) => Boolean(v) || "必須", (v) => v.length > 7 || "8文字以上"]
-    },
-    allEntered() {
-      if (this.credentials.email === "" || this.credentials.password === "") {
-        return false
-      }
-      return true
     },
   },
   methods: {
