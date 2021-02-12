@@ -34,6 +34,19 @@
               >
                 {{ searchresult.name }}
               </NuxtLink>
+
+              <v-btn
+                v-for="exam in searchresult.exam_set"
+                :key="exam.drive_link"
+                :href="exam.drive_link"
+                icon
+                small
+                target="”_blank”"
+              >
+                <v-icon small>
+                  mdi-google-drive
+                </v-icon>
+              </v-btn>
             </td>
           </tr>
         </tbody>
@@ -91,9 +104,5 @@ export default {
 
 >>> .v-input__prepend-inner {
   padding-right: 9px !important;
-}
-
-.itemlink {
-  text-decoration: none;
 }
 </style>
