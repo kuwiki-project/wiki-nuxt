@@ -56,6 +56,29 @@
               </template>
             </v-text-field>
 
+            <v-dialog v-model="dialog" width="600px">
+              <template #activator="{ on, attrs }">
+                <div class="text-caption">
+                  アカウント作成により
+                  <a
+                    color="primary"
+                    dark
+                    text
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    利用規約
+                  </a>
+                  に同意したものとみなされます
+                </div>
+              </template>
+              <v-card>
+                <div>
+                  <TextTerm />
+                </div>
+              </v-card>
+            </v-dialog>
+
             <v-btn
               color="primary"
               :disabled="!valid || !allEntered"
@@ -101,6 +124,7 @@ export default {
       email: "",
       password: "",
       password_confirmation: "",
+      check_term: "",
     }
   }),
   computed: {
@@ -218,6 +242,5 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
-  color: var(--v-info-base);
 }
 </style>
