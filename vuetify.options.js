@@ -11,6 +11,7 @@ import {
   SendIcon,
   TwitterIcon,
   GithubIcon,
+  SettingsIcon,
 } from "vue-feather-icons"
 /*
  * アイコン一覧 https://vue-feather-icons.egoist.sh/
@@ -53,6 +54,9 @@ export default {
       },
       github: {
         component: GithubIcon,
+      },
+      settings: {
+        component: SettingsIcon,
       },
       kiwi: {
         component: KiwiIcon,

@@ -1,62 +1,64 @@
 <template>
   <div>
     <v-main>
-      <v-row justify="center">
-        <v-col cols="10" sm="8">
-          <v-card-title>お問い合わせ</v-card-title>
+      <v-container>
+        <v-row justify="center">
+          <v-col cols="10" sm="8">
+            <v-card-title>お問い合わせ</v-card-title>
 
-          <!-- selectedCategory は選択結果 -->
-          <v-chip-group
-            v-model="selectedCategory"
-            active-class="info--text"
-            mandatory
-            column
-            class="mb-n3 mx-5"
-          >
-            <v-chip
-              v-for="category in categories"
-              :key="category.id"
-              :value="category.id"
+            <!-- selectedCategory は選択結果 -->
+            <v-chip-group
+              v-model="selectedCategory"
+              active-class="info--text"
+              mandatory
+              column
+              class="mb-n3 mx-5"
             >
-              {{ category.name }}
-            </v-chip>
-          </v-chip-group>
+              <v-chip
+                v-for="category in categories"
+                :key="category.id"
+                :value="category.id"
+              >
+                {{ category.name }}
+              </v-chip>
+            </v-chip-group>
 
-          <v-card-text class="mb-n10">
-            <v-textarea
-              v-model="inputMessage"
-              filled
-              clearable
-              required
-              auto-grow
-              shaped
-              rows="3"
-            />
-          </v-card-text>
+            <v-card-text class="mb-n10">
+              <v-textarea
+                v-model="inputMessage"
+                filled
+                clearable
+                required
+                auto-grow
+                shaped
+                rows="3"
+              />
+            </v-card-text>
 
-          <v-card-actions class="mx-3">
-            <v-spacer />
-            <v-btn class="info" rounded @click="postMessage">
-              送信
-            </v-btn>
-          </v-card-actions>
+            <v-card-actions class="mx-3">
+              <v-spacer />
+              <v-btn class="info" rounded @click="postMessage">
+                送信
+              </v-btn>
+            </v-card-actions>
 
-          <div v-for="reply in replys" :key="reply.id">
-            <div v-if="reply.to.category.id === selectedCategory">
-              <v-card class="my-3 mx-4">
-                <v-card-text>
-                  <div class="info--text">
-                    {{ reply.to.body }}
-                  </div>
-                  <div>
-                    {{ reply.body }}
-                  </div>
-                </v-card-text>
-              </v-card>
+            <div v-for="reply in replys" :key="reply.id">
+              <div v-if="reply.to.category.id === selectedCategory">
+                <v-card class="my-3 mx-4">
+                  <v-card-text>
+                    <div class="info--text">
+                      {{ reply.to.body }}
+                    </div>
+                    <div>
+                      {{ reply.body }}
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </div>
             </div>
-          </div>
-        </v-col>
-      </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
     <TheFooter />
   </div>

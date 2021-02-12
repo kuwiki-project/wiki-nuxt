@@ -16,6 +16,24 @@
       >
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
+
+      <v-btn
+        v-if="$auth.loggedIn"
+        text
+        color="secondary"
+        to="/settings"
+      >
+        <v-icon>$settings</v-icon>
+      </v-btn>
+
+      <v-btn
+        v-if="!($auth.loggedIn)"
+        text
+        color="secondary"
+        to="/signin"
+      >
+        <v-icon>$login</v-icon>
+      </v-btn>
     </v-app-bar>
     <Nuxt />
   </v-app>
@@ -29,24 +47,16 @@ export default {
     // アイコン検索 https://vue-feather-icons.egoist.sh/
     items: [
       {
-        icon: "$search",
-        text: "トップ",
+        icon: "$grid",
         link: "/",
       },
       {
-        icon: "$grid",
-        text: "京大wikiとは",
-        link: "/about",
+        icon: "$search",
+        link: "/search",
       },
       {
         icon: "$book",
-        text: "wiki",
         link: "/wiki",
-      },
-      {
-        icon: "$login",
-        text: "サインイン",
-        link: "/signin",
       },
     ],
   }),
