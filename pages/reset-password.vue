@@ -12,22 +12,31 @@
         <v-card-subtitle>
           パスワード再発行用メールを送信します
         </v-card-subtitle>
-        <v-text-field
-          v-model="email"
-          type="email"
-          prepend-inner-icon="$mail"
-          filled
-          dense
-          rounded
-          autofocus
-          required
-          :rules="emailRules"
-        />
-        <v-card-actions>
-          <v-btn color="primary" depressed block large @click="send()">
-            パスワードリセット
-          </v-btn>
-        </v-card-actions>
+        <v-form ref="credentials" v-model="valid">
+          <v-text-field
+            v-model="email"
+            type="email"
+            prepend-inner-icon="$mail"
+            filled
+            dense
+            rounded
+            autofocus
+            required
+            :rules="emailRules"
+          />
+          <v-card-actions>
+            <v-btn
+              color="primary"
+              depressed
+              block
+              large
+              :disabled="!valid"
+              @click="send()"
+            >
+              パスワードリセット
+            </v-btn>
+          </v-card-actions>
+        </v-form>
         <v-card-text>
           <div class="text-caption">
             サインインは<NuxtLink to="/signin">
@@ -46,7 +55,10 @@ import Swal from "sweetalert2"
 export default {
   auth: false,
   data: () => ({
-    email: "",
+    valid: false,
+    credentials: {
+      email: "",
+    }
   }),
   computed: {
     emailRules() {
@@ -61,12 +73,11 @@ export default {
     send() {
       axios
         .post(this.$config.WIKI_API_URL + "/password/reset/", {
-          email: this.email,
-        })
-        .then((res) => {
+            email: this.email,
+        }
+      ).then((res) => {
           Swal.fire({
-            title: "お知らせ",
-            text: "パスワード再発行用のメールを送信しました。",
+            text: "パスワード再発行用のメールを送信しました",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
@@ -76,8 +87,7 @@ export default {
         })
         .catch((e) => {
           Swal.fire({
-            title: "Error",
-            text: "エラーが発生しました。",
+            text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
