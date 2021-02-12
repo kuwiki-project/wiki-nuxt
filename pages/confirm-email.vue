@@ -1,15 +1,27 @@
 <template>
   <v-main>
     <v-container>
-      <v-row class="button" justify="center" align-content="center">
-        <v-col cols="12" sm="8" md="6" lg="5" xl="3">
-          <v-card>
-            <v-card-title>
-              アカウント有効化のために下のボタンを押してください
-            </v-card-title>
-            <v-card-actions class="mx-7 my-2">
+      <v-row justify="center">
+        <v-col cols="10" sm="8">
+          <v-card flat>
+            <v-card-title>メールアドレス認証</v-card-title>
+            <v-card-text>
+              <v-alert
+                type="error"
+                border="left"
+                dark
+                dense
+              >
+                <div class="text-body-2">
+                  受信したメールに身に覚えのない方は無視してください
+                </div>
+              </v-alert>
+              京大wikiへの利用登録を完了するため，以下のボタンを押してアカウントを有効化してください
+            </v-card-text>
+
+            <v-card-actions class="mx-2 px-5">
               <v-btn color="primary" depressed block large @click="activate()">
-                <h4>Activate</h4>
+                アカウント有効化
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -36,7 +48,7 @@ export default {
         )
         .then((res) => {
           Swal.fire({
-            text: "アカウントの有効化に成功しました",
+            text: "アカウント有効化に成功しました",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
