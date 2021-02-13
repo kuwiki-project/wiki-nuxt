@@ -2,23 +2,25 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true,
+    node: true
   },
   parserOptions: {
-    parser: "babel-eslint",
+    parser: "babel-eslint"
   },
+
+  // ルールの設定変更
   extends: [
+    "@nuxtjs", // @nuxtjs/eslint-config
     "eslint:recommended",
-    "plugin:vue/recommended",
-    "plugin:prettier/recommended",
+    "plugin:nuxt/recommended", // eslint-plugin-nuxt
+    "plugin:vue/recommended", // eslint-plugin-vue // vue.js 2.x
+    "prettier" // eslint-config-prettier
   ],
-  plugins: ["vue"],
+
+  // Add your custom rules here
   rules: {
     semi: [2, "never"],
     "no-console": "off",
-    "vue/max-attributes-per-line": "off",
-    "no-unused-vars": "off",
-    "vue/html-self-closing": "off",
-    "prettier/prettier": ["error", { semi: false }],
-  },
+    "no-unused-vars": "off"
+  }
 }

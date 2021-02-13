@@ -1,59 +1,48 @@
 # wiki-nuxt
 
 ## ローカルで動かすために
-1. yarnをインストールする
-yarnとはパッケージ管理アプリ
-yarnのバージョンは`package.json`で確認できる
 
-1. ```$cd wiki-nuxt```
-wiki-nuxtフォルダに移動
+1. yarn をインストールする
+   yarn とはパッケージ管理アプリ
+   yarn のバージョンは`package.json`で確認できる
 
-1. ```wiki-nuxt $yarn```
-依存パッケージをインストール
+1. `$cd wiki-nuxt`
+   wiki-nuxt フォルダに移動
 
-1. ```wiki-nuxt $cp .env.sample .env```
-.envファイルを作成し，.env.sampleの中身を.envにコピペする
+1. `wiki-nuxt $yarn`
+   依存パッケージをインストール
 
-1. ```wiki-nuxt $yarn dev```
-サーバーを立てる
+1. `wiki-nuxt $cp .env.sample .env`
+   .env ファイルを作成し，.env.sample の中身を.env にコピペする
+   記入されていない環境変数は運営のだれかに聞く
+
+1. `wiki-nuxt $yarn dev`
+   サーバーを立てる
 
 1. ブラウザで`localhost:3333`にアクセス
 
 # ブランチ
+
 ### master
 
 ### develop
+
 wiki-nuxt.herokuapp.com にオートデプロイ
 
-### feature/1
-signup & signin 実装
+## 自動整形
 
-### feature/2
-トップ画面作成
+prettier と eslint は独立で動かすようにしています
+
+- prettier
+  エディタに prettier を入れて保存時に整形する設定に
+
+- eslint
+  コマンド $yarn lintfix
 
 # 環境変数について
-.envファイルは.gitignoreに含め，Githubでは公開されないように設定している
-この冗長性を持たせているのは，パスワードなどGithubで公開できないものも将来的に環境変数に含めるため
-.envに書き込まれた環境変数はそれぞれnuxt.config.jsファイル内で
-publicRuntimeConfigやprivateRuntimeConfigとして定義されているため，pages内やcomponent内で利用できる
+
+.env ファイルは.gitignore に含め，Github では公開されないように設定している
+この冗長性を持たせているのはパスワードなど Github で公開できないものも環境変数に書き込めるようにするため
+.env に書き込まれた環境変数はそれぞれ nuxt.config.js ファイル内で
+publicRuntimeConfig や privateRuntimeConfig として定義されているため，pages 内や component 内で利用できる
 https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config/
-
-
-> My classy Nuxt.js project
-
-## Build Setup
-
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3333
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```

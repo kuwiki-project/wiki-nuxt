@@ -1,63 +1,92 @@
 <template>
-<v-app id='default'>
-  <v-app-bar color="secondary" dense app hide-on-scroll>
-    <v-toolbar-title class='mx-auto'>
-      <span id="title">
-        <nuxt-link to="/" class="white--text">京大wiki</nuxt-link>
-      </span>
-    </v-toolbar-title>
-    <template v-slot:extension>
-      <v-tabs v-model="tab" dark fixed-tabs slider-color="primary">
-        <v-tab v-for="item in items" :key="item.text" :to="item.link">
-          <v-icon>{{ item.icon }}</v-icon>
-          <!-- {{ item.text }} -->
-        </v-tab>
-      </v-tabs>
-    </template>
-  </v-app-bar>
-  <Nuxt />
-</v-app>
+  <v-app id="default">
+    <v-app-bar app flat absolute color="white">
+      <v-toolbar-title>
+        <span id="title">
+          <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
+        </span>
+      </v-toolbar-title>
+      <v-spacer />
+      <v-btn
+        v-for="item in items"
+        :key="item.icon"
+        text
+        color="secondary"
+        :to="item.link"
+      >
+        <v-icon>{{ item.icon }}</v-icon>
+      </v-btn>
+
+      <v-btn
+        v-if="$auth.loggedIn"
+        text
+        color="secondary"
+        to="/settings"
+      >
+        <v-icon>$settings</v-icon>
+      </v-btn>
+
+      <v-btn
+        v-if="!($auth.loggedIn)"
+        text
+        color="secondary"
+        to="/signin"
+      >
+        <v-icon>$login</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <Nuxt />
+  </v-app>
 </template>
 <script>
 export default {
   data: () => ({
     drawer: false,
     group: null,
-    items: [{
-        icon: "mdi-widgets",
-        text: "トップ",
+    tabs: null,
+    // アイコン検索 https://vue-feather-icons.egoist.sh/
+    items: [
+      {
+        icon: "$grid",
         link: "/",
       },
       {
-        icon: "mdi-folder-search",
-        text: "科目検索",
-        link: "/courses",
+        icon: "$search",
+        link: "/search",
       },
       {
-        icon: "mdi-file-upload-outline",
-        text: "過去問提供",
-        link: "/volunteer",
-      },
-      {
-        icon: "mdi-account-circle",
-        text: "ログイン",
-        link: "/signin",
+        icon: "$book",
+        link: "/wiki",
       },
     ],
   }),
 }
 </script>
-<style scoped>
-#title {
-  font-weight: 700;
-  font-family: "Noto Sans JP", sans-serif;
-}
-
-a.nuxt-link-active {
+<style>
+a {
   text-decoration: none;
 }
 
 div.v-application {
-  /* background-color: #A19BFF; */
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+h1 {
+  font-weight: 500;
+}
+h2 {
+  font-weight: 500;
+}
+h3 {
+  font-weight: 500;
+}
+h4 {
+  font-weight: 500;
+}
+h5 {
+  font-weight: 500;
+}
+h6 {
+  font-weight: 500;
 }
 </style>

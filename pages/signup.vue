@@ -1,68 +1,110 @@
 <template>
   <v-main>
     <v-container class="fill-height">
-      <v-card outlined class="mx-auto" width="500px">
-        <!-- ここであとで京大wikiのロゴなど入れたい -->
-        <v-card-title id="title" class="py-5">
-          <KupediaLogo />
-        </v-card-title>
+      <v-card class="mx-auto" width="500px" elevation="0" align="center">
+        <v-img width="80" class="mx-auto mt-4" src="/kiwi.svg" />
         <v-card-text class="px-6">
-          <v-form class="mx-8 my-4">
+          <v-form ref="credentials" v-model="valid" class="mx-8 my-4">
             <v-text-field
               v-model="credentials.email"
-              :rules="rules.email"
+              :rules="emailRules"
               type="email"
-              placeholder="メールアドレス *"
-              filled
-              dense
-              rounded
-              autofocus
+              placeholder="メールアドレス"
               required
-            />
+              loading
+            >
+              <template #progress>
+                <v-progress-linear
+                  :value="emailProgress"
+                  :color="emailColor"
+                  absolute
+                  height="3"
+                />
+              </template>
+            </v-text-field>
             <v-text-field
               v-model="credentials.password"
-              :rules="rules.password"
+              :rules="passwordRules"
               type="password"
-              placeholder="パスワード *"
-              filled
-              dense
-              rounded
-              reqired
-            />
+              placeholder="パスワード"
+              required
+              loading
+            >
+              <template #progress>
+                <v-progress-linear
+                  :value="passwordProgress"
+                  :color="passwordColor"
+                  absolute
+                  height="3"
+                />
+              </template>
+            </v-text-field>
             <v-text-field
               v-model="credentials.password_confirmation"
-              :rules="rules.password_confirmation"
+              :rules="passwordConfirmationRules"
               type="password"
-              placeholder="パスワード確認 *"
-              filled
-              dense
-              rounded
-              reqired
-            />
-          </v-form>
-          <h5 align="center">
-            <div>
-              アカウント作成により
-              <nuxt-link :to="`terms/`"> 利用規約 </nuxt-link>
-              に同意したものとみなされます
-            </div>
-          </h5>
-          <v-card-actions class="mx-7 my-2">
-            <v-btn color="primary" depressed block large @click="signup">
-              <h4>アカウント作成</h4>
+              placeholder="パスワード再入力"
+              loading
+            >
+              <template #progress>
+                <v-progress-linear
+                  :value="passwordConfirmationProgress"
+                  :color="passwordConfirmationColor"
+                  absolute
+                  height="3"
+                />
+              </template>
+            </v-text-field>
+
+            <v-dialog v-model="dialog" width="600px">
+              <template #activator="{ on, attrs }">
+                <div class="text-caption">
+                  アカウント作成により
+                  <a
+                    color="primary"
+                    dark
+                    text
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    利用規約
+                  </a>
+                  に同意したものとみなされます
+                </div>
+              </template>
+              <v-card>
+                <div>
+                  <TextTerm />
+                </div>
+              </v-card>
+            </v-dialog>
+
+            <v-btn
+              color="primary"
+              :disabled="!valid || !allEntered"
+              depressed
+              block
+              large
+              class="my-2"
+              @click="signup"
+            >
+              アカウント作成
             </v-btn>
-          </v-card-actions>
-          <div align="center">
-            <h5>
-              <div>
-                パスワードをお忘れの方は <nuxt-link to="/reset_password">こちら</nuxt-link> から
-              </div>
-            </h5>
-            <h5>
-              <div>
-                アカウントをすでにお持ちの方は <nuxt-link to="/signin">こちら</nuxt-link> から
-              </div>
-            </h5>
+          </v-form>
+
+          <div class="my-1 text-caption">
+            アカウントをすでにお持ちの方は
+            <NuxtLink to="/signin">
+              こちら
+            </NuxtLink>
+            から
+          </div>
+          <div class="my-1 text-caption">
+            パスワードをお忘れの方は
+            <NuxtLink to="/reset-password">
+              こちら
+            </NuxtLink>
+            から
           </div>
         </v-card-text>
       </v-card>
@@ -72,63 +114,132 @@
 <script>
 import axios from "axios"
 import Swal from "sweetalert2"
-import router from "../.nuxt/router"
 export default {
   name: "SignupForm",
+  auth: false,
   data: () => ({
     valid: false,
+    value: false,
     credentials: {
       email: "",
       password: "",
       password_confirmation: "",
-      confirm_success_url: "https://wiki-nuxt.herokuapp.com/confirm_success",
-    },
-    rules: {
-      email: [
+      check_term: "",
+    }
+  }),
+  computed: {
+    emailRules() {
+      return [
         (v) =>
           /^.+@st.kyoto-u.ac.jp$/.test(v) ||
           "学生用メール @st.kyoto-u.ac.jp を入力してください",
-      ],
-      password: [
-        (v) => !!v || "パスワードを入力してください",
-        (v) => v.length > 7 || "8文字以上",
-      ],
-      password_confirmation: [
-        (v) => !!v || "パスワードを入力してください",
-        (v) => v.length > 7 || "8文字以上",
-        // v => v === this.cresidentials.password
-      ],
+      ]
     },
-  }),
+    passwordRules() {
+      return [(v) => Boolean(v) || "必須", (v) => v.length > 7 || "8文字以上"]
+    },
+    passwordConfirmationRules() {
+      return [
+        (v) => Boolean(v) || "必須",
+        (v) => v === this.credentials.password || "パスワードが合致しません",
+      ]
+    },
+    allEntered() {
+      return !(
+        this.credentials.email === "" ||
+        this.credentials.password === "" ||
+        this.credentials.password_confirmation === "" ||
+        this.checkbox === false
+      )
+    },
+    emailProgress() {
+      return Math.min(100, this.credentials.email.length * 3.3)
+    },
+    emailColor() {
+      return ["secondary", "warning", "primary"][
+        Math.floor(this.emailProgress / 60) +
+          Number(/^.+@st.kyoto-u.ac.jp$/.test(this.credentials.email))
+      ]
+    },
+    passwordProgress() {
+      return Math.min(100, this.credentials.password.length * 10)
+    },
+    passwordColor() {
+      return ["secondary", "warning", "primary"][
+        Math.floor(this.passwordProgress / 40)
+      ]
+    },
+    passwordConfirmationProgress() {
+      return Math.min(100, this.credentials.password_confirmation.length * 10)
+    },
+    passwordConfirmationColor() {
+      return ["secondary", "warning", "primary"][
+        Math.min(1, Math.floor(this.passwordConfirmationProgress / 80)) +
+          Number(
+            this.credentials.password_confirmation !== "" &&
+              this.credentials.password_confirmation ===
+                this.credentials.password
+          )
+      ]
+    },
+  },
   methods: {
     signup() {
-      if (this.credentials.password != this.credentials.password_confirmation) {
-        Swal.fire({
-          text: "パスワードが一致しません",
-          showConfirmButton: false,
-          showCloseButton: false,
-          timer: 3000,
-        })
-        return
-      }
+      Swal.fire({
+        text: "処理が終了しメッセージが表示されるまでお待ちください",
+        showConfirmButton: false,
+        showCloseButton: false,
+        timer: 3000,
+      })
       axios
-        .post(
-          process.env.WIKI_API_URL + "/user/", //環境変数呼び出し
-          this.credentials
-        )
-        .then((res) => {
-          return res
-          //router.push()←リダイレクト
+        .post(this.$config.WIKI_API_URL + "/rest-auth/registration/", {
+          email: this.credentials.email,
+          password1: this.credentials.password,
+          password2: this.credentials.password_confirmation,
         })
-        .catch((e) => {
+        .then((res) => {
           Swal.fire({
-            text: "登録に失敗しました",
+            text:
+              "メールアドレスに認証URLを送信しました 認証を完了させてください",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000,
           })
+          this.$router.push("/signin")
+          return res
+        })
+        .catch((e) => {
+         if (e.response.data.email != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.email,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else if (e.response.data.password != null) {
+            Swal.fire({
+              title: "Error",
+              text: e.response.data.password,
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          } else {
+            Swal.fire({
+              text: "登録に失敗しました",
+              showConfirmButton: false,
+              showCloseButton: false,
+              timer: 3000,
+            })
+          }
         })
     },
   },
 }
 </script>
+<style scoped>
+a {
+  text-decoration: none;
+}
+</style>
