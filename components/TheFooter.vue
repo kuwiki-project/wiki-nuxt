@@ -1,5 +1,5 @@
 <template>
-  <v-footer dark app absolute class="info">
+  <v-footer dark app absolute padless class="info">
     <v-col class="text-center" cols="12">
       <v-card-text>
         <v-btn
@@ -40,41 +40,41 @@ export default {
     externalItems: [
       {
         icon: "$twitter",
-        link: "https://twitter.com/ku_wiki"
+        link: "https://twitter.com/ku_wiki",
       },
       {
         icon: "$github",
-        link: "/"
+        link: "https://github.com/kuwiki-project/wiki-nuxt",
       },
       {
         icon: "$mail",
-        link: "mailto: kuwiki99@gmail.com"
-      }
+        link: "mailto: kuwiki99@gmail.com",
+      },
     ],
     internalItems: [
       {
         text: "利用規約",
-        link: "/terms"
+        link: "/terms",
       },
       {
         text: "お問い合わせ",
-        link: "/contact"
+        link: "/contact",
       },
       {
         text: "関連サイト",
-        link: "/related"
+        link: "/related",
       },
       {
         text: "運営について",
-        link: "/profile"
+        link: "/profile",
       },
       {
         text: "プライバシーポリシー",
-        link: "/privacy"
-      }
-    ]
-  })
-}
+        link: "/privacy",
+      },
+    ],
+  }),
+};
 </script>
 <style>
 a {
