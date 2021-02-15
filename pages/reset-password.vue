@@ -50,37 +50,37 @@
 </template>
 
 <script>
-import axios from "axios"
 import Swal from "sweetalert2"
+import axios from "axios"
 export default {
   auth: false,
   data: () => ({
     valid: false,
     credentials: {
-      email: "",
+      email: ""
     }
   }),
   computed: {
     emailRules() {
       return [
         (v) =>
-          /^.+@st.kyoto-u.ac.jp$/.test(v) ||
-          "学生用メール @st.kyoto-u.ac.jp を入力してください",
+          /^.+@st.kyoto-u.ac.jp$/u.test(v) ||
+          "学生用メール @st.kyoto-u.ac.jp を入力してください"
       ]
-    },
+    }
   },
   methods: {
     send() {
       axios
-        .post(this.$config.WIKI_API_URL + "/password/reset/", {
-            email: this.email,
-        }
-      ).then((res) => {
+        .post(`${this.$config.WIKI_API_URL}/password/reset/`, {
+          email: this.email
+        })
+        .then((res) => {
           Swal.fire({
             text: "パスワード再発行用のメールを送信しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
           this.$router.push("/signin")
           return res
@@ -90,11 +90,11 @@ export default {
             text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
         })
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped>

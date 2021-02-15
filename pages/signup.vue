@@ -60,13 +60,7 @@
               <template #activator="{ on, attrs }">
                 <div class="text-caption">
                   アカウント作成により
-                  <a
-                    color="primary"
-                    dark
-                    text
-                    v-bind="attrs"
-                    v-on="on"
-                  >
+                  <a color="primary" dark text v-bind="attrs" v-on="on">
                     利用規約
                   </a>
                   に同意したものとみなされます
@@ -112,8 +106,9 @@
   </v-main>
 </template>
 <script>
-import axios from "axios"
 import Swal from "sweetalert2"
+import axios from "axios"
+
 export default {
   name: "SignupForm",
   auth: false,
@@ -123,16 +118,15 @@ export default {
     credentials: {
       email: "",
       password: "",
-      password_confirmation: "",
-      check_term: "",
+      password_confirmation: ""
     }
   }),
   computed: {
     emailRules() {
       return [
         (v) =>
-          /^.+@st.kyoto-u.ac.jp$/.test(v) ||
-          "学生用メール @st.kyoto-u.ac.jp を入力してください",
+          /^.+@st.kyoto-u.ac.jp$/u.test(v) ||
+          "学生用メール @st.kyoto-u.ac.jp を入力してください"
       ]
     },
     passwordRules() {
@@ -141,15 +135,14 @@ export default {
     passwordConfirmationRules() {
       return [
         (v) => Boolean(v) || "必須",
-        (v) => v === this.credentials.password || "パスワードが合致しません",
+        (v) => v === this.credentials.password || "パスワードが合致しません"
       ]
     },
     allEntered() {
       return !(
         this.credentials.email === "" ||
         this.credentials.password === "" ||
-        this.credentials.password_confirmation === "" ||
-        this.checkbox === false
+        this.credentials.password_confirmation === ""
       )
     },
     emailProgress() {
@@ -158,7 +151,7 @@ export default {
     emailColor() {
       return ["secondary", "warning", "primary"][
         Math.floor(this.emailProgress / 60) +
-          Number(/^.+@st.kyoto-u.ac.jp$/.test(this.credentials.email))
+          Number(/^.+@st.kyoto-u.ac.jp$/u.test(this.credentials.email))
       ]
     },
     passwordProgress() {
@@ -181,7 +174,7 @@ export default {
                 this.credentials.password
           )
       ]
-    },
+    }
   },
   methods: {
     signup() {
@@ -189,13 +182,13 @@ export default {
         text: "処理が終了しメッセージが表示されるまでお待ちください",
         showConfirmButton: false,
         showCloseButton: false,
-        timer: 3000,
+        timer: 3000
       })
       axios
-        .post(this.$config.WIKI_API_URL + "/rest-auth/registration/", {
+        .post(`${this.$config.WIKI_API_URL}/rest-auth/registration/`, {
           email: this.credentials.email,
           password1: this.credentials.password,
-          password2: this.credentials.password_confirmation,
+          password2: this.credentials.password_confirmation
         })
         .then((res) => {
           Swal.fire({
@@ -203,39 +196,40 @@ export default {
               "メールアドレスに認証URLを送信しました 認証を完了させてください",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
           this.$router.push("/signin")
           return res
         })
         .catch((e) => {
-         if (e.response.data.email != null) {
+          if (e.response.data.email !== null) {
             Swal.fire({
-              title: "Error",
+              icon: "error",
               text: e.response.data.email,
               showConfirmButton: false,
               showCloseButton: false,
-              timer: 3000,
+              timer: 3000
             })
-          } else if (e.response.data.password != null) {
+          } else if (e.response.data.password !== null) {
             Swal.fire({
-              title: "Error",
+              icon: "error",
               text: e.response.data.password,
               showConfirmButton: false,
               showCloseButton: false,
-              timer: 3000,
+              timer: 3000
             })
           } else {
             Swal.fire({
+              icon: "error",
               text: "登録に失敗しました",
               showConfirmButton: false,
               showCloseButton: false,
-              timer: 3000,
+              timer: 3000
             })
           }
         })
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped>

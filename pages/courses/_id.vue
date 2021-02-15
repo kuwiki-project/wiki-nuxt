@@ -16,15 +16,26 @@
               <v-icon>mdi-google-drive</v-icon>
             </v-btn>
           </v-card-actions>
-          <v-card v-for="(lecture, lecture_key) in results.lecture_set" :key="lecture_key" outlined class="my-1">
+          <v-card
+            v-for="(lecture, lecture_key) in results.lecture_set"
+            :key="lecture_key"
+            outlined
+            class="my-1"
+          >
             <v-card-text>
               <div>
                 {{ lecture.year }} {{ lecture.semester }}
-                <span v-for="(period, period_key) in lecture.period_set" :key="period_key">
+                <span
+                  v-for="(period, period_key) in lecture.period_set"
+                  :key="period_key"
+                >
                   {{ period.period }}
                 </span>
               </div>
-              <div v-for="(instructor, instructor_key) in lecture.instructor_set" :key="instructor_key">
+              <div
+                v-for="(instructor, instructor_key) in lecture.instructor_set"
+                :key="instructor_key"
+              >
                 {{ instructor.instructor }}
               </div>
             </v-card-text>
@@ -39,7 +50,7 @@ import axios from "axios"
 export default {
   data() {
     return {
-      results: [],
+      results: []
     }
   },
   mounted() {
@@ -49,23 +60,22 @@ export default {
     getCourseDetail() {
       axios
         .get(
-          this.$config.WIKI_API_URL +
-            "/api/course/?id=" +
-            this.$router.currentRoute.params.id,
+          `${this.$config.WIKI_API_URL}/api/course/?id=${this.$router.currentRoute.params.id}`,
           {
             headers: {
-              Authorization:
-                "token" + this.$auth.getToken("local").replace("Bearer", ""),
-            },
+              Authorization: `token${this.$auth
+                .getToken("local")
+                .replace("Bearer", "")}`
+            }
           }
         )
         .then((res) => {
-          this.results = res.data.results[0]
+          this.results = res.data.results["0"]
         })
         .catch((err) => {
           return err
         })
-    },
-  },
+    }
+  }
 }
 </script>

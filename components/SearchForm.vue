@@ -55,21 +55,21 @@
   </v-row>
 </template>
 <script>
-import axios from "axios"
 import _ from "lodash"
+import axios from "axios"
 export default {
   name: "SearchForm",
   data: () => ({
     items: "courses",
     searchkey: "",
     searchresults: [],
-    message: "",
+    message: ""
   }),
   watch: {
     searchkey() {
       this.message = "入力中"
       this.searchKeyword()
-    },
+    }
   },
   created() {
     this.searchKeyword = _.debounce(this.hitApi, 200)
@@ -78,12 +78,13 @@ export default {
     hitApi() {
       axios
         .get(
-          this.$config.WIKI_API_URL + "/api/course/?search=" + this.searchkey,
+          `${this.$config.WIKI_API_URL}/api/course/?search=${this.searchkey}`,
           {
             headers: {
-              Authorization:
-                "token" + this.$auth.getToken("local").replace("Bearer", ""),
-            },
+              Authorization: `token${this.$auth
+                .getToken("local")
+                .replace("Bearer", "")}`
+            }
           }
         )
         .then((res) => {
@@ -93,8 +94,8 @@ export default {
         .catch((err) => {
           return err
         })
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped>

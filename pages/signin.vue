@@ -74,13 +74,12 @@ export default {
     emailRules() {
       return [
         (v) =>
-          /^.+@st.kyoto-u.ac.jp$/.test(v) ||
-          "学生用メール @st.kyoto-u.ac.jp",
+          /^.+@st.kyoto-u.ac.jp$/u.test(v) || "学生用メール @st.kyoto-u.ac.jp"
       ]
     },
     passwordRules() {
       return [(v) => Boolean(v) || "必須", (v) => v.length > 7 || "8文字以上"]
-    },
+    }
   },
   methods: {
     login() {
@@ -88,8 +87,8 @@ export default {
         .loginWith("local", {
           data: {
             email: this.credentials.email,
-            password: this.credentials.password,
-          },
+            password: this.credentials.password
+          }
         })
         .then((res) => {
           this.$router.push("/")
@@ -100,11 +99,11 @@ export default {
             text: e.response.data.non_field_errors,
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
         })
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped>

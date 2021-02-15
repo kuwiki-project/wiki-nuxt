@@ -6,12 +6,7 @@
           <v-card flat>
             <v-card-title>メールアドレス認証</v-card-title>
             <v-card-text>
-              <v-alert
-                type="error"
-                border="left"
-                dark
-                dense
-              >
+              <v-alert type="error" border="left" dark dense>
                 <div class="text-body-2">
                   受信したメールに身に覚えのない方は無視してください
                 </div>
@@ -32,8 +27,8 @@
 </template>
 
 <script>
-import axios from "axios"
 import Swal from "sweetalert2"
+import axios from "axios"
 export default {
   name: "ConfirmEmail",
   auth: false,
@@ -41,9 +36,9 @@ export default {
     activate() {
       axios
         .post(
-          this.$config.WIKI_API_URL + "/rest-auth/registration/verify-email/",
+          `${this.$config.WIKI_API_URL}/rest-auth/registration/verify-email/`,
           {
-            key: this.$route.query.key,
+            key: this.$route.query.key
           }
         )
         .then((res) => {
@@ -51,7 +46,7 @@ export default {
             text: "アカウント有効化に成功しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
           this.$router.push("/signin")
           return res
@@ -62,10 +57,10 @@ export default {
             text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
         })
-    },
-  },
+    }
+  }
 }
 </script>

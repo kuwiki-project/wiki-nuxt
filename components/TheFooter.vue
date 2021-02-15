@@ -40,46 +40,47 @@ export default {
     externalItems: [
       {
         icon: "$twitter",
-        link: "https://twitter.com/ku_wiki",
+        link: "https://twitter.com/ku_wiki"
       },
       {
         icon: "$github",
-        link: "https://github.com/kuwiki-project/wiki-nuxt",
+        link: "https://github.com/kuwiki-project/wiki-nuxt"
       },
       {
         icon: "$mail",
-        link: "mailto: kuwiki99@gmail.com",
-      },
+        link: "mailto: kuwiki99@gmail.com"
+      }
     ],
     internalItems: [
       {
         text: "利用規約",
-        link: "/terms",
-      },
-      {
-        text: "お問い合わせ",
-        link: "/contact",
-      },
-      {
-        text: "関連サイト",
-        link: "/related",
-      },
-      {
-        text: "運営について",
-        link: "/profile",
+        link: "/terms"
       },
       {
         text: "プライバシーポリシー",
-        link: "/privacy",
+        link: "/privacy"
       },
-    ],
-  }),
-};
+      {
+        text: "お問い合わせ",
+        link: "/contact"
+      },
+      {
+        text: "関連サイト",
+        link: "/related"
+      },
+      {
+        text: "運営について",
+        link: "/profile"
+      }
+    ]
+  })
+}
 </script>
 <style>
 a {
   text-decoration: none;
 }
+
 span {
   font-weight: 400;
   font-family: "Noto Sans JP", sans-serif;

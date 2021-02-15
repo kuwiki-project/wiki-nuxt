@@ -5,7 +5,6 @@
         <v-row justify="center">
           <v-col cols="10" sm="8">
             <v-card-title>お問い合わせ</v-card-title>
-
             <!-- selectedCategory は選択結果 -->
             <v-chip-group
               v-model="selectedCategory"
@@ -64,35 +63,35 @@
   </div>
 </template>
 <script>
-import axios from "axios"
 import Swal from "sweetalert2"
+import axios from "axios"
 export default {
   auth: false,
   data: () => ({
     selectedCategory: "",
     inputMessage: "",
     replys: [],
-    categories: [],
+    categories: []
   }),
   watch: {
     selectedCategory() {
       axios
         .get("https://kuwiki.microcms.io/api/v1/contact-reply/", {
           headers: {
-            "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY,
-          },
+            "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
+          }
         })
         .then((res) => {
           this.replys = res.data.contents
         })
-    },
+    }
   },
   async created() {
     await axios
       .get("https://kuwiki.microcms.io/api/v1/contact-categories", {
         headers: {
-          "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY,
-        },
+          "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
+        }
       })
       .then((res) => {
         this.categories = res.data.contents
@@ -103,20 +102,20 @@ export default {
       axios
         .post("https://kuwiki.microcms.io/api/v1/contact", {
           headers: {
-            "X-WRITE-API-KEY": process.env.WIKI_MICROCMS_API_POST_KEY,
+            "X-WRITE-API-KEY": process.env.WIKI_MICROCMS_API_POST_KEY
           },
           data: {
             category: this.selectedCategory,
             body: this.inputMessage,
-            user: "yamamura.sanami.76a@st.kyoto-u.ac.jp",
-          },
+            user: "yamamura.sanami.76a@st.kyoto-u.ac.jp"
+          }
         })
         .then((res) => {
           Swal.fire({
             text: "問い合わせを送信しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
           return res
         })
@@ -126,10 +125,10 @@ export default {
             text: "送信に失敗しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
         })
-    },
-  },
+    }
+  }
 }
 </script>

@@ -17,21 +17,11 @@
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
 
-      <v-btn
-        v-if="$auth.loggedIn"
-        text
-        color="secondary"
-        to="/settings"
-      >
+      <v-btn v-if="$auth.loggedIn" text color="secondary" to="/settings">
         <v-icon>$settings</v-icon>
       </v-btn>
 
-      <v-btn
-        v-if="!($auth.loggedIn)"
-        text
-        color="secondary"
-        to="/signin"
-      >
+      <v-btn v-if="!$auth.loggedIn" text color="secondary" to="/signin">
         <v-icon>$login</v-icon>
       </v-btn>
     </v-app-bar>
@@ -48,18 +38,18 @@ export default {
     items: [
       {
         icon: "$grid",
-        link: "/",
+        link: "/"
       },
       {
         icon: "$search",
-        link: "/search",
+        link: "/search"
       },
       {
         icon: "$book",
-        link: "/wiki",
-      },
-    ],
-  }),
+        link: "/wiki"
+      }
+    ]
+  })
 }
 </script>
 <style>
