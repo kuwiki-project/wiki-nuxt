@@ -40,7 +40,7 @@ export default {
     externalItems: [
       {
         icon: "$twitter",
-        link: "https://twitter.com/ku_wiki"
+        link: "https://twitter.com/kuwiki99"
       },
       {
         icon: "$github",
