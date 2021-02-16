@@ -49,6 +49,7 @@ export default {
   buildModules: ["@nuxtjs/vuetify", "@nuxtjs/eslint-module"],
 
   vuetify: {
+    defaultAssets: false,
     // CustomVariables: ['~/assets/variables.scss'],
     optionsPath: "./vuetify.options.js"
   },

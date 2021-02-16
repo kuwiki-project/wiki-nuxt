@@ -88,16 +88,12 @@
 
           <div class="my-1 text-caption">
             アカウントをすでにお持ちの方は
-            <NuxtLink to="/signin">
-              こちら
-            </NuxtLink>
+            <NuxtLink to="/signin"> こちら </NuxtLink>
             から
           </div>
           <div class="my-1 text-caption">
             パスワードをお忘れの方は
-            <NuxtLink to="/reset-password">
-              こちら
-            </NuxtLink>
+            <NuxtLink to="/reset-password"> こちら </NuxtLink>
             から
           </div>
         </v-card-text>
@@ -108,7 +104,6 @@
 <script>
 import Swal from "sweetalert2"
 import axios from "axios"
-
 export default {
   name: "SignupForm",
   auth: false,

@@ -43,9 +43,7 @@
                 small
                 target="”_blank”"
               >
-                <v-icon small>
-                  mdi-google-drive
-                </v-icon>
+                <v-icon small> $googledrive </v-icon>
               </v-btn>
             </td>
           </tr>

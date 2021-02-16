@@ -13,7 +13,7 @@
               target="”_blank”"
               icon
             >
-              <v-icon>mdi-google-drive</v-icon>
+              <v-icon>$googledrive</v-icon>
             </v-btn>
           </v-card-actions>
           <v-card

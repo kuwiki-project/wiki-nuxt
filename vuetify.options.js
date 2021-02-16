@@ -13,7 +13,11 @@ import {
   TwitterIcon,
   UploadCloudIcon
 } from "vue-feather-icons"
-import KiwiIcon from "@/components/KiwiIcon.vue"
+import CodeIcon from "@/components/icons/CodeIcon.vue"
+import GoogleDriveIcon from "@/components/icons/GoogleDriveIcon.vue"
+import JsonIcon from "@/components/icons/JsonIcon.vue"
+import KiwiIcon from "@/components/icons/KiwiIcon.vue"
+import OpenNewIcon from "@/components/icons/OpenNewIcon.vue"
 /*
  * アイコン一覧 https://vue-feather-icons.egoist.sh/
  * vuetifyをとおしたアイコンはpagesで
@@ -64,6 +68,18 @@ export default {
       },
       kiwi: {
         component: KiwiIcon
+      },
+      code: {
+        component: CodeIcon
+      },
+      json: {
+        component: JsonIcon
+      },
+      opennew: {
+        component: OpenNewIcon
+      },
+      googledrive: {
+        component: GoogleDriveIcon
       }
     }
   },

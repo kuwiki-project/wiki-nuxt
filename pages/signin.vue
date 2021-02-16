@@ -92,10 +92,20 @@ export default {
         })
         .then((res) => {
           this.$router.push("/")
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000
+          })
+          Toast.fire({
+            icon: "success",
+            title: "ログインしました"
+          })
         })
         .catch((e) => {
           Swal.fire({
-            title: "Error",
+            icon: "error",
             text: e.response.data.non_field_errors,
             showConfirmButton: false,
             showCloseButton: false,

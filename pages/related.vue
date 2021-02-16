@@ -9,7 +9,7 @@
               <li v-for="(relatedSite, key) in relatedSites" :key="key">
                 {{ relatedSite.name }}
                 <v-btn icon :href="relatedSite.link" target="”_blank”">
-                  <v-icon>mdi-open-in-new</v-icon>
+                  <v-icon>$opennew</v-icon>
                 </v-btn>
               </li>
             </v-card-text>

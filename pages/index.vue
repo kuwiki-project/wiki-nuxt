@@ -50,7 +50,6 @@ export default {
   data: () => ({
     items: [
       {
-        icon: "mdi-folder-clock",
         name: "過去問",
         detail:
           "すべての般教科目・専門科目を取り扱っています．過去問を閲覧する方は提供してください",
@@ -68,7 +67,6 @@ export default {
         ]
       },
       {
-        icon: "$book",
         name: "wiki",
         detail: "🌸新入生必見🌸京大内のさまざまなことを事典的にまとめています",
         buttons: [
@@ -85,26 +83,24 @@ export default {
         ]
       },
       {
-        icon: "mdi-code-json",
         name: "REST API",
         detail: "京大wikiが収集したデータを利用できます",
         buttons: [
           {
             link: "/",
             text: "ドキュメント",
-            icon: "mdi-code-json"
+            icon: "$code"
           }
         ]
       },
       {
-        icon: "mdi-web",
         name: "Webサイト",
         detail: "京大wikiのサイトを改善できます",
         buttons: [
           {
             link: "/",
             text: "ソース",
-            icon: "mdi-file-code-outline"
+            icon: "$code"
           }
         ]
       }

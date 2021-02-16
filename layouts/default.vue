@@ -34,7 +34,6 @@ export default {
     drawer: false,
     group: null,
     tabs: null,
-    // アイコン検索 https://vue-feather-icons.egoist.sh/
     items: [
       {
         icon: "$grid",
@@ -57,7 +56,7 @@ a {
   text-decoration: none;
 }
 
-div.v-application {
+.v-application {
   font-family: "Noto Sans JP", sans-serif;
 }
 
