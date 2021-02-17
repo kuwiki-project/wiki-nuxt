@@ -17,7 +17,7 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content: "京大生のための情報サイト"
       }
     ],
     link: [

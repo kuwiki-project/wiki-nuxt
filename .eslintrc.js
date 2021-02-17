@@ -20,6 +20,8 @@ module.exports = {
     "prettier"
   ],
 
+  globals: { _: true },
+
   parserOptions: {
     parser: "babel-eslint",
     sourceType: "module"
