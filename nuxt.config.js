@@ -23,8 +23,8 @@ export default {
     link: [
       {
         rel: "icon",
-        type: "image/x-icon",
-        href: "/kiwi.svg"
+        type: "image/png",
+        href: "/icon.png"
       },
       {
         rel: "stylesheet",
@@ -46,7 +46,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/eslint-module"],
+  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/eslint-module", "@nuxtjs/pwa"],
 
   vuetify: {
     defaultAssets: false,
