@@ -1,4 +1,8 @@
 export default {
+  server: {
+    port: 3333,
+    host: "localhost"
+  },
   head: {
     title: "京大wiki",
     meta: [
