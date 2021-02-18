@@ -91,9 +91,7 @@ export default {
 
   // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
   publicRuntimeConfig: {
-    WIKI_API_URL: process.env.WIKI_API_URL || "http://api.kuwiki.net",
-    BASE_URL: process.env.BASE_URL || "http://api.kuwiki.net",
-    WIKI_CONFIRM_SUCCESS_URL: process.env.WIKI_CONFIRM_SUCCESS_URL
+    WIKI_API_URL: process.env.WIKI_API_URL
   },
 
   privateRuntimeConfig: {},
