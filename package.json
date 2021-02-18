@@ -1,6 +1,16 @@
 {
   "name": "wiki-nuxt",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "description": "京大生のための情報サイト",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuwiki-project/wiki-nuxt/tree/master"
+  },
+  "homepage": "https://github.com/kuwiki-project/wiki-nuxt/",
+  "bugs": {
+    "url": "https://github.com/kuwiki-project/wiki-nuxt/issues",
+    "email": "kuwiki99@gmail.com"
+  },
   "engines": {
     "yarn": "1.22.10"
   },

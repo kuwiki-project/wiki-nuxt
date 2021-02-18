@@ -1,9 +1,4 @@
 export default {
-  server: {
-    port: 3333,
-    host: "localhost"
-  },
-
   head: {
     title: "京大wiki",
     meta: [
@@ -21,11 +16,7 @@ export default {
       }
     ],
     link: [
-      {
-        rel: "icon",
-        type: "image/png",
-        href: "/icon.png"
-      },
+      { rel: "icon", type: "image/x-icon", href: "/kiwi.svg" },
       {
         rel: "stylesheet",
         href:
