@@ -1,7 +1,7 @@
 export default {
   server: {
-    port: 3333,
-    host: "localhost"
+    port: process.env.PORT || 3333,
+    host: process.env.HOST || "localhost"
   },
   head: {
     title: "京大wiki",
