@@ -29,8 +29,7 @@ jobs:
       run: yarn install
     - name: Run yarn Build
       run: yarn build
-    - name: Webhook Slack
-      uses: 8398a7/action-slack@v3
+    - uses: 8398a7/action-slack@v3
       if: always()
       with:
         author_name: Github Actions
