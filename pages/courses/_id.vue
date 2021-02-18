@@ -72,9 +72,7 @@ export default {
         .then((res) => {
           this.results = res.data.results["0"]
         })
-        .catch((err) => {
-          return err
-        })
+        .catch((err) => err)
     }
   }
 }

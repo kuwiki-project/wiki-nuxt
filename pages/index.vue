@@ -4,11 +4,11 @@
       <v-container>
         <v-row justify="center">
           <v-card flat class="d-flex align-start flex-column my-5">
-            <img src="/kiwi.svg" width="80" class="mx-auto">
+            <img src="/kiwi.svg" width="80" class="mx-auto" />
             <div class="my-3 sitazoroe">
               <span class="daiji">京大wiki</span>
-              とは<br>
-              学内資料を<br>
+              とは<br />
+              学内資料を<br />
               共有するプロジェクト
             </div>
           </v-card>

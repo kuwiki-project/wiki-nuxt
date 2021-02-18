@@ -5,7 +5,7 @@
         flat
         class="mx-auto my-auto py-5 px-10 d-flex align-start text-center flex-column"
       >
-        <img width="80" class="mx-auto my-5" src="/kiwi.svg">
+        <img width="80" class="mx-auto my-5" src="/kiwi.svg" />
         <v-form ref="credentials" v-model="valid" class="mx-auto">
           <v-text-field
             v-model="credentials.email"
@@ -40,16 +40,12 @@
         <v-card-text>
           <div class="my-1 text-caption">
             アカウント作成は
-            <NuxtLink to="/signup">
-              こちら
-            </NuxtLink>
+            <NuxtLink to="/signup"> こちら </NuxtLink>
             から
           </div>
           <div class="my-1 text-caption">
             パスワードをお忘れの方は
-            <NuxtLink to="/reset-password">
-              こちら
-            </NuxtLink>
+            <NuxtLink to="/reset-password"> こちら </NuxtLink>
             から
           </div>
         </v-card-text>

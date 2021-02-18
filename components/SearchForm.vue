@@ -89,9 +89,7 @@ export default {
           this.searchresults = res.data.results
           this.message = "検索結果"
         })
-        .catch((err) => {
-          return err
-        })
+        .catch((err) => err)
     }
   }
 }

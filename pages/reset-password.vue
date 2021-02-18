@@ -39,9 +39,7 @@
         </v-form>
         <v-card-text>
           <div class="text-caption">
-            サインインは<NuxtLink to="/signin">
-              こちら
-            </NuxtLink>から
+            サインインは<NuxtLink to="/signin"> こちら </NuxtLink>から
           </div>
         </v-card-text>
       </v-card>

@@ -36,9 +36,7 @@
 
             <v-card-actions class="mx-3">
               <v-spacer />
-              <v-btn class="info" rounded @click="postMessage">
-                送信
-              </v-btn>
+              <v-btn class="info" rounded @click="postMessage"> 送信 </v-btn>
             </v-card-actions>
 
             <div v-for="reply in replys" :key="reply.id">

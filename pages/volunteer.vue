@@ -11,9 +11,7 @@
             <v-card-text>
               <div class="text-center ma-4">
                 <div>過去問提供はメールにて</div>
-                <div class="gmail text-h6">
-                  kuwiki99@gmail.com
-                </div>
+                <div class="gmail text-h6">kuwiki99@gmail.com</div>
                 <div>メールにpdfを添付してお送りください</div>
               </div>
 
@@ -25,32 +23,30 @@
                 試験問題が流通しないことを教員が希望する場合は問題の要約をお送りください
               </div>
 
-              <h3 class="text-center my-3">
-                4つのお願い
-              </h3>
+              <h3 class="text-center my-3">4つのお願い</h3>
               <ul>
                 <li>メールの件名は "過去問提供"</li>
                 <li>1科目の試験問題は<strong>1つのPDF</strong>に</li>
                 <li>
-                  画像は丁寧にスキャン<br>
+                  画像は丁寧にスキャン<br />
                   スマホでの画像スキャンには無料アプリ Adobe Scan が便利です
                 </li>
 
                 <li>
                   ファイル名は
-                  <span class="under">科目名</span>(教官名)西暦年度.pdf <br>
+                  <span class="under">科目名</span>(教官名)西暦年度.pdf <br />
                   例) 固体物理学1(寺嶋・北村)2020.pdf
                   <div>
                     <h5>科目名</h5>
-                    正式な科目名を記入<br>
-                    略称不可<br>
+                    正式な科目名を記入<br />
+                    略称不可<br />
                     含まれる数字は半角算用数字に変換
                     <h5>教官名</h5>
-                    教官の苗字のみ記入<br>
-                    教官が2人か3人の場合は中黒(・)で区切って記入<br>
+                    教官の苗字のみ記入<br />
+                    教官が2人か3人の場合は中黒(・)で区切って記入<br />
                     4人以上の場合は括弧の中は空欄に
                     <h5>西暦年度</h5>
-                    受講年度を西暦4桁半角数字で記入<br>
+                    受講年度を西暦4桁半角数字で記入<br />
                     両期開講される科目のみ前期後期を年度のあとに記入
                   </div>
                 </li>

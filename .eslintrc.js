@@ -13,10 +13,10 @@ module.exports = {
    * "prettier" // eslint-config-prettier
    */
   extends: [
-    "@nuxtjs",
     "eslint:all",
+    "plugin:vue/strongly-recommended",
     "plugin:nuxt/recommended",
-    "plugin:vue/recommended",
+    "@nuxtjs",
     "prettier"
   ],
 
@@ -38,6 +38,8 @@ module.exports = {
     "no-negated-condition": "warn",
     "max-lines-per-function": "warn",
     "sort-keys": "off",
-    semi: [2, "never"]
+    semi: ["error", "never"],
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/html-self-closing": "off"
   }
 }
