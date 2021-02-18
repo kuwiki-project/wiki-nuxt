@@ -23,7 +23,7 @@ module.exports = {
   globals: { _: true },
 
   parserOptions: {
-    parser: "babel-eslint",
+    parser: "@babel/eslint-parser",
     sourceType: "module"
   },
 
