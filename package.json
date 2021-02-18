@@ -1,6 +1,6 @@
 {
   "name": "wiki-nuxt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "yarn": "1.22.10"
   },
