@@ -92,6 +92,7 @@ export default {
             toast: true,
             position: "top-end",
             showConfirmButton: false,
+            iconColor: "var(--v-primary-base)",
             timer: 3000
           })
           Toast.fire({

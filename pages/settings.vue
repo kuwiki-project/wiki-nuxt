@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import Swal from "sweetalert2"
 export default {
   name: "Settings",
   data: () => ({
@@ -25,6 +26,17 @@ export default {
   methods: {
     logout() {
       this.$auth.logout()
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        iconColor: "var(--v-primary-base)",
+        timer: 3000
+      })
+      Toast.fire({
+        icon: "success",
+        title: "ログアウトしました"
+      })
     }
   }
 }

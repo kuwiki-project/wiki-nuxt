@@ -9,7 +9,7 @@
               v-model="credentials.email"
               :rules="emailRules"
               type="email"
-              placeholder="メールアドレス"
+              placeholder="メールアドレス @st.kyoto-u.ac.jp"
               required
               loading
             >
@@ -188,7 +188,7 @@ export default {
         .then((res) => {
           Swal.fire({
             text:
-              "メールアドレスに認証URLを送信しました 認証を完了させてください",
+              "メールアドレスに認証URLを送信しました　認証を完了させてください",
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000
