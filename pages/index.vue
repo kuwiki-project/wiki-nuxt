@@ -23,7 +23,7 @@
               <v-btn
                 v-for="button in item.buttons"
                 :key="button.text"
-                :to="button.link"
+                :href="button.link"
                 color="secondary"
                 text
                 rounded
@@ -76,7 +76,7 @@ export default {
             icon: "$book"
           },
           {
-            link: "/",
+            link: "",
             text: "書く",
             icon: "$edit"
           }
@@ -87,7 +87,7 @@ export default {
         detail: "京大wikiが収集したデータを利用できます",
         buttons: [
           {
-            link: "/",
+            link: "http://api.kuwiki.net/docs",
             text: "ドキュメント",
             icon: "$code"
           }
@@ -98,7 +98,7 @@ export default {
         detail: "京大wikiのサイトを改善できます",
         buttons: [
           {
-            link: "/",
+            link: "https://github.com/kuwiki-project/wiki-nuxt",
             text: "ソース",
             icon: "$code"
           }

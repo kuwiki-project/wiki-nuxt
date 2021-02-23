@@ -44,7 +44,7 @@ export default {
       },
       {
         icon: "$github",
-        link: "https://github.com/kuwiki-project/wiki-nuxt"
+        link: "https://github.com/kuwiki-project"
       },
       {
         icon: "$mail",
