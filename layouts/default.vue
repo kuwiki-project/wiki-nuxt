@@ -17,21 +17,11 @@
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
 
-      <v-btn
-        v-if="$auth.loggedIn"
-        text
-        color="secondary"
-        to="/settings"
-      >
+      <v-btn v-if="$auth.loggedIn" text color="secondary" to="/settings">
         <v-icon>$settings</v-icon>
       </v-btn>
 
-      <v-btn
-        v-if="!($auth.loggedIn)"
-        text
-        color="secondary"
-        to="/signin"
-      >
+      <v-btn v-if="!$auth.loggedIn" text color="secondary" to="/signin">
         <v-icon>$login</v-icon>
       </v-btn>
     </v-app-bar>
@@ -44,22 +34,21 @@ export default {
     drawer: false,
     group: null,
     tabs: null,
-    // アイコン検索 https://vue-feather-icons.egoist.sh/
     items: [
       {
         icon: "$grid",
-        link: "/",
+        link: "/"
       },
       {
         icon: "$search",
-        link: "/search",
+        link: "/search"
       },
       {
         icon: "$book",
-        link: "/wiki",
-      },
-    ],
-  }),
+        link: "/wiki"
+      }
+    ]
+  })
 }
 </script>
 <style>
@@ -67,7 +56,7 @@ a {
   text-decoration: none;
 }
 
-div.v-application {
+.v-application {
   font-family: "Noto Sans JP", sans-serif;
 }
 

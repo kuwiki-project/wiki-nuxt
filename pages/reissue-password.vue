@@ -46,15 +46,15 @@
 </template>
 
 <script>
-import axios from "axios"
 import Swal from "sweetalert2"
+import axios from "axios"
 export default {
   auth: false,
   data: () => ({
     password1: "",
     password2: "",
     email: "example@st.kyoto-u.ac.jp",
-    valid: false,
+    valid: false
   }),
   computed: {
     passwordRules() {
@@ -63,9 +63,9 @@ export default {
     passwordConfirmationRules() {
       return [
         (v) => Boolean(v) || "必須",
-        (v) => v === this.password1 || "パスワードが合致しません",
+        (v) => v === this.password1 || "パスワードが合致しません"
       ]
-    },
+    }
   },
   mounted() {
     this.email = this.$route.query.email
@@ -74,12 +74,12 @@ export default {
     reissue() {
       axios
         .post(
-          this.$config.WIKI_API_URL + "/rest-auth/password/reset/confirm/",
+          `${this.$config.WIKI_API_URL}/rest-auth/password/reset/confirm/`,
           {
             uid: this.$route.query.uid,
             token: this.$route.query.token,
             new_password1: this.password1,
-            new_password2: this.password2,
+            new_password2: this.password2
           }
         )
         .then((res) => {
@@ -87,7 +87,7 @@ export default {
             text: "パスワードを変更しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
           this.$router.push("/signin")
           return res
@@ -97,10 +97,10 @@ export default {
             text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
         })
-    },
-  },
+    }
+  }
 }
 </script>

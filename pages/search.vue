@@ -3,7 +3,7 @@
     <v-main>
       <v-container class="fill-hight">
         <v-row justify="center" align="start" class="mt-15 pt-15 mb-3">
-          <img src="/kiwi.svg" width="80">
+          <img src="/kiwi.svg" width="80" />
         </v-row>
         <SearchForm />
       </v-container>

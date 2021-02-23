@@ -22,10 +22,7 @@
 
           <v-col cols="11" sm="8">
             <v-expansion-panels>
-              <v-expansion-panel
-                v-for="article in articles"
-                :key="article.id"
-              >
+              <v-expansion-panel v-for="article in articles" :key="article.id">
                 <v-expansion-panel-header>
                   {{ article.title }}
                 </v-expansion-panel-header>
@@ -43,7 +40,6 @@
 </template>
 <script>
 import axios from "axios"
-import Swal from "sweetalert2"
 export default {
   data: () => ({
     selectedCategory: "",
@@ -51,30 +47,31 @@ export default {
     articles: []
   }),
   watch: {
-    selectedCategory(){
-      axios.get(
-        "https://kuwiki.microcms.io/api/v1/wiki/?filters=category[equals]" + this.selectedCategory,
-        {
-          headers: {
-            "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
+    selectedCategory() {
+      axios
+        .get(
+          `https://kuwiki.microcms.io/api/v1/wiki/?filters=category[equals]${this.selectedCategory}`,
+          {
+            headers: {
+              "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
+            }
           }
-        }
-      ).then(
-          (res) => { this.articles = res.data.contents}
-      )
+        )
+        .then((res) => {
+          this.articles = res.data.contents
+        })
     }
   },
   async created() {
-    await axios.get(
-      "https://kuwiki.microcms.io/api/v1/wiki-categories",
-      {
+    await axios
+      .get("https://kuwiki.microcms.io/api/v1/wiki-categories", {
         headers: {
           "X-API-KEY": process.env.WIKI_MICROCMS_API_GET_KEY
         }
-      }
-    ).then(
-      (res) => { this.categories = res.data.contents }
-    )
-  },
+      })
+      .then((res) => {
+        this.categories = res.data.contents
+      })
+  }
 }
 </script>

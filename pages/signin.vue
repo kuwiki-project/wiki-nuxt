@@ -5,7 +5,7 @@
         flat
         class="mx-auto my-auto py-5 px-10 d-flex align-start text-center flex-column"
       >
-        <img width="80" class="mx-auto my-5" src="/kiwi.svg">
+        <img width="80" class="mx-auto my-5" src="/kiwi.svg" />
         <v-form ref="credentials" v-model="valid" class="mx-auto">
           <v-text-field
             v-model="credentials.email"
@@ -40,16 +40,12 @@
         <v-card-text>
           <div class="my-1 text-caption">
             アカウント作成は
-            <NuxtLink to="/signup">
-              こちら
-            </NuxtLink>
+            <NuxtLink to="/signup"> こちら </NuxtLink>
             から
           </div>
           <div class="my-1 text-caption">
             パスワードをお忘れの方は
-            <NuxtLink to="/reset-password">
-              こちら
-            </NuxtLink>
+            <NuxtLink to="/reset-password"> こちら </NuxtLink>
             から
           </div>
         </v-card-text>
@@ -74,13 +70,12 @@ export default {
     emailRules() {
       return [
         (v) =>
-          /^.+@st.kyoto-u.ac.jp$/.test(v) ||
-          "学生用メール @st.kyoto-u.ac.jp",
+          /^.+@st.kyoto-u.ac.jp$/u.test(v) || "学生用メール @st.kyoto-u.ac.jp"
       ]
     },
     passwordRules() {
       return [(v) => Boolean(v) || "必須", (v) => v.length > 7 || "8文字以上"]
-    },
+    }
   },
   methods: {
     login() {
@@ -88,23 +83,33 @@ export default {
         .loginWith("local", {
           data: {
             email: this.credentials.email,
-            password: this.credentials.password,
-          },
+            password: this.credentials.password
+          }
         })
         .then((res) => {
           this.$router.push("/")
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000
+          })
+          Toast.fire({
+            icon: "success",
+            title: "ログインしました"
+          })
         })
         .catch((e) => {
           Swal.fire({
-            title: "Error",
+            icon: "error",
             text: e.response.data.non_field_errors,
             showConfirmButton: false,
             showCloseButton: false,
-            timer: 3000,
+            timer: 3000
           })
         })
-    },
-  },
+    }
+  }
 }
 </script>
 <style scoped>

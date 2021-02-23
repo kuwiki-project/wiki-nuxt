@@ -1,18 +1,23 @@
-import KiwiIcon from "@/components/KiwiIcon.vue"
 import {
   BookIcon,
   Edit3Icon,
+  GithubIcon,
   GridIcon,
   LockIcon,
   LogInIcon,
   MailIcon,
   SearchIcon,
-  UploadCloudIcon,
   SendIcon,
-  TwitterIcon,
-  GithubIcon,
   SettingsIcon,
+  StarIcon,
+  TwitterIcon,
+  UploadCloudIcon
 } from "vue-feather-icons"
+import CodeIcon from "@/components/icons/CodeIcon.vue"
+import GoogleDriveIcon from "@/components/icons/GoogleDriveIcon.vue"
+import JsonIcon from "@/components/icons/JsonIcon.vue"
+import KiwiIcon from "@/components/icons/KiwiIcon.vue"
+import OpenNewIcon from "@/components/icons/OpenNewIcon.vue"
 /*
  * アイコン一覧 https://vue-feather-icons.egoist.sh/
  * vuetifyをとおしたアイコンはpagesで
@@ -23,45 +28,60 @@ export default {
   icons: {
     values: {
       mail: {
-        component: MailIcon,
+        component: MailIcon
       },
       search: {
-        component: SearchIcon,
+        component: SearchIcon
       },
       lock: {
-        component: LockIcon,
+        component: LockIcon
       },
       book: {
-        component: BookIcon,
+        component: BookIcon
       },
       edit: {
-        component: Edit3Icon,
+        component: Edit3Icon
       },
       upload: {
-        component: UploadCloudIcon,
+        component: UploadCloudIcon
       },
       grid: {
-        component: GridIcon,
+        component: GridIcon
       },
       login: {
-        component: LogInIcon,
+        component: LogInIcon
       },
       send: {
-        component: SendIcon,
+        component: SendIcon
       },
       twitter: {
-        component: TwitterIcon,
+        component: TwitterIcon
       },
       github: {
-        component: GithubIcon,
+        component: GithubIcon
       },
       settings: {
-        component: SettingsIcon,
+        component: SettingsIcon
+      },
+      star: {
+        component: StarIcon
       },
       kiwi: {
-        component: KiwiIcon,
+        component: KiwiIcon
       },
-    },
+      code: {
+        component: CodeIcon
+      },
+      json: {
+        component: JsonIcon
+      },
+      opennew: {
+        component: OpenNewIcon
+      },
+      googledrive: {
+        component: GoogleDriveIcon
+      }
+    }
   },
   theme: {
     themes: {
@@ -72,11 +92,11 @@ export default {
         error: "#fcb69f",
         info: "#5DAFB0",
         success: "#E0F7FA",
-        warning: "#FFC400",
-      },
+        warning: "#FFC400"
+      }
     },
     options: {
-      customProperties: true,
-    },
-  },
+      customProperties: true
+    }
+  }
 }

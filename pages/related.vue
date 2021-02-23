@@ -5,15 +5,14 @@
         <v-row justify="center">
           <v-col cols="10" sm="8">
             <v-card-title>関連サイト</v-card-title>
-
-            <ul>
-              <li v-for="item in items" :key="item.text">
-                {{ item.text }}
-                <v-btn icon :href="item.link" target="”_blank”">
-                  <v-icon>mdi-open-in-new</v-icon>
+            <v-card-text>
+              <li v-for="(relatedSite, key) in relatedSites" :key="key">
+                {{ relatedSite.name }}
+                <v-btn icon :href="relatedSite.link" target="”_blank”">
+                  <v-icon>$opennew</v-icon>
                 </v-btn>
               </li>
-            </ul>
+            </v-card-text>
           </v-col>
         </v-row>
       </v-container>
@@ -23,30 +22,20 @@
 </template>
 <script>
 export default {
+  auth: false,
   data: () => ({
-    items: [
+    relatedSites: [
       {
-        text: "KU1025 - 物工過去問サイト",
+        name: "KU1025 - 物工過去問サイト",
         link: "https://1025-kuexam.netlify.app/",
         detail: ""
       },
       {
-        text: "KUEE13 - 電電過去問サイト",
-        link: "https://kuee.netlify.app/",
-        detail: ""
-      },
-      {
-        text: "理学部学生自治会サイト",
+        name: "理学部学生自治会サイト",
         link: "https://web.sci-ku.info/home",
         detail: ""
       }
     ]
   })
-}
-</script>
-
-<script>
-export default {
-  auth: false,
 }
 </script>
