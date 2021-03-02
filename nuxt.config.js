@@ -5,6 +5,9 @@ export default {
   },
   head: {
     title: "京大wiki",
+    htmlAttrs: {
+      lang: "ja"
+    },
     meta: [
       {
         charset: "utf-8"
