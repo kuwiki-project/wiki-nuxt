@@ -60,8 +60,16 @@ prettier と eslint は独立で動かすように設定
 
 ## 環境変数
 
-`.env` ファイルは `.gitignore` に含め，Github では公開されないように設定している
+`.env` ファイルは `.gitignore` に含め，GitHub では公開されないように設定している
 
-この冗長性を持たせているのは，パスワードなど Github で公開できないものも環境変数に書き込めるようにするため
+この冗長性を持たせているのは，パスワードなど GitHub で公開できないものも環境変数に書き込めるようにするため
 
-.env に書き込まれた環境変数はそれぞれ `nuxt.config.js` ファイル内で publicRuntimeConfig ，privateRuntimeConfig .env として定義されているため，pages 内や component 内で利用できる
+.env に書き込まれた環境変数はそれぞれ `nuxt.config.js` ファイル内で publicRuntimeConfig ，privateRuntimeConfig .env として定義されているため，pages 内や component 内で利用できる．
+
+## 本番環境
+
+```
+$ yarn build
+```
+
+サーバーにデプロイするためのすべてのものが含まれる .nuxt ディレクトリを作成する

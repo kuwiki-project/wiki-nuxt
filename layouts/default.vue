@@ -57,7 +57,11 @@ a {
 }
 
 .v-application {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Noto Sans JP", sans-serif !important;
+}
+
+div {
+  font-family: "Noto Sans JP", sans-serif !important;
 }
 
 h1 {

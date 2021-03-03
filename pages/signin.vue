@@ -3,7 +3,8 @@
     <v-container class="fill-height">
       <v-card
         flat
-        class="mx-auto my-auto py-5 px-10 d-flex align-start text-center flex-column"
+        class="mx-auto my-auto py-5 px-10 align-start text-center flex-column"
+        width="350"
       >
         <img width="80" class="mx-auto my-5" src="/kiwi.svg" />
         <v-form ref="credentials" v-model="valid" class="mx-auto">
