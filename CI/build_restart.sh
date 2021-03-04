@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# git pullする
-sudo git pull origin master
 # 必要なパッケージをインストール
 sudo yarn
 # ビルド

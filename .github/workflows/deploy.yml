@@ -21,6 +21,8 @@ jobs:
         # ssh接続用の秘密鍵を環境変数から読み込んでファイルとして生成している．
       - name: Generate ssh key
         run: echo "${SSH_PRIVATE_KEY}" > key && chmod 600 key
+      - name: Git pull
+        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo git pull origin master"
       - name: Build and Restart
         run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo sh ./CI/build_restart.sh"
       - name: Post slack
