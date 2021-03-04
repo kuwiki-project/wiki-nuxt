@@ -6,7 +6,7 @@
           <v-card flat class="d-flex align-start flex-column my-5">
             <img src="/kiwi.svg" width="80" class="mx-auto" />
             <div class="my-3 sitazoroe">
-              <span class="daiji">京大wiki</span>
+              <span class="daiji">京大wiki(テスト)</span>
               とは<br />
               学内資料を<br />
               共有するプロジェクト
