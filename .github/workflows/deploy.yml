@@ -1,0 +1,42 @@
+name: deploy to server
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
+      GIT_PULL_PATH: ${{ secrets.GIT_PULL_PATH }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      # ssh接続用の秘密鍵を環境変数から読み込んでファイルとして生成している．
+    - name: Generate ssh key
+      run: echo"$SSH_PRIVATE_KEY" > key && chmod 600 key
+      # VPSにssh接続してgit pullコマンドを叩いている． 
+    - name: Git pull
+      run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo git pull origin master"
+    - name: Package installation
+      run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo yarn"
+    - name: Build
+      run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo yarn build"
+    - name: Start
+      run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo nohup yarn start &"
+    - name: Post slack
+      uses: 8398a7/action-slack@v3
+      if: always()
+      with:
+        author_name: Github Actions
+        status: ${{ job.status }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+      # env:
+        # SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
