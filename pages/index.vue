@@ -94,7 +94,7 @@ export default {
         ]
       },
       {
-        name: "Webサイト",
+        name: "開発",
         detail: "京大wikiのサイトを改善できます",
         buttons: [
           {
