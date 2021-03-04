@@ -21,7 +21,9 @@ jobs:
       uses: actions/checkout@v2
       # ssh接続用の秘密鍵を環境変数から読み込んでファイルとして生成している．
     - name: Generate ssh key
-      run: echo"$SSH_PRIVATE_KEY" > key && chmod 600 key
+      run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key
+    - name: env test
+      run: echo "$SSH_PRIVATE_KEY"
       # VPSにssh接続してgit pullコマンドを叩いている． 
     - name: Git pull
       run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo git pull origin master"
