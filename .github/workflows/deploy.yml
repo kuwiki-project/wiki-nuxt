@@ -13,8 +13,6 @@ jobs:
       SSH_PORT: ${{ secrets.SSH_PORT }}
       GIT_PULL_PATH: ${{ secrets.GIT_PULL_PATH }}
       SSH_HOST: ${{ secrets.SSH_HOST }}
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -24,8 +22,13 @@ jobs:
       - name: Git pull
         run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo git pull origin master"
       - name: Build and Restart
-        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo sh ./.github/build_restart.sh"
-      - name: Post slack
+        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo sh ./.github/workflows/build_restart.sh"
+
+  notify:
+    runs-on: ubuntu-latest
+    env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    name: Post slack
         uses: 8398a7/action-slack@v3
         if: always()
         with:
