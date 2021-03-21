@@ -87,7 +87,7 @@ export default {
         detail: "京大wikiが収集したデータを利用できます",
         buttons: [
           {
-            link: "http://api.kuwiki.net/docs",
+            link: "https://api.kuwiki.net/docs",
             text: "ドキュメント",
             icon: "$code"
           }
