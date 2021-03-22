@@ -66,7 +66,7 @@ export default {
       },
       {
         text: "関連サイト",
-        link: "/related"
+        link: "/related-sites"
       },
       {
         text: "運営について",

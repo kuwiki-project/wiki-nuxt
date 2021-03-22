@@ -4,7 +4,7 @@
       <v-container>
         <v-row justify="center">
           <v-col cols="10" sm="8">
-            <TextTerm />
+            <DocsTerms />
           </v-col>
         </v-row>
       </v-container>
@@ -12,7 +12,6 @@
     <TheFooter />
   </div>
 </template>
-
 <script>
 export default {
   auth: false

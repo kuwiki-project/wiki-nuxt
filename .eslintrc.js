@@ -38,6 +38,8 @@ module.exports = {
     "no-negated-condition": "warn",
     "max-lines-per-function": "warn",
     "sort-keys": "off",
+    "sort-imports": "off",
+    "vue/max-attributes-per-line": "off",
     semi: ["error", "never"],
     "vue/singleline-html-element-content-newline": "off",
     "vue/html-self-closing": "off"

@@ -35,7 +35,7 @@ export default {
       })
       Toast.fire({
         icon: "success",
-        title: "ログアウトしました"
+        text: "ログアウトしました"
       })
     }
   }

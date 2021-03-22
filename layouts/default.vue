@@ -52,12 +52,18 @@ export default {
 }
 </script>
 <style>
-a {
+.v-application a {
   text-decoration: none;
+  color: var(--v-primary-darken2);
 }
 
 .v-application {
   font-family: "Noto Sans JP", sans-serif !important;
+}
+
+swal2 div {
+  font-family: "Noto Sans JP", sans-serif !important;
+  font-weight: 300;
 }
 
 div {

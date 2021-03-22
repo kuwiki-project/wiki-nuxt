@@ -8,7 +8,7 @@
         align="center"
         elevation="0"
       >
-        <v-img src="/kiwi.svg" class="mx-auto my-3" width="100" />
+        <v-img src="/kiwi.svg" class="mx-auto my-3" width="80" />
         <v-card-subtitle>
           パスワード再発行用メールを送信します
         </v-card-subtitle>
@@ -75,6 +75,7 @@ export default {
         })
         .then((res) => {
           Swal.fire({
+            icon: "success",
             text: "パスワード再発行用のメールを送信しました",
             showConfirmButton: false,
             showCloseButton: false,
@@ -85,6 +86,7 @@ export default {
         })
         .catch((e) => {
           Swal.fire({
+            icon: "error",
             text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,

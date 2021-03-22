@@ -1,0 +1,27 @@
+<template>
+  <div>
+    <v-card-title>関連サイト</v-card-title>
+    <v-card-text>
+      <li v-for="(relatedSite, key) in relatedSites" :key="key">
+        {{ relatedSite.name }}
+        <ButtonOpenNew link="relatedSite.link" />
+      </li>
+    </v-card-text>
+  </div>
+</template>
+<script>
+export default {
+  data: () => ({
+    relatedSites: [
+      {
+        name: "KU1025 - 物工過去問サイト",
+        link: "https://1025-kuexam.netlify.app/"
+      },
+      {
+        name: "理学部学生自治会サイト",
+        link: "https://web.sci-ku.info/home"
+      }
+    ]
+  })
+}
+</script>

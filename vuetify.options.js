@@ -13,73 +13,68 @@ import {
   TwitterIcon,
   UploadCloudIcon
 } from "vue-feather-icons"
-import CodeIcon from "@/components/icons/CodeIcon.vue"
-import GoogleDriveIcon from "@/components/icons/GoogleDriveIcon.vue"
-import JsonIcon from "@/components/icons/JsonIcon.vue"
-import KiwiIcon from "@/components/icons/KiwiIcon.vue"
-import OpenNewIcon from "@/components/icons/OpenNewIcon.vue"
-/*
- * アイコン一覧 https://vue-feather-icons.egoist.sh/
- * vuetifyをとおしたアイコンはpagesで
- * <v-icon>$hoge</v-icon> で呼び出せる
- */
-
+import IconCode from "@/components/icon/Code.vue"
+import IconGoogleDrive from "@/components/icon/GoogleDrive.vue"
+import IconJson from "@/components/icon/Json.vue"
+import IconKiwi from "@/components/icon/Kiwi.vue"
+import IconOpenNew from "@/components/icon/OpenNew.vue"
 export default {
   icons: {
     values: {
-      mail: {
-        component: MailIcon
-      },
-      search: {
-        component: SearchIcon
-      },
-      lock: {
-        component: LockIcon
-      },
       book: {
         component: BookIcon
       },
       edit: {
         component: Edit3Icon
       },
-      upload: {
-        component: UploadCloudIcon
-      },
       grid: {
         component: GridIcon
       },
-      login: {
-        component: LogInIcon
-      },
-      send: {
-        component: SendIcon
-      },
-      twitter: {
-        component: TwitterIcon
+      lock: {
+        component: LockIcon
       },
       github: {
         component: GithubIcon
       },
-      settings: {
-        component: SettingsIcon
+      login: {
+        component: LogInIcon
+      },
+      mail: {
+        component: MailIcon
       },
       star: {
         component: StarIcon
       },
-      kiwi: {
-        component: KiwiIcon
+      search: {
+        component: SearchIcon
       },
+      send: {
+        component: SendIcon
+      },
+      settings: {
+        component: SettingsIcon
+      },
+      twitter: {
+        component: TwitterIcon
+      },
+      upload: {
+        component: UploadCloudIcon
+      },
+
       code: {
-        component: CodeIcon
-      },
-      json: {
-        component: JsonIcon
-      },
-      opennew: {
-        component: OpenNewIcon
+        component: IconCode
       },
       googledrive: {
-        component: GoogleDriveIcon
+        component: IconGoogleDrive
+      },
+      json: {
+        component: IconJson
+      },
+      kiwi: {
+        component: IconKiwi
+      },
+      opennew: {
+        component: IconOpenNew
       }
     }
   },

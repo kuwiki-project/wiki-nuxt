@@ -5,7 +5,6 @@
       <v-card flat class="mx-auto" width="500px">
         <v-card-text class="px-6">
           <v-form v-model="valid" class="mx-8 my-4">
-            <!-- <span class="mx-2 my-9">メールアドレス {{ $store.state.auth.user }}</span> -->
             <v-text-field
               v-model="password1"
               type="password"
