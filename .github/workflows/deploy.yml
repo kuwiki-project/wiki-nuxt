@@ -29,7 +29,7 @@ jobs:
       - name: Build
         run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo yarn build"
       - name: Stop
-        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} cd ${GIT_PULL_PATH};ps --no-heading -C "sudo nohup yarn wiki-nuxt-start" -o pid | awk '{ print "kill " $0 }' | sudo sh
+        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo fuser -k -n tcp 3333"
       - name: Start
         run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo nohup yarn wiki-nuxt-start &"
       - name: Post slack
