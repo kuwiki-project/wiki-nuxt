@@ -37,14 +37,24 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ["@nuxtjs/vuetify", "@nuxtjs/eslint-module", "@nuxtjs/pwa"],
-
+  buildModules: [
+    "@nuxtjs/vuetify",
+    "@nuxtjs/eslint-module",
+    "@nuxtjs/pwa",
+    "@nuxtjs/google-fonts"
+  ],
   vuetify: {
     defaultAssets: {
       font: false,
       icons: false
     },
     optionsPath: "./vuetify.options.js"
+  },
+  googleFonts: {
+    families: {
+      "Noto+Sans+JP": [400, 500]
+    },
+    display: "swap"
   },
   /*
    ** Nuxt.js modules
@@ -53,15 +63,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
-    "@nuxtjs/auth",
-    "@nuxtjs/google-fonts"
+    "@nuxtjs/auth"
   ],
-  googleFonts: {
-    families: {
-      "Noto+Sans+JP": [400, 500]
-    },
-    display: "swap"
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
