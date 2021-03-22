@@ -61,11 +61,6 @@ export default {
   font-family: "Noto Sans JP", sans-serif !important;
 }
 
-swal2 div {
-  font-family: "Noto Sans JP", sans-serif !important;
-  font-weight: 300;
-}
-
 div {
   font-family: "Noto Sans JP", sans-serif !important;
 }
