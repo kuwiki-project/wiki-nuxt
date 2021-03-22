@@ -56,7 +56,6 @@
 <script>
 import Swal from "sweetalert2"
 export default {
-  name: "SigninForm",
   data: () => ({
     auth: false,
     dialog: true,

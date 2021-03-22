@@ -30,7 +30,6 @@
 import Swal from "sweetalert2"
 import axios from "axios"
 export default {
-  name: "ConfirmEmail",
   auth: false,
   methods: {
     activate() {
