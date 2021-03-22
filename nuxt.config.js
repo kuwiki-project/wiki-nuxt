@@ -22,14 +22,7 @@ export default {
         content: "京大生のための情報サイト"
       }
     ],
-    link: [
-      { rel: "icon", type: "image/x-icon", href: "/kiwi.svg" },
-      {
-        rel: "stylesheet",
-        href:
-          "https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+JP:wght@400;500;600"
-      }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/kiwi.svg" }]
   },
   /*
    ** Global CSS
@@ -47,8 +40,10 @@ export default {
   buildModules: ["@nuxtjs/vuetify", "@nuxtjs/eslint-module", "@nuxtjs/pwa"],
 
   vuetify: {
-    defaultAssets: false,
-    // CustomVariables: ['~/assets/variables.scss'],
+    defaultAssets: {
+      font: false,
+      icons: false
+    },
     optionsPath: "./vuetify.options.js"
   },
   /*
@@ -58,8 +53,15 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
-    "@nuxtjs/auth"
+    "@nuxtjs/auth",
+    "@nuxtjs/google-fonts"
   ],
+  googleFonts: {
+    families: {
+      "Noto+Sans+JP": [400, 500]
+    },
+    display: "swap"
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
