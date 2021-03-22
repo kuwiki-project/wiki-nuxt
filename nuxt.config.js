@@ -40,7 +40,6 @@ export default {
   buildModules: [
     "@nuxtjs/vuetify",
     "@nuxtjs/eslint-module",
-    "@nuxtjs/pwa",
     "@nuxtjs/google-fonts"
   ],
   vuetify: {
