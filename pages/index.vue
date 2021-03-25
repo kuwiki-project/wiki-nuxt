@@ -6,8 +6,8 @@
           <v-card flat class="d-flex align-start flex-column my-5">
             <img src="/kiwi.svg" width="80" class="mx-auto" />
             <div class="my-3 sitazoroe">
-              <span class="daiji">京大wiki</span>
-              <br />とは京大生のための情報サイト
+              <span class="daiji">京大wiki</span>とは
+              <br />京大生のための情報サイト
             </div>
           </v-card>
         </v-row>
@@ -29,8 +29,12 @@
               <v-card-title>
                 <span>wiki</span>
               </v-card-title>
-              <ButtonRoundIconText link="/search" text="読む" icon="$book" />
-              <ButtonRoundIconText link="" text="書く" icon="$edit" />
+              <ButtonRoundIconText link="/wiki" text="読む" icon="$book" />
+              <ButtonRoundIconText
+                link="https://hackmd.io/@kuwiki-editors/home/edit"
+                text="書く"
+                icon="$edit"
+              />
             </div>
             <div class="my-3">
               <v-card-title>

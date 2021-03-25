@@ -73,9 +73,12 @@ h2 {
 }
 h3 {
   font-weight: 500;
+  margin: 20pt 0pt 5pt;
 }
+
 h4 {
   font-weight: 500;
+  margin: 10pt 0pt 5pt;
 }
 h5 {
   font-weight: 500;
