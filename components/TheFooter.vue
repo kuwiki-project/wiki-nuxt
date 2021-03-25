@@ -61,8 +61,8 @@ export default {
         link: "/privacy"
       },
       {
-        text: "お問い合わせ",
-        link: "/contact"
+        text: "シケタイさんへ",
+        link: "/for-siketai"
       },
       {
         text: "関連サイト",

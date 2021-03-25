@@ -4,7 +4,7 @@
       <v-container>
         <v-row justify="center">
           <v-col cols="10" sm="8">
-            <DocsRelatedSites />
+            <DocsForSiketai />
           </v-col>
         </v-row>
       </v-container>
