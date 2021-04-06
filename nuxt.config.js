@@ -98,7 +98,8 @@ export default {
 
   // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
   publicRuntimeConfig: {
-    WIKI_API_URL: process.env.WIKI_API_URL
+    WIKI_API_URL: process.env.WIKI_API_URL,
+    COLLECTED_EXAMS_JSON_URL: process.env.COLLECTED_EXAMS_JSON_URL
   },
 
   privateRuntimeConfig: {},
