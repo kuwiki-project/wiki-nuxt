@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     env:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       SSH_USER: ${{ secrets.SSH_USER }}
@@ -29,9 +30,9 @@ jobs:
       - name: Build
         run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo yarn build"
       - name: Stop
-        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} cd ${GIT_PULL_PATH};ps --no-heading -C "sudo nohup yarn wiki-nuxt-start" -o pid | awk '{ print "kill " $0 }' | sudo sh
+        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo fuser -k -n tcp 3333"
       - name: Start
-        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo nohup yarn wiki-nuxt-start &"
+        run: ssh -i ./key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} "cd ${GIT_PULL_PATH};sudo nohup yarn wiki-nuxt-start &" &
       - name: Post slack
         uses: 8398a7/action-slack@v3
         if: always()
