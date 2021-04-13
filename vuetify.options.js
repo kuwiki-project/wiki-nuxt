@@ -9,6 +9,7 @@ import {
   SearchIcon,
   SendIcon,
   SettingsIcon,
+  SmileIcon,
   StarIcon,
   TwitterIcon,
   UploadCloudIcon
@@ -53,6 +54,12 @@ export default {
       },
       settings: {
         component: SettingsIcon
+      },
+      smile: {
+        component: SmileIcon
+      },
+      star: {
+        component: StarIcon
       },
       twitter: {
         component: TwitterIcon

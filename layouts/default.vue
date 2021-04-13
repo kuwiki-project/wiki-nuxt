@@ -86,4 +86,11 @@ h5 {
 h6 {
   font-weight: 500;
 }
+
+strong {
+  font-weight: 500;
+}
+ul {
+  padding-left: 1em;
+}
 </style>
