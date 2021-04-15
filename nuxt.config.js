@@ -42,7 +42,13 @@ export default {
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@kuwiki99" }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/kiwi.svg" }]
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/kiwi.svg" },
+      {
+        rel: "apple-touch-icon",
+        href: "icon.png"
+      }
+    ]
   },
   pwa: {
     meta: {
