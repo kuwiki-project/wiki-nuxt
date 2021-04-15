@@ -62,7 +62,8 @@ export default {
     value: false,
     email: "",
     password1: "",
-    password2: ""
+    password2: "",
+    dialog: ""
   }),
   methods: {
     signup() {
