@@ -18,7 +18,7 @@
           v-for="(internalItem, index) in internalItems"
           :key="internalItem.text"
         >
-          <span v-if="index != 0" v-html="partition" />
+          <span v-if="index != 0" v-html="partition" class="white--text" />
           <NuxtLink :to="internalItem.link" class="white--text text-no-wrap">
             {{ internalItem.text }}
           </NuxtLink>
