@@ -6,6 +6,7 @@ export default {
   head: {
     title: "京大wiki",
     htmlAttrs: {
+      prefix: "og: http://ogp.me/ns#",
       lang: "ja"
     },
     meta: [
@@ -20,9 +21,38 @@ export default {
         hid: "description",
         name: "description",
         content: "京大生のための情報サイト"
-      }
+      },
+      {
+        hid: "og:site_name",
+        property: "og:site_name",
+        content: "京大wiki"
+      },
+      { hid: "og:type", property: "og:type", content: "website" },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://kuwiki.net"
+      },
+      { hid: "og:title", property: "og:title", content: "京大wiki" },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "京大生のための情報サイト"
+      },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:site", content: "@kuwiki99" }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/kiwi.svg" }]
+  },
+  pwa: {
+    meta: {
+      favicon: false
+    },
+    manifest: {
+      name: "京大wiki",
+      short_name: "京大wiki",
+      lang: "ja"
+    }
   },
   /*
    ** Global CSS
@@ -40,7 +70,8 @@ export default {
   buildModules: [
     "@nuxtjs/vuetify",
     "@nuxtjs/eslint-module",
-    "@nuxtjs/google-fonts"
+    "@nuxtjs/google-fonts",
+    "@nuxtjs/pwa"
   ],
   vuetify: {
     defaultAssets: {
