@@ -3,29 +3,15 @@
     <v-card-title>過去問提供</v-card-title>
     <v-card-subtitle>メールにて過去問を受け付けています</v-card-subtitle>
     <v-card-text>
-      <div><v-icon small>$star</v-icon> すべての全学共通科目・専門科目</div>
-      <div><v-icon small>$star</v-icon> すべての年代の過去問</div>
-      <div>
-        <v-icon small>$star</v-icon>
-        期末試験・中間試験・小テスト・問題要約・解答・解答例・課題など
-      </div>
+      <h3 class="info--text">ファイルの作り方</h3>
+      <ButtonStar />
+      1科目の試験問題は<strong>1つのPDF</strong>にまとめてください<br>
+      <ButtonStar />
+      きれいにスキャンしてください（スマホでの画像スキャンにはAdobe Scanのアプリが便利です）<br>
+      <ButtonSmile />書き込みは消してください
 
-      <div>
-        <v-icon small>$smile</v-icon>
-        試験問題が流通しないことを教員が希望する場合は問題の要約してください
-      </div>
 
-      <h3 class="info--text text-center">ファイルの作成方法</h3>
-      <ul>
-        <li>1科目の試験問題は<strong>1つのPDF</strong>に</li>
-        <li>
-          問題用紙配布の場合はスキャン<br />
-          スマホでの画像スキャンには無料アプリ Adobe Scan が便利です
-        </li>
-        <li>書き込みは消すこと</li>
-      </ul>
-
-      <h3 class="info--text text-center">ファイル命名</h3>
+      <h3 class="info--text">ファイル名の付け方</h3>
       <div class="text-center text-subtitle-1 my-3">
         <span class="under-red">科目名</span>
         (
@@ -77,25 +63,23 @@
       </v-row>
       <div class="text-center my-3">例) 固体物理学1(寺嶋・北村)2020.pdf</div>
 
-      <h3 class="info--text text-center">送信方法</h3>
+      <h3 class="info--text">回収対象</h3>
+      <ButtonStar />すべての全学共通科目・専門科目<br>
+      <ButtonStar />期末試験・中間試験・小テスト・問題要約・解答・解答例・課題などなんでも<br>
+      <ButtonSmile />試験問題が流通しないことを教員が希望する場合は問題の要約をお送りください<br>
+      <ButtonStar />回収済みのファイルは
+      <NuxtLink to="/collected"> こちら </NuxtLink>から確認できます
+      <h3 class="info--text">送信方法</h3>
       <div class="ma-1">
         <div>アドレス：kuwiki99@gmail.com</div>
         <div>件名：過去問提供</div>
       </div>
       <div class="ma-2">
-        <v-btn
-          small
-          rounded
-          outlined
-          href="mailto:kuwiki99@gmail.com?subject=過去問提供&body=ファイルを添付します"
-          class="mr-2"
-          target="”_blank”"
-        >
-          メールを作成
-        </v-btn>
+        <ButtonNewEmailAttached />
         <span>PDFファイルを添付してお送りください</span>
       </div>
     </v-card-text>
+  </div>
   </div>
 </template>
 <style scoped>

@@ -20,7 +20,7 @@
               </v-card-title>
               <ButtonRoundIconText link="/search" text="探す" icon="$search" />
               <ButtonRoundIconText
-                link="/volunteer"
+                link="/upload-exams"
                 text="提供"
                 icon="$upload"
               />

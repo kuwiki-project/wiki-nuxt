@@ -1,0 +1,12 @@
+<template>
+  <v-btn
+    small
+    rounded
+    outlined
+    href="mailto:kuwiki99@gmail.com?subject=過去問提供&body=ファイルを添付します"
+    class="mr-2"
+    target="”_blank”"
+  >
+    メールを作成
+  </v-btn>
+</template>
