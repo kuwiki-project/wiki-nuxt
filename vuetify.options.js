@@ -1,6 +1,7 @@
 import {
   BookIcon,
   Edit3Icon,
+  FileTextIcon,
   GithubIcon,
   GridIcon,
   LockIcon,
@@ -27,6 +28,9 @@ export default {
       },
       edit: {
         component: Edit3Icon
+      },
+      filetext: {
+        component: FileTextIcon
       },
       grid: {
         component: GridIcon
@@ -57,9 +61,6 @@ export default {
       },
       smile: {
         component: SmileIcon
-      },
-      star: {
-        component: StarIcon
       },
       twitter: {
         component: TwitterIcon
