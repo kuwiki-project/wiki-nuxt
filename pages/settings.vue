@@ -27,14 +27,14 @@ export default {
       this.$auth.logout()
       const Toast = Swal.mixin({
         toast: true,
-        position: "top-end",
+        position: "bottom",
         showConfirmButton: false,
         iconColor: "var(--v-primary-base)",
         timer: 3000
       })
       Toast.fire({
         icon: "success",
-        text: "ログアウトしました"
+        text: "ログアウト完了"
       })
     }
   }
