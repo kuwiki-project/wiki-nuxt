@@ -52,7 +52,8 @@ export default {
   },
   pwa: {
     meta: {
-      favicon: false
+      favicon: false,
+      theme_color: "#67e0bd"
     },
     manifest: {
       name: "京大wiki",
