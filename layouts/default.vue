@@ -54,16 +54,16 @@ export default {
 <style>
 .v-application a {
   text-decoration: none;
-  color: var(--v-primary-darken2);
+  color: var(--v-primary-darken2) !important;
 }
-
 .v-application {
   font-family: "Noto Sans JP" !important;
 }
-
+.v-application .v-messages__message {
+  color: var(--v-error-darken1) !important;
+}
 div {
-  font-family: "Noto Sans JP" !important;
-  color: #4a4a4a !important;
+  color: #6b6b6b;
 }
 
 h1 {
