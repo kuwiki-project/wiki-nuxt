@@ -94,4 +94,8 @@ strong {
 ul {
   padding-left: 1em;
 }
+
+.v-main {
+  margin-bottom: 14em;
+}
 </style>
