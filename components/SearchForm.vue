@@ -53,7 +53,7 @@
   </v-row>
 </template>
 <script>
-import _ from "lodash"
+import debounce from "lodash.debounce"
 import axios from "axios"
 export default {
   name: "SearchForm",
@@ -70,7 +70,7 @@ export default {
     }
   },
   created() {
-    this.searchKeyword = _.debounce(this.hitApi, 200)
+    this.searchKeyword = debounce(this.hitApi, 200)
   },
   methods: {
     hitApi() {
