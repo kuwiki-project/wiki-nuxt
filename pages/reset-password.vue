@@ -87,7 +87,7 @@ export default {
         .catch((e) => {
           Swal.fire({
             icon: "error",
-            text: "エラーが発生しました",
+            text: e.response.data,
             showConfirmButton: false,
             showCloseButton: false,
             timer: 3000
