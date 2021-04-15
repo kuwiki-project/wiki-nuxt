@@ -12,7 +12,7 @@
         <v-card-subtitle>
           パスワード再発行用メールを送信します
         </v-card-subtitle>
-        <v-form ref="credentials" v-model="valid">
+        <v-form v-model="valid">
           <v-text-field
             v-model="email"
             type="email"
@@ -54,9 +54,7 @@ export default {
   auth: false,
   data: () => ({
     valid: false,
-    credentials: {
-      email: ""
-    }
+    email: ""
   }),
   computed: {
     emailRules() {
