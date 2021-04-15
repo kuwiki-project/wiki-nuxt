@@ -1,5 +1,5 @@
 <template>
-  <v-btn :href="link" color="secondary" text rounded elevation="2" class="mx-2">
+  <v-btn :href="link" color="secondary" text rounded elevation="2" class="mx-1">
     <v-icon class="mr-2">
       {{ icon }}
     </v-icon>

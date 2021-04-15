@@ -58,11 +58,12 @@ export default {
 }
 
 .v-application {
-  font-family: "Noto Sans JP", sans-serif !important;
+  font-family: "Noto Sans JP" !important;
 }
 
 div {
-  font-family: "Noto Sans JP", sans-serif !important;
+  font-family: "Noto Sans JP" !important;
+  color: #4a4a4a !important;
 }
 
 h1 {
