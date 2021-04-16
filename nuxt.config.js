@@ -31,13 +31,18 @@ export default {
       {
         hid: "og:url",
         property: "og:url",
-        content: "https://kuwiki.net"
+        content: "https://www.kuwiki.net"
       },
       { hid: "og:title", property: "og:title", content: "京大wiki" },
       {
         hid: "og:description",
         property: "og:description",
         content: "京大生のための情報サイト"
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "https://www.kuwiki.net/icon.png"
       },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@kuwiki99" }
@@ -52,7 +57,6 @@ export default {
   },
   pwa: {
     meta: {
-      favicon: false,
       theme_color: "#67e0bd"
     },
     manifest: {
