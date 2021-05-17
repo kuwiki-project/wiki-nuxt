@@ -5,7 +5,7 @@
       absolute
       temporary
     >
-    <v-divider />
+      <v-divider />
       <drawerProfile />
       <v-card-actions>
         <buttonSignup />

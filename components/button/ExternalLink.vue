@@ -1,5 +1,5 @@
 <template>
-  <v-btn icon :href="btnLink" target="”_blank”" v-bind:class="btnClass">
+  <v-btn icon :href="btnLink" target="”_blank”" :class="btnClass">
     <v-icon>{{ btnIcon }}</v-icon>
   </v-btn>
 </template>

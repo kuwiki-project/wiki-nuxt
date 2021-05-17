@@ -5,8 +5,8 @@
       <li v-for="(relatedSite, key) in relatedSites" :key="key">
         {{ relatedSite.name }}
         <buttonExternalLink
-          :btnLink="relatedSite.link"
-          btnIcon="$opennew"
+          :btn-link="relatedSite.link"
+          btn-icon="$opennew"
         />
       </li>
     </v-card-text>
