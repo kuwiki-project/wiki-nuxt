@@ -4,7 +4,10 @@
     <v-card-text>
       <li v-for="(relatedSite, key) in relatedSites" :key="key">
         {{ relatedSite.name }}
-        <ButtonOpenNew link="relatedSite.link" />
+        <buttonExternalLink
+          :btnLink="relatedSite.link"
+          btnIcon="$opennew"
+        />
       </li>
     </v-card-text>
   </div>

@@ -1,10 +1,26 @@
 <template>
   <v-app id="default">
+    <v-navigation-drawer
+      v-model="drawer"
+      absolute
+      temporary
+    >
+    <v-divider />
+      <drawerProfile />
+      <v-card-actions>
+        <buttonSignup />
+        <buttonSignin />  
+      </v-card-actions>
+      <drawerList />
+
+      <drawerSns />
+    </v-navigation-drawer>
     <v-app-bar app flat absolute color="white">
+      <v-app-bar-nav-icon @click="drawer = !drawer">
+        <v-icon color="secondary">$menu</v-icon>
+      </v-app-bar-nav-icon>
       <v-toolbar-title>
-        <span id="title">
-          <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
-        </span>
+        <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
       </v-toolbar-title>
       <v-spacer />
       <v-btn
@@ -54,16 +70,12 @@ export default {
 <style>
 .v-application a {
   text-decoration: none;
-  color: var(--v-primary-darken2) !important;
 }
 .v-application {
   font-family: "Noto Sans JP" !important;
 }
 .v-application .v-messages__message {
   color: var(--v-error-darken1) !important;
-}
-div {
-  color: #6b6b6b;
 }
 
 h1 {
@@ -95,7 +107,7 @@ ul {
   padding-left: 1em;
 }
 
-.v-main {
-  margin-bottom: 14em;
+.hutoji {
+  font-weight: 500;
 }
 </style>

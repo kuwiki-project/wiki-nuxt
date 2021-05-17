@@ -13,7 +13,8 @@ import {
   SmileIcon,
   StarIcon,
   TwitterIcon,
-  UploadCloudIcon
+  UploadCloudIcon,
+  MenuIcon
 } from "vue-feather-icons"
 import IconCode from "@/components/icon/Code.vue"
 import IconGoogleDrive from "@/components/icon/GoogleDrive.vue"
@@ -68,7 +69,9 @@ export default {
       upload: {
         component: UploadCloudIcon
       },
-
+      menu: {
+        component: MenuIcon
+      },
       code: {
         component: IconCode
       },
