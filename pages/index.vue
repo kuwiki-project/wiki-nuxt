@@ -47,7 +47,6 @@
         </v-row>
       </v-container>
     </v-main>
-    <TheFooter />
   </div>
 </template>
 <script>

@@ -12,7 +12,6 @@
         </v-card-text>
       </v-card>
     </v-main>
-    <TheFooter />
   </div>
 </template>
 <script>
