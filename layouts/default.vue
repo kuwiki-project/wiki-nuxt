@@ -7,10 +7,6 @@
     >
       <v-divider />
       <drawerProfile />
-      <v-card-actions>
-        <buttonSignup />
-        <buttonSignin />  
-      </v-card-actions>
       <drawerList />
 
       <drawerSns />
@@ -23,23 +19,10 @@
         <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
       </v-toolbar-title>
       <v-spacer />
-      <v-btn
-        v-for="item in items"
-        :key="item.icon"
-        text
-        color="secondary"
-        :to="item.link"
-      >
-        <v-icon>{{ item.icon }}</v-icon>
-      </v-btn>
-
-      <v-btn v-if="$auth.loggedIn" text color="secondary" to="/settings">
-        <v-icon>$settings</v-icon>
-      </v-btn>
-
-      <v-btn v-if="!$auth.loggedIn" text color="secondary" to="/signin">
-        <v-icon>$login</v-icon>
-      </v-btn>
+      <v-card-actions>
+      <buttonSignIn v-if="!$auth.loggedIn"/>
+      <buttonSignUp v-if="!$auth.loggedIn"/>
+      </v-card-actions>
     </v-app-bar>
     <Nuxt />
   </v-app>
@@ -49,21 +32,7 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
-    tabs: null,
-    items: [
-      {
-        icon: "$grid",
-        link: "/"
-      },
-      {
-        icon: "$search",
-        link: "/search"
-      },
-      {
-        icon: "$book",
-        link: "/wiki"
-      }
-    ]
+    tabs: null
   })
 }
 </script>

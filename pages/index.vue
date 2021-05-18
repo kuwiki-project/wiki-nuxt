@@ -1,56 +1,96 @@
 <template>
   <div>
     <v-main>
-      <v-container>
-        <v-row justify="center">
-          <v-card flat class="d-flex align-start flex-column my-5">
-            <img src="/kiwi.svg" width="80" class="mx-auto mb-n6 mt-3" />
-            <div class="mx-auto my-5 text-center">
-              <div style="font-size: 1.5em">京大wiki</div>
-              <div>京大生のための情報サイト</div>
-            </div>
-            <div class="my-3">
-              <div style="font-size: 1.2em" class="ma-2">過去問</div>
-              <ButtonRoundIconText link="/search" text="探す" icon="$search" />
-              <ButtonRoundIconText
-                link="/upload-exams"
-                text="提供"
-                icon="$upload"
-              />
-            </div>
-            <div class="my-3">
-              <div style="font-size: 1.2em" class="ma-2">wiki</div>
-              <ButtonRoundIconText link="/wiki" text="読む" icon="$book" />
-              <ButtonRoundIconText
-                link="https://hackmd.io/@kuwiki-editors/home/edit"
-                text="書く"
-                icon="$edit"
-              />
-            </div>
-            <div class="my-3">
-              <div style="font-size: 1.2em" class="ma-2">API</div>
-              <ButtonRoundIconText
-                link="http://api.kuwiki.net/docs"
-                text="ドキュメント"
-                icon="$json"
-              />
-            </div>
-            <div class="my-3">
-              <div style="font-size: 1.2em" class="ma-2">開発</div>
-              <ButtonRoundIconText
-                link="https://github.com/kuwiki-project/wiki-nuxt"
-                text="ソースコード"
-                icon="$code"
-              />
-            </div>
-          </v-card>
+      <v-container class="fill-hight">
+        <v-row justify="center" align="start" class="mt-15 pt-15 mb-3">
+          <img src="/kiwi.svg" width="80" />
         </v-row>
+          <v-row justify="center">
+            <v-col cols="10" sm="8">
+              <SearchForm
+                :searchkey="searchkey"
+                labeltext="科目名"
+                @update="searchkey = $event"
+              />
+              <div class="mt-n2 mb-2 text-center">
+                <!-- <p>{{ message }}</p> -->
+                <v-progress-circular
+                  v-if="message === '入力中'"
+                  color="primary"
+                  indeterminate
+                />
+              </div>
+
+              <v-simple-table dense fixed-header>
+                <tbody>
+                  <tr v-for="searchresult in searchresults" :key="searchresult.id">
+                    <td v-if="message === '検索結果'">
+                      <NuxtLink
+                        no-prefetch
+                        class="itemlink black--text"
+                        :to="`courses/${searchresult.id}`"
+                      >
+                        {{ searchresult.name }}
+                      </NuxtLink>
+
+                      <v-btn
+                        v-for="exam in searchresult.exam_set"
+                        :key="exam.drive_link"
+                        :href="exam.drive_link"
+                        icon
+                        small
+                        target="”_blank”"
+                      >
+                        <v-icon small> $googledrive </v-icon>
+                      </v-btn>
+                    </td>
+                  </tr>
+                </tbody>
+              </v-simple-table>
+            </v-col>
+          </v-row>
       </v-container>
     </v-main>
   </div>
 </template>
 <script>
+import debounce from "lodash.debounce"
+import axios from "axios"
 export default {
-  auth: false
+  data: () => ({
+    items: "courses",
+    searchkey: "",
+    searchresults: [],
+    message: ""
+  }),
+  watch: {
+    searchkey() {
+      this.message = "入力中"
+      this.searchKeyword()
+    }
+  },
+  created() {
+    this.searchKeyword = debounce(this.hitApi, 200)
+  },
+  methods: {
+    hitApi() {
+      axios
+        .get(
+          `${this.$config.WIKI_API_URL}/api/course/?search=${this.searchkey}`,
+          {
+            headers: {
+              Authorization: `token${this.$auth
+                .getToken("local")
+                .replace("Bearer", "")}`
+            }
+          }
+        )
+        .then((res) => {
+          this.searchresults = res.data.results
+          this.message = "検索結果"
+        })
+        .catch((err) => err)
+    }
+  }
 }
 </script>
