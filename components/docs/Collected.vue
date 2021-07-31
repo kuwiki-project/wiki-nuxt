@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-card-title>2020後期回収済みリスト</v-card-title>
+    <v-card-title>2021前期回収済みリスト</v-card-title>
     <v-card-text>
       <div class="my-3 text-center">
         <v-progress-circular
