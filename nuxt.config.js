@@ -74,26 +74,19 @@ export default {
    */
   components: true,
 
-  plugins: [],
+  plugins: ["node_modules/normalize.css"],
   /*
    ** Nuxt.js dev-modules
    */
+
   buildModules: [
-    "@nuxtjs/vuetify",
     "@nuxtjs/eslint-module",
     "@nuxtjs/google-fonts",
-    "@nuxtjs/pwa"
+    "@nuxtjs/pwa",
   ],
-  vuetify: {
-    defaultAssets: {
-      font: false,
-      icons: false
-    },
-    optionsPath: "./vuetify.options.js"
-  },
   googleFonts: {
     families: {
-      "Noto+Sans+JP": [400, 500]
+      "Noto+Sans+JP": [300,400]
     },
     display: "swap"
   },
@@ -104,7 +97,8 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
-    "@nuxtjs/auth"
+    "@nuxtjs/auth",
+    '@nuxtjs/toast',
   ],
   /*
    ** Axios module configuration
@@ -114,10 +108,15 @@ export default {
     baseURL: process.env.WIKI_API_URL
   },
 
+  toast: {
+    duration: 3000
+  },
+
   auth: {
     redirect: {
+      // Not logged in users will be redirected to redirect.login route.
       login: "/signin",
-      logout: "/signin",
+      logout: "/",
       callback: false,
       home: "/"
     },
@@ -138,7 +137,10 @@ export default {
 
   loading: { color: "#80e4c7", height: "3px" },
 
-  // https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
+  /*
+   * Environment variables
+   * https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-runtime-config/
+   */
   publicRuntimeConfig: {
     WIKI_API_URL: process.env.WIKI_API_URL,
     COLLECTED_EXAMS_JSON_URL: process.env.COLLECTED_EXAMS_JSON_URL
@@ -159,7 +161,6 @@ export default {
       }
     }
   },
-
   router: {
     middleware: ["auth"]
   }
