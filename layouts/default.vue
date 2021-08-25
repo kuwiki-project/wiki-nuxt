@@ -1,82 +1,105 @@
 <template>
-  <v-app id="default">
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-    >
-      <v-divider />
-      <drawerProfile />
-      <drawerList />
-
-      <drawerSns />
-    </v-navigation-drawer>
-    <v-app-bar app flat absolute color="white">
-      <v-app-bar-nav-icon @click="drawer = !drawer">
-        <v-icon color="secondary">$menu</v-icon>
-      </v-app-bar-nav-icon>
-      <v-toolbar-title>
-        <NuxtLink to="/" class="grey--text">京大wiki</NuxtLink>
-      </v-toolbar-title>
-      <v-spacer />
-      <v-card-actions>
-      <buttonSignIn v-if="!$auth.loggedIn"/>
-      <buttonSignUp v-if="!$auth.loggedIn"/>
-      </v-card-actions>
-    </v-app-bar>
+  <div>
+    <theHeader />
     <Nuxt />
-  </v-app>
+  </div>
 </template>
-<script>
-export default {
-  data: () => ({
-    drawer: false,
-    group: null,
-    tabs: null
-  })
-}
-</script>
 <style>
-.v-application a {
+.icon-kiwi{
+  height: 4em;
+  width: 4em;
+  margin: 0 auto;
+  display: block;
+  color: #faaca8
+}
+.scroll-page{
+  width: 85%;
+  margin: 2em auto;
+}
+.one-page {
+  height: 85vh;
+  width: 100%;
+  margin: 2em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  font-family: "Noto Sans JP";
   text-decoration: none;
+  font-size: 15px;
+  color: dimgray;
+  line-height: 1.8em;
+  font-weight: 300;
 }
-.v-application {
-  font-family: "Noto Sans JP" !important;
-}
-.v-application .v-messages__message {
-  color: var(--v-error-darken1) !important;
-}
-
-h1 {
-  font-weight: 500;
-}
-h2 {
-  font-weight: 500;
-}
-h3 {
-  font-weight: 500;
-  margin: 20pt 0pt 5pt;
+h1{
+  font-size: 1.5em !important;
+  margin: 1em 0;
 }
 
-h4 {
-  font-weight: 500;
-  margin: 10pt 0pt 5pt;
+h1, h2, h3, h4, h5, h6{
+  font-weight: 300;
 }
-h5 {
-  font-weight: 500;
+.input {
+  width: 100%;
+  height: 2em;
+  color: inherit;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 0.4em;
+  display: block;
+  background-color: whitesmoke;
+  padding: 0 0.5em;
 }
-h6 {
-  font-weight: 500;
+.input::placeholder {
+  color: lightgray;
+}
+.label{
+  font-size: 0.85em;
+  text-align: bottom;
+  display: inline-block;
+  width: 100%;
+  margin: 1em 0 0 0;
+}
+a {
+  text-decoration: none;
+ color: cornflowerblue
+}
+.link-text{
+  display: inline-block;
+  font-weight: 400;
+  color: cornflowerblue;
+  background-color: whitesmoke;
+  text-decoration: underline solid;
+  vertical-align: bottom;
+  padding: 0 0.2em;
+}
+.link-text .link-icon{
+  padding: 0.15em 0.15em 0.15em 0;
+  vertical-align: bottom;
 }
 
-strong {
-  font-weight: 500;
+.link-text:hover{
+  text-decoration: none;
+  color: royalblue;
 }
-ul {
-  padding-left: 1em;
+.white-link-button{
+  height: 2em;
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: white;
+  border: cornflowerblue solid 0.1em;
+  border-radius: 2em;
+  text-align: center;
+  color: cornflowerblue;
+  width: 10em;
 }
-
-.hutoji {
-  font-weight: 500;
+.white-link-button:hover{
+  background: cornflowerblue;
+  color: white;
 }
 </style>
