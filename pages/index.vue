@@ -50,15 +50,13 @@
 </template>
 
 <script>
-import { SearchIcon, GithubIcon,HelpCircleIcon,UploadCloudIcon, PaperclipIcon,FeatherIcon } from "vue-feather-icons"
+import { SearchIcon,HelpCircleIcon,UploadCloudIcon, PaperclipIcon,FeatherIcon } from "vue-feather-icons"
 export default {
   auth: false,
   components: {
     SearchIcon,
-    GithubIcon,
     UploadCloudIcon,
     PaperclipIcon,
-   
     HelpCircleIcon,
     FeatherIcon
   }
@@ -120,6 +118,7 @@ h1{
 
 .item-label{
   font-size: 0.7em;
+  margin : -0.5em 0;
 }
 
 .item-icon{
