@@ -44,14 +44,7 @@
         </NuxtLink>
         <div class="item-label">よくある質問</div>
       </div>
-
-
-      <div class="item-link-and-label">
-        <a href="https://github.com/kuwiki-project" target="_blank" class="item-link">
-          <GithubIcon class="item-icon" stroke-width="1.5" size="2x" />
-        </a>
-        <div class="item-label">GitHub</div>
-      </div>
+      
     </div>
   </div>
 </template>
