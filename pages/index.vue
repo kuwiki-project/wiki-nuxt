@@ -50,15 +50,13 @@
 </template>
 
 <script>
-import { SearchIcon, GithubIcon,HelpCircleIcon,UploadCloudIcon, PaperclipIcon,FeatherIcon } from "vue-feather-icons"
+import { SearchIcon,HelpCircleIcon,UploadCloudIcon, PaperclipIcon,FeatherIcon } from "vue-feather-icons"
 export default {
   auth: false,
   components: {
     SearchIcon,
-    GithubIcon,
     UploadCloudIcon,
     PaperclipIcon,
-   
     HelpCircleIcon,
     FeatherIcon
   }
