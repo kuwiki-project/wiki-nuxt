@@ -32,7 +32,7 @@
   font-size: 15px;
   color: gray;
   line-height: 1.8em;
-  font-weight: 300;
+  font-weight: 400;
 }
 h1{
   font-size: 1.5em !important;
@@ -40,7 +40,7 @@ h1{
 }
 
 h1, h2, h3, h4, h5, h6{
-  font-weight: 300;
+  font-weight: 400;
 }
 h3 {
   color: lightseagreen;
@@ -48,7 +48,7 @@ h3 {
 }
 
 .input {
-  font-weight: 300;
+  font-weight: 400;
   width: 100%;
   height: 2em;
   outline: none;
