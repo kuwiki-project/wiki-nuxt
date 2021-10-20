@@ -1,84 +1,69 @@
 <template>
-  <v-main>
-    <v-container class="fill-height">
-      <v-card
-        flat
-        class="mx-auto my-auto py-5 px-10 align-start text-center flex-column"
-        width="350"
-      >
-        <img width="80" height="80" class="mx-auto my-5" src="/kiwi.svg" />
-        <v-form ref="credentials" v-model="valid" class="mx-auto">
-          <v-text-field
-            v-model="credentials.email"
-            :rules="emailRules"
-            type="email"
-            required
-            filled
-            dense
-            rounded
-            prepend-inner-icon="$mail"
-          />
-          <v-text-field
-            v-model="credentials.password"
-            :rules="passwordRules"
-            type="password"
-            required
-            filled
-            dense
-            rounded
-            prepend-inner-icon="$lock"
-          />
-          <v-btn
-            color="primary"
-            :disabled="!valid"
-            depressed
-            block
-            @click="login"
-          >
-            ログイン
-          </v-btn>
-        </v-form>
-        <v-card-text>
-          <div class="my-1 text-caption">
-            アカウント作成は
-            <NuxtLink to="/signup"> こちら </NuxtLink>
-            から
-          </div>
-          <div class="my-1 text-caption">
-            パスワードをお忘れの方は
-            <NuxtLink to="/reset-password"> こちら </NuxtLink>
-            から
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-container>
-  </v-main>
+  <div class="signin-page">
+    <div class="white-card">
+      <form class="signin-form" @submit.prevent="userLogin">
+        <iconKiwi class="icon-kiwi" />
+        <div class="title-kuwiki">京大wiki</div>
+        
+        <label for="kumoi-email" class="label">メールアドレス</label>
+        <input
+          id="kumoi-email"
+          v-model="credentials.email"
+          class="input"
+          type="email"
+          pattern=".+@st.kyoto-u.ac.jp"
+          placeholder="@st.kyoto-u.ac.jp"
+          required
+        />
+
+        <label for="password" class="label">パスワード</label>
+        <input
+          id="password"
+          v-model="credentials.password"
+          class="input"
+          type="password"
+          minlength="8"
+          required
+        />
+       
+        <button type="submit" class="submit-button">ログイン</button>
+      </form>
+      <div class="mataha">または</div>
+    
+      <div class="link-buttons">
+        <NuxtLink to="/auth/signup" class="link-button">
+          アカウントを作成する 
+          <arrow-right-icon class="arrow-icon" size="1.2x"></arrow-right-icon>
+        </NuxtLink>
+        <NuxtLink to="/auth/reset-password" class="link-button">
+          パスワードを忘れた
+          <arrow-right-icon class="arrow-icon" size="1.2x"></arrow-right-icon>
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-import Swal from "sweetalert2"
+
+import { ArrowRightIcon } from 'vue-feather-icons'
 export default {
+  components: {
+    ArrowRightIcon
+  },
+  layout: 'noheader',
+  auth: false,
   data: () => ({
-    auth: false,
-    dialog: true,
-    valid: false,
+    
     credentials: {
       email: "",
       password: ""
     }
   }),
-  computed: {
-    emailRules() {
-      return [
-        (v) =>
-          /^.+@st.kyoto-u.ac.jp$/u.test(v) || "学生用メール @st.kyoto-u.ac.jp"
-      ]
-    },
-    passwordRules() {
-      return [(v) => Boolean(v) || "必須", (v) => v.length > 7 || "8文字以上"]
-    }
+  head: {
+    title: "ログイン"
   },
   methods: {
-    login() {
+    userLogin() {
       this.$auth
         .loginWith("local", {
           data: {
@@ -87,42 +72,99 @@ export default {
           }
         })
         .then((res) => {
+          console.log(res)
+          this.$toast.success("ログインしました")
           this.$router.push("/")
-          const Toast = Swal.mixin({
-            toast: true,
-            position: "bottom",
-            showConfirmButton: false,
-            iconColor: "var(--v-primary-base)",
-            timer: 3000
-          })
-          Toast.fire({
-            icon: "success",
-            text: "ログイン完了"
-          })
+        
         })
-        .catch((e) => {
-          Swal.fire({
-            icon: "error",
-            text: e.response.data.non_field_errors,
-            showConfirmButton: false,
-            showCloseButton: false,
-            timer: 3000
-          })
+        .catch((err) => {
+          console.log(err)
+           this.$toast.error(err.response.data.non_field_errors)
         })
     }
   }
 }
 </script>
+
 <style scoped>
->>> .v-input__prepend-inner {
-  padding-right: 9px !important;
+.title-kuwiki{
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.4em;
+  margin: 0 0 1em 0;
+}
+.signin-page {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #ddd6f3, #faaca8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.white-card{
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4em 0;
+  width: 85%;
+}
+.signin-form {
+  width: 90%;
+  max-width: 25em;
+}
+.submit-button {
+  display: block;
+  border-radius: 1em;
+  height: 2em;
+  width: 80%;
+  max-width: 12em;
+  border: none;
+  background:#faaca8;
+  color: white;
+  margin: 1.5em auto;
 }
 
->>> .v-text-field--rounded > .v-input__control > .v-input__slot {
-  padding: 0 16px !important;
+form:invalid .submit-button {
+  cursor: not-allowed;
+  border: none;
+  outline: none;
+  background: lightgray;
+}
+.mataha{
+  display: flex;
+  align-items: center;
+  margin: 0.2em 0;
+  display: flex;
+  width: 40%;
+  font-size: 0.85em;
+}
+.mataha:before, .mataha:after {
+  border-top: 1px solid;
+  content: "";
+  flex: 1; /* 線の長さ */
+}
+.mataha:before {
+  margin-right: 0.5em; /* 文字の右隣 */
+}
+.mataha:after {
+  margin-left: 0.5em; /* 文字の左隣 */
 }
 
->>> .v-icon {
-  color: #a9a9a9;
+.link-buttons {
+  text-align: center;
+}
+.link-button {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 0.4em 0;
+  font-size: 0.85em;
+}
+.arrow-icon{
+  vertical-align: text-bottom;
 }
 </style>

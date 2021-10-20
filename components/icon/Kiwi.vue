@@ -6,7 +6,7 @@
     xml:space="preserve"
     version="1.1"
     viewBox="0 0 1024 1024"
-    fill="currentColor"
+    fill="#faaca8"
   >
     <g>
       <path
@@ -16,8 +16,3 @@
     </g>
   </svg>
 </template>
-<script>
-export default {
-  name: "IconsKiwi"
-}
-</script>
