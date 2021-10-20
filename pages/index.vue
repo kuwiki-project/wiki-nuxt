@@ -2,7 +2,7 @@
   <div class="one-page">
     <div class="top-icon">
       <iconKiwi class="icon-kiwi" />
-      <h1>京大wiki</h1>
+      <div class="title-kuwiki">京大wiki</div>
       <div class="kuwiki-is">京大生のための情報サイト</div>
     </div>
 
@@ -73,12 +73,14 @@ export default {
   display: block;
   color: #faaca8;
 }
-h1{
+.title-kuwiki{
   font-weight: 300;
   font-size: 1.4em;
   margin: 0em 0;
 }
-
+.kuwiki-is{
+   font-weight: 300;
+}
 .input-container {
   display: flex;
   justify-content: center;

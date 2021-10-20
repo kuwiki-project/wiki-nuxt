@@ -36,6 +36,7 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  font-weight: 300;
   height: 4em;
   background: white;
 }
