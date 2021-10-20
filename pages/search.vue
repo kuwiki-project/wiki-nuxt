@@ -112,13 +112,7 @@ export default {
 }
 </script>
 <style scoped>
-.icon-kiwi{
-  height: 4em;
-  width: 4em;
-  display: block;
-  color: #faaca8;
-}
-.search-form{
+.search-form {
   width: 90%;
   margin: 1em auto;
 }
@@ -132,13 +126,14 @@ export default {
 
 /* Style the input fields */
 .input-field {
-  border: 0.1em solid lightgray;
+  border: 0.1em solid gray;
   border-right: none;
   padding: 0em 0em 0em 1.2em;
   height: 2em;
   border-radius: 1em 0 0 1em;
   flex: auto;
   max-width: 21em;
+  font-weight: 300;
   outline: none;
 }
 .search-button {
@@ -147,15 +142,13 @@ export default {
   border: none;
   background: cornflowerblue;
   text-align: center;
-  color: #fff;
+  color: white;
   border-radius: 0 1em 1em 0;
   cursor: pointer;
 }
 .search-icon{
   height: 1.4em;
 }
-
-
 .result-container{
   width: 26em;
   margin: 0 auto;
@@ -168,7 +161,7 @@ li{
   height: 1.2em;
   width: 1.2em;
 }
-.drive-link:hover{
- color: rosybrown;
+.drive-icon:hover{
+ color: royalblue;
 }
 </style>

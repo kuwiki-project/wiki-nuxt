@@ -30,7 +30,7 @@
   font-family: "Noto Sans JP";
   text-decoration: none;
   font-size: 15px;
-  color: dimgray;
+  color: gray;
   line-height: 1.8em;
   font-weight: 300;
 }
@@ -42,10 +42,15 @@ h1{
 h1, h2, h3, h4, h5, h6{
   font-weight: 300;
 }
+h3 {
+  color: lightseagreen;
+  font-weight: 400;
+}
+
 .input {
+  font-weight: 300;
   width: 100%;
   height: 2em;
-  color: inherit;
   outline: none;
   border: none;
   box-sizing: border-box;
@@ -55,8 +60,9 @@ h1, h2, h3, h4, h5, h6{
   padding: 0 0.5em;
 }
 .input::placeholder {
-  color: lightgray;
+  color: silver;
 }
+
 .label{
   font-size: 0.85em;
   text-align: bottom;
@@ -66,19 +72,20 @@ h1, h2, h3, h4, h5, h6{
 }
 a {
   text-decoration: none;
- color: cornflowerblue
+  color: cornflowerblue
+}
+a:hover{
+  color: royalblue;
 }
 .link-text{
   display: inline-block;
-  font-weight: 400;
   color: cornflowerblue;
   background-color: whitesmoke;
   text-decoration: underline solid;
-  vertical-align: bottom;
-  padding: 0 0.2em;
+  padding: 0 0.05em;
 }
 .link-text .link-icon{
-  padding: 0.15em 0.15em 0.15em 0;
+  padding: 0.05em 0.20em 0.05em 0;
   vertical-align: bottom;
 }
 

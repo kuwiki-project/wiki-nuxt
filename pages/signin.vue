@@ -87,13 +87,6 @@ export default {
 </script>
 
 <style scoped>
-.icon-kiwi{
-  height: 4em;
-  width: 4em;
-  margin: 0 auto;
-  display: block;
-  color: #faaca8;
-}
 .title-kuwiki{
   text-align: center;
   font-weight: 300;
@@ -143,10 +136,10 @@ form:invalid .submit-button {
 .mataha{
   display: flex;
   align-items: center;
- margin: 0.2em 0;
- display: flex;
- width: 40%;
- font-size: 0.85em;
+  margin: 0.2em 0;
+  display: flex;
+  width: 40%;
+  font-size: 0.85em;
 }
 .mataha:before, .mataha:after {
   border-top: 1px solid;
