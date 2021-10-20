@@ -49,7 +49,6 @@ export default {
   border: 0.4em white solid;
   padding: 0 0.2em;
   margin:0 0.5em;
-  font-weight: 300;
   font-size: 1.3em;
   color: silver;
   text-decoration: none;
