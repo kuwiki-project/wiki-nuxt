@@ -5,10 +5,10 @@
       ログアウトする
     </button>
     <p>
-      <NuxtLink to="privacy" class="link-text"><chevron-right-icon size="1.5x" class="link-icon"></chevron-right-icon>プライバシーポリシー</NuxtLink>
+      <NuxtLink to="privacy" class="link-text"><chevron-right-icon class="link-icon"></chevron-right-icon>プライバシーポリシー</NuxtLink>
     </p>
     <p>
-      <NuxtLink to="privacy" class="link-text"><chevron-right-icon size="1.5x" class="link-icon"></chevron-right-icon>利用規約</NuxtLink>
+      <NuxtLink to="terms" class="link-text"><chevron-right-icon class="link-icon"></chevron-right-icon>利用規約</NuxtLink>
     </p>
   </div>
 </template>

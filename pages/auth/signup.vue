@@ -22,7 +22,7 @@
       <input id="password2" v-model="credentials.password2" class="input" type="password" minlength="8" required />
      
     
-      <p class="term-message">アカウント作成により<NuxtLink to="/terms" target="”_blank”" class="link-text">利用規約</NuxtLink>に同意したものとみなされます</p>
+      <p class="term-message">アカウント作成により<NuxtLink to="/terms" target="”_blank”">利用規約</NuxtLink>に同意したものとみなされます</p>
 
       <button type="submit" class="submit-button">
         アカウント作成
@@ -80,7 +80,6 @@ export default {
 </script>
 
 <style scoped>
-
 .signup-form {
   width: 90%;
   max-width: 20em;
