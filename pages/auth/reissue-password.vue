@@ -1,6 +1,6 @@
 <template>
   <!-- パスワード再発行メールからアクセスできるパスワード更新用の画面-->
-  <div class="one-page">
+  <div class="scroll-page">
     <h1>
       パスワード変更
     </h1>

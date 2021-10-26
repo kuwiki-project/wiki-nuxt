@@ -42,15 +42,16 @@
         <NuxtLink to="faq" class="item-link">
           <HelpCircleIcon class="item-icon" stroke-width="1.5" size="2x" />
         </NuxtLink>
-        <div class="item-label">よくある質問</div>
+        <div class="item-label">
+          よくある質問
+        </div>
       </div>
-      
     </div>
   </div>
 </template>
 
 <script>
-import { SearchIcon,HelpCircleIcon,UploadCloudIcon, PaperclipIcon,FeatherIcon } from "vue-feather-icons"
+import { SearchIcon, HelpCircleIcon, UploadCloudIcon, PaperclipIcon, FeatherIcon } from "vue-feather-icons"
 export default {
   auth: false,
   components: {
@@ -67,11 +68,13 @@ export default {
   text-align:center;
   margin: 0 0 1.5em 0;
 }
+
 .icon-kiwi{
   height:4em;
   width: 4em;
   display: block;
   color: var(--color-accent);
+  margin: 0 auto;
 }
 .title-kuwiki{
   font-weight: 300;

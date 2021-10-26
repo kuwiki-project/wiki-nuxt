@@ -5,21 +5,14 @@
   </div>
 </template>
 <style>
-.icon-kiwi{
-  height: 4em;
-  width: 4em;
-  margin: 0 auto;
-  display: block;
-  color: #faaca8
-}
 .scroll-page{
-  width: 85%;
-  margin: 2em auto;
+  width: 90%;
+  margin: 0 auto;
 }
 .one-page {
   height: 85vh;
   width: 100%;
-  margin: 2em auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
