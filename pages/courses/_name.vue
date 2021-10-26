@@ -43,10 +43,10 @@ export default {
       results: []
     }
   },
-     head() {
-      return {
-        title: this.$router.currentRoute.params.name,
-      }},
+  head() {
+    return {
+    title: this.$router.currentRoute.params.name,
+  }},
   mounted() {
     this.getCourseDetail()
   },

@@ -62,7 +62,11 @@
 </template>
 <script>
 export default {
-  title: "回収済みリスト",
-  auth: false
+  auth: false,
+  head: {
+    title: "よくある質問",
+  }
+  
+  
 }
 </script>

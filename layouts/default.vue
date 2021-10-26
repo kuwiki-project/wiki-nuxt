@@ -5,21 +5,14 @@
   </div>
 </template>
 <style>
-.icon-kiwi{
-  height: 4em;
-  width: 4em;
-  margin: 0 auto;
-  display: block;
-  color: #faaca8
-}
 .scroll-page{
-  width: 85%;
-  margin: 2em auto;
+  width: 90%;
+  margin: 0 auto;
 }
 .one-page {
   height: 85vh;
   width: 100%;
-  margin: 2em auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +26,13 @@
   color: gray;
   line-height: 1.8em;
   font-weight: 400;
+  --color-primary: cornflowerblue;
+  --color-success:  lightseagreen;
+  --color-accent:  #faaca8;
+  --color-danger: gold;
+  --color-info: cornflowerblue;
 }
+
 h1{
   font-size: 1.5em !important;
   margin: 1em 0;
@@ -45,6 +44,14 @@ h1, h2, h3, h4, h5, h6{
 h3 {
   color: lightseagreen;
   font-weight: 400;
+}
+/* Set toast color */
+.success{
+  background: var(--color-success) !important;
+}
+
+.info{
+  background: var(--color-info) !important;
 }
 
 .input {

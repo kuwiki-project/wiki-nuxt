@@ -8,9 +8,7 @@
           class="input-field"
           placeholder="科目名・学部・教員名"
         />
-        <button type="submit" class="search-button">
-          <search-icon class="search-icon"></search-icon>
-        </button>
+        <search-icon class="search-icon"></search-icon>
       </div>
     </form>
     
@@ -113,42 +111,45 @@ export default {
 </script>
 <style scoped>
 .search-form {
-  width: 90%;
+  width: 80%;
   margin: 1em auto;
 }
 
 .input-container {
-  display: flex;
-  justify-content: center;
+  position: relative;
   width: 100%;
-  margin: 1em 0;
 }
 
 /* Style the input fields */
 .input-field {
+  box-sizing: border-box;
   border: 0.1em solid gray;
-  border-right: none;
-  padding: 0em 0em 0em 1.2em;
-  height: 2em;
-  border-radius: 1em 0 0 1em;
-  flex: auto;
-  max-width: 21em;
+  background: whitesmoke;
+  padding: 0 0 0 3em;
+  height: 2.2em;
+  border-radius: 1em;
   font-weight: 300;
   outline: none;
+  width: 100%;
+  -webkit-appearance: none;
 }
-.search-button {
-  width: 3em;
-  height: 2.2em;
-  border: none;
-  background: cornflowerblue;
-  text-align: center;
-  color: white;
-  border-radius: 0 1em 1em 0;
-  cursor: pointer;
+.input-field:focus{
+  border: 0.1em solid cornflowerblue;
 }
+.input-field:focus + .search-icon{
+  color:cornflowerblue;
+}
+
 .search-icon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.4em 0.5em;
   height: 1.4em;
+  color: gray;
 }
+
+.search
 .result-container{
   width: 26em;
   margin: 0 auto;
