@@ -48,7 +48,7 @@ export default {
       { name: "twitter:site", content: "@kuwiki99" }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/kiwi.svg" },
+      { rel: "icon", type: "image/x-icon", href: "/icon.ico" },
       {
         rel: "apple-touch-icon",
         href: "icon.png"
