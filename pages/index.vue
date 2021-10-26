@@ -71,7 +71,7 @@ export default {
   height:4em;
   width: 4em;
   display: block;
-  color: #faaca8;
+  color: var(--color-accent);
 }
 .title-kuwiki{
   font-weight: 300;
@@ -115,7 +115,7 @@ export default {
 }
 .item-link:hover{
   background: mistyrose;
-  color: lightpink;
+  color: var(--color-accent);
 }
 
 .item-label{

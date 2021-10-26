@@ -87,6 +87,14 @@ export default {
 </script>
 
 <style scoped>
+.icon-kiwi{
+  height: 4em;
+  width: 4em;
+  margin: 0 auto;
+  display: block;
+  color: var(--color-accent);
+}
+
 .title-kuwiki{
   text-align: center;
   font-weight: 300;

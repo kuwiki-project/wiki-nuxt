@@ -70,7 +70,7 @@ export default {
   box-sizing: border-box;
   cursor: pointer;
   text-decoration: none;
-  color: lightpink;
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   padding: 0em 0.8em;
@@ -82,7 +82,7 @@ export default {
 .header-icon:hover{
   background: mistyrose;
   border: 0.4em mistyrose solid;
-  color: lightpink;
+  color: var(--color-accent);
 }
 .current-page-link{
   background: snow;

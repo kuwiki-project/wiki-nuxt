@@ -33,7 +33,13 @@
   color: gray;
   line-height: 1.8em;
   font-weight: 400;
+  --color-primary: cornflowerblue;
+  --color-success:  lightseagreen;
+  --color-accent:  #faaca8;
+  --color-danger: gold;
+  --color-info: cornflowerblue;
 }
+
 h1{
   font-size: 1.5em !important;
   margin: 1em 0;
@@ -45,6 +51,14 @@ h1, h2, h3, h4, h5, h6{
 h3 {
   color: lightseagreen;
   font-weight: 400;
+}
+/* Set toast color */
+.success{
+  background: var(--color-success) !important;
+}
+
+.info{
+  background: var(--color-info) !important;
 }
 
 .input {

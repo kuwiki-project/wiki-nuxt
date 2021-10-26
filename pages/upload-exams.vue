@@ -104,7 +104,7 @@ export default {
 </script>
 <style scoped>
 .under-red {
-  background: linear-gradient(transparent 80%, lightpink 80%);
+  background: linear-gradient(transparent 80%, var(--color-accent) 80%);
 }
 .under-green {
   background: linear-gradient(transparent 80%, lightseagreen 80%);
@@ -121,7 +121,7 @@ export default {
 }
 
 .border-red {
-  border: solid 0.2em lightpink;
+  border: solid 0.2em var(--color-accent);
 }
 .border-green {
   border: solid 0.2em lightseagreen;
