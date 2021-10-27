@@ -85,8 +85,8 @@ export default {
   color: var(--color-accent);
 }
 .current-page-link{
-  background: snow;
-  border: 0.4em snow solid;
+  background:white;
+  border: 0.4em white solid; 
 }
 </style>
 
