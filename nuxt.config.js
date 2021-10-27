@@ -57,13 +57,14 @@ export default {
   },
   pwa: {
     meta: {
-      theme_color: "lightseagreen"
+      theme_color: "white"
     },
     manifest: {
       name: "京大wiki",
       short_name: "京大wiki",
       lang: "ja"
-    }
+    },
+    icon: false,
   },
   /*
    ** Global CSS
@@ -135,7 +136,7 @@ export default {
     }
   },
 
-  loading: { color: "lightseagreen", height: "3px" },
+  loading: false,
 
   /*
    * Environment variables
