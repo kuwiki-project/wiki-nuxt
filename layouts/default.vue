@@ -22,7 +22,7 @@
 :root {
   font-family: "Noto Sans JP";
   text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   color: gray;
   line-height: 1.8em;
   font-weight: 400;
