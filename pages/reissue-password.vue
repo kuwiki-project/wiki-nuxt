@@ -83,6 +83,7 @@ export default {
         )
         .then((res) => {
           Swal.fire({
+            icon: "success",
             text: "パスワードを変更しました",
             showConfirmButton: false,
             showCloseButton: false,
@@ -93,6 +94,7 @@ export default {
         })
         .catch((e) => {
           Swal.fire({
+            icon: "error",
             text: "エラーが発生しました",
             showConfirmButton: false,
             showCloseButton: false,

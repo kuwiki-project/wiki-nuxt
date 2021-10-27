@@ -1,6 +1,7 @@
 import {
   BookIcon,
   Edit3Icon,
+  FileTextIcon,
   GithubIcon,
   GridIcon,
   LockIcon,
@@ -9,6 +10,7 @@ import {
   SearchIcon,
   SendIcon,
   SettingsIcon,
+  SmileIcon,
   StarIcon,
   TwitterIcon,
   UploadCloudIcon
@@ -26,6 +28,9 @@ export default {
       },
       edit: {
         component: Edit3Icon
+      },
+      filetext: {
+        component: FileTextIcon
       },
       grid: {
         component: GridIcon
@@ -53,6 +58,9 @@ export default {
       },
       settings: {
         component: SettingsIcon
+      },
+      smile: {
+        component: SmileIcon
       },
       twitter: {
         component: TwitterIcon

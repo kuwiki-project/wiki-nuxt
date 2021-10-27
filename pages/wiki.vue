@@ -1,9 +1,10 @@
 <template>
   <div>
     <v-main>
-      <v-container>
+      <v-container class="fill-height">
         <v-row justify="center">
-          <v-col cols="11" sm="3" class="mb-n4">
+          準備中
+          <!-- <v-col cols="11" sm="3" class="mb-n4">
             <v-chip-group
               v-model="selectedCategory"
               active-class="info--text"
@@ -31,11 +32,10 @@
                 </v-expansion-panel-content>
               </v-expansion-panel>
             </v-expansion-panels>
-          </v-col>
+          </v-col> -->
         </v-row>
       </v-container>
     </v-main>
-    <TheFooter />
   </div>
 </template>
 <script>

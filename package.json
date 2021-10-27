@@ -1,6 +1,6 @@
 {
   "name": "wiki-nuxt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "京大生のための情報サイト",
   "repository": {
     "type": "git",
@@ -32,7 +32,7 @@
     "@nuxtjs/proxy": "^2.0.0",
     "babel-eslint": "^10.1.0",
     "core-js": "^3.8.2",
-    "lodash": "^4.17.20",
+    "lodash.debounce": "^4.0.8",
     "node_module": "0.0.0",
     "nuxt": "^2.14.12",
     "sweetalert2": "^10.1.0",
@@ -46,6 +46,7 @@
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/google-fonts": "^1.3.0",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/vuetify": "^1.0.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^7.2.0",

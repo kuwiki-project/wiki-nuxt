@@ -54,15 +54,16 @@ export default {
 <style>
 .v-application a {
   text-decoration: none;
-  color: var(--v-primary-darken2);
+  color: var(--v-primary-darken2) !important;
 }
-
 .v-application {
-  font-family: "Noto Sans JP", sans-serif !important;
+  font-family: "Noto Sans JP" !important;
 }
-
+.v-application .v-messages__message {
+  color: var(--v-error-darken1) !important;
+}
 div {
-  font-family: "Noto Sans JP", sans-serif !important;
+  color: #6b6b6b;
 }
 
 h1 {
@@ -73,14 +74,28 @@ h2 {
 }
 h3 {
   font-weight: 500;
+  margin: 20pt 0pt 5pt;
 }
+
 h4 {
   font-weight: 500;
+  margin: 10pt 0pt 5pt;
 }
 h5 {
   font-weight: 500;
 }
 h6 {
   font-weight: 500;
+}
+
+strong {
+  font-weight: 500;
+}
+ul {
+  padding-left: 1em;
+}
+
+.v-main {
+  margin-bottom: 14em;
 }
 </style>

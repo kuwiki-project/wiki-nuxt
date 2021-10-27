@@ -5,7 +5,8 @@
         flat
         class="mx-auto my-auto py-5 px-10 align-start text-center flex-column"
         width="350"
-        ><img width="80" height="80" class="mx-auto my-5" src="/kiwi.svg" />
+      >
+        <img width="80" height="80" class="mx-auto my-5" src="/kiwi.svg" />
         <v-form ref="credentials" v-model="valid" class="mx-auto">
           <v-text-field
             v-model="credentials.email"
@@ -89,14 +90,14 @@ export default {
           this.$router.push("/")
           const Toast = Swal.mixin({
             toast: true,
-            position: "top-end",
+            position: "bottom",
             showConfirmButton: false,
             iconColor: "var(--v-primary-base)",
             timer: 3000
           })
           Toast.fire({
             icon: "success",
-            text: "ログインしました"
+            text: "ログイン完了"
           })
         })
         .catch((e) => {
