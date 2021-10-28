@@ -22,14 +22,14 @@
           v-for="(period, period_key) in lecture.period_set"
           :key="period_key"
         >
-          {{ period.period }}
+          {{ period.name }}
         </span>
       </div>
       <div
         v-for="(instructor, instructor_key) in lecture.instructor_set"
         :key="instructor_key"
       >
-        {{ instructor.instructor }}
+        {{ instructor.name }}
       </div>
     </div>
   </div>
