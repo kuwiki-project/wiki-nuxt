@@ -1,21 +1,11 @@
 <template>
   <div>
-    <theHeader />
     <Nuxt />
   </div>
 </template>
 <style scoped>
-.scroll-page {
-  width: 90%;
-  margin: 0 auto 1em auto;
-}
-.narrow-scroll-page {
-  width: 85%;
-  max-width: 25em;
-  margin: 0 auto 1em auto;
-}
 .fixed-page {
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   margin: 0 auto;
   display: flex;

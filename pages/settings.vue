@@ -1,40 +1,28 @@
 <template>
-  <div>
-    <v-main>
-      <v-card width="300" flat class="mx-auto">
-        <v-card-text class="px-6">
-          {{ $auth.user.email }}
-          <v-card-actions class="mx-3">
-            <v-btn color="primary" depressed block @click="logout">
-              ログアウト
-            </v-btn>
-          </v-card-actions>
-        </v-card-text>
-      </v-card>
-    </v-main>
-    <TheFooter />
+  <div class="scroll-page">
+    <h1>設定</h1>
+    <button class="button-white" @click="logout">
+      ログアウトする
+    </button>
+    <p>
+      <NuxtLink to="/privacy" class="link-underline"><chevron-right-icon class="icon-with-text"></chevron-right-icon>プライバシーポリシー</NuxtLink><br>
+      <NuxtLink to="/terms" class="link-underline"><chevron-right-icon class="icon-with-text"></chevron-right-icon>利用規約</NuxtLink>
+    </p>
   </div>
 </template>
 <script>
-import Swal from "sweetalert2"
+import { ChevronRightIcon } from 'vue-feather-icons'
 export default {
-  data: () => ({
-    dialog: true
-  }),
+  components: {
+    ChevronRightIcon
+  },
+  head: {
+    title: "設定"
+  },
   methods: {
     logout() {
       this.$auth.logout()
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "bottom",
-        showConfirmButton: false,
-        iconColor: "var(--v-primary-base)",
-        timer: 3000
-      })
-      Toast.fire({
-        icon: "success",
-        text: "ログアウト完了"
-      })
+      this.$toast.success("ログアウトしました")
     }
   }
 }

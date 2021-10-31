@@ -1,22 +1,18 @@
-## コンポーネント
+# コンポーネント
 
 コンポーネントは pages 内で import なしに呼び出すことができる
+
 たとえば `HogeHoge.vue` は
 
-```
-<HogeHoge></HogeHoge>
-```
+`<HogeHoge></HogeHoge>`
 
-あるいは
+または
 
-```
-<component :is="HogeHoge"></component>
-```
+`<component :is="HogeHoge"></component>`
 
-で呼び出せる
+のどちらかで呼び出せる.
 
-SVG は vuetify を通してアイコンにしているため，`/plugins/vuetify.js` を参照すること
+アイコンは https://vue-feather-icons.egoist.sh/ を参考にする．
 
-// アイコン一覧 https://vue-feather-icons.egoist.sh/
-// vuetify をとおしたアイコンは pages で
-// <v-icon>$hoge</v-icon> で呼び出せる
+feather icons 以外を利用する場合は
+`components/icon` に入っているものを呼び出し．
