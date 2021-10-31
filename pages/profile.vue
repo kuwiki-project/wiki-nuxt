@@ -9,14 +9,9 @@
     
     <h3>問い合わせ</h3>
     <p>
-      <a href="mailto:kuwiki99@gmail.com" target="_blank" class="link-text"><MailIcon class="link-icon" />kuwiki99@gmail.com</a>
-    </p>
-    <p>
-      <a href="https://twitter.com/kuwiki99" target="_blank" class="link-text"><TwitterIcon class="link-icon" />kuwiki99</a>
-    </p>
-    
-    <p>
-      <a href="https://github.com/kuwiki-project" target="_blank" class="link-text"><GithubIcon class="link-icon" />kuwiki-project</a>
+      <a href="mailto:kuwiki99@gmail.com" target="_blank" class="link-underline"><MailIcon class="icon-with-text" />kuwiki99@gmail.com</a><br>
+      <a href="https://twitter.com/kuwiki99" target="_blank" class="link-underline"><TwitterIcon class="icon-with-text" />kuwiki99</a><br>
+      <a href="https://github.com/kuwiki-project" target="_blank" class="link-underline"><GithubIcon class="icon-with-text" />kuwiki-project</a>
     </p>
 
     <h3>運営者募集</h3>

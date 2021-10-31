@@ -1,15 +1,14 @@
 <template>
-  <div class="signin-page">
+  <div class="fixed-page">
     <div class="white-card">
-      <form class="signin-form" @submit.prevent="userLogin">
-        <iconKiwi class="icon-kiwi" />
-        <div class="title-kuwiki">京大wiki</div>
-        
+      <iconKiwi class="icon-kiwi" />
+      <div class="title-kuwiki">京大wiki</div>
+      <form class="form-signin" @submit.prevent="userLogin">
         <label for="kumoi-email" class="label">メールアドレス</label>
         <input
           id="kumoi-email"
           v-model="credentials.email"
-          class="input"
+          class="input-gray"
           type="email"
           pattern=".+@st.kyoto-u.ac.jp"
           placeholder="@st.kyoto-u.ac.jp"
@@ -20,26 +19,25 @@
         <input
           id="password"
           v-model="credentials.password"
-          class="input"
+          class="input-gray"
           type="password"
           minlength="8"
           required
         />
        
-        <button type="submit" class="submit-button">ログイン</button>
+        <button type="submit" class="button-submit">ログイン</button>
       </form>
-      <div class="mataha">または</div>
-    
-      <div class="link-buttons">
-        <NuxtLink to="/auth/signup" class="link-button">
-          アカウントを作成する 
-          <arrow-right-icon class="arrow-icon" size="1.2x"></arrow-right-icon>
-        </NuxtLink>
-        <NuxtLink to="/auth/reset-password" class="link-button">
-          パスワードを忘れた
-          <arrow-right-icon class="arrow-icon" size="1.2x"></arrow-right-icon>
-        </NuxtLink>
+      <div class="mataha">
+        または
       </div>
+      <NuxtLink to="/auth/signup" class="button-link">
+        アカウントを作成する 
+        <arrow-right-icon class="icon-with-text" size="1.2x"></arrow-right-icon>
+      </NuxtLink>
+      <NuxtLink to="/auth/reset-password" class="button-link">
+        パスワードを忘れた
+        <arrow-right-icon class="icon-with-text" size="1.2x"></arrow-right-icon>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -85,31 +83,11 @@ export default {
   }
 }
 </script>
-
 <style scoped>
-.icon-kiwi{
-  height: 4em;
-  width: 4em;
-  margin: 0 auto;
-  display: block;
-  color: var(--color-accent);
+.fixed-page {
+  background: linear-gradient(to bottom, #ddd6f3, #faaca8);
 }
 
-.title-kuwiki{
-  text-align: center;
-  font-weight: 300;
-  font-size: 1.4em;
-  margin: 0 0 1em 0;
-}
-.signin-page {
-  height: 100vh;
-  width: 100%;
-  background: linear-gradient(to bottom, #ddd6f3, #faaca8);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .white-card{
   background: white;
   display: flex;
@@ -118,61 +96,60 @@ export default {
   justify-content: center;
   padding: 4em 0;
   width: 85%;
-}
-.signin-form {
-  width: 90%;
   max-width: 25em;
 }
-.submit-button {
+
+.form-signin {
+  width: 90%;
+  margin-top: 1em;
+}
+
+.button-submit {
   display: block;
-  border-radius: 1em;
   height: 2em;
+  border-radius: 1em;
   width: 80%;
   max-width: 12em;
   border: none;
-  background:#faaca8;
+  background: var(--color-accent);
   color: white;
   margin: 1.5em auto;
 }
 
-form:invalid .submit-button {
+
+form:invalid .button-submit {
   cursor: not-allowed;
   border: none;
   outline: none;
   background: lightgray;
 }
+
 .mataha{
   display: flex;
   align-items: center;
-  margin: 0.2em 0;
-  display: flex;
+  margin: 0.3em 0;
   width: 40%;
   font-size: 0.85em;
 }
-.mataha:before, .mataha:after {
+
+.mataha:before {
   border-top: 1px solid;
   content: "";
-  flex: 1; /* 線の長さ */
-}
-.mataha:before {
+  flex: 1;
   margin-right: 0.5em; /* 文字の右隣 */
 }
 .mataha:after {
+  border-top: 1px solid;
+  content: "";
+  flex: 1; /* 線の長さ */
   margin-left: 0.5em; /* 文字の左隣 */
 }
 
-.link-buttons {
-  text-align: center;
-}
-.link-button {
-  color: inherit;
+.button-link {
   display: block;
-  text-decoration: none;
-  box-sizing: border-box;
-  padding: 0.4em 0;
+  color: inherit;
+  text-align: center;
+  margin: 0.3em auto;
   font-size: 0.85em;
-}
-.arrow-icon{
-  vertical-align: text-bottom;
 }
 </style>

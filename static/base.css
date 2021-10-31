@@ -1,0 +1,168 @@
+:root {
+  font-family: "Noto Sans JP";
+  text-decoration: none;
+  font-size: 16px;
+  color: gray;
+  line-height: 1.9em;
+  font-weight: 400;
+  --color-primary: cornflowerblue;
+  --color-success: lightseagreen;
+  --color-accent: #faaca8;
+  --color-danger: gold;
+  --color-info: royalblue;
+}
+
+h1 {
+  font-size: 1.5em !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+h3 {
+  color: lightseagreen;
+  font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: royalblue;
+}
+
+/* Set '@nuxtjs/toast' color */
+.success {
+  background: var(--color-success) !important;
+}
+
+.info {
+  background: var(--color-info) !important;
+}
+
+/* Set default form style */
+.input-gray {
+  font-weight: 400;
+  width: 100%;
+  height: 2em;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 0.4em;
+  display: block;
+  background-color: whitesmoke;
+  padding: 0 0.5em;
+}
+.input-gray::placeholder {
+  color: silver;
+}
+
+.label-gray {
+  font-size: 0.85em;
+  text-align: bottom;
+  display: inline-block;
+  width: 100%;
+  margin: 1em 0 0 0;
+}
+
+.label-gray-small {
+  font-size: 0.8em;
+  margin: 0 1em;
+}
+
+/* アイコンの高さをテキストと合わせる */
+.icon-with-text {
+  margin: 0.25em 0.15em -0.25em 0;
+}
+.icon-arrow {
+  vertical-align: text-bottom;
+}
+.icon-kiwi {
+  height: 4em;
+  width: 4em;
+  vertical-align: bottom;
+  color: var(--color-accent);
+}
+.icon-google-drive {
+  display: border-box;
+  height: 1.1em;
+  width: 1.4em;
+  background: var(--color-primary);
+  color: white;
+  border: 0.05em var(--color-primary) solid;
+  border-radius: 0.2em;
+  margin: 0.25em 0.25em -0.25em 0.1em;
+}
+.icon-google-drive:hover {
+  background-color: var(--color-info);
+  border: 0.05em var(--color-info) solid;
+}
+
+.title-kuwiki {
+  font-weight: 300;
+  font-size: 1.4em;
+}
+
+/* アンダーライン付きリンク */
+.link-underline {
+  color: cornflowerblue;
+  background-color: whitesmoke;
+  text-decoration: underline solid;
+  white-space: nowrap;
+}
+
+.link-underline:hover {
+  text-decoration: none;
+  color: royalblue;
+}
+
+/* ボタン1 白地に青文字 */
+.button-white {
+  height: 2em;
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  background: white;
+  border: cornflowerblue solid 0.1em;
+  border-radius: 2em;
+  text-align: center;
+  color: cornflowerblue;
+  padding: 0 2em;
+}
+.button-white:hover {
+  background: royalblue;
+  color: white;
+  border: royalblue solid 0.1em;
+}
+
+/* ボタン2 青地に白文字 */
+.button-submit {
+  display: border-box;
+  height: 2em;
+  border-radius: 0.4em;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  margin: 1em 0;
+  width: 100%;
+}
+
+form:invalid .button-submit {
+  cursor: not-allowed;
+  border: none;
+  outline: none;
+  background-color: lightsteelblue;
+}
+
+/* 中黒なしリスト */
+.ul-none {
+  list-style: none;
+  padding: 0;
+}

@@ -37,7 +37,7 @@ export default {
   align-items: center;
   justify-content: flex-start;
   font-weight: 300;
-  height: 4em;
+  height: 10vh;
   background: white;
 }
 

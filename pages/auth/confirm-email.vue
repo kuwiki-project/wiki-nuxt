@@ -1,14 +1,15 @@
 <template>
-  <div class="scroll-page">
+  <div class="narrow-scroll-page">
     <h1>メールアドレス認証</h1>
+    <div class="alert-message">
+      <alert-triangle-icon size="1.2x" class="icon-with-text"></alert-triangle-icon>
+      受信したメールに身に覚えのない方はこのページを閉じてください
+    </div>
     <p>
       京大wikiへの利用登録を完了するため，以下のボタンを押してアカウントを有効化してください
     </p>
-    <div class="alert">
-      <alert-triangle-icon size="1.5x" class="alert-icon"></alert-triangle-icon>
-      受信したメールに身に覚えのない方はこのページを閉じてください
-    </div>
-    <button class="white-link-button">
+
+    <button class="button-submit">
       アカウント有効化
     </button>
   </div>
@@ -47,12 +48,10 @@ export default {
   }
 }
 </script>
-<style>
-.alert{
-  display: flex;
-  margin: 1em 0;
-}
-.alert-icon{
-  margin: 0 0.4em 0 0;
+<style scoped>
+.alert-message{
+  background: var(--color-danger);
+  color: black;
+  padding:0.5em;
 }
 </style>

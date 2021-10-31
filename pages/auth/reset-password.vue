@@ -1,6 +1,6 @@
 <template>
   <!-- パスワード再発行メールの送信先を入力する画面-->
-  <div class="scroll-page">
+  <div class="narrow-scroll-page">
     <h1>パスワードを忘れた場合</h1>
     <p>
       現在のパスワードをリセットして，新たにパスワードを発行する手続きを行います。<br>
@@ -14,9 +14,9 @@
         pattern=".+@st.kyoto-u.ac.jp"
         placeholder="@st.kyoto-u.ac.jp"
         required
-        class="input"
+        class="input-gray"
       />
-      <button type="submit" class="submit-button">
+      <button type="submit" class="button-submit">
         パスワード再発行メールを送信
       </button>
     </form>
@@ -54,24 +54,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.send-reset-email-form {
-  margin: 0 auto;
-}
-
-.submit-button {
-  display: block;
-  height: 2em;
-  width: 100%;
-  border-radius: 0.4em;
-  border: none;
-  background-color: cornflowerblue;
-  color: white;
-  margin: 1em 0;
-}
-.send-reset-email-form:invalid .submit-button {
-  cursor: not-allowed;
-  border: none;
-  background-color: lightsteelblue;
-}
-</style>

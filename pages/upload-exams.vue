@@ -4,15 +4,16 @@
     <div>メールにて過去問を受け付けています</div>
   
     <h3>ファイルの作り方</h3>
-    <li class="icon-list"><star-icon size="1.2x" class="icon" />書き込みは消してください</li>
-    <li class="icon-list">
-      <star-icon size="1.2x" class="icon" />きれいにスキャンしてください（スマホでの画像スキャンには無料スマホアプリ
-      <a href="https://acrobat.adobe.com/jp/ja/acrobat/mobile/scanner-app.html" target="_blank" class="link-text"><ExternalLinkIcon class="link-icon" />Adobe scan</a> が便利です）
-    </li>
-    <li class="icon-list">
-      <star-icon size="1.2x" class="icon" />
-      1科目の試験問題は<strong>1つのPDF</strong>にまとめてください
-    </li>
+    <ul class="ul-none">
+      <li><star-icon size="1.2x" class="icon-with-text" />書き込みは消してください</li>
+      <li>
+        <star-icon size="1.2x" class="icon-with-text" />きれいにスキャンしてください（スマホでの画像スキャンには無料スマホアプリ
+        <a href="https://acrobat.adobe.com/jp/ja/acrobat/mobile/scanner-app.html" target="_blank" class="link-underline"><ExternalLinkIcon class="icon-with-text" />Adobe scan</a> が便利です）
+      </li>
+      <li>
+        <star-icon size="1.2x" class="icon-with-text" />1科目の試験問題は<strong>1つのPDF</strong>にまとめてください
+      </li>
+    </ul>
 
 
     <h3>ファイル名の付け方</h3>
@@ -58,19 +59,19 @@
      
 
     <h3>回収対象</h3>
-    <li class="icon-list"><star-icon size="1.2x" class="icon" />すべての全学共通科目・専門科目</li>
-    <li class="icon-list">
-      <star-icon size="1.2x" class="icon" />期末試験・中間試験・小テスト・課題・再現問題・問題要約・解答・解答例などなんでも
-    </li>
-    <li class="icon-list">
-      <smile-icon size="1.2x" class="icon" />試験問題が流通しないことを教員が希望する場合は問題の要約をお送りください
-    </li>
-    <li class="icon-list">
-      <star-icon size="1.2x" class="icon" />
-        
-
-      <NuxtLink to="collected" class="link-text"><chevron-right-icon class="link-icon"></chevron-right-icon>回収済み過去問リスト</NuxtLink>もご確認ください
-    </li>
+    <ul class="ul-none">
+      <li><star-icon size="1.2x" class="icon-with-text" />すべての全学共通科目・専門科目</li>
+      <li>
+        <star-icon size="1.2x" class="icon-with-text" />期末試験・中間試験・小テスト・課題・再現問題・問題要約・解答・解答例などなんでも
+      </li>
+      <li>
+        <smile-icon size="1.2x" class="icon-with-text" />試験問題が流通しないことを教員が希望する場合は問題の要約をお送りください
+      </li>
+      <li>
+        <star-icon size="1.2x" class="icon-with-text" />
+        <NuxtLink to="collected" class="link-underline">回収済み過去問リスト</NuxtLink> もご確認ください
+      </li>
+    </ul>
 
     <h3>送信方法</h3>
     <p>
@@ -81,19 +82,18 @@
     <a
       href="mailto:kuwiki99@gmail.com?subject=過去問提供&body=ファイルを添付します"
       target="_blank"
-      class="white-link-button"
+      class="button-white"
     >
       メールを作成
     </a>
   </div>
 </template>
 <script>
-import { SmileIcon, StarIcon, ChevronRightIcon, ExternalLinkIcon } from 'vue-feather-icons'
+import { SmileIcon, StarIcon,  ExternalLinkIcon } from 'vue-feather-icons'
 export default {
   components: {
     SmileIcon,
     StarIcon,
-    ChevronRightIcon,
     ExternalLinkIcon
   },
   head: {
@@ -128,13 +128,6 @@ export default {
 }
 .border-blue {
   border: solid 0.2em cornflowerblue;
-}
-.icon-list{
-  list-style: none;
-}
-.icon-list .icon{
-  padding: 0.05em 0.25em 0.05em 0;
-  vertical-align: text-bottom;
 }
 
 </style>

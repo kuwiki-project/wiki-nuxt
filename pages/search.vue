@@ -13,7 +13,7 @@
     </form>
     
     <div class="result-container">
-      <ul>
+      <ul class="ul-none">
         <li v-if="$route.query.q!=='' && $route.query.q!==undefined">
           {{
             message
@@ -25,7 +25,7 @@
         <li v-for="searchresult in searchresults" :key="searchresult.id">
           <NuxtLink
             no-prefetch
-            class="link-text"
+            class="link-underline"
             :to="`courses/${searchresult.name}`"
           >
             {{ searchresult.name }}
@@ -35,9 +35,8 @@
             :key="exam.drive_link"
             :href="exam.drive_link"
             target="_blank"
-            class="drive-link"
           >
-            <IconGoogleDrive size="1.5x" class="drive-icon"></IconGoogleDrive>
+            <IconGoogleDrive class="icon-google-drive icon-with-text"></IconGoogleDrive>
           </a>
         </li>
       </ul>
@@ -83,7 +82,6 @@ export default {
       } else {
         this.message = "検索中..."
         this.searchcount = ""
-        console.log("nyan1")
         axios
           .get(
             `${this.$config.WIKI_API_URL}/api/course/?search=${this.searchkey}`,
@@ -96,7 +94,6 @@ export default {
             } 
           )
           .then((res) => {
-            console.log("nyan")
             this.searchresults = res.data.results
             this.searchcount = `${res.data.count}件`
             this.message = "検索結果"
@@ -110,8 +107,9 @@ export default {
 }
 </script>
 <style scoped>
+
 .search-form {
-  width: 80%;
+  width: 100%;
   margin: 1em auto;
 }
 
@@ -125,7 +123,7 @@ export default {
   box-sizing: border-box;
   border: 0.1em solid gray;
   background: whitesmoke;
-  padding: 0 0 0 3em;
+  padding: 0 0 0 2.5em;
   height: 2.2em;
   border-radius: 1em;
   font-weight: 300;
@@ -134,7 +132,7 @@ export default {
   -webkit-appearance: none;
 }
 .input-field:focus{
-  border: 0.1em solid cornflowerblue;
+  border:0.1em solid var(--color-primary);
 }
 .input-field:focus + .search-icon{
   color:cornflowerblue;
@@ -146,23 +144,7 @@ export default {
   left: 0;
   padding: 0.4em 0.5em;
   height: 1.4em;
-  color: gray;
-}
-
-.search
-.result-container{
-  width: 26em;
-  margin: 0 auto;
-}
-li{
-  list-style: none;
-  margin: 0.3em 0;
-}
-.drive-icon {
-  height: 1.2em;
-  width: 1.2em;
-}
-.drive-icon:hover{
- color: royalblue;
+  width: 1.4em;
+  color: inherit;
 }
 </style>
