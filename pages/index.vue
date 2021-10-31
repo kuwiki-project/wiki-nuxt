@@ -1,5 +1,5 @@
 <template>
-  <div class="one-page">
+  <div class="fixed-page">
     <div class="top-icon">
       <iconKiwi class="icon-kiwi" />
       <div class="title-kuwiki">京大wiki</div>
@@ -69,25 +69,8 @@ export default {
   margin: 0 0 1.5em 0;
 }
 
-.icon-kiwi{
-  height:4em;
-  width: 4em;
-  display: block;
-  color: var(--color-accent);
-  margin: 0 auto;
-}
-.title-kuwiki{
-  font-weight: 300;
-  font-size: 1.4em;
-  margin: 0em 0;
-}
 .kuwiki-is{
    font-weight: 300;
-}
-.input-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
 }
 
 .item-container{
@@ -109,7 +92,7 @@ export default {
 
 .item-link{
   color: gray;
-  background: white;
+  background: transparent;
   display: flex;
   border-radius: 1.5em;
   margin: 0 auto;
@@ -123,7 +106,7 @@ export default {
 
 .item-label{
   font-size: 0.7em;
-  margin : -0.5em 0;
+  margin : -0.7em 0;
 }
 
 .item-icon{
@@ -131,8 +114,5 @@ export default {
   height: 2em;
   width: 2em;
   margin: auto auto;
-}
-a {
-  text-decoration: none;
 }
 </style>

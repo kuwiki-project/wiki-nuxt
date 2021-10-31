@@ -69,13 +69,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['normalize.css', 'static/base.css'],
   /*
    ** Plugins to load before mounting the App
    */
   components: true,
-
-  plugins: ["node_modules/normalize.css"],
   /*
    ** Nuxt.js dev-modules
    */

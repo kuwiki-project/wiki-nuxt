@@ -22,7 +22,8 @@
     <p>メールアドレスのドメインは @st.kyoto-u.ac.jp，パスワードは8文字以上です。再度よくご確認ください。どうしてもうまくいかないときはご連絡ください。</p>
     
     <h3>Q. こんな機能が欲しいです</h3>
-    <p>GitHubのwiki-djangoのissuesにどんな機能が欲しいか詳しく書き込んでいただけると対応できるかもしれません。
+    <p>
+      GitHubのwiki-djangoのissuesにどんな機能が欲しいか詳しく書き込んでいただけると対応できるかもしれません。
     </p>
 
     <h3>Q. 欲しい機能を追加してもいいですか？</h3>
@@ -32,7 +33,8 @@
     <p>メールかDMでそっと教えてください</p>
 
     <h3>Q. バグっています</h3>
-    <p>重大なバグの場合は早急にメールかDMをください。軽微なバグの場合はGitHubのwiki-djangoのissuesに書き込んでください
+    <p>
+      重大なバグの場合は早急にメールかDMをください。軽微なバグの場合はGitHubのwiki-djangoのissuesに書き込んでください
     </p>
     
     <h3>Q. 全学共通科目の過去問が見つかりません。どうしたらいいですか？</h3>
@@ -42,12 +44,12 @@
 
     <h3>Q. 専門科目の過去問が見つかりません。どうしたらいいですか？</h3>
     <p>
-      法学部専門科目は <a href="https://kyoto0300.sub.jp" target="_blank" class="link-text">法学部学生自治会</a>が大量に保有していますので，お問い合わせください。<br>
+      法学部専門科目は <a href="https://kyoto0300.sub.jp" target="_blank" class="link-underline">法学部学生自治会</a>が大量に保有していますので，お問い合わせください。<br>
       経済学部専門科目は，経済学部同窓会が公開しているそうです，経済学部の方に聞いてみてください。<br>
       文学部には過去問の文化がないと聞きますので，どこにも過去問の蓄積がなく探し当てるのは困難だと思われます。<br>
-      農学部専門科目は <a href="https://kyodaiagri.org" target="_blank" class="link-text">農学部学生自治会</a> に問い合わせるか，あるいは上の学年に聞いてみると過去問が見つかるかもしれません。<br>
+      農学部専門科目は <a href="https://kyodaiagri.org" target="_blank" class="link-underline">農学部学生自治会</a> に問い合わせるか，あるいは上の学年に聞いてみると過去問が見つかるかもしれません。<br>
       医学部薬学部では毎年それなりにシケタイが活発に動いているようなので，上の学年に聞くと分かるかもしれません。<br>
-      工学部の場合，物工は <a href="https://ku1025.netlify.app" target="_blank" class="link-text">KU1025</a>，電電は<a href="https://kuee.netlify.app" target="_blank" class="link-text">KU1025</a>に過去問が集まっています。<br>
+      工学部の場合，物工は <a href="https://ku1025.netlify.app" target="_blank" class="link-underline">KU1025</a>，電電は<a href="https://kuee.netlify.app" target="_blank" class="link-underline">KU1025</a>に過去問が集まっています。<br>
       地球工の場合は同学科の友人に聞いてみてください。<br>
       理学部専門科目は京大wikiになければ諦めましょう。
     </p>
