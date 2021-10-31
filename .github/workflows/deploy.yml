@@ -12,7 +12,7 @@ jobs:
       SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       SSH_USER: ${{ secrets.SSH_USER }}
       SSH_PORT: ${{ secrets.SSH_PORT }}
-      GIT_PULL_PATH: ${{ secrets.GIT_PULL_PATH }}
+      GIT_PULL_PATH: ${{ secrets.GIT_PULL_PATH_NUXT }}
       SSH_HOST: ${{ secrets.SSH_HOST }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
