@@ -12,7 +12,7 @@
     "email": "kuwiki99@gmail.com"
   },
   "engines": {
-    "yarn": "1.22.11"
+    "yarn": "1.22.17"
   },
   "private": true,
   "scripts": {
