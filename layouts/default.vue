@@ -15,7 +15,7 @@
   margin: 0 auto 1em auto;
 }
 .fixed-page {
-  height: 90vh;
+  height: 75vh;
   width: 100%;
   margin: 0 auto;
   display: flex;

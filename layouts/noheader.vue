@@ -5,7 +5,7 @@
 </template>
 <style scoped>
 .fixed-page {
-  height: 100vh;
+  height: 85vh;
   width: 100%;
   margin: 0 auto;
   display: flex;
