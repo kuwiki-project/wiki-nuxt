@@ -38,6 +38,13 @@ a:hover {
   color: royalblue;
 }
 
+html {
+  height: -webkit-fill-available;
+}
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
 /* Set '@nuxtjs/toast' color */
 .success {
   background: var(--color-success) !important;
