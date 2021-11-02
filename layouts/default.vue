@@ -1,19 +1,18 @@
 <template>
-  <div class="full-page">
+  <div>
     <theHeader />
     <Nuxt />
   </div>
 </template>
 <style scoped>
 .the-header{
-  height: 10vh;
+  height: 10%;
 }
 .fixed-page {
-  display: flex;
-  min-height: 90vh;
-  height: -webkit-fill-available;
+  height: 90%;
   width: 100%;
   margin: 0 auto;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;

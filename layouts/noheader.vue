@@ -1,12 +1,11 @@
 <template>
-<div>
-  <Nuxt />
+  <div>
+    <Nuxt />
   </div>
 </template>
 <style scoped>
 .fixed-page {
-  min-height: 100vh;
-  height: -webkit-fill-available;
+  height: 100%;
   width: 100%;
   margin: 0 auto;
   display: flex;
