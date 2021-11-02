@@ -6,12 +6,12 @@
 </template>
 <style scoped>
 .the-header{
-  height: 4em;
+  height: 10vh;
 }
 .fixed-page {
   display: flex;
-  min-height: calc(100vh - 4em);;
-  height: calc(-webkit-fill-available - 4em);
+  min-height: 90vh;
+  height: -webkit-fill-available;
   width: 100%;
   margin: 0 auto;
   flex-direction: column;
