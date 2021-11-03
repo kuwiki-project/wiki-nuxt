@@ -1,6 +1,6 @@
 <template>
   <div class="scroll-page">
-    <form class="search-form" target="_self" @submit.prevent="searchCourses"> 
+    <form class="search-form" target="_self" @submit.prevent="searchCourses">
       <div class="input-container">
         <input
           v-model="searchkey"
@@ -11,16 +11,12 @@
         <search-icon class="search-icon"></search-icon>
       </div>
     </form>
-    
+
     <div class="result-container">
       <ul class="ul-none">
-        <li v-if="$route.query.q!=='' && $route.query.q!==undefined">
-          {{
-            message
-          }}
-          {{
-            searchcount
-          }}
+        <li v-if="$route.query.q !== '' && $route.query.q !== undefined">
+          {{ message }}
+          {{ searchcount }}
         </li>
         <li v-for="searchresult in searchresults" :key="searchresult.id">
           <NuxtLink
@@ -36,7 +32,9 @@
             :href="exam.drive_link"
             target="_blank"
           >
-            <IconGoogleDrive class="icon-google-drive icon-with-text"></IconGoogleDrive>
+            <IconGoogleDrive
+              class="icon-google-drive icon-with-text"
+            ></IconGoogleDrive>
           </a>
         </li>
       </ul>
@@ -49,7 +47,7 @@ import { SearchIcon } from "vue-feather-icons"
 import axios from "axios"
 export default {
   components: {
-    SearchIcon,
+    SearchIcon
   },
   data: () => ({
     searchkey: "",
@@ -68,7 +66,7 @@ export default {
   fetchOnServer: false,
   // URL上のクエリが上書きされた時にfetchする
   watch: {
-    '$route.query': '$fetch'
+    "$route.query": "$fetch"
   },
   methods: {
     setSearchKey() {
@@ -91,7 +89,7 @@ export default {
                   .getToken("local")
                   .replace("Bearer", "")}`
               }
-            } 
+            }
           )
           .then((res) => {
             this.searchresults = res.data.results
@@ -107,7 +105,6 @@ export default {
 }
 </script>
 <style scoped>
-
 .search-form {
   width: 100%;
   margin: 1em auto;
@@ -131,14 +128,14 @@ export default {
   width: 100%;
   -webkit-appearance: none;
 }
-.input-field:focus{
-  border:0.1em solid var(--color-primary);
+.input-field:focus {
+  border: 0.1em solid var(--color-primary);
 }
-.input-field:focus + .search-icon{
-  color:cornflowerblue;
+.input-field:focus + .search-icon {
+  color: cornflowerblue;
 }
 
-.search-icon{
+.search-icon {
   position: absolute;
   top: 0;
   left: 0;

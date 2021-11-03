@@ -1,9 +1,13 @@
 <template>
   <div class="scroll-page">
-    <loader-icon v-if="showLoaderIcon" size="1.5x" class="loader-icon"></loader-icon>
+    <loader-icon
+      v-if="showLoaderIcon"
+      size="1.5x"
+      class="loader-icon"
+    ></loader-icon>
     <div v-for="(collected_exam, key) in collected_exams" :key="key">
-      <h1 v-if="key===0">{{ collected_exam.sheet_name }} </h1>
-      <div v-if="key!==0">{{ collected_exam.file_title }}</div>
+      <h1 v-if="key === 0">{{ collected_exam.sheet_name }}</h1>
+      <div v-if="key !== 0">{{ collected_exam.file_title }}</div>
     </div>
   </div>
 </template>
@@ -13,7 +17,7 @@ export default {
   title: "回収済みリスト",
   auth: false,
   components: {
-    LoaderIcon,
+    LoaderIcon
   },
   data: () => ({
     showLoaderIcon: true,
@@ -22,20 +26,21 @@ export default {
   async fetch() {
     this.collected_exams = await fetch(
       this.$config.COLLECTED_EXAMS_JSON_URL
-    ).then(
-      (res) =>
-        res.json()
-    )
+    ).then((res) => res.json())
     this.showLoaderIcon = false
   }
 }
 </script>
 <style scoped>
-.loader-icon{
-  animation:2s linear infinite rotation;
+.loader-icon {
+  animation: 2s linear infinite rotation;
 }
-@keyframes rotation{
-  0%{ transform:rotate(0);}
-  100%{ transform:rotate(360deg); }
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>

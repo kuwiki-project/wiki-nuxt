@@ -8,22 +8,21 @@
 
     <div class="item-container">
       <div class="item-link-and-label">
-        <NuxtLink to="search" class="item-link">
+        <NuxtLink to="/search" class="item-link">
           <SearchIcon class="item-icon" stroke-width="1.5" size="2x" />
         </NuxtLink>
         <div class="item-label">科目検索</div>
       </div>
 
-
       <div class="item-link-and-label">
-        <NuxtLink to="upload-exams" class="item-link">
+        <NuxtLink to="/upload-exams" class="item-link">
           <UploadCloudIcon class="item-icon" stroke-width="1.5" size="2x" />
         </NuxtLink>
         <div class="item-label">過去問提供</div>
       </div>
 
       <div class="item-link-and-label">
-        <NuxtLink to="notice" class="item-link">
+        <NuxtLink to="/notice" class="item-link">
           <PaperclipIcon class="item-icon" stroke-width="1.5" size="2x" />
         </NuxtLink>
         <div class="item-label">お知らせ</div>
@@ -32,7 +31,7 @@
 
     <div class="item-container">
       <div class="item-link-and-label">
-        <NuxtLink to="profile" class="item-link">
+        <NuxtLink to="/profile" class="item-link">
           <FeatherIcon class="item-icon" stroke-width="1.5" size="2x" />
         </NuxtLink>
         <div class="item-label">運営について</div>
@@ -42,16 +41,20 @@
         <NuxtLink to="faq" class="item-link">
           <HelpCircleIcon class="item-icon" stroke-width="1.5" size="2x" />
         </NuxtLink>
-        <div class="item-label">
-          よくある質問
-        </div>
+        <div class="item-label">よくある質問</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { SearchIcon, HelpCircleIcon, UploadCloudIcon, PaperclipIcon, FeatherIcon } from "vue-feather-icons"
+import {
+  SearchIcon,
+  HelpCircleIcon,
+  UploadCloudIcon,
+  PaperclipIcon,
+  FeatherIcon
+} from "vue-feather-icons"
 export default {
   auth: false,
   components: {
@@ -64,16 +67,16 @@ export default {
 }
 </script>
 <style scoped>
-.top-icon{
-  text-align:center;
+.top-icon {
+  text-align: center;
   margin: 0 0 1.5em 0;
 }
 
-.kuwiki-is{
-   font-weight: 300;
+.kuwiki-is {
+  font-weight: 300;
 }
 
-.item-container{
+.item-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -81,7 +84,7 @@ export default {
   margin: 0.5em 0 0.5em 0;
 }
 
-.item-link-and-label{
+.item-link-and-label {
   display: block;
   box-sizing: border-box;
   flex-direction: column;
@@ -90,7 +93,7 @@ export default {
   justify-content: center;
 }
 
-.item-link{
+.item-link {
   color: gray;
   background: transparent;
   display: flex;
@@ -99,17 +102,17 @@ export default {
   height: 3.5em;
   width: 3.5em;
 }
-.item-link:hover{
+.item-link:hover {
   background: mistyrose;
   color: var(--color-accent);
 }
 
-.item-label{
+.item-label {
   font-size: 0.7em;
-  margin : -0.7em 0;
+  margin: -0.7em 0;
 }
 
-.item-icon{
+.item-icon {
   display: block;
   height: 2em;
   width: 2em;

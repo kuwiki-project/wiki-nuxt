@@ -1,6 +1,8 @@
 <template>
   <div class="scroll-page">
-    <button onclick="window.history.back();" class="back-button"><chevron-left-icon class="icon-arrow" />戻る</button>
+    <button onclick="window.history.back();" class="back-button">
+      <chevron-left-icon class="icon-arrow" />戻る
+    </button>
     <h1>
       {{ results.name }}
     </h1>
@@ -15,7 +17,7 @@
         <IconGoogleDrive class="icon-google-drive icon-with-text" />
       </a>
     </div>
-    
+
     <ul
       v-for="(lecture, lecture_key) in results.lecture_set"
       :key="lecture_key"
@@ -30,7 +32,7 @@
         >
           {{ period.name }}
         </span>
-        <br>
+        <br />
         <span
           v-for="(instructor, instructor_key) in lecture.instructor_set"
           :key="instructor_key"
@@ -44,7 +46,7 @@
 
 <script>
 import axios from "axios"
-import { ChevronLeftIcon } from 'vue-feather-icons'
+import { ChevronLeftIcon } from "vue-feather-icons"
 export default {
   components: {
     ChevronLeftIcon
@@ -56,8 +58,9 @@ export default {
   },
   head() {
     return {
-    title: this.$router.currentRoute.params.name,
-  }},
+      title: this.$router.currentRoute.params.name
+    }
+  },
   mounted() {
     this.getCourseDetail()
   },
@@ -83,22 +86,22 @@ export default {
 }
 </script>
 <style scoped>
-h1{
-  margin: 0.4em 0 0 0 ;
+h1 {
+  margin: 0.4em 0 0 0;
 }
 
-.back-button{
+.back-button {
   background: transparent;
   border: none;
   color: var(--color-primary);
   padding: 0;
 }
-.back-button:hover{
+.back-button:hover {
   color: var(--color-info);
 }
-.li-card{
+.li-card {
   border-left: var(--color-primary) 3px solid;
   padding: 0.6em;
-  margin: 0.2em
+  margin: 0.2em;
 }
 </style>

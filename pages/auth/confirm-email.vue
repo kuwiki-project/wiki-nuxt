@@ -2,7 +2,10 @@
   <div class="narrow-scroll-page">
     <h1>メールアドレス認証</h1>
     <div class="alert-message">
-      <alert-triangle-icon size="1.2x" class="icon-with-text"></alert-triangle-icon>
+      <alert-triangle-icon
+        size="1.2x"
+        class="icon-with-text"
+      ></alert-triangle-icon>
       受信したメールに身に覚えのない方はこのページを閉じてください
     </div>
     <p>
@@ -16,7 +19,7 @@
 
 <script>
 import axios from "axios"
-import { AlertTriangleIcon } from 'vue-feather-icons'
+import { AlertTriangleIcon } from "vue-feather-icons"
 export default {
   auth: false,
   components: {
@@ -35,7 +38,7 @@ export default {
           }
         )
         .then((res) => {
-          this.$toast.success('アカウント有効化に成功しました')
+          this.$toast.success("アカウント有効化に成功しました")
           this.$router.push("/signin")
           return res
         })
@@ -48,9 +51,9 @@ export default {
 }
 </script>
 <style scoped>
-.alert-message{
+.alert-message {
   background: var(--color-danger);
   color: black;
-  padding:0.5em;
+  padding: 0.5em;
 }
 </style>

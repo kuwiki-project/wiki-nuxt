@@ -2,7 +2,7 @@
   <div class="scroll-page">
     <h1>プライバシーポリシー</h1>
     <p>
-      2021年3月23日作成<br>
+      2021年3月23日作成<br />
       2020年11月1日更新
     </p>
 
@@ -28,6 +28,6 @@ export default {
   auth: false,
   head: {
     title: "プライバシーポリシー"
-  },
+  }
 }
 </script>

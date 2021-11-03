@@ -5,7 +5,7 @@
   </div>
 </template>
 <style scoped>
-.the-header{
+.the-header {
   height: 10%;
 }
 .fixed-page {

@@ -64,12 +64,12 @@ export default {
       short_name: "京大wiki",
       lang: "ja"
     },
-    icon: false,
+    icon: false
   },
   /*
    ** Global CSS
    */
-  css: ['normalize.css', 'static/base.css'],
+  css: ["normalize.css", "static/base.css"],
   /*
    ** Plugins to load before mounting the App
    */
@@ -81,11 +81,11 @@ export default {
   buildModules: [
     "@nuxtjs/eslint-module",
     "@nuxtjs/google-fonts",
-    "@nuxtjs/pwa",
+    "@nuxtjs/pwa"
   ],
   googleFonts: {
     families: {
-      "Noto+Sans+JP": [300,400]
+      "Noto+Sans+JP": [300, 400]
     },
     display: "swap"
   },
@@ -97,7 +97,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/proxy",
     "@nuxtjs/auth",
-    '@nuxtjs/toast',
+    "@nuxtjs/toast"
   ],
   /*
    ** Axios module configuration
