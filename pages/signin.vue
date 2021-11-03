@@ -24,14 +24,12 @@
           minlength="8"
           required
         />
-       
+
         <button type="submit" class="button-submit">ログイン</button>
       </form>
-      <div class="mataha">
-        または
-      </div>
+      <div class="mataha">または</div>
       <NuxtLink to="/auth/signup" class="button-link">
-        アカウントを作成する 
+        アカウントを作成する
         <arrow-right-icon class="icon-with-text" size="1.2x"></arrow-right-icon>
       </NuxtLink>
       <NuxtLink to="/auth/reset-password" class="button-link">
@@ -42,16 +40,14 @@
   </div>
 </template>
 <script>
-
-import { ArrowRightIcon } from 'vue-feather-icons'
+import { ArrowRightIcon } from "vue-feather-icons"
 export default {
   components: {
     ArrowRightIcon
   },
-  layout: 'noheader',
+  layout: "noheader",
   auth: false,
   data: () => ({
-    
     credentials: {
       email: "",
       password: ""
@@ -71,13 +67,14 @@ export default {
         })
         .then((res) => {
           console.log(res)
+          this.$toast.clear()
           this.$toast.success("ログインしました")
           this.$router.push("/")
-        
         })
         .catch((err) => {
           console.log(err)
-           this.$toast.error(err.response.data.non_field_errors)
+          this.$toast.clear()
+          this.$toast.error(err.response.data.non_field_errors)
         })
     }
   }
@@ -88,7 +85,7 @@ export default {
   background: linear-gradient(to bottom, #ddd6f3, #faaca8);
 }
 
-.white-card{
+.white-card {
   background: white;
   display: flex;
   flex-direction: column;
@@ -116,7 +113,6 @@ export default {
   margin: 1.5em auto;
 }
 
-
 form:invalid .button-submit {
   cursor: not-allowed;
   border: none;
@@ -124,7 +120,7 @@ form:invalid .button-submit {
   background: lightgray;
 }
 
-.mataha{
+.mataha {
   display: flex;
   align-items: center;
   margin: 0.3em 0;

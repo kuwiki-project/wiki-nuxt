@@ -3,7 +3,7 @@
   <div class="narrow-scroll-page">
     <h1>パスワードを忘れた場合</h1>
     <p>
-      現在のパスワードをリセットして，新たにパスワードを発行する手続きを行います。<br>
+      現在のパスワードをリセットして，新たにパスワードを発行する手続きを行います。<br />
       ご登録されているメールアドレスを入力してください。ご登録のメールアドレス宛にパスワード再発行用のURLを記載したメールを送信します。
     </p>
     <form class="send-reset-email-form" @submit.prevent="sendResetEmail">
@@ -32,7 +32,7 @@ export default {
       email: ""
     }
   }),
-   head: {
+  head: {
     title: "パスワードを忘れた場合"
   },
   methods: {
