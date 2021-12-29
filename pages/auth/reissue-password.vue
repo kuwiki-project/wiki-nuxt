@@ -4,7 +4,7 @@
     <h1>パスワード変更</h1>
     <form @submit.prevent="reissuePassword">
       <label for="password1" class="label-gray"
-        >パスワード<span class="label-gray-small">8文字以上</span></label
+        >新パスワード<span class="label-gray-small">8文字以上</span></label
       >
       <input
         id="password1"
@@ -16,7 +16,7 @@
       />
 
       <label for="password2" class="label-gray"
-        >パスワード確認<span class="label-gray-small">8文字以上</span></label
+        >新パスワード確認<span class="label-gray-small">8文字以上</span></label
       >
       <input
         id="password2"
@@ -27,7 +27,7 @@
         required
       />
 
-      <button class="button-submit">パスワードを更新する</button>
+      <button type="submit" class="button-submit">パスワードを更新する</button>
     </form>
   </div>
 </template>

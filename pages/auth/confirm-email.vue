@@ -12,7 +12,7 @@
       京大wikiへの利用登録を完了するため，以下のボタンを押してアカウントを有効化してください
     </p>
     <form @submit.prevent="activate">
-      <button class="button-submit" type="submit">アカウント有効化</button>
+      <button type="submit" class="button-submit">アカウント有効化</button>
     </form>
   </div>
 </template>
