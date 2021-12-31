@@ -1,6 +1,6 @@
 {
   "name": "wiki-nuxt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "京大生のための情報サイト",
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
     "email": "kuwiki99@gmail.com"
   },
   "engines": {
-    "yarn": "1.22.17"
+    "yarn": "1.x",
+    "node": "16.x"
   },
   "private": true,
   "scripts": {
