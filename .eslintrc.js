@@ -24,7 +24,8 @@ module.exports = {
 
   parserOptions: {
     parser: "@babel/eslint-parser",
-    sourceType: "module"
+    sourceType: "module",
+    requireConfigFile: false
   },
 
   root: true,
