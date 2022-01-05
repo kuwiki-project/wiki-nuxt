@@ -50,7 +50,7 @@ export default {
     this.credentials.email = this.$route.query.email
   },
   methods: {
-    reissuePasssword() {
+    reissuePassword() {
       axios
         .post(
           `${this.$config.WIKI_API_URL}/rest-auth/password/reset/confirm/`,
