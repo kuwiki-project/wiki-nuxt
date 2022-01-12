@@ -74,7 +74,7 @@ export default {
         this.$toast.error("パスワードが一致しません")
         return
       }
-      this.$toast.show("処理中...")
+      this.$toast.info("処理中...少々お待ちください")
       axios
         .post(`${this.$config.WIKI_API_URL}/rest-auth/registration/`, {
           email: this.credentials.email,
@@ -83,7 +83,7 @@ export default {
         })
         .then((res) => {
           this.$toast.clear()
-          this.$toast.show(
+          this.$toast.success(
             "メールアドレスに認証URLを送信しました　認証を完了させてください"
           )
           this.$router.push("/signin")
