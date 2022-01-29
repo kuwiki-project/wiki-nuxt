@@ -5,10 +5,10 @@
       size="1.5x"
       class="loader-icon"
     ></loader-icon>
-    <div v-for="(collected_exam, key) in collected_exams" :key="key">
-      <h1 v-if="key === 0">{{ collected_exam.sheet_name }}</h1>
-      <div v-if="key !== 0">{{ collected_exam.file_title }}</div>
-    </div>
+    <h1>{{ sheetName }}</h1>
+    <div v-for="(file, key) in files" :key="key">
+      {{ file.file_title }}
+    </div> 
   </div>
 </template>
 <script>
@@ -21,14 +21,25 @@ export default {
   },
   data: () => ({
     showLoaderIcon: true,
-    collected_exams: null
+    sheetName: "",
+    files: [],
+    data: null
   }),
-  async fetch() {
-    this.collected_exams = await fetch(
+  head() {
+    return {
+      title: this.sheetName
+    }
+  },
+  async beforeMount() {
+    const data = await fetch(
       this.$config.COLLECTED_EXAMS_JSON_URL
-    ).then((res) => res.json())
+    ).then((res) =>  res.json())
+    this.sheetName = data.sheet_name
+    this.files = data.files
     this.showLoaderIcon = false
-  }
+    console.log(this.sheetName)
+    }
+  ,
 }
 </script>
 <style scoped>
