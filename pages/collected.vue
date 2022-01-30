@@ -30,7 +30,7 @@ export default {
       title: this.sheetName
     }
   },
-  async beforeMount() {
+  async fetch() {
     const data = await fetch(
       this.$config.COLLECTED_EXAMS_JSON_URL
     ).then((res) =>  res.json())
