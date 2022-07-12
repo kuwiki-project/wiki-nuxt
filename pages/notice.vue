@@ -1,18 +1,15 @@
 <template>
   <div class="scroll-page">
     <h1>お知らせ</h1>
-    <a class="twitter-timeline" href="https://twitter.com/kuwiki99"
-      >Tweets by kuwiki99</a
-    >
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    ></script>
+    <Timeline id="kuwiki99" sourceType="profile" />
   </div>
 </template>
-<script>
+<script scoped>
+import { Timeline } from 'vue-tweet-embed'
 export default {
+  components: {
+    Timeline
+  },
   auth: false,
   head: {
     title: "お知らせ"
