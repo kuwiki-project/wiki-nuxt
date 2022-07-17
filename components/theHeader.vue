@@ -3,42 +3,21 @@
     <NuxtLink to="/" class="header-kuwiki"> 京大wiki </NuxtLink>
     <div class="header-icons">
       <NuxtLink
-        to="/search"
-        active-class="current-page-link"
-        class="header-icon"
-      >
-        <SearchIcon size="1.5x" />
-      </NuxtLink>
-
-      <NuxtLink
-        v-if="$auth.loggedIn"
-        to="/settings"
-        exact-active-class="current-page-link"
-        class="header-icon"
-      >
-        <SettingsIcon size="1.5x" />
-      </NuxtLink>
-
-      <NuxtLink
         v-if="!$auth.loggedIn"
-        to="/signin"
-        exact-active-class="current-page-link"
-        class="header-icon"
+        class="button-white no-border"
+        to="/auth/signup"
       >
-        <LogInIcon size="1.5x" />
+        Sign Up
+      </NuxtLink>
+      <NuxtLink v-if="!$auth.loggedIn" class="button-white" to="/signin">
+        Sign in
       </NuxtLink>
     </div>
   </div>
 </template>
 <script>
-import { SearchIcon, SettingsIcon, LogInIcon } from "vue-feather-icons"
 export default {
-  auth: false,
-  components: {
-    SearchIcon,
-    SettingsIcon,
-    LogInIcon
-  }
+  auth: false
 }
 </script>
 <style>
@@ -51,7 +30,7 @@ export default {
   background: white;
 }
 
-.header-kuwiki {
+.the-header .header-kuwiki {
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
@@ -61,14 +40,13 @@ export default {
   padding: 0 0.2em;
   margin: 0 0.5em;
   font-size: 1.3em;
-  color: silver;
+  color: dimgray;
   text-decoration: none;
-  border-radius: 0.2em;
+  border-radius: 0.5em;
 }
 .header-kuwiki:hover {
   background: whitesmoke;
   border: 0.4em whitesmoke solid;
-  color: gray;
 }
 .header-icons {
   margin: 0 0.4em 0 auto;
@@ -76,11 +54,11 @@ export default {
   flex-direction: row;
   align-items: center;
 }
-.header-icon {
+.the-header .header-icon {
   box-sizing: border-box;
   cursor: pointer;
   text-decoration: none;
-  color: var(--color-accent);
+  color: inherit;
   display: flex;
   align-items: center;
   padding: 0em 0.8em;
@@ -89,13 +67,21 @@ export default {
   border-radius: 0.2em;
   box-sizing: border-box;
 }
-.header-icon:hover {
-  background: mistyrose;
-  border: 0.4em mistyrose solid;
-  color: var(--color-accent);
+.the-header .header-icon:hover {
+  background: var(--color-pale);
+  border: 0.4em var(--color-pale) solid;
+  color: var(--color-link);
 }
 .current-page-link {
   background: white;
   border: 0.4em white solid;
+}
+.button-white {
+  border-radius: 0.2em;
+  padding: 0 0.6em;
+  margin: 0 0.2em;
+}
+.no-border {
+  border: transparent solid 0.1em;
 }
 </style>

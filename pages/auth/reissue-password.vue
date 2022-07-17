@@ -2,10 +2,9 @@
   <!-- パスワード再発行メールからアクセスできるパスワード更新用の画面-->
   <div class="narrow-scroll-page">
     <h1>パスワード変更</h1>
+    <StepsPwReset class="steps"></StepsPwReset>
     <form @submit.prevent="reissuePassword">
-      <label for="password1" class="label-gray"
-        >新パスワード<span class="label-gray-small">8文字以上</span></label
-      >
+      <label for="password1" class="label-gray">新パスワード<span class="label-gray-small">8文字以上</span></label>
       <input
         id="password1"
         v-model="credentials.password1"
@@ -15,9 +14,7 @@
         required
       />
 
-      <label for="password2" class="label-gray"
-        >新パスワード確認<span class="label-gray-small">8文字以上</span></label
-      >
+      <label for="password2" class="label-gray">新パスワード確認<span class="label-gray-small">8文字以上</span></label>
       <input
         id="password2"
         v-model="credentials.password2"
@@ -26,7 +23,6 @@
         minlength="8"
         required
       />
-
       <button type="submit" class="button-submit">パスワードを更新する</button>
     </form>
   </div>
@@ -37,7 +33,7 @@ export default {
   auth: false,
   data: () => ({
     credentials: {
-      email: "example@st.kyoto-u.ac.jp",
+      email: "",
       password1: "",
       password2: ""
     },
@@ -62,6 +58,7 @@ export default {
           }
         )
         .then((res) => {
+          this.$toast.clear()
           this.$toast.success(
             "パスワードを変更しました．新しいパスワードでログインしてください"
           )
@@ -69,10 +66,18 @@ export default {
           return res
         })
         .catch((err) => {
-          this.$toast.error("エラーが発生しました")
+          this.$toast.clear()
+          this.$toast.error(err, { duration: 10000 })
           console.log(err)
         })
     }
   }
 }
 </script>
+<style scoped>
+.steps:deep(.step3) {
+  fill: var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}
+</style>

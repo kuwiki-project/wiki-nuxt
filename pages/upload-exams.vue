@@ -2,35 +2,40 @@
   <div class="scroll-page">
     <h1>過去問提供</h1>
     <div>メールにて過去問を受け付けています</div>
-
-    <h3>ファイルの作り方</h3>
-    <ul class="ul-none">
+    <h2>回収対象</h2>
+    <ul>
+      <li><strong>すべて</strong>の全学共通科目・専門科目</li>
       <li>
-        <star-icon size="1.2x" class="icon-with-text" />書き込みは消してください
+        期末試験・中間試験・小テスト・課題・再現問題・問題要約・解答・解答例などなんでも
       </li>
       <li>
-        <star-icon
-          size="1.2x"
-          class="icon-with-text"
-        />きれいにスキャンしてください（スマホでの画像スキャンには無料スマホアプリ
+        試験問題が流通しないことを教員が希望する場合は問題の要約をお送りください
+      </li>
+      <li>
+        当期の回収済み過去問は
+        <NuxtLink to="/collected" class="link-underline">
+          回収済み過去問リスト
+        </NuxtLink>
+        をご確認ください
+      </li>
+    </ul>
+    <h2>ファイルの作り方</h2>
+    <ul>
+      <li>書き込みは消すこと</li>
+      <li>
+        きれいにスキャンすること（スマホでの画像スキャンには無料スマホアプリ
         <a
           href="https://acrobat.adobe.com/jp/ja/acrobat/mobile/scanner-app.html"
           target="_blank"
           class="link-underline"
-          ><ExternalLinkIcon class="icon-with-text" />Adobe scan</a
-        >
+        >🔗Adobe Scan</a>
         が便利です）
       </li>
-      <li>
-        <star-icon
-          size="1.2x"
-          class="icon-with-text"
-        />1科目の試験問題は<strong>1つのPDF</strong>にまとめてください
-      </li>
+      <li>1科目の試験問題は<strong>1つのPDF</strong>にまとめること</li>
     </ul>
 
-    <h3>ファイル名の付け方</h3>
-    <p>
+    <h2>ファイル名の付け方</h2>
+    <p class="box">
       <span class="under-red">科目名</span>
       (
       <span class="under-green">教官名</span>
@@ -39,7 +44,7 @@
       .pdf
     </p>
 
-    <p>例) 固体物理学1(寺嶋・北村)2020.pdf</p>
+    <p>例） 固体物理学1(寺嶋・北村)2020.pdf</p>
 
     <div class="border-box border-red">
       <span class="under-red">科目名</span>
@@ -68,39 +73,10 @@
       </ul>
     </div>
 
-    <h3>回収対象</h3>
-    <ul class="ul-none">
-      <li>
-        <star-icon
-          size="1.2x"
-          class="icon-with-text"
-        />すべての全学共通科目・専門科目
-      </li>
-      <li>
-        <star-icon
-          size="1.2x"
-          class="icon-with-text"
-        />期末試験・中間試験・小テスト・課題・再現問題・問題要約・解答・解答例などなんでも
-      </li>
-      <li>
-        <smile-icon
-          size="1.2x"
-          class="icon-with-text"
-        />試験問題が流通しないことを教員が希望する場合は問題の要約をお送りください
-      </li>
-      <li>
-        <star-icon size="1.2x" class="icon-with-text" />
-        <NuxtLink to="/collected" class="link-underline"
-          >回収済み過去問リスト</NuxtLink
-        >
-        もご確認ください
-      </li>
-    </ul>
-
-    <h3>送信方法</h3>
+    <h2>送信方法</h2>
     <p>
-      アドレス：kuwiki99@gmail.com<br />
-      件名：過去問提供<br />
+      to: kuwiki99@gmail.com<br />
+      件名: 過去問提供<br />
       PDFファイルを添付してお送りください
     </p>
     <a
@@ -113,13 +89,7 @@
   </div>
 </template>
 <script>
-import { SmileIcon, StarIcon, ExternalLinkIcon } from "vue-feather-icons"
 export default {
-  components: {
-    SmileIcon,
-    StarIcon,
-    ExternalLinkIcon
-  },
   head: {
     title: "過去問提供"
   },
@@ -128,29 +98,39 @@ export default {
 </script>
 <style scoped>
 .under-red {
-  background: linear-gradient(transparent 80%, var(--color-accent) 80%);
+  background: linear-gradient(transparent 80%, var(--color-error) 80%);
 }
 .under-green {
-  background: linear-gradient(transparent 80%, lightseagreen 80%);
+  background: linear-gradient(transparent 80%, var(--color-success) 80%);
 }
 .under-blue {
-  background: linear-gradient(transparent 80%, cornflowerblue 80%);
+  background: linear-gradient(transparent 80%, var(--color-primary) 80%);
 }
-.border-box {
-  padding: 1em 1em;
+/* .border-box {
+  padding: 0.5em 1em;
   margin: 0.5em 0;
   display: block;
-  border: solid 0.2em;
+  border: solid 0.1em gray;
   border-radius: 0.8em;
-}
+} */
 
-.border-red {
-  border: solid 0.2em var(--color-accent);
+/* .border-red {
+  border: solid 0.2em var(--color-error);
 }
 .border-green {
-  border: solid 0.2em lightseagreen;
+  border: solid 0.2em var(--color-success);
 }
 .border-blue {
-  border: solid 0.2em cornflowerblue;
+  border: solid 0.2em var(--color-primary);
+} */
+.button-white {
+  margin: 0 0 1em 0;
+}
+.box {
+  padding: 1em;
+  background-color: whitesmoke;
+}
+h2 {
+  background-color: var(--color-pale);
 }
 </style>
