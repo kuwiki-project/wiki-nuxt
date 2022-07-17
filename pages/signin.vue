@@ -151,4 +151,8 @@ form:invalid .button-submit {
 .input-gray {
   margin: 0.5em 0 1em 0;
 }
+
+a {
+  text-decoration: none;
+}
 </style>
