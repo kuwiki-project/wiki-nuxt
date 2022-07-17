@@ -80,15 +80,8 @@ export default {
 
   buildModules: [
     "@nuxtjs/eslint-module",
-    "@nuxtjs/google-fonts",
     "@nuxtjs/pwa"
   ],
-  googleFonts: {
-    families: {
-      "Noto+Sans+JP": [300, 400]
-    },
-    display: "swap"
-  },
   /*
    ** Nuxt.js modules
    */
