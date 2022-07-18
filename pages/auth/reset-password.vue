@@ -2,7 +2,7 @@
   <!-- パスワード再発行メールの送信先を入力する画面-->
   <div class="narrow-scroll-page">
     <h1>パスワード再発行</h1>
-    <StepsPwReset class="pw-reset-steps"></StepsPwReset>
+    <StepsPwReset class="steps"></StepsPwReset>
     <p>
       現在のパスワードをリセットして，新たにパスワードを発行します。<br />
       登録しているメールアドレスを入力してください。
@@ -59,10 +59,7 @@ export default {
 }
 </script>
 <style scoped>
-.pw-reset-steps {
-  margin: 0 auto;
-}
-.pw-reset-steps:deep(.step1) {
+.steps:deep(.step1) {
   fill: var(--color-primary);
   background-color: var(--color-primary);
   color: white;
