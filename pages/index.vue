@@ -1,48 +1,43 @@
 <template>
   <div class="fixed-page">
     <div class="top-icon">
-      <iconKiwi class="icon-kiwi" />
+      <iconKiwi2 class="icon-kiwi" />
       <div class="title-kuwiki">京大wiki</div>
       <div class="kuwiki-is">京大生のための情報サイト</div>
     </div>
 
     <div class="item-container">
-      <div class="item-link-and-label">
-        <NuxtLink to="/search" class="item-link">
-          <SearchIcon class="item-icon" stroke-width="1.5" size="2x" />
-        </NuxtLink>
+      <NuxtLink class="item" to="/search">
+        <SearchIcon class="item-icon" stroke-width="1.5" />
         <div class="item-label">科目検索</div>
-      </div>
+      </NuxtLink>
 
-      <div class="item-link-and-label">
-        <NuxtLink to="/upload-exams" class="item-link">
-          <UploadCloudIcon class="item-icon" stroke-width="1.5" size="2x" />
-        </NuxtLink>
+      <NuxtLink class="item" to="/upload-exams">
+        <UploadCloudIcon class="item-icon" stroke-width="1.5" />
         <div class="item-label">過去問提供</div>
-      </div>
+      </NuxtLink>
 
-      <div class="item-link-and-label">
-        <NuxtLink to="/notice" class="item-link">
-          <PaperclipIcon class="item-icon" stroke-width="1.5" size="2x" />
-        </NuxtLink>
+      <NuxtLink to="/notice" class="item">
+        <BellIcon class="item-icon" stroke-width="1.5" />
         <div class="item-label">お知らせ</div>
-      </div>
+      </NuxtLink>
     </div>
 
     <div class="item-container">
-      <div class="item-link-and-label">
-        <NuxtLink to="/profile" class="item-link">
-          <FeatherIcon class="item-icon" stroke-width="1.5" size="2x" />
-        </NuxtLink>
+      <NuxtLink to="/profile" class="item">
+        <FeatherIcon class="item-icon" stroke-width="1.5" />
         <div class="item-label">運営について</div>
-      </div>
+      </NuxtLink>
 
-      <div class="item-link-and-label">
-        <NuxtLink to="faq" class="item-link">
-          <HelpCircleIcon class="item-icon" stroke-width="1.5" size="2x" />
-        </NuxtLink>
+      <NuxtLink to="faq" class="item">
+        <HelpCircleIcon class="item-icon" stroke-width="1.5" />
         <div class="item-label">よくある質問</div>
-      </div>
+      </NuxtLink>
+
+      <NuxtLink v-if="$auth.loggedIn" to="/settings" class="item">
+        <SettingsIcon class="item-icon" stroke-width="1.5" />
+        <div class="item-label">設定</div>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -52,17 +47,20 @@ import {
   SearchIcon,
   HelpCircleIcon,
   UploadCloudIcon,
-  PaperclipIcon,
-  FeatherIcon
+  BellIcon,
+  FeatherIcon,
+  SettingsIcon
 } from "vue-feather-icons"
+
 export default {
   auth: false,
   components: {
     SearchIcon,
     UploadCloudIcon,
-    PaperclipIcon,
+    BellIcon,
     HelpCircleIcon,
-    FeatherIcon
+    FeatherIcon,
+    SettingsIcon
   }
 }
 </script>
@@ -72,50 +70,46 @@ export default {
   margin: 0 0 1.5em 0;
 }
 
-.kuwiki-is {
-  font-weight: 300;
-}
-
 .item-container {
   display: flex;
+  color: inherit;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0.5em 0 0.5em 0;
+  margin: 0.3em 0;
 }
 
-.item-link-and-label {
-  display: block;
-  box-sizing: border-box;
-  flex-direction: column;
+.item-container .item {
+  display: inline-flex;
+  border-radius: 1em;
   width: 5em;
-  text-align: center;
+  height: 5em;
+  color: black;
+  margin: 0 0.1em;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.item-link {
-  color: gray;
-  background: transparent;
-  display: flex;
-  border-radius: 1.5em;
-  margin: 0 auto;
-  height: 3.5em;
-  width: 3.5em;
-}
-.item-link:hover {
-  background: mistyrose;
-  color: var(--color-accent);
-}
-
-.item-label {
-  font-size: 0.7em;
-  margin: -0.7em 0;
-}
-
-.item-icon {
-  display: block;
+.item .item-icon {
   height: 2em;
   width: 2em;
-  margin: auto auto;
+  margin: 0.1em 0 0 0;
+}
+
+.item .item-label {
+  font-size: 0.7em;
+  color: dimgray;
+}
+
+a {
+  text-decoration: none;
+}
+
+.item:hover {
+  background-color: var(--color-pale);
+}
+.item:hover .item-label {
+  color: var(--color-link);
 }
 </style>

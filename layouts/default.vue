@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <theHeader />
+  <div class="default-layout">
+    <theHeader class="the-header" />
     <Nuxt />
   </div>
 </template>
 <style scoped>
-.the-header {
+.default-layout .the-header {
   height: 10%;
 }
-.fixed-page {
+.default-layout .fixed-page {
   height: 90%;
   width: 100%;
   margin: 0 auto;
@@ -17,13 +17,17 @@
   align-items: center;
   justify-content: center;
 }
-.scroll-page {
+.default-layout .scroll-page {
   width: 90%;
-  margin: 0 auto 1em auto;
+  margin: 0 auto 2em auto;
 }
-.narrow-scroll-page {
+.default-layout .narrow-scroll-page {
   width: 85%;
   max-width: 25em;
   margin: 0 auto 1em auto;
+}
+.narrow-scroll-page:deep(h1) {
+  text-align: center;
+  margin: 2em 0 1em;
 }
 </style>

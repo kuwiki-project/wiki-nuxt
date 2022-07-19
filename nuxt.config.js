@@ -80,15 +80,8 @@ export default {
 
   buildModules: [
     "@nuxtjs/eslint-module",
-    "@nuxtjs/google-fonts",
     "@nuxtjs/pwa"
   ],
-  googleFonts: {
-    families: {
-      "Noto+Sans+JP": [300, 400]
-    },
-    display: "swap"
-  },
   /*
    ** Nuxt.js modules
    */
@@ -108,7 +101,9 @@ export default {
   },
 
   toast: {
-    duration: 3000
+    duration: 3000,
+    theme: "toasted-primary",
+    position: "bottom-center"
   },
 
   auth: {
@@ -146,11 +141,6 @@ export default {
   },
 
   privateRuntimeConfig: {},
-
-  env: {
-    WIKI_MICROCMS_API_GET_KEY: process.env.WIKI_MICROCMS_API_GET_KEY,
-    WIKI_MICROCMS_API_POST_KEY: process.env.WIKI_MICROCMS_API_POST_KEY
-  },
 
   build: {
     devMiddleware: {

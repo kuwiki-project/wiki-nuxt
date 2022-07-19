@@ -96,9 +96,7 @@ h1 {
   color: var(--color-primary);
   padding: 0;
 }
-.back-button:hover {
-  color: var(--color-info);
-}
+
 .li-card {
   border-left: var(--color-primary) 3px solid;
   padding: 0.6em;

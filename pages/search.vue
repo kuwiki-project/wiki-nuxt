@@ -4,7 +4,7 @@
       <div class="input-container">
         <input
           v-model="searchkey"
-          type="text"
+          type="search"
           class="input-field"
           placeholder="科目名・学部・教員名"
         />
@@ -118,7 +118,7 @@ export default {
 /* Style the input fields */
 .input-field {
   box-sizing: border-box;
-  border: 0.1em solid gray;
+  border: 0.1em solid lightgray;
   background: whitesmoke;
   padding: 0 0 0 2.5em;
   height: 2.2em;
@@ -132,7 +132,7 @@ export default {
   border: 0.1em solid var(--color-primary);
 }
 .input-field:focus + .search-icon {
-  color: cornflowerblue;
+  color: var(--color-primary);
 }
 
 .search-icon {
@@ -142,6 +142,9 @@ export default {
   padding: 0.4em 0.5em;
   height: 1.4em;
   width: 1.4em;
-  color: inherit;
+  color: gray;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
 }
 </style>

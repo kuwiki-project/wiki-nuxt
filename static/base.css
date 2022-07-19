@@ -1,19 +1,19 @@
 :root {
-  font-family: "Noto Sans JP";
+  font-family: inter-var, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji",
+    "Segoe UI Symbol";
   text-decoration: none;
   font-size: 16px;
-  color: gray;
-  line-height: 1.9em;
-  font-weight: 400;
-  --color-primary: cornflowerblue;
-  --color-success: lightseagreen;
-  --color-accent: #faaca8;
-  --color-danger: gold;
-  --color-info: royalblue;
-}
-
-h1 {
-  font-size: 1.5em !important;
+  color: black;
+  line-height: 2em;
+  font-weight: regular;
+  --color-primary: #008aff;
+  --color-success: #2bc194;
+  --color-accent: #abbff6;
+  --color-error: #f34b77;
+  --color-info: #6679ea;
+  --color-pale: #e3f0ff;
+  --color-link: #0069c2;
 }
 
 h1,
@@ -22,20 +22,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-weight: 400 !important;
 }
+h1 {
+  margin: 1.5em 0 1em 0;
+}
+h2,
 h3 {
-  color: lightseagreen;
-  font-weight: 400;
-}
-
-a {
-  text-decoration: none;
-  color: var(--color-primary);
-}
-
-a:hover {
-  color: royalblue;
+  margin: 1.2em 0em 0.8em -0.2em;
+  padding: 0.2em 0 0.2em 0.2em;
+  background-color: var(--color-pale);
 }
 
 html,
@@ -48,12 +44,12 @@ body,
 }
 
 /* Set '@nuxtjs/toast' color */
-.success {
+.toasted-primary.success {
   background: var(--color-success) !important;
 }
 
-.info {
-  background: var(--color-info) !important;
+.toasted-primary.info {
+  background-color: var(--color-pale) !important;
 }
 
 /* Set default form style */
@@ -62,7 +58,7 @@ body,
   width: 100%;
   height: 2em;
   outline: none;
-  border: none;
+  border: silver solid 0.04em;
   box-sizing: border-box;
   border-radius: 0.4em;
   display: block;
@@ -97,21 +93,22 @@ body,
   height: 4em;
   width: 4em;
   vertical-align: bottom;
-  color: var(--color-accent);
+  fill: var(--color-primary);
 }
 .icon-google-drive {
   display: border-box;
   height: 1.1em;
   width: 1.4em;
-  background: var(--color-primary);
   color: white;
-  border: 0.05em var(--color-primary) solid;
+  background-color: var(--color-link);
+  border: 0.05em var(--color-link) solid;
+
   border-radius: 0.2em;
   margin: 0.25em 0.25em -0.25em 0.1em;
 }
 .icon-google-drive:hover {
-  background-color: var(--color-info);
-  border: 0.05em var(--color-info) solid;
+  background: var(--color-primary);
+  border: 0.05em var(--color-primary) solid;
 }
 
 .title-kuwiki {
@@ -119,36 +116,24 @@ body,
   font-size: 1.4em;
 }
 
-/* アンダーライン付きリンク */
-.link-underline {
-  color: cornflowerblue;
-  background-color: whitesmoke;
-  text-decoration: underline solid;
-  white-space: nowrap;
-}
-
-.link-underline:hover {
-  text-decoration: none;
-  color: royalblue;
-}
-
 /* ボタン1 白地に青文字 */
 .button-white {
   height: 2em;
-  display: block;
+  display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
   background: white;
-  border: cornflowerblue solid 0.1em;
+  border: var(--color-primary) solid 0.1em;
   border-radius: 2em;
   text-align: center;
-  color: cornflowerblue;
+  color: var(--color-primary);
   padding: 0 2em;
 }
+
 .button-white:hover {
-  background: royalblue;
+  background: var(--color-primary);
   color: white;
-  border: royalblue solid 0.1em;
+  border: var(--color-primary) solid 0.1em;
 }
 
 /* ボタン2 青地に白文字 */
@@ -157,7 +142,7 @@ body,
   height: 2em;
   border-radius: 0.4em;
   border: none;
-  background-color: cornflowerblue;
+  background-color: var(--color-primary);
   color: white;
   margin: 1em 0;
   width: 100%;
@@ -167,11 +152,29 @@ form:invalid .button-submit {
   cursor: not-allowed;
   border: none;
   outline: none;
-  background-color: lightsteelblue;
+  background-color: lightgray;
 }
 
 /* 中黒なしリスト */
 .ul-none {
   list-style: none;
   padding: 0;
+}
+
+ul {
+  padding: 0 0 0 2em;
+}
+
+/* アンダーライン付きリンク */
+.link-underline,
+a {
+  color: #0069c2;
+  text-decoration: underline solid;
+  white-space: nowrap;
+}
+
+.link-underline:hover,
+a:hover {
+  color: #0069c2;
+  text-decoration: none;
 }

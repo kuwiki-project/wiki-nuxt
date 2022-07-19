@@ -1,21 +1,21 @@
 <template>
   <div class="fixed-page">
     <div class="white-card">
-      <iconKiwi class="icon-kiwi" />
+      <iconKiwi2 class="icon-kiwi" />
       <div class="title-kuwiki">京大wiki</div>
       <form class="form-signin" @submit.prevent="userLogin">
-        <label for="kumoi-email" class="label">メールアドレス</label>
+        <label for="kumoi-email" class="label">📩 メールアドレス</label>
         <input
           id="kumoi-email"
           v-model="credentials.email"
           class="input-gray"
           type="email"
           pattern=".+@st.kyoto-u.ac.jp"
-          placeholder="@st.kyoto-u.ac.jp"
+          placeholder="***@st.kyoto-u.ac.jp"
           required
         />
 
-        <label for="password" class="label">パスワード</label>
+        <label for="password" class="label">🔑 パスワード</label>
         <input
           id="password"
           v-model="credentials.password"
@@ -66,15 +66,15 @@ export default {
           }
         })
         .then((res) => {
-          console.log(res)
           this.$toast.clear()
           this.$toast.success("ログインしました")
           this.$router.push("/")
         })
         .catch((err) => {
-          console.log(err)
           this.$toast.clear()
-          this.$toast.error(err.response.data.non_field_errors)
+          this.$toast.error(err.response.data.non_field_errors, {
+            duration: 10000
+          })
         })
     }
   }
@@ -82,7 +82,7 @@ export default {
 </script>
 <style scoped>
 .fixed-page {
-  background: linear-gradient(to bottom, #ddd6f3, #faaca8);
+  background: aliceblue;
 }
 
 .white-card {
@@ -108,7 +108,7 @@ export default {
   width: 80%;
   max-width: 12em;
   border: none;
-  background: var(--color-accent);
+  background: var(--color-primary);
   color: white;
   margin: 1.5em auto;
 }
@@ -147,5 +147,12 @@ form:invalid .button-submit {
   text-align: center;
   margin: 0.3em auto;
   font-size: 0.85em;
+}
+.input-gray {
+  margin: 0.5em 0 1em 0;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

@@ -1,59 +1,55 @@
 <template>
   <div class="narrow-scroll-page">
     <h1>メールアドレス認証</h1>
-    <div class="alert-message">
-      <alert-triangle-icon
-        size="1.2x"
-        class="icon-with-text"
-      ></alert-triangle-icon>
-      受信したメールに身に覚えのない方はこのページを閉じてください
-    </div>
-    <p>
-      京大wikiへの利用登録を完了するため，以下のボタンを押してアカウントを有効化してください
+    <StepsSignUp id="signup-steps" class="signup-steps" :class="{ err: err }" />
+    <p class="message">
+      {{ message }}
     </p>
-    <form @submit.prevent="activate">
-      <button type="submit" class="button-submit">アカウント有効化</button>
-    </form>
   </div>
 </template>
 
 <script>
 import axios from "axios"
-import { AlertTriangleIcon } from "vue-feather-icons"
 export default {
   auth: false,
-  components: {
-    AlertTriangleIcon
-  },
+  data: () => ({
+    message: "",
+    err: false
+  }),
   head: {
-    title: "アカウント有効化"
+    title: "メール認証"
   },
-  methods: {
-    activate() {
-      axios
-        .post(
-          `${this.$config.WIKI_API_URL}/rest-auth/registration/verify-email/`,
-          {
-            key: this.$route.query.key
-          }
-        )
-        .then((res) => {
-          this.$toast.success("アカウント有効化に成功しました")
-          this.$router.push("/signin")
-          return res
-        })
-        .catch((err) => {
-          this.$toast.error(err)
-          console.log(err)
-        })
-    }
+  beforeMount() {
+    axios
+      .post(
+        `${this.$config.WIKI_API_URL}/rest-auth/registration/verify-email/`,
+        {
+          key: this.$route.query.key
+        }
+      )
+      .then((res) => {
+        this.message = "利用登録が完了しました🎉"
+        this.$toast.clear()
+        return res
+      })
+      .catch((err) => {
+        this.message = ""
+        this.$toast.clear()
+        this.$toast.error(err, { duration: 10000 })
+        this.err = true
+      })
   }
 }
 </script>
 <style scoped>
-.alert-message {
-  background: var(--color-danger);
-  color: black;
-  padding: 0.5em;
+.signup-steps:deep(.step3) {
+  fill: var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}
+.err:deep(.step3) {
+  fill: gray;
+  background-color: gray;
+  color: white;
 }
 </style>
