@@ -79,7 +79,7 @@ export default {
           password2: this.credentials.password2
         })
         .then((res) => {
-          this.$router.push("/auth/email-sent")
+          this.$router.push("/auth/email-sent-signup")
         })
         .catch((err) => {
           console.log(err.response)
