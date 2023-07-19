@@ -82,29 +82,31 @@ export default {
           this.$router.push("/")
         })
         .catch((err) => {
-          console.log(err)
-          this.$toast.clear()
-          this.$toast.error("エラー")
-          if (
-            err.response.data.email[0] ===
-            "有効なメールアドレスを入力してください。"
-          ) {
-            this.errmessage =
-              "メールアドレスが不適切です"
-          }
-          if (
-            err.response.data.non_field_errors[0] ===
-            "提供された認証情報でログインできません。"
-          ) {
-            this.errmessage =
-              "メールアドレスまたはパスワードが間違っていないか確認してください"
-          } else if (
-            err.response.data.non_field_errors[0] === "E-mail is not verified."
-          ) {
-            this.errmessage =
-              "メールアドレスが認証されていません。登録したメールアドレスにメールが届いていないかを確認してください。※迷惑メールフォルダに入っている可能性もあります"
+          console.log(err.response.data)
+          if (err.response.data.email.length !== 0) {
+            if (
+              err.response.data.email[0] ===
+              "有効なメールアドレスを入力してください。"
+            ) {
+              this.errmessage = "メールアドレスが不適切です"
+            }
+          } else if (err.response.data.non_field_errors.length !== 0) {
+            if (
+              err.response.data.non_field_errors[0] ===
+              "提供された認証情報でログインできません。"
+            ) {
+              this.errmessage =
+                "メールアドレスまたはパスワードが間違っていないか確認してください"
+            }
+            if (
+              err.response.data.non_field_errors[0] ===
+              "E-mail is not verified."
+            ) {
+              this.errmessage =
+                "メールアドレスが認証されていません。登録したメールアドレスにメールが届いていないかを確認してください。※迷惑メールフォルダに入っている可能性もあります"
+            }
           } else {
-            this.errmessage = err.response.data.non_field_errors
+            this.errmessage = `「${  err.response.data  }」←このエラーメッセージを添えて運営に問い合わせてください`
           }
         })
     }
