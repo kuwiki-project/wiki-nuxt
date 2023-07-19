@@ -17,8 +17,7 @@
           href="https://acrobat.adobe.com/jp/ja/acrobat/mobile/scanner-app.html"
           target="_blank"
           class="link-underline"
-          ><ExternalLinkIcon class="icon-with-text" />Adobe scan</a
-        >
+        ><ExternalLinkIcon class="icon-with-text" />Adobe scan</a>
         が便利です）
       </li>
       <li>
@@ -90,9 +89,9 @@
       </li>
       <li>
         <star-icon size="1.2x" class="icon-with-text" />
-        <NuxtLink to="/collected" class="link-underline"
-          >回収済み過去問リスト</NuxtLink
-        >
+        <NuxtLink to="/collected" class="link-underline">
+          回収済み過去問リスト
+        </NuxtLink>
         もご確認ください
       </li>
     </ul>

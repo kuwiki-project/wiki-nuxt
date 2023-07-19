@@ -11,7 +11,7 @@
         <NuxtLink to="/search" class="item-link">
           <SearchIcon class="item-icon" stroke-width="1.5" size="2x" />
         </NuxtLink>
-        <div class="item-label">科目検索</div>
+        <div class="item-label">過去問検索</div>
       </div>
 
       <div class="item-link-and-label">

@@ -25,11 +25,6 @@ export default {
     files: [],
     data: null
   }),
-  head() {
-    return {
-      title: this.sheetName
-    }
-  },
   async fetch() {
     const data = await fetch(
       this.$config.COLLECTED_EXAMS_JSON_URL
@@ -40,6 +35,11 @@ export default {
     console.log(this.sheetName)
     }
   ,
+  head() {
+    return {
+      title: this.sheetName
+    }
+  },
 }
 </script>
 <style scoped>

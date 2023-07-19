@@ -2,9 +2,12 @@
   <div class="fixed-page">
     <div class="white-card">
       <iconKiwi class="icon-kiwi" />
+
       <div class="title-kuwiki">京大wiki</div>
+
       <form class="form-signin" @submit.prevent="userLogin">
         <label for="kumoi-email" class="label">メールアドレス</label>
+
         <input
           id="kumoi-email"
           v-model="credentials.email"
@@ -16,6 +19,7 @@
         />
 
         <label for="password" class="label">パスワード</label>
+
         <input
           id="password"
           v-model="credentials.password"
@@ -25,13 +29,18 @@
           required
         />
 
+        <font size="3" color="red"> {{ errmessage }} </font>
+
         <button type="submit" class="button-submit">ログイン</button>
       </form>
+
       <div class="mataha">または</div>
+
       <NuxtLink to="/auth/signup" class="button-link">
         アカウントを作成する
         <arrow-right-icon class="icon-with-text" size="1.2x"></arrow-right-icon>
       </NuxtLink>
+
       <NuxtLink to="/auth/reset-password" class="button-link">
         パスワードを忘れた
         <arrow-right-icon class="icon-with-text" size="1.2x"></arrow-right-icon>
@@ -39,6 +48,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { ArrowRightIcon } from "vue-feather-icons"
 export default {
@@ -51,7 +61,8 @@ export default {
     credentials: {
       email: "",
       password: ""
-    }
+    },
+    errmessage: ""
   }),
   head: {
     title: "ログイン"
@@ -66,7 +77,6 @@ export default {
           }
         })
         .then((res) => {
-          console.log(res)
           this.$toast.clear()
           this.$toast.success("ログインしました")
           this.$router.push("/")
@@ -74,12 +84,27 @@ export default {
         .catch((err) => {
           console.log(err)
           this.$toast.clear()
-          this.$toast.error(err.response.data.non_field_errors)
+          this.$toast.error("エラー")
+          if (
+            err.response.data.non_field_errors[0] ===
+            "提供された認証情報でログインできません。"
+          ) {
+            this.errmessage =
+              "メールアドレスまたはパスワードが間違って以内か確認してください"
+          } else if (
+            err.response.data.non_field_errors[0] === "E-mail is not verified."
+          ) {
+            this.errmessage =
+              "メールアドレスが認証されていません。登録したメールアドレスにメールが届いていないかを確認してください。※迷惑メールフォルダに入っている可能性もあります"
+          } else {
+            this.errmessage = err.response.data.non_field_errors
+          }
         })
     }
   }
 }
 </script>
+
 <style scoped>
 .fixed-page {
   background: linear-gradient(to bottom, #ddd6f3, #faaca8);
@@ -149,3 +174,4 @@ form:invalid .button-submit {
   font-size: 0.85em;
 }
 </style>
+

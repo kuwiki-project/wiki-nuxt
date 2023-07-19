@@ -8,6 +8,7 @@
           class="input-field"
           placeholder="科目名・学部・教員名"
         />
+
         <search-icon class="search-icon"></search-icon>
       </div>
     </form>
@@ -15,9 +16,9 @@
     <div class="result-container">
       <ul class="ul-none">
         <li v-if="$route.query.q !== '' && $route.query.q !== undefined">
-          {{ message }}
-          {{ searchcount }}
+          {{ message }} {{ searchcount }}
         </li>
+
         <li v-for="searchresult in searchresults" :key="searchresult.id">
           <NuxtLink
             no-prefetch
@@ -26,16 +27,24 @@
           >
             {{ searchresult.name }}
           </NuxtLink>
-          <a
-            v-for="exam in searchresult.exam_set"
-            :key="exam.drive_link"
-            :href="exam.drive_link"
-            target="_blank"
-          >
-            <IconGoogleDrive
-              class="icon-google-drive icon-with-text"
-            ></IconGoogleDrive>
-          </a>
+
+          <span v-if="searchresult.exam_set.length === 0"> (過去問なし) </span>
+
+          <span v-else>
+            (過去問→
+            <a
+              :key="searchresult.exam_set[0].drive_link"
+              :href="searchresult.exam_set[0].drive_link"
+              target="_blank"
+            >
+
+              <IconGoogleDrive
+                class="icon-google-drive icon-with-text"
+              ></IconGoogleDrive>
+
+            </a>
+            )
+          </span>
         </li>
       </ul>
     </div>
@@ -104,6 +113,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .search-form {
   width: 100%;
@@ -145,3 +155,4 @@ export default {
   color: inherit;
 }
 </style>
+

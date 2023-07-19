@@ -2,11 +2,8 @@
   <div class="fixed-page">
     <h1>利用登録</h1>
     <form @submit.prevent="userSignUp">
-      <label for="kumoi-email" class="label-gray"
-        >メールアドレス<span class="label-gray-small"
-          >KUMOIアドレス
-        </span></label
-      >
+      <label for="kumoi-email" class="label-gray">メールアドレス<span class="label-gray-small">KUMOIアドレス
+      </span></label>
       <input
         id="kumoi-email"
         v-model="credentials.email"
@@ -17,9 +14,7 @@
         required
       />
 
-      <label for="password1" class="label-gray"
-        >パスワード<span class="label-gray-small">8文字以上</span></label
-      >
+      <label for="password1" class="label-gray">パスワード<span class="label-gray-small">8文字以上</span></label>
       <input
         id="password1"
         v-model="credentials.password1"
@@ -29,9 +24,7 @@
         required
       />
 
-      <label for="password2" class="label-gray"
-        >パスワード確認<span class="label-gray-small">8文字以上</span></label
-      >
+      <label for="password2" class="label-gray">パスワード確認<span class="label-gray-small">8文字以上</span></label>
       <input
         id="password2"
         v-model="credentials.password2"
@@ -46,8 +39,9 @@
           to="/terms"
           target="”_blank”"
           class="link-underline"
-          >利用規約</NuxtLink
-        >に同意したものとみなされます
+        >
+          利用規約
+        </NuxtLink>に同意したものとみなされます
       </p>
 
       <button type="submit" class="button-submit">アカウント作成</button>

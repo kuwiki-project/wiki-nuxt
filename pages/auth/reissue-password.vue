@@ -3,9 +3,7 @@
   <div class="narrow-scroll-page">
     <h1>パスワード変更</h1>
     <form @submit.prevent="reissuePassword">
-      <label for="password1" class="label-gray"
-        >新パスワード<span class="label-gray-small">8文字以上</span></label
-      >
+      <label for="password1" class="label-gray">新パスワード<span class="label-gray-small">8文字以上</span></label>
       <input
         id="password1"
         v-model="credentials.password1"
@@ -15,9 +13,7 @@
         required
       />
 
-      <label for="password2" class="label-gray"
-        >新パスワード確認<span class="label-gray-small">8文字以上</span></label
-      >
+      <label for="password2" class="label-gray">新パスワード確認<span class="label-gray-small">8文字以上</span></label>
       <input
         id="password2"
         v-model="credentials.password2"
