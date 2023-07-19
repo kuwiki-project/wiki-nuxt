@@ -86,11 +86,18 @@ export default {
           this.$toast.clear()
           this.$toast.error("エラー")
           if (
+            err.response.data.email[0] ===
+            "有効なメールアドレスを入力してください。"
+          ) {
+            this.errmessage =
+              "メールアドレスが不適切です"
+          }
+          if (
             err.response.data.non_field_errors[0] ===
             "提供された認証情報でログインできません。"
           ) {
             this.errmessage =
-              "メールアドレスまたはパスワードが間違って以内か確認してください"
+              "メールアドレスまたはパスワードが間違っていないか確認してください"
           } else if (
             err.response.data.non_field_errors[0] === "E-mail is not verified."
           ) {
