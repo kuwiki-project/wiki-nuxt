@@ -82,15 +82,16 @@ export default {
           this.$router.push("/")
         })
         .catch((err) => {
-          console.log(err.response.data)
-          if (err.response.data.email.length !== 0) {
+          this.$toast.clear()
+          this.$toast.error("エラー")
+          if (err.response.data.email) {
             if (
               err.response.data.email[0] ===
               "有効なメールアドレスを入力してください。"
             ) {
               this.errmessage = "メールアドレスが不適切です"
             }
-          } else if (err.response.data.non_field_errors.length !== 0) {
+          } else if (err.response.data.non_field_errors) {
             if (
               err.response.data.non_field_errors[0] ===
               "提供された認証情報でログインできません。"
