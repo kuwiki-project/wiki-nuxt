@@ -12,7 +12,7 @@ jobs:
       SSH_USER: ${{ secrets.SSH_USER }}
       GIT_PULL_PATH: ${{ secrets.GIT_PULL_PATH_NUXT }}
       SSH_HOST: ${{ secrets.SSH_HOST }}
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      # SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
       - name: Checkout
