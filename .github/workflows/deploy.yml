@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         # ssh接続用の秘密鍵を環境変数から読み込んでファイルとして生成している．
       - name: Generate ssh key
         # chmod 600しているのは、秘密鍵に過剰なアクセス権が与えられているとsshコマンドが動かないから
