@@ -14,5 +14,7 @@
 
 アイコンは https://vue-feather-icons.egoist.sh/ を参考にする．
 
+↑危険リンク！注意！(2024.06.21現在)
+
 feather icons 以外を利用する場合は
 `components/icon` に入っているものを呼び出し．
